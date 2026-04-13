@@ -4,11 +4,1626 @@ PRODID:-//mtg-cal//mtg-event-aggregator//EN
 NAME:MTG Events — Philadelphia (5mi)
 X-WR-CALNAME:MTG Events — Philadelphia (5mi)
 X-WR-CALDESC:Local Magic: The Gathering events within 5 miles of Philadelp
- hia, aggregated from WotC locator and other sources
+ hia, aggregated from WotC locator and Spicerack
+BEGIN:VEVENT
+UID:spicerack-3029209
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T213000Z
+DTEND:20260413T003000Z
+SUMMARY:[Standard] Kearney Legends Standard Sunday
+LOCATION:Dark Depths Games\, 2202 Central Ave\, Kearney\, NE\, 68847\, US
+DESCRIPTION:Format: Standard\nCost: Free\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3029209\n\nStanda
+ rd Sunday\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3029209
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3086989
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T213000Z
+DTEND:20260413T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:Dark Depths Games\, 521 S 5th St\, Philadelphia\, PA\, 19147\, US
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3086989\n\nWelcome
+  to new and improved Sunday Standard Showdown! Sundays at 5:30\, $10 entry
+ \, and the event will be three rounds for 11 or less participants\, four r
+ ounds for 12+. Since this is an official magic event\, no proxied cards an
+ d only standard format legal cards will be allowed. All levels are welcome
+ \, but many of our players run competitive Tier 1 and Tier 2 decks. Please
+  arrive promptly at 5:30\, as lateness may result in an automatic round on
+ e loss!\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3086989
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2942443
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T213000Z
+DTEND:20260413T003000Z
+SUMMARY:[Other] It's Turtle Time!
+LOCATION:Dark Depths Games\, 14150 Juanita Dr NE\, Kirkland\, WA\, 98034\,
+  United States
+DESCRIPTION:Format: Other\nCost: $20\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2942443\n\nMagic Pres
+ ents: It’s Turtle Time! is a special Pick-Two Draft event featuring Magi
+ c: The Gathering | Teenage Mutant Ninja Turtles. It features a fun\, TMNT-
+ flavored twist we'll reveal soon that players won't want to miss!\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2942443
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3030375
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T213000Z
+DTEND:20260413T003000Z
+SUMMARY:[Commander] Two Headed Giant Commander Formato Budget
+LOCATION:Dark Depths Games\, Calle Teniente Arévalo #153 entre Ayacucho y
+  Junin\, Cochabamba\, Cercado\, 00000\, Bolivia
+DESCRIPTION:Format: Commander\nCost: $50\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3030375\n\nComman
+ der 2 cabezas en formato normal\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3030375
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3167994
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T213000Z
+DTEND:20260413T003000Z
+SUMMARY:[Pauper] Sunday Night Pauper
+LOCATION:Dark Depths Games\, 52025 State Rd 933\, South Bend\, IN 46637\, 
+ United States
+DESCRIPTION:Format: Pauper\nCost: $5\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3167994\n\nSanctioned
+  Pauper. $5 buy-in\, prizes are store credit based on attendance.\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3167994
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3169443
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Everyday Commander
+LOCATION:Dark Depths Games\, 384 Old Chena Pump Road\, Fairbanks\, AK\, 99
+ 709-2936\, United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3169443\n\nJoin 
+ us!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3169443
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3086809
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Other] It's Turtle Time!
+LOCATION:Dark Depths Games\, 5301 N 23rd St\, McAllen\, TX\, 78504\, US
+DESCRIPTION:Format: Other\nCost: $35\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3086809\n\nDraft Nigh
+ t\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3086809
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3083215
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Dark Depths Games\, 14010 South Peoria Avenue\, Glenpool\, OK\, 7
+ 4033\, United States
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/3083215\n\nMagic Aca
+ demy: Learn to Play\nReady to start your Magic: The Gathering journey? Thi
+ s is the perfect entry point. We’ll cover the fundamentals of the game\,
+  from casting your first creature to understanding the phases of a turn. N
+ o experience? No problem. We’ll have you casting spells and swinging for
+  damage in no time.\n\nFocus: Gameplay basics\, turn structure\, and comba
+ t.\n\nFormat: Learn to Play (Casual).\n\nEntry: Free\n\nCapacity: 4 Player
+ s (Small group for hands-on learning).\n\nWhat to bring: Just yourself! We
+  provide the materials and the expertise to help you get started. If you h
+ ave friends who want to learn\, bring them along and start your Spark toge
+ ther.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3083215
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2903672
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Standard] Standard Showdown Standard Showdown
+LOCATION:Dark Depths Games\, 109 Ginn St. \, Tylertown\, MS\, 39667\, US
+DESCRIPTION:Format: Standard\nCost: $12\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/2903672\n\nStandar
+ d Showdown is a weekly event in Magic: The Gathering that encourages local
+  communities to engage in Standard format competitions\, offering players 
+ a chance to win exclusive promotional cards and prizes.\nOverview of Stand
+ ard Showdown\nPurpose: Standard Showdown events are designed to grow local
+  Standard communities and provide a reliable setting for players to compet
+ e in the Standard format. These events are typically held weekly at local 
+ game stores and are open to players of all skill levels. \nFormat: Players
+  bring their best Standard decks (60-card format) to compete against each 
+ other. The events usually require a minimum of eight players and consist o
+ f at least three rounds of play. \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2903672
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2995419
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Pauper] Pauper
+LOCATION:Dark Depths Games\, 85 S Rossler Ave\, Cheektowaga\, NY\, 14206\,
+  United States
+DESCRIPTION:Format: Pauper\nCost: $5\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2995419\n\nCasual REL
+  Pauper\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2995419
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2996235
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Sage's Portal Sunday Casual Commander
+LOCATION:Dark Depths Games\, 611 E 2nd Ave\, Spokane\, WA\, 99202\, United
+  States
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/2996235\n\nCome o
+ n down to our Sunday Casual Commander\, we have friendly players as well a
+ s food and drinks to keep you fueled for your gaming experience! We also o
+ ffer quests which are side objectives to add to the gameplay!\nSource: spi
+ cerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2996235
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2903671
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] MTG Commanders Deck Event.
+LOCATION:Dark Depths Games\, 926 MS-42\, Sumrall\, MS\, 39482\, United Sta
+ tes
+DESCRIPTION:Format: Commander\nCost: $15\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/2903671\n\nCome o
+ n Down $15 of the Entry Fee is added to the Prize Pool Paid out in Store c
+ redit on the night of event. We have Games Food and Coffee. Come and play 
+ see if you can take home First place. or just come and Have Fun. \nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2903671
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2902775
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Standard] Magic The Gathering Standard Showdown
+LOCATION:Dark Depths Games\, 448 Market St\, Sunbury\, PA\, 17801\, United
+  States
+DESCRIPTION:Format: Standard\nCost: $3\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/2902775\n\nPlayers 
+ compete in a 3 round tournament using their own Standard deck.\nSource: sp
+ icerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2902775
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2966856
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Casual Commander
+LOCATION:Dark Depths Games\, 5365 A1 Alton Pkwy\, Irvine\, CA\, 92618\, Un
+ ited States
+DESCRIPTION:Format: Commander\nCost: $5\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/2966856\n\ncasual 
+ commander on sunday\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2966856
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2903650
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Other] It's Turtle Time!
+LOCATION:Dark Depths Games\, 31 W Magnolia St\, Arcadia\, FL\, 34266\, US
+DESCRIPTION:Format: Other\nCost: $20\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2903650\n\nMagic Pres
+ ents: It’s Turtle Time! is a special Pick-Two Draft event featuring Magi
+ c: The Gathering | Teenage Mutant Ninja Turtles. It features a fun\, TMNT-
+ flavored twist we'll reveal soon\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2903650
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3088749
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] XTREME Casual Commander
+LOCATION:Dark Depths Games\, 1700 S Broadway Ave\, Oklahoma City\, OK\, 73
+ 160\, United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3088749\n\nCome 
+ play our XTREME Casual Commander! What's XTREME about it? We don't know! B
+ ut we can't stop calling it XTREME! Now I'm also calling everyone "bro". \
+ nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3088749
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2930860
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Standard] Domingo Stnadard Standard Showdown
+LOCATION:Dark Depths Games\,  Calle 50\, local 161\, Mérida\, Yuc.\, 9722
+ 9\, Mexico
+DESCRIPTION:Format: Standard\nCost: $150\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/2930860\n\nStanda
+ rd Domingo\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2930860
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3107230
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Legacy] Legacy Constructed
+LOCATION:Dark Depths Games\, 731 NJ-35\, Ocean Township\, NJ\, 07712\, Uni
+ ted States
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/3107230\n\nLegacy Co
+ nstructed for competitive players. Payout in store credit.\nSource: spicer
+ ack
+URL;VALUE=URI:https://www.spicerack.gg/events/3107230
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3102181
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Unknown] League Night
+LOCATION:Dark Depths Games\, 201 S Washington St\, Owosso\, MI\, 48867\, U
+ nited States
+DESCRIPTION:Format: Unknown\nCost: $12\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/3102181\n\n$35 buy 
+ in $12 weekly\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3102181
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3131026
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Modern] US RCQ  | 2026-27 Round 1 Sumrall Games and Grub Magic
+LOCATION:Dark Depths Games\, 926 MS-42\, Sumrall\, MS\, 39482\, United Sta
+ tes
+DESCRIPTION:Format: Modern\nCost: $25\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/3131026\n\nFormat: M
+ odern\nModern is a constructed format\, which means it follows these core 
+ deck‑building rules:\n\nYour deck must contain at least 60 cards\n\nTher
+ e is no maximum deck size\, as long as you can shuffle it on your own\n\nY
+ our sideboard may include up to 15 cards\, if you choose to use one\n\nExc
+ ept for basic lands (Plains\, Island\, Swamp\, Mountain\, and Forest)\, yo
+ ur main deck and sideboard combined may not include more than four copies 
+ of any card with the same English name\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3131026
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3016897
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Pioneer] Pioneer
+LOCATION:Dark Depths Games\, 1145 Shakopee Town Square\, Shakopee\, MN\, 5
+ 5379\, United States
+DESCRIPTION:Format: Pioneer\nCost: $10\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/3016897\n\nPioneer.
+ \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3016897
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2937072
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Draft] Tilted Draft!
+LOCATION:Dark Depths Games\, 15973 Piuma Ave\, Cerritos\, CA\, 90703\, US
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2937072\n\nEvent is f
+ irst come\, first served in store sign up sheet available\, ask staff for 
+ sheet to put your name down while in store.\n\nEvery Sunday\nEntry: $22\nC
+ heck in: 2:30pm\nStart: 3:00pm\nPacks per Win\nMax 16 players\n\n3 Sets wi
+ ll be offered before event starts\, players will vote to do a Chaotic draf
+ t ( 1 pack from each set) or vote on 1 set to draft (3 packs from same set
+ ). It will be set up in 8 player groups\, minimum 4 people to fire off the
+  event. \n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2937072
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2948121
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander Casual
+LOCATION:Dark Depths Games\, Avenida Antonio Coelho de Carvalho\, Macapa\,
+  AP\, 68900100\, Brazil
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2948121\n\nComma
+ nder Casual\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2948121
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3022301
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Sunday Commander
+LOCATION:Dark Depths Games\, 823 Gordon Dr\, Sioux City\, IA\, 51101-1829\
+ , United States
+DESCRIPTION:Format: Commander\nCost: $7\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3022301\n\nFor mor
+ e information about this event and others visit https://gameskingstore.com
+ /pages/events\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3022301
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3108020
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander League Bracket 4
+LOCATION:Dark Depths Games\, 701 P St Suite 102\, Lincoln\, NE\, 68508\, U
+ S
+DESCRIPTION:Format: Commander\nCost: $8\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3108020\n\nMana Ga
+ mes Commander League Bracket 4! For more info go to our discord.\nSource: 
+ spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3108020
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3109391
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] casual comander
+LOCATION:Dark Depths Games\, 203a W Upham St\, Marshfield\, WI\, 54449\, U
+ S
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3109391\n\nthis 
+ is our code for casual comander\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3109391
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3056663
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Standard] ECH Standard
+LOCATION:Dark Depths Games\, 9155 26 Blvd Suite 280\, North Richland Hills
+ \, TX\, 76180\, US
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3056663\n\nPack on
+  entry | Swiss | 25 min | PPW\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3056663
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3025947
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Magic Vite Store 
+LOCATION:Dark Depths Games\, 158 Av. Federico Cárdenas Barajas\, Cdad. de
+  Villa de Álvarez\, Col.\, 28984\, Mexico
+DESCRIPTION:Format: Commander\nCost: $100\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3025947\n\nNo fa
+ ltes a nuestros torneo semanales \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3025947
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2967012
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Magic The Gathering - Commander
+LOCATION:Dark Depths Games\, 5718 Hollister Ave\, Goleta\, CA\, 93117\, Un
+ ited States
+DESCRIPTION:Format: Commander\nCost: $5\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/2967012\n\nFree en
+ try with a $5 purchase\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2967012
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3036688
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Tarde comandera 
+LOCATION:Dark Depths Games\, 1701 Av. Las Américas\, Aguascalientes\, Ags
+ .\, 20235\, Mexico
+DESCRIPTION:Format: Commander\nCost: $30\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3036688\n\nTarde 
+ comandera con promos! \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3036688
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2966988
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Draft] Metro Entertainment MTG: Lorwyn Eclipsed Draft
+LOCATION:Dark Depths Games\, 6 W Anapamu St\, Santa Barbara\, CA 93101-310
+ 8\, United States
+DESCRIPTION:Format: Draft\nCost: $15\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2966988\n\nCome to Me
+ tro Entertainment and Draft the latest set of MTG "Lorwyn Eclipsed"\nSourc
+ e: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2966988
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3102706
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Free Play Booster Commander Pod
+LOCATION:Dark Depths Games\, 21 E Stanley St\, Crossville\, TN\, 38555\, U
+ nited States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3102706\n\nCome 
+ play a game of casual Commander and receive a FREE Play Booster Pack. Limi
+ t of 1 per customer per day.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3102706
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3036876
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Casual Commander
+LOCATION:Dark Depths Games\, 1047 W 6th St\, Corona\, CA\, 92882\, US
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3036876\n\nJoin u
+ s for casual commander pods where you can get one pack on entry and one pa
+ ck per elimination \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3036876
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3111045
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander Open Play
+LOCATION:Dark Depths Games\, 927 E Edwardsville Rd\, Wood River\, IL\, 620
+ 95\, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3111045\n\ncomma
+ nder open play\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3111045
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3039464
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Pauper] Pauper Weekly
+LOCATION:Dark Depths Games\, 975 N Cooper St\, Arlington\, TX\, 76011\, Un
+ ited States
+DESCRIPTION:Format: Pauper\nCost: $5\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3039464\n\nweekly pau
+ per tournament!\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3039464
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3038422
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Sunday Night Commander
+LOCATION:Dark Depths Games\, 1707 Maple Avenue\, Evanston\, IL\, 60201\, U
+ nited States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3038422\n\nWeekl
+ y Commander at Evanston Games & Cafe. Join players for gameplay ranging fr
+ om casual to competitive. Enjoy coffee drinks and sandwiches until the sto
+ re closes.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3038422
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3035810
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Sunday night Commander Kassar's Games
+LOCATION:Dark Depths Games\, 1137 Van Voorhis Rd\, Morgantown\, WV\, 26505
+ \, United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3035810\n\nCasua
+ l Commander at Kassars\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3035810
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3118367
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Casual Commander 
+LOCATION:Dark Depths Games\, 22725 Wick Rd\, Taylor\, MI\, 48180\, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3118367\n\nComma
+ nder @ HG\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3118367
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3134677
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Pauper] Casual Pauper Night
+LOCATION:Dark Depths Games\, 53 Broadway\, Little Falls\, MN\, 56345\, Uni
+ ted States
+DESCRIPTION:Format: Pauper\nCost: Free\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/3134677\n\nFree to 
+ play\, come hang out\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3134677
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3066115
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander Night!
+LOCATION:Dark Depths Games\, 1710 E Little Creek Rd\, Norfolk\, VA\, 23518
+ \, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3066115\n\nComma
+ nder Night at Card-Again! Free entry\, open play\, sign up for a free raff
+ le entry!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3066115
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3064451
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander Night Old Tavern Games
+LOCATION:Dark Depths Games\, 7204 US-19\, New Port Richey\, FL\, 34652\, U
+ S
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3064451\n\nJoin 
+ us every Sunday from 6:00 PM – 10:00 PM for Magic: The Gathering Command
+ er Night! Bring your favorite deck\, meet other players\, and enjoy a fun\
+ , casual multiplayer format built around big plays and big personalities. 
+ Whether you’re a seasoned planeswalker or brand new to Commander\, there
+ ’s always a seat at the table at the Old Tavern!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3064451
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3067494
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Sunday Commander League 
+LOCATION:Dark Depths Games\, 7959 Fredericksburg Rd\, San Antonio\, TX\, 7
+ 8229\, United States
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3067494\n\nMonthl
+ y Commander League! $10+tax entry per month. Bracket 3 League. Point based
+  system. Pack prizes at the end of the month. \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3067494
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3067537
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Casual Commander at WZKD GAMES!
+LOCATION:Dark Depths Games\, 4250 Cerrillos Rd\, Santa Fe\, NM\, 87507\, U
+ nited States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3067537\n\nJoin 
+ WZKD GAmes for New Mexico's LARGEST and diverse commander group! From prec
+ on to cEDH we have something for everyone. \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3067537
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3135316
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Draft] Sunday Night Draft
+LOCATION:Dark Depths Games\, 93 E Mount Pleasant Ave\, Livingston\, NJ\, 0
+ 7039-3005\, United States
+DESCRIPTION:Format: Draft\nCost: $25\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3135316\n\nTMNT Draft
+ \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3135316
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3138025
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Casual Commander
+LOCATION:Dark Depths Games\, 447 Warfield Blvd Ct\, Clarksville\, TN\, 370
+ 43\, US
+DESCRIPTION:Format: Commander\nCost: $15\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3138025\n\nplay c
+ ommander - Casually\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3138025
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3110030
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Draft] Magic: the Gathering - Sunday Night Draft
+LOCATION:Dark Depths Games\, 1335 E Whitestone Blvd\, Cedar Park\, TX\, 78
+ 613\, United States
+DESCRIPTION:Format: Draft\nCost: $20\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3110030\n\nJoin us ev
+ ery Sunday for our weekly Magic: The Gathering Booster Draft at Black Cast
+ le Gamez! \n\nThis is the perfect event for players who love Limited play\
+ , cracking fresh packs\, and building a deck on the spot. \n\nEvent Format
+ : Each player receives 3 draft booster packs\, Open your pack\, pick 1 car
+ d\, then pass the pack.\n\nBuild a 40-card minimum deck from your drafted 
+ pool \nBasic lands provided \n\nTournament Structure: Three 50-minute roun
+ ds \nBest-of-3 matches \nSwiss pairing (no elimination) \n\nPrize Support:
+  1 booster pack per match win \nGo 3–0? Take home 3 packs! \n\nSchedule:
+  Starts at 5pm - 9pm \nPlease arrive 10–15 minutes early to check in! \n
+ \nWhether you’re a seasoned drafter or brand new to Limited play\, our S
+ unday Draft is a fun and welcoming way to enjoy Magic every week. See you 
+ at the Castle!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3110030
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3155013
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] commander open play
+LOCATION:Dark Depths Games\, 705 Dale Ave\, Charlottesville\, VA\, 22903\,
+  United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3155013\n\nopen 
+ commander play\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3155013
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3147389
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander Power Pods
+LOCATION:Dark Depths Games\, 149 E Main St\, Morehead\, KY\, 40351\, Unite
+ d States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3147389\n\nFor m
+ ore Info call or message the shop\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3147389
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3159551
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Pauper] Pauper Casual Meetup
+LOCATION:Dark Depths Games\, 4748 Cherry Hill Road\, College Park\, MD\, 2
+ 0740\, United States
+DESCRIPTION:Format: Pauper\nCost: Free\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/3159551\n\nPauper i
+ s a budget friendly eternal format that showcases the power of commons thr
+ oughout Magic's history. Your deck will consist of at least 60 cards with 
+ an optional 15 card sideboard and is built from anything that's had a comm
+ on printing. There is no entry fee\, just bring yourself and any cards you
+  have. The community always has extra decks\, so if you want to bring noth
+ ing but yourself\, that's great too! We hope to see you there!\nSource: sp
+ icerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3159551
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3159866
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Other] Value Vintage
+LOCATION:Dark Depths Games\, 8721 SE 58th Ave\, Ocala\, FL\, 34480\, Unite
+ d States
+DESCRIPTION:Format: Other\nCost: $5\nStore Website: https://www.facebook.c
+ om/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores/
+ 113\nEvent Details: https://www.spicerack.gg/events/3159866\n\nCome try ou
+ t a fun format! Value Vintage is a 60 card format where your entire deck h
+ as to be $30 or less! \nDecklists should be done through moxfield with tcg
+ player market pricing enabled!\n\nNo deck? No Problem! The shop has 2 loan
+ er decks available to borrow!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3159866
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3160217
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Sunday Midday Commander
+LOCATION:Dark Depths Games\, 2322 E Freddy Gonzalez Dr\, Edinburg\, TX\, 7
+ 8542\, United States
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3160217\n\nswiss\
+ nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3160217
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3160298
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Standard] Liga Standard Contrahechizo
+LOCATION:Dark Depths Games\, 110 Rayon\, Centro\, Méx.\, 56100\, Mexico
+DESCRIPTION:Format: Standard\nCost: Free\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3160298\n\nJuega 
+ con nosotros los torneos dominicales en contrahechizo totalmente gratis\nS
+ ource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3160298
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3161264
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Casual Commander Night At Elite Collectibles in Arnold
+ \, MO
+LOCATION:Dark Depths Games\, 4051 W Outer Rd\, Arnold\, MO\, 63010\, Unite
+ d States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3161264\n\nSunda
+ y Night Commander – Casual Play Join us at Elite Collectibles – Arnold
+  for Sunday Night Commander! This is a casual\, welcoming Magic: The Gathe
+ ring Commander (EDH) event designed for players of all experience levels. 
+ Players will be seated into friendly multiplayer pods. This event focuses 
+ on fun\, sportsmanship\, and community building in a relaxed play environm
+ ent. Format: Commander (EDH) Rules Enforcement Level: Casual Entry Fee: Fr
+ ee Start Time: 5:00 PM Seating: 100+ players New to Commander? Beginners a
+ re always welcome\, and staff will be available to assist with rules quest
+ ions and pod placement. Bring a Commander-legal deck and join us for an ev
+ ening of fun and social Magic.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3161264
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3163790
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Commander] Commander Freeplay
+LOCATION:Dark Depths Games\, 1003 Chestnut St\, Murphysboro\, IL\, 62966\,
+  United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3163790\n\nCome 
+ in and join a Commander game.\nSign-in to the Companion App for a chance t
+ o receive a FREE promo! \n*Minimum of 3 players needed\, signed-in and pla
+ ying\, to receive promos.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3163790
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3168543
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T220000Z
+DTEND:20260413T010000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Dark Depths Games\, 9828 Montana Avenue\, El Paso\, TX\, 79925\, 
+ US
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/3168543\n\nLearn to 
+ play Magic: The Gatherning through House of Cards' own SETTLER format!\nSo
+ urce: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3168543
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3108057
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T221000Z
+DTEND:20260413T011000Z
+SUMMARY:[Commander] Casual Commander Night
+LOCATION:Dark Depths Games\, 102 W Bay Area Blvd\, Webster\, TX\, 77598\, 
+ United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3108057\n\nBring
+  a Deck!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3108057
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3085311
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T221500Z
+DTEND:20260413T011500Z
+SUMMARY:[Standard] Standard SuperBrawl
+LOCATION:Dark Depths Games\, 5563 Western Blvd\, Raleigh\, NC\, 27606\, US
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3085311\n\nThursda
+ y Night Thunder Standard edition.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3085311
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3033814
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Other] Draft & Chill! Set Varies Weekly!
+LOCATION:Dark Depths Games\, 3030 Plaza Bonita Rd\, National City\, CA\, 9
+ 1950\, United States
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/3033814\n\nEntry fee
+  varies by set! visit papajoeys.com to see what is coming up and follow us
+  on Instagram @papajoeyscolelctibles!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3033814
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3170342
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Standard] CGC Standard Showdown
+LOCATION:Dark Depths Games\, 565 Long Hill Road\, Groton\, CT 06340\, Unit
+ ed States
+DESCRIPTION:Format: Standard\nCost: $5\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/3170342\n\nBring yo
+ ur own or borrow an in-house made deck.\n\nCitadel Standard Showdown!\nSou
+ rce: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3170342
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3085170
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] Sunday Commander
+LOCATION:Dark Depths Games\, 85 S Rossler Ave\, Cheektowaga\, NY\, 14206\,
+  United States
+DESCRIPTION:Format: Commander\nCost: $5\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3085170\n\nCommand
+ er.\nCheck-in at register to get paired with your pod.\nAll power levels w
+ elcome\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3085170
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2902774
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Other] It's Turtle Time!
+LOCATION:Dark Depths Games\, 1071 R. Quinze de Novembro\,  Indaiatuba\, SP
+ \, 13330-070\, BR
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/2902774\n\nb\nSource
+ : spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2902774
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2995982
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Vintage] Value Vintage
+LOCATION:Dark Depths Games\, 6421 Southwest Blvd (back alley entrance)\, B
+ enbrook\, TX\, 76132\, United States
+DESCRIPTION:Format: Vintage\nCost: $15\nStore Website: https://www.faceboo
+ k.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stor
+ es/113\nEvent Details: https://www.spicerack.gg/events/2995982\n\nVintage 
+ Restricted list\, no deck can be above $30 at the lowest market price of e
+ ach card used.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2995982
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3007002
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Other] EHH Presents: Casual Daily Drop In
+LOCATION:Dark Depths Games\, 845 King Street \n\, Unit 7-9\, Midland\, ON\
+ , L4R 0B7\, Canada
+DESCRIPTION:Format: Other\nCost: $5\nStore Website: https://www.facebook.c
+ om/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores/
+ 113\nEvent Details: https://www.spicerack.gg/events/3007002\n\nPlaytest yo
+ ur decks\, meetup with friends\, or get out of the house! Each table renta
+ l earns you a stamp on your EHH Critter Card!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3007002
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3097928
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Other] Sunday Canadian Highlander
+LOCATION:Dark Depths Games\, 1167 Providence RD \, STE 4\, Whitinsville\, 
+ MA 01588\, United States
+DESCRIPTION:Format: Other\nCost: $10\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3097928\n\nOur weekly
+  Canadian Highlander event!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3097928
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3001731
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] Casual commander
+LOCATION:Dark Depths Games\, 2531 NW 23rd St\, Oklahoma City\, OK\, 73107\
+ , United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3001731\n\nCasua
+ l Commander\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3001731
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3088973
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] Sunday cEDH
+LOCATION:Dark Depths Games\, 1812 S Clack St\, Abilene\, TX\, 79605\, Unit
+ ed States
+DESCRIPTION:Format: Commander\nCost: $15\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3088973\n\nJoin u
+ s at TGP on Sundays at 5:30 for a weekly cEDH event! Entry fee is $15 with
+  rotating prize cards for each event\, and door prized when available. Pla
+ yers can earn Gathering Points for playing\, even if no match is won. On t
+ he final Sundayof the month\, players with 6 Gathering Points will be ente
+ red into a drawing for a collector box!\n\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3088973
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3041292
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] OUAMT Sunday OPEN PLAY
+LOCATION:Dark Depths Games\, 1444 N Main St\, Palmer\, MA\, 01069\, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3041292\n\nOUAMT
+  Open Play Commander \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3041292
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3066280
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] FREE COMMANDER NIGHT
+LOCATION:Dark Depths Games\, 415 Exmouth Street\, Sarnia\, ON\, N7T 5P1\, 
+ Canada
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3066280\n\nCasua
+ l Free Commander Night\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3066280
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3133460
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Standard] TBS Sunday Standard Showdown
+LOCATION:Dark Depths Games\, 74 Bridge St\, East Windsor\, CT\, 06088\, US
+DESCRIPTION:Format: Standard\nCost: $12\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3133460\n\nWeekly 
+ Standard!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3133460
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3140337
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] Commander Night @ The Strat!
+LOCATION:Dark Depths Games\, 148 Pierrepont St\, Brooklyn\, NY\, 11201\, U
+ S
+DESCRIPTION:Format: Commander\nCost: $15\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3140337\n\nComman
+ der Night! Come play some friendly games with local faces! All brackets we
+ lcomed\, join our community Discord for more updates and info!  https://di
+ scord.gg/rnCx2WSRdB\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3140337
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3152504
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] Commander night
+LOCATION:Dark Depths Games\, 1309 W 31st St S\, Wichita\, KS\, 67217\, Uni
+ ted States
+DESCRIPTION:Format: Commander\nCost: $5\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3152504\n\nJoin Us
+  For Commander Night!!!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3152504
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3152250
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T223000Z
+DTEND:20260413T013000Z
+SUMMARY:[Commander] Grading TCG - Weekly Commander
+LOCATION:Dark Depths Games\, 2260 Commercial Way\, Spring Hill\, FL\, 3460
+ 6\, United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3152250\n\nWeekl
+ y Free commander play\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3152250
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3075639
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Sunday Night Commander
+LOCATION:Dark Depths Games\, 828 S. Main St.\, West Bend\, WI 53095\, Unit
+ ed States
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3075639\n\n$10 En
+ try. No Bracket Restriction. Player who wins the pod gets $40 in store cre
+ dit for a 4-player pod\, $30 for a 3-player pod\, and $50 for a 5-player p
+ od.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3075639
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3173490
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Big Top Magic
+LOCATION:Dark Depths Games\, 745 N Main St\, Clayton\, GA\, 30525\, United
+  States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3173490\n\nEvery
+  Saturday!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3173490
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3077983
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Casual Commander Night
+LOCATION:Dark Depths Games\, 265 Queen St S\, Mississauga\, ON\, L5M 1L9\,
+  Canada
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3077983\n\nCasua
+ l Commander Night\, form pods and play casually for a commander night prom
+ o.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3077983
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2986302
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Other] It's Turtle Time!
+LOCATION:Dark Depths Games\, 384 Old Chena Pump Road\, Fairbanks\, AK\, 99
+ 709-2936\, United States
+DESCRIPTION:Format: Other\nCost: $30\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2986302\n\nJoin us\nS
+ ource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2986302
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2972819
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Commander Casual Play
+LOCATION:Dark Depths Games\, 119 Walnut St\, Waynesboro\, PA\, 17268\, Uni
+ ted States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2972819\n\nMid t
+ o Low Power Bracket Commander\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2972819
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2988973
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Commander Nights
+LOCATION:Dark Depths Games\, 2521B Calz Federalistas\, Zapopan\, Jal.\, 45
+ 138\, Mexico
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2988973\n\n.\nSo
+ urce: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2988973
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3084299
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Draft] Sunday Night Draft: Teenage Mutant Ninja Turtles
+LOCATION:Dark Depths Games\, 3755 Murphy Canyon Rd\, San Diego\, CA\, 9212
+ 3-4412\, US
+DESCRIPTION:Format: Draft\nCost: $33\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/3084299\n\nSunday Nig
+ ht Draft: Teenage Mutant Ninja Turtles\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3084299
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2902462
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Sunday Night Commander/Oathbreaker
+LOCATION:Dark Depths Games\, 2409 W Colorado Ave.\, Colorado Springs\, CO\
+ , 80904\, United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2902462\n\nJoin 
+ us for casual commander/oathbreaker every Thursday and Sunday evening! All
+  ages and skill levels welcome!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2902462
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2902192
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Two Headed Giant Commander ninja turtles
+LOCATION:Dark Depths Games\, Avenida Campeche No. 341 entre Callejó\n\, B
+ enjamin Hill y Calle Manuel I. Colonia Olivares.\, Hermosillo\, SON\, 8318
+ 0\, Mexico
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2902192\n\ntwo h
+ eaded\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2902192
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2995327
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Casual Commander
+LOCATION:Dark Depths Games\, 1094 Post Rd\, Warwick\, RI\, 02888\, United 
+ States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2995327\n\nJoin 
+ us at Left of Center Gaming for Casual Commander!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2995327
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2982902
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Weekly Commander League
+LOCATION:Dark Depths Games\, 10414 US-2\, Spokane\, WA\, 99224-5347\, Unit
+ ed States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2982902\n\nCome 
+ join our weekly commander league!\nTheme: Mono Color\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2982902
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3091480
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Commander Weekly Gathering
+LOCATION:Dark Depths Games\, 13 Calle Muñoz Rivera\, Caguas\, Caguas\, 00
+ 725\, Puerto Rico
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3091480\n\nCasua
+ l Commander Gathering\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3091480
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3074081
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Casual Commander
+LOCATION:Dark Depths Games\, 1700 Southern Blvd SE\, Rio Rancho\, NM\, 871
+ 24\, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3074081\n\nPlay 
+ casual commander for free with the local community!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3074081
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2999822
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Sunday\, Funday Magic Commander Open Play
+LOCATION:Dark Depths Games\, 5933 N Greeley Ave\, Portland\, OR\, 97217\, 
+ United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/2999822\n\nBring
+  your decks and your friends for some Magic the Gathering Commander open p
+ lay on Sunday nights. Meet your neighbors and find some fresh opponents fo
+ r that new deck you’ve been working on. Join our discord! Brag about you
+ r latest pull\, and make plans for matchups! https://discord.gg/b7ZSvmuNqn
+ \n\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2999822
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2966428
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Fabled Tavern Two Headed Giant
+LOCATION:Dark Depths Games\, 4535 Fredericksburg Rd\, San Antonio\, TX\, 7
+ 8201\, United States
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/2966428\n\nJoin t
+ he Fabled Tavern for our weekly 2HG Commander Event\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2966428
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3075638
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Casual EDH
+LOCATION:Dark Depths Games\, 828 S. Main St.\, West Bend\, WI 53095\, Unit
+ ed States
+DESCRIPTION:Format: Commander\nCost: $5\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3075638\n\n$5 Stor
+ e Credit for Playing\nBracket 3 or Lower\nWinner of the pod gets a Promo P
+ ack\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3075638
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3055338
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] cedh testing
+LOCATION:Dark Depths Games\, 204 S Berkeley Blvd\, Goldsboro\, NC\, 27534\
+ , US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3055338\n\nfree 
+ testing\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3055338
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2965928
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Modern] Sunday Night Modern
+LOCATION:Dark Depths Games\, 1224 Main St\, Hamilton\, OH\, 45013\, United
+  States
+DESCRIPTION:Format: Modern\nCost: $7\nStore Website: https://www.facebook.
+ com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/stores
+ /113\nEvent Details: https://www.spicerack.gg/events/2965928\n\nWeekly Mod
+ ern\, payout to all X-1 and above.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2965928
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3005776
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] It's Turtle Time!
+LOCATION:Dark Depths Games\, calle benito juarez numero 6A colonia zaragoz
+ a\, Jerez\, Zacatecas\, 99320\, Mexico
+DESCRIPTION:Format: Commander\nCost: $20\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/3005776\n\nMagic:
+  The Gathering® | Teenage Mutant Ninja Turtles\nllega la hora de las tort
+ ugas\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3005776
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2979099
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Two Headed Giant Commander TMNT - Teams
+LOCATION:Dark Depths Games\, 913 Crossley Rd\, Palm Springs\, CA\, 92264\,
+  US
+DESCRIPTION:Format: Commander\nCost: $30\nStore Website: https://www.faceb
+ ook.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/st
+ ores/113\nEvent Details: https://www.spicerack.gg/events/2979099\n\nTMNT C
+ ommander - Must Register in Pairs - Commander must be a TMNT Card - Prizes
+  in Booster Packs \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2979099
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3011394
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Open Commander / Commander League
+LOCATION:Dark Depths Games\, 1110 Mathias Dr\, Springdale\, AR\, 72762\, U
+ S
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3011394\n\nOpen 
+ commander or commander league!. Bring your decks and have fun!\nSource: sp
+ icerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3011394
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3104263
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Sunday Commander
+LOCATION:Dark Depths Games\, 1605 Cole Street\, Enumclaw\, WA\, 98022\, Un
+ ited States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3104263\n\nPlay 
+ Commander\, get a promo card for signing into the event on the Companion A
+ pp\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3104263
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2940306
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Sunday Commander
+LOCATION:Dark Depths Games\, 13215 SE Mill Plain Blvd\, Ste C9\, Vancouver
+ \, WA 98684-6991\, United States
+DESCRIPTION:Format: Commander\nCost: $6\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/2940306\n\nCasual 
+ commander every Sunday!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2940306
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3103864
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Sealed] Let's Play: Sealed League
+LOCATION:Dark Depths Games\, 417 Central Ave\, Great Falls\, MT\, 59401\, 
+ US
+DESCRIPTION:Format: Sealed\nCost: $45\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/store
+ s/113\nEvent Details: https://www.spicerack.gg/events/3103864\n\nJoin our 
+ league and win Strixhaven Collector Boosters and Modern Horizon's 3 Booste
+ rs!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3103864
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3062593
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Commander Casual
+LOCATION:Dark Depths Games\, 199 Av. Cumbres Elite\, Monterrey\, N.L.\, 64
+ 349\, Mexico
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3062593\n\nMesas
+  de commander casual\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3062593
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3102707
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Free Play Booster Commander Pod
+LOCATION:Dark Depths Games\, 21 E Stanley St\, Crossville\, TN\, 38555\, U
+ nited States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3102707\n\nCome 
+ play a game of casual Commander and receive a FREE Play Booster Pack. Limi
+ t of 1 per customer per day.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3102707
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3022871
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] MTG Commander Casual Play
+LOCATION:Dark Depths Games\, #5 20295 113b Ave\, Maple Ridge\, BC\, V2X 7Z
+ 9\, Canada
+DESCRIPTION:Format: Commander\nCost: $8\nStore Website: https://www.facebo
+ ok.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/sto
+ res/113\nEvent Details: https://www.spicerack.gg/events/3022871\n\n*4 Drop
+  in fee lets you play from 4pm-10pm and you also receive a 1.5$ of your 1s
+ t pack of cards\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3022871
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3108155
+SEQUENCE:0
+DTSTAMP:20260413T032818Z
+DTSTART:20260412T230000Z
+DTEND:20260413T020000Z
+SUMMARY:[Commander] Casual
+LOCATION:Dark Depths Games\, 163 N Clark St\, Powell\, WY\, 82435\, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.face
+ book.com/darkdepthsgames\nStore Details: https://www.spicerack.gg/events/s
+ tores/113\nEvent Details: https://www.spicerack.gg/events/3108155\n\nfun\n
+ Source: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3108155
+END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721006
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260424T220000Z
 DTEND:20260425T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -24,7 +1639,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461082
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260501T223000Z
 DTEND:20260502T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -38,7 +1653,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570209
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260503T213000Z
 DTEND:20260504T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -58,7 +1673,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461056
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260504T223000Z
 DTEND:20260505T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -72,7 +1687,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461068
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260505T223000Z
 DTEND:20260506T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -88,7 +1703,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461083
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260508T223000Z
 DTEND:20260509T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -102,7 +1717,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570210
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260510T213000Z
 DTEND:20260511T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -122,7 +1737,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461057
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260511T223000Z
 DTEND:20260512T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -136,7 +1751,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461069
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260512T223000Z
 DTEND:20260513T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -152,7 +1767,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461084
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260515T223000Z
 DTEND:20260516T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -166,7 +1781,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721597
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260516T220000Z
 DTEND:20260517T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -180,7 +1795,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570211
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260517T213000Z
 DTEND:20260518T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -200,7 +1815,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461058
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260518T223000Z
 DTEND:20260519T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -214,7 +1829,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461070
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260519T223000Z
 DTEND:20260520T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -230,7 +1845,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461085
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260522T223000Z
 DTEND:20260523T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -244,7 +1859,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570212
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260524T213000Z
 DTEND:20260525T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -264,7 +1879,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461060
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260525T223000Z
 DTEND:20260526T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -278,7 +1893,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461071
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260526T223000Z
 DTEND:20260527T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -294,7 +1909,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461086
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260529T223000Z
 DTEND:20260530T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -308,7 +1923,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570213
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260531T213000Z
 DTEND:20260601T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -328,7 +1943,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461061
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260601T223000Z
 DTEND:20260602T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -342,7 +1957,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461072
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260602T223000Z
 DTEND:20260603T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -358,7 +1973,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737683
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260605T190000Z
 DTEND:20260605T220000Z
 SUMMARY:[Commander] PGS Presents: SOS Commander Party
@@ -378,7 +1993,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461087
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260605T223000Z
 DTEND:20260606T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -392,7 +2007,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722161
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260606T220000Z
 DTEND:20260607T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -406,7 +2021,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461073
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260609T223000Z
 DTEND:20260610T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -422,7 +2037,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461088
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260612T223000Z
 DTEND:20260613T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -436,7 +2051,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461074
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260616T223000Z
 DTEND:20260617T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -452,7 +2067,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461089
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260619T223000Z
 DTEND:20260620T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -466,7 +2081,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461075
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260623T223000Z
 DTEND:20260624T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -482,7 +2097,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722747
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260626T220000Z
 DTEND:20260627T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -497,7 +2112,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461090
 SEQUENCE:0
-DTSTAMP:20260413T020759Z
+DTSTAMP:20260413T032818Z
 DTSTART:20260626T223000Z
 DTEND:20260627T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
