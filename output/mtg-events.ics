@@ -1,0 +1,513 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//mtg-cal//mtg-event-aggregator//EN
+NAME:MTG Events — Philadelphia (5mi)
+X-WR-CALNAME:MTG Events — Philadelphia (5mi)
+X-WR-CALDESC:Local Magic: The Gathering events within 5 miles of Philadelp
+ hia, aggregated from WotC locator and other sources
+TIMEZONE-ID:America/New_York
+X-WR-TIMEZONE:America/New_York
+BEGIN:VEVENT
+UID:wotc-10721006
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260424T220000
+DTEND:20260425T010000
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 1735 - Philadelphia  
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.game
+ stop.com/\nStore Details: https://locator.wizards.com/store/19777\nEvent D
+ etails: https://locator.wizards.com/event/10721006\n\nJoin us at your loca
+ l GameStop for a casual commander event to celebrate the launch of Magic: 
+ The Gathering's newest set\, Secrets of Strixhaven! \nSource: wizards-loca
+ tor
+URL;VALUE=URI:https://locator.wizards.com/event/10721006
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461082
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260501T223000
+DTEND:20260502T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461082\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461082
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570209
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260503T213000
+DTEND:20260504T003000
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: http://phillygames
+ hop.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent De
+ tails: https://locator.wizards.com/event/10570209\n\nWelcome to new and im
+ proved Sunday Standard Showdown! Sundays at 5:30\, $10 entry\, and the eve
+ nt will be three rounds for 11 or less participants\, four rounds for 12+.
+  Since this is an official magic event\, no proxied cards and only standar
+ d format legal cards will be allowed. All levels are welcome\, but many of
+  our players run competitive Tier 1 and Tier 2 decks. Please arrive prompt
+ ly at 5:30\, as lateness may result in an automatic round one loss!\n\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10570209
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461056
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260504T223000
+DTEND:20260505T013000
+SUMMARY:[Pauper] PGS Monday Pauper
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Pauper\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10461056\n\nJoin us at PGS for our 
+ Monday night Pauper tournament! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461056
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461068
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260505T223000
+DTEND:20260506T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461068\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461068
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461083
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260508T223000
+DTEND:20260509T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461083\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461083
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570210
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260510T213000
+DTEND:20260511T003000
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: http://phillygames
+ hop.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent De
+ tails: https://locator.wizards.com/event/10570210\n\nWelcome to new and im
+ proved Sunday Standard Showdown! Sundays at 5:30\, $10 entry\, and the eve
+ nt will be three rounds for 11 or less participants\, four rounds for 12+.
+  Since this is an official magic event\, no proxied cards and only standar
+ d format legal cards will be allowed. All levels are welcome\, but many of
+  our players run competitive Tier 1 and Tier 2 decks. Please arrive prompt
+ ly at 5:30\, as lateness may result in an automatic round one loss!\n\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10570210
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461057
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260511T223000
+DTEND:20260512T013000
+SUMMARY:[Pauper] PGS Monday Pauper
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Pauper\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10461057\n\nJoin us at PGS for our 
+ Monday night Pauper tournament! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461057
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461069
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260512T223000
+DTEND:20260513T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461069\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461069
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461084
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260515T223000
+DTEND:20260516T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461084\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461084
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10721597
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260516T220000
+DTEND:20260517T010000
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 1735 - Philadelphia  
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.game
+ stop.com/\nStore Details: https://locator.wizards.com/store/19777\nEvent D
+ etails: https://locator.wizards.com/event/10721597\n\nJoin us at your loca
+ l GameStop for a casual commander event!\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10721597
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570211
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260517T213000
+DTEND:20260518T003000
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: http://phillygames
+ hop.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent De
+ tails: https://locator.wizards.com/event/10570211\n\nWelcome to new and im
+ proved Sunday Standard Showdown! Sundays at 5:30\, $10 entry\, and the eve
+ nt will be three rounds for 11 or less participants\, four rounds for 12+.
+  Since this is an official magic event\, no proxied cards and only standar
+ d format legal cards will be allowed. All levels are welcome\, but many of
+  our players run competitive Tier 1 and Tier 2 decks. Please arrive prompt
+ ly at 5:30\, as lateness may result in an automatic round one loss!\n\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10570211
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461058
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260518T223000
+DTEND:20260519T013000
+SUMMARY:[Pauper] PGS Monday Pauper
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Pauper\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10461058\n\nJoin us at PGS for our 
+ Monday night Pauper tournament! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461058
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461070
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260519T223000
+DTEND:20260520T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461070\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461070
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461085
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260522T223000
+DTEND:20260523T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461085\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461085
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570212
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260524T213000
+DTEND:20260525T003000
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: http://phillygames
+ hop.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent De
+ tails: https://locator.wizards.com/event/10570212\n\nWelcome to new and im
+ proved Sunday Standard Showdown! Sundays at 5:30\, $10 entry\, and the eve
+ nt will be three rounds for 11 or less participants\, four rounds for 12+.
+  Since this is an official magic event\, no proxied cards and only standar
+ d format legal cards will be allowed. All levels are welcome\, but many of
+  our players run competitive Tier 1 and Tier 2 decks. Please arrive prompt
+ ly at 5:30\, as lateness may result in an automatic round one loss!\n\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10570212
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461060
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260525T223000
+DTEND:20260526T013000
+SUMMARY:[Pauper] PGS Monday Pauper
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Pauper\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10461060\n\nJoin us at PGS for our 
+ Monday night Pauper tournament! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461060
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461071
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260526T223000
+DTEND:20260527T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461071\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461071
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461086
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260529T223000
+DTEND:20260530T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461086\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461086
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570213
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260531T213000
+DTEND:20260601T003000
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Standard\nCost: $10\nStore Website: http://phillygames
+ hop.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent De
+ tails: https://locator.wizards.com/event/10570213\n\nWelcome to new and im
+ proved Sunday Standard Showdown! Sundays at 5:30\, $10 entry\, and the eve
+ nt will be three rounds for 11 or less participants\, four rounds for 12+.
+  Since this is an official magic event\, no proxied cards and only standar
+ d format legal cards will be allowed. All levels are welcome\, but many of
+  our players run competitive Tier 1 and Tier 2 decks. Please arrive prompt
+ ly at 5:30\, as lateness may result in an automatic round one loss!\n\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10570213
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461061
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260601T223000
+DTEND:20260602T013000
+SUMMARY:[Pauper] PGS Monday Pauper
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Pauper\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10461061\n\nJoin us at PGS for our 
+ Monday night Pauper tournament! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461061
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461072
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260602T223000
+DTEND:20260603T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461072\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461072
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10737683
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260605T190000
+DTEND:20260605T220000
+SUMMARY:[Commander] PGS Presents: SOS Commander Party
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://phillygam
+ eshop.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent 
+ Details: https://locator.wizards.com/event/10737683\n\nFind your place amo
+ ng the five colleges as we put down the books and delve into the real worl
+ d! Uncover the Secrets of Strixhaven and prove your college is the best wi
+ th every spell you cast. Commander Party is a casual event that introduces
+  a new way to experience the fan favorite format with thematic and flavorf
+ ul new rules. Each participant will receive a promo for playing. Participa
+ tion will be on a first come first serve basis. We can't wait to see you t
+ here!\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10737683
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461087
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260605T223000
+DTEND:20260606T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461087\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461087
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10722161
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260606T220000
+DTEND:20260607T010000
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 1735 - Philadelphia  
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.game
+ stop.com/\nStore Details: https://locator.wizards.com/store/19777\nEvent D
+ etails: https://locator.wizards.com/event/10722161\n\nJoin us at your loca
+ l GameStop for a casual commander event!\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10722161
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461073
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260609T223000
+DTEND:20260610T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461073\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461073
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461088
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260612T223000
+DTEND:20260613T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461088\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461088
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461074
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260616T223000
+DTEND:20260617T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461074\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461074
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461089
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260619T223000
+DTEND:20260620T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461089\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461089
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461075
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260623T223000
+DTEND:20260624T013000
+SUMMARY:[Draft] Tuesday Draft at PGS
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461075\n\nJoin us at Philly Game S
+ hop for our Tuesday night drafts! Join our discord to learn more about our
+  events and RSVP ahead of time by going to our website at www.phillygamesh
+ op.com! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10461075
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10722747
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260626T220000
+DTEND:20260627T010000
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 1735 - Philadelphia  
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: https://www.game
+ stop.com/\nStore Details: https://locator.wizards.com/store/19777\nEvent D
+ etails: https://locator.wizards.com/event/10722747\n\nJoin us at your loca
+ l GameStop for a casual commander event to celebrate the launch of Magic: 
+ The Gathering's newest set\, Marvel Super Heros! \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10722747
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10461090
+SEQUENCE:0
+DTSTAMP:20260413T015459
+DTSTART:20260626T223000
+DTEND:20260627T013000
+SUMMARY:[Draft] Friday Night Magic Draft
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
+ .com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Detai
+ ls: https://locator.wizards.com/event/10461090\n\n*\nSource: wizards-locat
+ or
+URL;VALUE=URI:https://locator.wizards.com/event/10461090
+END:VEVENT
+END:VCALENDAR
