@@ -19,24 +19,33 @@ function buildDescription(event) {
 }
 
 export function generateIcal(events) {
+  // No calendar-level timezone — we write all timestamps as UTC (with Z suffix)
+  // so every calendar app converts to the user's local time automatically.
   const cal = ical({
     name: config.output.calendarName,
     description: config.output.calendarDescription,
-    timezone: "America/New_York",
     prodId: { company: "mtg-cal", product: "mtg-event-aggregator", language: "EN" },
   });
+
   for (const event of events) {
+    // startDate is already a JS Date (parsed from the UTC ISO string from WotC).
+    // Default duration: 3 hours.
     const end = event.endDate || new Date(event.startDate.getTime() + 3 * 60 * 60 * 1000);
+
     cal.createEvent({
       id: event.id,
       summary: `[${event.format}] ${event.title}`,
       description: buildDescription(event),
       location: formatLocationString(event.location),
+      // floating: false forces ical-generator to write DTSTART as UTC (with Z suffix)
+      // e.g. DTSTART:20260424T220000Z = 10pm UTC = 6pm Eastern
       start: event.startDate,
       end,
+      floating: false,
       url: event.detailUrl || undefined,
     });
   }
+
   const outPath = path.resolve(config.output.icsFile);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, cal.toString());
