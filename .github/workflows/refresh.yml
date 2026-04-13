@@ -26,3 +26,6 @@ jobs:
         with:
           commit_message: "chore: refresh MTG events [skip ci]"
           file_pattern: "output/*.ics"
+          skip_dirty_check: false
+          commit_options: "--no-verify"
+        continue-on-error: true
