@@ -1,13 +1,52 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//mtg-cal//mtg-event-aggregator//EN
-NAME:MTG Events — Philadelphia (5mi)
-X-WR-CALNAME:MTG Events — Philadelphia (5mi)
-X-WR-CALDESC:Local MTG events within 5 miles of Philadelphia
+NAME:MTG Events — Philadelphia
+X-WR-CALNAME:MTG Events — Philadelphia
+X-WR-CALDESC:Local MTG events in Philadelphia area
+BEGIN:VEVENT
+UID:wotc-10518581
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260415T170000Z
+DTEND:20260415T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518581\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518581
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518880
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260417T183000Z
+DTEND:20260417T213000Z
+SUMMARY:[Sealed] Queen & Rook Secrets of Strixhaven At-Home Prerelease
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Sealed\nCost: $30\nStore Details: https://locator.wiza
+ rds.com/store/12804\nEvent Details: https://locator.wizards.com/event/1051
+ 8880\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518880
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10647531
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260417T183000Z
+DTEND:20260417T213000Z
+SUMMARY:[Sealed] Queen & Rook Presents: Secrets of Strixhaven Prerelease
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Sealed\nCost: $40\nStore Details: https://locator.wiza
+ rds.com/store/12804\nEvent Details: https://locator.wizards.com/event/1064
+ 7531\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10647531
+END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10794074
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260417T190000Z
 DTEND:20260417T220000Z
 SUMMARY:[Sealed] 1V1 Prerelease Prerelease
@@ -18,9 +57,22 @@ DESCRIPTION:Format: Sealed\nCost: $30\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10794074
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10647525
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260418T123000Z
+DTEND:20260418T153000Z
+SUMMARY:[Sealed] Queen & Rook Presents: Secrets of Strixhaven Prerelease
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Sealed\nCost: $40\nStore Details: https://locator.wiza
+ rds.com/store/12804\nEvent Details: https://locator.wizards.com/event/1064
+ 7525\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10647525
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794075
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260418T130000Z
 DTEND:20260418T160000Z
 SUMMARY:[Sealed] 1V1 Prerelease Prerelease
@@ -31,9 +83,22 @@ DESCRIPTION:Format: Sealed\nCost: $30\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10794075
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10647526
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260419T123000Z
+DTEND:20260419T153000Z
+SUMMARY:[Sealed] Queen & Rook Presents: Secrets of Strixhaven Prerelease
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Sealed\nCost: $40\nStore Details: https://locator.wiza
+ rds.com/store/12804\nEvent Details: https://locator.wizards.com/event/1064
+ 7526\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10647526
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794076
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260419T130000Z
 DTEND:20260419T160000Z
 SUMMARY:[Sealed] 1V1 Prerelease Prerelease
@@ -44,9 +109,61 @@ DESCRIPTION:Format: Sealed\nCost: $30\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10794076
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518755
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260421T180000Z
+DTEND:20260421T210000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://locator.w
+ izards.com/store/12804\nEvent Details: https://locator.wizards.com/event/1
+ 0518755\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518755
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10623803
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260421T180000Z
+DTEND:20260421T210000Z
+SUMMARY:[Sealed] Runehammer MTG Strixhaven Prerelease
+LOCATION:Runehammer Games
+DESCRIPTION:Format: Sealed\nCost: $35\nStore Details: https://locator.wiza
+ rds.com/store/19433\nEvent Details: https://locator.wizards.com/event/1062
+ 3803\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10623803
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10647527
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260421T183000Z
+DTEND:20260421T213000Z
+SUMMARY:[Sealed] Queen & Rook Presents: Secrets of Strixhaven Prerelease
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Sealed\nCost: $40\nStore Details: https://locator.wiza
+ rds.com/store/12804\nEvent Details: https://locator.wizards.com/event/1064
+ 7527\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10647527
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518582
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260422T170000Z
+DTEND:20260422T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518582\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518582
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10721006
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260424T180000Z
 DTEND:20260424T210000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -57,9 +174,48 @@ DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
 URL;VALUE=URI:https://locator.wizards.com/event/10721006
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10720930
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260424T180000Z
+DTEND:20260424T210000Z
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 636 - Port Richmond
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/20720\nEvent Details: https://locator.wizards.com/event/
+ 10720930\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10720930
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518756
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260428T180000Z
+DTEND:20260428T210000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://locator.w
+ izards.com/store/12804\nEvent Details: https://locator.wizards.com/event/1
+ 0518756\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518756
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518583
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260429T170000Z
+DTEND:20260429T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518583\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518583
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461082
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260501T183000Z
 DTEND:20260501T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -72,7 +228,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570209
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260503T173000Z
 DTEND:20260503T203000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -85,7 +241,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461056
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260504T183000Z
 DTEND:20260504T213000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -96,9 +252,22 @@ DESCRIPTION:Format: Pauper\nCost: $10\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10461056
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518757
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260505T180000Z
+DTEND:20260505T210000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://locator.w
+ izards.com/store/12804\nEvent Details: https://locator.wizards.com/event/1
+ 0518757\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518757
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461068
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260505T183000Z
 DTEND:20260505T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -109,9 +278,22 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461068
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518868
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260506T170000Z
+DTEND:20260506T200000Z
+SUMMARY:[Commander] Queen & Rook Strixhaven Commander Party
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518868\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518868
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794453
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260507T183000Z
 DTEND:20260507T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -124,7 +306,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461083
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260508T183000Z
 DTEND:20260508T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -137,7 +319,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570210
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260510T173000Z
 DTEND:20260510T203000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -150,7 +332,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461057
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260511T183000Z
 DTEND:20260511T213000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -161,9 +343,22 @@ DESCRIPTION:Format: Pauper\nCost: $10\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10461057
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518722
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260512T180000Z
+DTEND:20260512T210000Z
+SUMMARY:[Standard] Standard Store Championship
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://locator.wi
+ zards.com/store/12804\nEvent Details: https://locator.wizards.com/event/10
+ 518722\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518722
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461069
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260512T183000Z
 DTEND:20260512T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -174,9 +369,22 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461069
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518585
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260513T170000Z
+DTEND:20260513T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518585\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518585
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794454
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260514T183000Z
 DTEND:20260514T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -189,7 +397,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461084
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260515T183000Z
 DTEND:20260515T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -202,7 +410,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721597
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260516T180000Z
 DTEND:20260516T210000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -213,9 +421,22 @@ DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
 URL;VALUE=URI:https://locator.wizards.com/event/10721597
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10721523
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260516T180000Z
+DTEND:20260516T210000Z
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 636 - Port Richmond
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/20720\nEvent Details: https://locator.wizards.com/event/
+ 10721523\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10721523
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10570211
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260517T173000Z
 DTEND:20260517T203000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -228,7 +449,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461058
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260518T183000Z
 DTEND:20260518T213000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -239,9 +460,22 @@ DESCRIPTION:Format: Pauper\nCost: $10\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10461058
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518759
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260519T180000Z
+DTEND:20260519T210000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://locator.w
+ izards.com/store/12804\nEvent Details: https://locator.wizards.com/event/1
+ 0518759\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518759
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461070
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260519T183000Z
 DTEND:20260519T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -252,9 +486,22 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461070
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518586
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260520T170000Z
+DTEND:20260520T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518586\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518586
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794455
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260521T183000Z
 DTEND:20260521T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -267,7 +514,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461085
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260522T183000Z
 DTEND:20260522T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -280,7 +527,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570212
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260524T173000Z
 DTEND:20260524T203000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -293,7 +540,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461060
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260525T183000Z
 DTEND:20260525T213000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -304,9 +551,22 @@ DESCRIPTION:Format: Pauper\nCost: $10\nStore Details: https://locator.wiza
 URL;VALUE=URI:https://locator.wizards.com/event/10461060
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518760
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260526T180000Z
+DTEND:20260526T210000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://locator.w
+ izards.com/store/12804\nEvent Details: https://locator.wizards.com/event/1
+ 0518760\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518760
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461071
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260526T183000Z
 DTEND:20260526T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -317,9 +577,22 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461071
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518587
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260527T170000Z
+DTEND:20260527T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518587\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518587
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794456
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260528T183000Z
 DTEND:20260528T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -332,7 +605,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461086
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260529T183000Z
 DTEND:20260529T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -345,7 +618,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570213
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260531T173000Z
 DTEND:20260531T203000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -358,7 +631,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461061
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260601T183000Z
 DTEND:20260601T213000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -371,7 +644,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461072
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260602T183000Z
 DTEND:20260602T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -382,9 +655,22 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461072
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518588
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260603T170000Z
+DTEND:20260603T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518588\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518588
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794457
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260604T183000Z
 DTEND:20260604T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -397,7 +683,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737683
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260605T150000Z
 DTEND:20260605T180000Z
 SUMMARY:[Commander] PGS Presents: SOS Commander Party
@@ -410,7 +696,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461087
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260605T183000Z
 DTEND:20260605T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -423,7 +709,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722161
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260606T180000Z
 DTEND:20260606T210000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -434,9 +720,22 @@ DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
 URL;VALUE=URI:https://locator.wizards.com/event/10722161
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10722086
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260606T180000Z
+DTEND:20260606T210000Z
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 636 - Port Richmond
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/20720\nEvent Details: https://locator.wizards.com/event/
+ 10722086\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10722086
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461073
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260609T183000Z
 DTEND:20260609T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -447,9 +746,35 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461073
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518589
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260610T170000Z
+DTEND:20260610T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518589\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518589
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518872
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260610T170000Z
+DTEND:20260610T200000Z
+SUMMARY:[Commander] Queen & Rook Strixhaven Commander Party
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518872\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518872
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794458
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260611T183000Z
 DTEND:20260611T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -462,7 +787,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461088
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260612T183000Z
 DTEND:20260612T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -473,9 +798,22 @@ DESCRIPTION:Format: Draft\nCost: $22\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461088
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518781
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260614T123000Z
+DTEND:20260614T153000Z
+SUMMARY:[Commander] Magic: Presents Pride @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://locator.wi
+ zards.com/store/12804\nEvent Details: https://locator.wizards.com/event/10
+ 518781\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518781
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461074
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260616T183000Z
 DTEND:20260616T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -486,9 +824,22 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
 URL;VALUE=URI:https://locator.wizards.com/event/10461074
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10518590
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260617T170000Z
+DTEND:20260617T200000Z
+SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+LOCATION:Queen and Rook Game Cafe
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
+ 10518590\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10518590
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10794459
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260618T183000Z
 DTEND:20260618T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -501,7 +852,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461089
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260619T183000Z
 DTEND:20260619T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -514,7 +865,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461075
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260623T183000Z
 DTEND:20260623T213000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -527,7 +878,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10794460
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260625T183000Z
 DTEND:20260625T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -540,7 +891,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722747
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260626T180000Z
 DTEND:20260626T210000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -551,9 +902,22 @@ DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
 URL;VALUE=URI:https://locator.wizards.com/event/10722747
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10722668
+SEQUENCE:0
+DTSTAMP:20260414T222428Z
+DTSTART:20260626T180000Z
+DTEND:20260626T210000Z
+SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+LOCATION:GameStop - 636 - Port Richmond
+DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
+ wizards.com/store/20720\nEvent Details: https://locator.wizards.com/event/
+ 10722668\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10722668
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461090
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260626T183000Z
 DTEND:20260626T213000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -566,7 +930,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10794461
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260702T183000Z
 DTEND:20260702T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
@@ -579,7 +943,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10794462
 SEQUENCE:0
-DTSTAMP:20260414T212549Z
+DTSTAMP:20260414T222428Z
 DTSTART:20260709T183000Z
 DTEND:20260709T213000Z
 SUMMARY:[Modern] PGS Modern Thursdays
