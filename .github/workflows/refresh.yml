@@ -17,51 +17,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-
       - run: npm install
-
       - name: Fetch events, sync to Sheet, generate calendar
         run: npm run fetch
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
-
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh MTG events [skip ci]"
           file_pattern: "output/*.ics"
-        continue-on-error: true
-name: Refresh MTG Calendar
-
-on:
-  schedule:
-    - cron: "0 10 * * *"
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - run: npm install
-      - run: npm run fetch
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: refresh MTG events [skip ci]"
-          file_pattern: "output/*.ics"
-          skip_dirty_check: false
-          commit_options: "--no-verify"
         continue-on-error: true
