@@ -6,96 +6,534 @@ X-WR-CALNAME:MTG Events — Philadelphia (5mi)
 X-WR-CALDESC:Local Magic: The Gathering events within 5 miles of Philadelp
  hia, aggregated from WotC locator and Spicerack
 BEGIN:VEVENT
-UID:spicerack-3170203
+UID:spicerack-3074622
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Draft] Spider-Man Booster Draft
-LOCATION:Runehammer Games\, 2 / 9 Yarmouth place \, Smeaton Grange\, NSW\,
-  2567\, Australia
-DESCRIPTION:Format: Draft\nCost: $15\nStore Website: http://www.runehammer
- .online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEven
- t Details: https://www.spicerack.gg/events/3170203\n\n$15 Entry\n4pm Start
- \nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3170203
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Commander] CASUAL PLAY REPORT
+LOCATION:Runehammer Games\, Mug and Magic Cafe\, RYM Place\, Mac Arthur Hi
+ ghway corner Marisol Main Gate\, Bgy. Ninoy Aquino\, Angeles City\, Pampan
+ ga\, 2009\, Philippines
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3074622\n\nCASUAL PLAY REP
+ ORT\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3074622
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3092264
+UID:spicerack-3174448
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Commander] Fizzy | TMT🐢| Commander Night
+LOCATION:Runehammer Games\, 555/220 Moo 2 Fifth Avenue Meechoke\, Chiang M
+ ai Outer Ring Rd\, San Sai District\, Chiang Mai\, 50 50210\, Thailand
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3174448\n\nTeenage Mutant 
+ Ninja Turtles - Commander Night\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3174448
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2908670
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Other] Open Play
+LOCATION:Runehammer Games\, 41 N Main St\, Cedar City\, UT\, 84720\, Unite
+ d States
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/2908670\n\nOpen Play\n\n\nSour
+ ce: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2908670
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3092157
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Sealed] マジック・リーグ
+LOCATION:Runehammer Games\, 葵区伝馬町10-25 中央ビル5F\, 静岡
+ 市\, 22 420-0858\, Japan
+DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3092157\n\nマジック・リ
+ ーグ\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3092157
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3092336
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Sealed] マジック・リーグ
+LOCATION:Runehammer Games\, 中区紙屋町1-1-1\, 広島市\, 34 730-0031
+ \, Japan
+DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3092336\n\nマジックリー
+ グ\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3092336
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3098512
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Commander] PO's Freeplay
+LOCATION:Runehammer Games\, 1805 Hwy 31 SW\, Hartselle\, AL\, 35640\, US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3098512\n\nCome join us an
+ d play commander\, modern or event standard.\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3098512
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3068241
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Sealed] マジック・リーグ
+LOCATION:Runehammer Games\, 中区大須4丁目11-5\, 名古屋市\, 23\, 
+ 460-0011\, Japan
+DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3068241\n\n****\nSource: spic
+ erack
+URL;VALUE=URI:https://www.spicerack.gg/events/3068241
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3065745
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Standard] 休闲构筑
+LOCATION:Runehammer Games\, 上海市静安区公兴路65号2楼\, Shangha
+ i\, Shanghai\, 200080\, China
+DESCRIPTION:Format: Standard\nCost: Free\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/3065745\n\n1\nSource: spice
+ rack
+URL;VALUE=URI:https://www.spicerack.gg/events/3065745
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2968514
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Commander] Casual Commander Day
+LOCATION:Runehammer Games\, FT 1506 15/F President Commercial Centre \,\n\
+ , 608 Nathan Road \, Mong Kok\, Kowloon\, KOWLOON\, Mong Kok\, 000\, Hong 
+ Kong
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/2968514\n\nBL\nSource: spi
+ cerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2968514
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2977354
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Commander] TATC Casual Commander
+LOCATION:Runehammer Games\, 2865 Jones Franklin Rd\, Raleigh\, NC\, 27606\
+ , US
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/2977354\n\nCome on down to
+  TATC to play some casual MTG! Play a game\, enter in the event code\, and
+  get a pack of $6 or less on us!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2977354
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124120
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Standard] 14時の部 Standard
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Standard\nCost: $500\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/3124120\n\n14 Standard\nSou
+ rce: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124120
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124122
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Modern] 14時の部 Modern
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Modern\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3124122\n\n14 Modern\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124122
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124123
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Legacy] 14時の部 Legacy
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Legacy\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3124123\n\n14 Legacy\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124123
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124124
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Pauper] 14時の部 Pauper
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Pauper\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3124124\n\n14 Pauper\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124124
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049024
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Sealed] マジック・リーグ
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Sealed\nCost: $100\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3049024\n\nマジック・リ
+ ーグ\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049024
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3115625
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Commander] 休闲指挥官
+LOCATION:Runehammer Games\, 上海市静安区公兴路65号2楼\, Shangha
+ i\, Shanghai\, 200080\, China
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3115625\n\n1\nSource: spic
+ erack
+URL;VALUE=URI:https://www.spicerack.gg/events/3115625
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049025
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Other] 構築リーグ構築！
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Other\nCost: $500\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/3049025\n\n構築リーグ構
+ 築！\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049025
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124121
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T050000Z
+DTEND:20260414T080000Z
+SUMMARY:[Pioneer] 14時の部 Pioneer
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Pioneer\nCost: $500\nStore Website: http://www.runeham
+ mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
+ vent Details: https://www.spicerack.gg/events/3124121\n\n14 Pioneer\nSourc
+ e: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124121
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3092265
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Sealed] マジック・リーグ
 LOCATION:Runehammer Games\, 中央区三宮1-9-1 センタープラザ203\
  , 神戸市\, 28 650-0021\, Japan
 DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3092264\n\nhttps://www.hareru
+ ent Details: https://www.spicerack.gg/events/3092265\n\nhttps://www.hareru
  yamtg.com/ja/events/?shop=19\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3092264
+URL;VALUE=URI:https://www.spicerack.gg/events/3092265
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3000354
+UID:spicerack-3000355
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Sealed] マジック・リーグ
 LOCATION:Runehammer Games\, 三崎町トーネンビル4F-C\, 八王子市
  \, 東京都\, 192-0084\, Japan
 DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3000354\n\nプレイブース
+ ent Details: https://www.spicerack.gg/events/3000355\n\nプレイブース
  ター３パックから始められます！１か月の間は同じデ
  ッキをずっと強化しながら使えます！スタッフに声を
  掛けていただけたらいつでも開催可能なので、気軽に
  どうぞー！！\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3000354
+URL;VALUE=URI:https://www.spicerack.gg/events/3000355
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3092441
+UID:spicerack-3092442
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Sealed] マジック・リーグ
 LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
  福岡市\, 40\, 810-0041\, Japan
 DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3092441\n\nマジック・リ
+ ent Details: https://www.spicerack.gg/events/3092442\n\nマジック・リ
  ーグ\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3092441
+URL;VALUE=URI:https://www.spicerack.gg/events/3092442
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3097369
+UID:spicerack-2928757
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Sealed] マジック・リーグ
+LOCATION:Runehammer Games\, 古正寺1-249-1 イオン長岡店3階\, 長
+ 岡市\, 15 940-2106\, Japan
+DESCRIPTION:Format: Sealed\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/2928757\n\nBO1 ４名から
+ 開催\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2928757
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3097370
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Sealed] マジック・リーグ
 LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
  ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
 DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3097369\n\n当月初回参加
+ ent Details: https://www.spicerack.gg/events/3097370\n\n当月初回参加
  時のみ、別途スタンダード最新パックをお求めいただ
  きます。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3097369
+URL;VALUE=URI:https://www.spicerack.gg/events/3097370
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3092022
+UID:spicerack-2922214
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Commander] Casual Commander
+LOCATION:Runehammer Games\, 15 Rose Road\, Grey Lynn\, Auckland\, AUK\, 10
+ 21\, New Zealand
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/2922214\n\nCasual Commande
+ r\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2922214
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2962521
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Commander] Mox & Lotus All-Day Free Play League
+LOCATION:Runehammer Games\, BLK 215 BEDOK NORTH STREET 1 #02-85\, Singapor
+ e\, Singapore\, 460215\, Singapore
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/2962521\n\nBring your frie
+ nds and play a game of Commander\, Standard\, Modern\, Pioneer - and stand
+  a chance to win a promo pack in our lucky draw(s)!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2962521
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3030908
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Runehammer Games\, 本町6-9\, 塩竈市\, 04 985-0052\, Japan
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/3030908\n\n15時～17時まで
+ にご来店いただいた方々にティーチングいたします。\n
+ Source: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3030908
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3044790
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Modern] It's Turtle Time!
+LOCATION:Runehammer Games\, 北京市西城区新街口外大街8号金丰
+ 和 D座五区101 \, Beijing\, 11\, 100000\, China
+DESCRIPTION:Format: Modern\nCost: Free\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3044790\n\n免费周二摩登
+ \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3044790
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3059212
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Commander] 毎日統率者戦
+LOCATION:Runehammer Games\, 曲師町2-8 宇都宮フェスタ２F\, 宇
+ 都宮市\, 09 320-0803\, Japan
+DESCRIPTION:Format: Commander\nCost: $100\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3059212\n\n最大３回戦
+ \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3059212
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3145626
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Commander] 平方指揮官歡慶會 Commander Party
+LOCATION:Runehammer Games\, 臺北市中山區中山北路一段135巷9號
+ 3樓\, Taipei\, 中山區\, 104\, Taiwan\, Province of China
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3145626\n\n平方指揮官
+ 歡慶會 Commander Party\n\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3145626
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3115517
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
+ 30-0001\, Japan
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/3115517\n\nhttps://www.hareruy
+ amtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3115517
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3129279
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Standard] 刹那の戦い スタンダード
+LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
+  大阪市\, 27 556-0011\, Japan
+DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/3129279\n\n1回戦固定、
+ BO3\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3129279
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3129280
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Pioneer] 刹那の戦い パイオニア
+LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
+  大阪市\, 27 556-0011\, Japan
+DESCRIPTION:Format: Pioneer\nCost: $100\nStore Website: http://www.runeham
+ mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
+ vent Details: https://www.spicerack.gg/events/3129280\n\n1回戦固定、B
+ O3\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3129280
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3129281
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Modern] 刹那の戦い モダン
+LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
+  大阪市\, 27 556-0011\, Japan
+DESCRIPTION:Format: Modern\nCost: $100\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3129281\n\n1回戦固定、BO
+ 3\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3129281
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3129282
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Legacy] 刹那の戦い レガシー
+LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
+  大阪市\, 27 556-0011\, Japan
+DESCRIPTION:Format: Legacy\nCost: $100\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3129282\n\n1回戦固定、BO
+ 3\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3129282
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3092023
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Sealed] マジック・リーグ
 LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
  \, 180-0004\, Japan
 DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3092022\n\nマジックリー
+ ent Details: https://www.spicerack.gg/events/3092023\n\nマジックリー
  グは特別日を除き常時開催しております。イベント受
  付カウンターへお申しつけください。\n\n■パック代に
  ついて\n別途パック代が必要です。吉祥寺店のレジカウ
@@ -121,142 +559,53 @@ DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
  月1日に処分致します。\nデッキをお預けの際は当店指
  定のデッキケースに限らせていただきます。\nSource: spic
  erack
-URL;VALUE=URI:https://www.spicerack.gg/events/3092022
+URL;VALUE=URI:https://www.spicerack.gg/events/3092023
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2962520
+UID:spicerack-3135698
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Commander] Mox & Lotus All-Day Free Play League
-LOCATION:Runehammer Games\, BLK 215 BEDOK NORTH STREET 1 #02-85\, Singapor
- e\, Singapore\, 460215\, Singapore
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/2962520\n\nBring your frie
- nds and play a game of Commander\, Standard\, Modern\, Pioneer - and stand
-  a chance to win a promo pack in our lucky draw(s)!\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2962520
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3115514
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Other] Magic Academy: Learn to Play
-LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
- 30-0001\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3115514\n\nhttps://www.hareruy
- amtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3115514
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3059211
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Commander] 毎日統率者戦
-LOCATION:Runehammer Games\, 曲師町2-8 宇都宮フェスタ２F\, 宇
- 都宮市\, 09 320-0803\, Japan
-DESCRIPTION:Format: Commander\nCost: $100\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3059211\n\n最大３回戦
- \nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3059211
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3129260
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Standard] 刹那の戦い スタンダード
-LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
-  大阪市\, 27 556-0011\, Japan
-DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3129260\n\n1回戦固定、
- BO3\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129260
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3129261
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Pioneer] 刹那の戦い パイオニア
-LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
-  大阪市\, 27 556-0011\, Japan
-DESCRIPTION:Format: Pioneer\nCost: $100\nStore Website: http://www.runeham
- mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3129261\n\n1回戦固定、B
- O3\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129261
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3129262
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Modern] 刹那の戦い モダン
-LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
-  大阪市\, 27 556-0011\, Japan
-DESCRIPTION:Format: Modern\nCost: $100\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3129262\n\n1回戦固定、BO
- 3\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129262
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3129263
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Legacy] 刹那の戦い レガシー
-LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
-  大阪市\, 27 556-0011\, Japan
-DESCRIPTION:Format: Legacy\nCost: $100\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3129263\n\n1回戦固定、BO
- 3\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129263
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3135697
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Other] Magic Academy: Learn to Play
 LOCATION:Runehammer Games\, 中央区三宮1-9-1 センタープラザ203\
  , 神戸市\, 28 650-0021\, Japan
 DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
  r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3135697\n\nhttps://www.hareruy
+ nt Details: https://www.spicerack.gg/events/3135698\n\nhttps://www.hareruy
  amtg.com/ja/events/?shop=19&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3135697
+URL;VALUE=URI:https://www.spicerack.gg/events/3135698
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3132947
+UID:spicerack-3144349
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
+SUMMARY:[Commander] All-Day Free Commander
+LOCATION:Runehammer Games\, 3348 S 5600 W\, West Valley City\, UT\, 84120\
+ , United States
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3144349\n\nFree commander 
+ for all! Join us for some Magic action at SuperKo! We have people in an ou
+ t all day\, feel free to stop in at anytime and catch a game with free pri
+ ze support! 1 Promo per win!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3144349
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3132961
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T060000Z
+DTEND:20260414T090000Z
 SUMMARY:[Sealed] [カジュアルイベント]カオスシールド交流
  会 in 吉祥寺
 LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
  \, 180-0004\, Japan
 DESCRIPTION:Format: Sealed\nCost: $100\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3132947\n\n参加賞：シン
+ ent Details: https://www.spicerack.gg/events/3132961\n\n参加賞：シン
  グルカード100円割引券\n\n月始めの1日から月の終わりに
  記録された月間成績に応じて賞品を進呈いたします。\n
  最多月間勝利数\n1位と2位：最新版Foil版プロモパック1
@@ -281,964 +630,753 @@ DESCRIPTION:Format: Sealed\nCost: $100\nStore Website: http://www.runehamm
  通常版のプロモパックがお渡しできない場合はシング
  ルカード100円割引券を3枚お渡しいたします。\n\nSource: s
  picerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132947
+URL;VALUE=URI:https://www.spicerack.gg/events/3132961
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3162488
+UID:spicerack-2972604
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T060000Z
-DTEND:20260413T090000Z
-SUMMARY:[Commander] Monday Casual Commander at Game Masters - Cheyenne
-LOCATION:Runehammer Games\, 1612 Central Ave\, Cheyenne\, WY\, 82001\, Uni
- ted States
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T063000Z
+DTEND:20260414T093000Z
+SUMMARY:[Modern] Modern League
+LOCATION:Runehammer Games\, 531 Great South Road\, Penrose\, Auckland\, AU
+ K\, 1061\, New Zealand
+DESCRIPTION:Format: Modern\nCost: $15\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/2972604\n\nModern League at Ho
+ bby Master\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2972604
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3092540
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T063000Z
+DTEND:20260414T093000Z
+SUMMARY:[Commander] TTW Prospect Commander
+LOCATION:Runehammer Games\, 268 Main N Rd\, Prospect\, SA\, 5082\, Austral
+ ia
 DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3162488\n\nCasual Commande
- r All Day Long!\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3162488
+ nEvent Details: https://www.spicerack.gg/events/3092540\n\nTTW Prospect Co
+ mmander\nCome on in\, play some games and have some fun!\nSource: spicerac
+ k
+URL;VALUE=URI:https://www.spicerack.gg/events/3092540
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3004460
+UID:spicerack-3004461
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T063000Z
-DTEND:20260413T093000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T063000Z
+DTEND:20260414T093000Z
 SUMMARY:[Commander] Daily Commander Events
 LOCATION:Runehammer Games\, 450 Hougang Ave 10  #B1-541\, Singapore\, X1 5
  30450\, Singapore
 DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3004460\n\nDaily Commander
+ nEvent Details: https://www.spicerack.gg/events/3004461\n\nDaily Commander
   Events\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3004460
+URL;VALUE=URI:https://www.spicerack.gg/events/3004461
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2932549
+UID:spicerack-2932553
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T063000Z
-DTEND:20260413T093000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T063000Z
+DTEND:20260414T093000Z
 SUMMARY:[Standard] MtG Standard BO3 Tokyo Shinjuku15:30–18:45
 LOCATION:Runehammer Games\, 西新宿1-15-6 ゴールドビル302\, 新宿
  区\, 13 160-0023\, Japan
 DESCRIPTION:Format: Standard\nCost: $2000\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/2932549\n\nPre-registratio
+ nEvent Details: https://www.spicerack.gg/events/2932553\n\nPre-registratio
  n 予約: ¥1000\nWalk-in (no reservation) 予約なし: ¥2000\nSeats are
   limited. Pre-registration recommended.\n\nReservation page 予約ペー
  ジ\n https://km9lcddmqmzn56s9carr.stores.jp/reserve/Mtg-Tokyo-Shinjuku\nS
  ource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2932549
+URL;VALUE=URI:https://www.spicerack.gg/events/2932553
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2971186
+UID:spicerack-2932554
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T063000Z
-DTEND:20260413T093000Z
-SUMMARY:[Commander] Commander Monday 
-LOCATION:Runehammer Games\, Unit 56/691 Manukau Road\, Royal Oak Mall\, Au
- ckland\, AUK\, 1023\, New Zealand
-DESCRIPTION:Format: Commander\nCost: $11\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/2971186\n\nCommander Night 
- Mondays\n\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2971186
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3160636
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T063000Z
-DTEND:20260413T093000Z
-SUMMARY:[Vintage] 7-Point Highlander 
-LOCATION:Runehammer Games\, Level 1\, Hamilton\, WKO\, 3204\, New Zealand
-DESCRIPTION:Format: Vintage\nCost: $12\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3160636\n\n7-Point Highlander
-  :)\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3160636
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2906635
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
-SUMMARY:[Sealed] マジック・リーグ
-LOCATION:Runehammer Games\, 東野町神田101\, 江南市\, 23 483-8431\,
-  Japan
-DESCRIPTION:Format: Sealed\nCost: Free\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/2906635\n\nリーグ（ター
- トルズ以降次パックまでタートルズ）\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2906635
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2932550
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Commander] Commander (Bracket 3) Tokyo Shinjuku 16-19
 LOCATION:Runehammer Games\, 西新宿1-15-6 ゴールドビル302\, 新宿
  区\, 13 160-0023\, Japan
 DESCRIPTION:Format: Commander\nCost: $2000\nStore Website: http://www.rune
  hammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455
- \nEvent Details: https://www.spicerack.gg/events/2932550\n\nPre-registrati
+ \nEvent Details: https://www.spicerack.gg/events/2932554\n\nPre-registrati
  on 予約: ¥1000\nWalk-in (no reservation) 予約なし: ¥2000\nSeats ar
  e limited. Pre-registration recommended.\n\nReservation page 予約ペー
  ジ\n https://km9lcddmqmzn56s9carr.stores.jp/reserve/Mtg-Tokyo-Shinjuku\nS
  ource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2932550
+URL;VALUE=URI:https://www.spicerack.gg/events/2932554
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3115515
+UID:spicerack-3115518
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Other] Magic Academy: Deck Building
 LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
  30-0001\, Japan
 DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
  r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3115515\n\nhttps://www.hareruy
+ nt Details: https://www.spicerack.gg/events/3115518\n\nhttps://www.hareruy
  amtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3115515
+URL;VALUE=URI:https://www.spicerack.gg/events/3115518
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3126948
+UID:spicerack-3126958
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
-SUMMARY:[Other] Magic Academy: Deck Building
-LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
- ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3126948\n\n手ぶらでご参
- 加頂けます。\n初心者の方や復帰された方もご参加頂け
- ます。\nイベントで使用するプレイ・ブースター3パッ
- クは別途お求め頂きます。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3126948
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3126949
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Other] Magic Academy: Learn to Play
 LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
  ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
 DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
  r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3126949\n\n手ぶらでご参
+ nt Details: https://www.spicerack.gg/events/3126958\n\n手ぶらでご参
  加頂けます。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3126949
+URL;VALUE=URI:https://www.spicerack.gg/events/3126958
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3138694
+UID:spicerack-3138709
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Standard] スタンダード 16:00
 LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
  30-0001\, Japan
 DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3138694\n\nhttps://www.hare
+ Event Details: https://www.spicerack.gg/events/3138709\n\nhttps://www.hare
  ruyamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138694
+URL;VALUE=URI:https://www.spicerack.gg/events/3138709
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3138695
+UID:spicerack-3138710
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Pioneer] パイオニア 16:00
 LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
  30-0001\, Japan
 DESCRIPTION:Format: Pioneer\nCost: $100\nStore Website: http://www.runeham
  mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3138695\n\nhttps://www.harer
+ vent Details: https://www.spicerack.gg/events/3138710\n\nhttps://www.harer
  uyamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138695
+URL;VALUE=URI:https://www.spicerack.gg/events/3138710
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3138696
+UID:spicerack-3138711
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Modern] モダン 16:00
 LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
  30-0001\, Japan
 DESCRIPTION:Format: Modern\nCost: $100\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3138696\n\nhttps://www.hareru
+ ent Details: https://www.spicerack.gg/events/3138711\n\nhttps://www.hareru
  yamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138696
+URL;VALUE=URI:https://www.spicerack.gg/events/3138711
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3138697
+UID:spicerack-3138712
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T070000Z
-DTEND:20260413T100000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
 SUMMARY:[Legacy] レガシー 16:00
 LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
  30-0001\, Japan
 DESCRIPTION:Format: Legacy\nCost: $100\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3138697\n\nhttps://www.hareru
+ ent Details: https://www.spicerack.gg/events/3138712\n\nhttps://www.hareru
  yamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138697
+URL;VALUE=URI:https://www.spicerack.gg/events/3138712
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3041192
+UID:spicerack-3138713
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T073000Z
-DTEND:20260413T103000Z
-SUMMARY:[Commander] [Shuffled Salisbury] Commander
-LOCATION:Runehammer Games\, 3/7-9 Gawler Street\, Salisbury\, SA\, 5108\, 
- Australia
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3041192\n\n-\nSource: spic
- erack
-URL;VALUE=URI:https://www.spicerack.gg/events/3041192
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T070000Z
+DTEND:20260414T100000Z
+SUMMARY:[Pauper] パウパー 16:00
+LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
+ 30-0001\, Japan
+DESCRIPTION:Format: Pauper\nCost: $100\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3138713\n\nhttps://www.hareru
+ yamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3138713
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3058314
+UID:spicerack-3058315
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Commander] Magic Play Day Everyday
 LOCATION:Runehammer Games\, Richard-Wagner-Straße 9 Objekt am Halleschen 
  Tor 1\, Brühl 33\, Leipzig\, Sachsen\, 04109\, Germany
 DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3058314\n\nJeden Tag auße
+ nEvent Details: https://www.spicerack.gg/events/3058315\n\nJeden Tag auße
  r Sonn-/ und Feiertage!\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3058314
+URL;VALUE=URI:https://www.spicerack.gg/events/3058315
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3084519
+UID:spicerack-2929966
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Commander] 統率者交流会Global Day
-LOCATION:Runehammer Games\, 神田岩本町1-1 岩本町ビル5F\, 千代
- 田区\, 13\, 101-0021\, Japan
-DESCRIPTION:Format: Commander\nCost: $500\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3084519\n\n席料：500円
- \n買物：2\,000円\n参加料：1\,000円（1\,000ポイント付与）\
- nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3084519
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2904280
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Commander] Casual Commander
-LOCATION:Runehammer Games\, 38 Garema Place\, Canberra\, ACT\, 2600\, Aust
- ralia
-DESCRIPTION:Format: Commander\nCost: $10\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/2904280\n\nCasual Commander
-  at Good Games Canberra City\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2904280
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2929957
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Legacy]  デイリーイベント夕方の部 レガシー
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Legacy] プロモパック争奪戦レガシー 夕方の部
 LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
  市\, 23 453-0015\, Japan
 DESCRIPTION:Format: Legacy\nCost: $500\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/2929957\n\n*-*/\nSource: spic
+ ent Details: https://www.spicerack.gg/events/2929966\n\n*-*/\nSource: spic
  erack
-URL;VALUE=URI:https://www.spicerack.gg/events/2929957
+URL;VALUE=URI:https://www.spicerack.gg/events/2929966
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3094608
+UID:spicerack-3094610
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Standard] ミュータント タートルズ スタンダード
  ショーダウン 夕方の部 Standard Showdown
 LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
  市\, 23 453-0015\, Japan
 DESCRIPTION:Format: Standard\nCost: $500\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3094608\n\n*-*/\nSource: sp
+ Event Details: https://www.spicerack.gg/events/3094610\n\n*-*/\nSource: sp
  icerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3094608
+URL;VALUE=URI:https://www.spicerack.gg/events/3094610
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3104764
+UID:spicerack-3095271
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Pioneer] 福岡デイリーイベント【パイオニア】
-LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
- 福岡市\, 40\, 810-0041\, Japan
-DESCRIPTION:Format: Pioneer\nCost: Free\nStore Website: http://www.runeham
- mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3104764\n\n福岡デイリ
- ーイベント【パイオニア】\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3104764
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Commander] Commander Night Brackets 2/3
+LOCATION:Runehammer Games\, 260 Charters Towers Rd\, Hermit Park\, QLD\, 4
+ 812\, Australia
+DESCRIPTION:Format: Commander\nCost: $10\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/3095271\n\nCasual Commander
+ \nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3095271
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3101063
+UID:spicerack-2929963
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Other] Magic Academy: Learn to Play
-LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
- 福岡市\, 40\, 810-0041\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3101063\n\nMagic Academy: Lear
- n to Play\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3101063
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2929956
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Pioneer]  デイリーイベント夕方の部 パイオニア
 LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
  市\, 23 453-0015\, Japan
 DESCRIPTION:Format: Pioneer\nCost: $500\nStore Website: http://www.runeham
  mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/2929956\n\n*-*/\nSource: spi
+ vent Details: https://www.spicerack.gg/events/2929963\n\n*-*/\nSource: spi
  cerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2929956
+URL;VALUE=URI:https://www.spicerack.gg/events/2929963
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3068720
+UID:spicerack-2929964
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Commander] Monday Night Commander
-LOCATION:Runehammer Games\, Level 1/722 Pittwater Road\, Brookvale\, NSW\,
-  2100\, Australia
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3068720\n\nMonday Night Co
- mmander\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3068720
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2929958
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Modern] プレミアムプロモパック争奪戦モダン 夕
- 方の部
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Modern]  デイリーイベント夕方の部 モダン
 LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
  市\, 23 453-0015\, Japan
 DESCRIPTION:Format: Modern\nCost: $500\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/2929958\n\n*-*/\nSource: spic
+ ent Details: https://www.spicerack.gg/events/2929964\n\n*-*/\nSource: spic
  erack
-URL;VALUE=URI:https://www.spicerack.gg/events/2929958
+URL;VALUE=URI:https://www.spicerack.gg/events/2929964
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3104763
+UID:spicerack-3101065
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
+ 福岡市\, 40\, 810-0041\, Japan
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/3101065\n\nMagic Academy: Lear
+ n to Play\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3101065
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3104772
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Standard] 福岡デイリーイベント【スタンダード】
 LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
  福岡市\, 40\, 810-0041\, Japan
 DESCRIPTION:Format: Standard\nCost: Free\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3104763\n\n福岡デイリ
+ Event Details: https://www.spicerack.gg/events/3104772\n\n福岡デイリ
  ーイベント【スタンダード】\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3104763
+URL;VALUE=URI:https://www.spicerack.gg/events/3104772
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3104438
+UID:spicerack-3104773
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Other] Magic Academy: Learn to Play
-LOCATION:Runehammer Games\, 駅前1-16-7 Ati郡山8F\, 郡山市\, 07 963-
- 8002\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3104438\n\n「 Magic Academy
- ：マジックの遊び方」とは？ 「Magic Academy：マジックの
- 遊び方」は、ビギナー・ボックスやウェルカムデッキ
- を用いて最高の新規プレイヤー向け体験をご提供する
- シリーズ・イベントの１つです。新規プレイヤーはチ
- ュートリアル動画で遊び方を学び、その後和やかに実
- 際のゲームを楽しめます。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3104438
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Pioneer] 福岡デイリーイベント【パイオニア】
+LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
+ 福岡市\, 40\, 810-0041\, Japan
+DESCRIPTION:Format: Pioneer\nCost: Free\nStore Website: http://www.runeham
+ mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
+ vent Details: https://www.spicerack.gg/events/3104773\n\n福岡デイリ
+ ーイベント【パイオニア】\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3104773
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3104765
+UID:spicerack-3068242
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Pioneer] さくっとパイオニア(平日無料)
+LOCATION:Runehammer Games\, 中区大須4丁目11-5\, 名古屋市\, 23\, 
+ 460-0011\, Japan
+DESCRIPTION:Format: Pioneer\nCost: Free\nStore Website: http://www.runeham
+ mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
+ vent Details: https://www.spicerack.gg/events/3068242\n\n****\nSource: spi
+ cerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3068242
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3104774
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Modern] 福岡デイリーイベント【モダン】
 LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
  福岡市\, 40\, 810-0041\, Japan
 DESCRIPTION:Format: Modern\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3104765\n\n福岡デイリー
+ ent Details: https://www.spicerack.gg/events/3104774\n\n福岡デイリー
  イベント【モダン】\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3104765
+URL;VALUE=URI:https://www.spicerack.gg/events/3104774
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3104766
+UID:spicerack-3104775
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Legacy] 福岡デイリーイベント【レガシー】
 LOCATION:Runehammer Games\, 中央区大名2-1-53 天神吉田ビル6F\, 
  福岡市\, 40\, 810-0041\, Japan
 DESCRIPTION:Format: Legacy\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3104766\n\n福岡デイリー
+ ent Details: https://www.spicerack.gg/events/3104775\n\n福岡デイリー
  イベント【レガシー】\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3104766
+URL;VALUE=URI:https://www.spicerack.gg/events/3104775
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3124106
+UID:spicerack-2929965
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Legacy] 17時の部 Legacy
-LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
-  169-0075\, Japan
-DESCRIPTION:Format: Legacy\nCost: $500\nStore Website: http://www.runehamm
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Pauper] プロモパック争奪戦パウパー 夕方の部
+LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
+ 市\, 23 453-0015\, Japan
+DESCRIPTION:Format: Pauper\nCost: $500\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3124106\n\n17 Legacy\nSource:
-  spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3124106
+ ent Details: https://www.spicerack.gg/events/2929965\n\n*-*/\nSource: spic
+ erack
+URL;VALUE=URI:https://www.spicerack.gg/events/2929965
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3124104
+UID:spicerack-2939217
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Commander] ZGG Casual Commander 
+LOCATION:Runehammer Games\, 9 Aurora Dr\, uMhlanga\, KZN\, 4319\, South Af
+ rica
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/2939217\n\nRichards Bay - 
+ Zululand Gamers Guild Casual Commander\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2939217
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124126
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Pioneer] 17時の部 Pioneer
 LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
   169-0075\, Japan
 DESCRIPTION:Format: Pioneer\nCost: $500\nStore Website: http://www.runeham
  mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3124104\n\n17 Pioneer\nSourc
+ vent Details: https://www.spicerack.gg/events/3124126\n\n17 Pioneer\nSourc
  e: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3124104
+URL;VALUE=URI:https://www.spicerack.gg/events/3124126
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3124105
+UID:spicerack-3124125
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Modern] 17時の部 Modern
-LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
-  169-0075\, Japan
-DESCRIPTION:Format: Modern\nCost: $500\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3124105\n\n17 Modern\nSource:
-  spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3124105
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3117228
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Commander] Monday Night Casual Commander
-LOCATION:Runehammer Games\, 4220 South Park Ave\, Blasdell\, NY\, 14219\, 
- US
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3117228\n\nFREE Casual Com
- mander.  Bring your favorite deck\, not your best deck and make some new f
- riends\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3117228
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3026279
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Commander] WALK IN MAGIC @ MABON
-LOCATION:Runehammer Games\, 45 Charles St\, Milford Haven\, Wales\, SA73 2
- AA\, United Kingdom
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3026279\n\nJoin us for dai
- ly Magic at Mabon! Come along to learn with us\, or bring some friends to 
- play here! We have decks of all levels to borrow\, so join us for some fre
- e fun!\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3026279
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049017
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Commander] サクッとデイリー（統率者戦）
-LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
- \, Japan
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3049017\n\nサクッとデ
- イリー（統率者戦）\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049017
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049018
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Other] Magic Academy: Deck Building
-LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
- \, Japan
-DESCRIPTION:Format: Other\nCost: $3300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3049018\n\nデッキ構築【
- 初心者体験会】\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049018
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049013
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Standard] サクッとデイリー（スタンダード）
-LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
- \, Japan
-DESCRIPTION:Format: Standard\nCost: Free\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3049013\n\nサクッとデ
- イリー（スタンダード）\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049013
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049014
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Pioneer] サクッとデイリー（パイオニア）
-LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
- \, Japan
-DESCRIPTION:Format: Pioneer\nCost: Free\nStore Website: http://www.runeham
- mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3049014\n\nサクッとデ
- イリー（パイオニア）\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049014
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049015
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Modern] サクッとデイリー（モダン）
-LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
- \, Japan
-DESCRIPTION:Format: Modern\nCost: Free\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3049015\n\nサクッとデイ
- リー（モダン）\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049015
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049016
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Legacy] サクッとデイリー（レガシー）
-LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
- \, Japan
-DESCRIPTION:Format: Legacy\nCost: Free\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3049016\n\nサクッとデイ
- リー（レガシー）\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049016
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3124103
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Standard] 17時の部 Standard
 LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
   169-0075\, Japan
 DESCRIPTION:Format: Standard\nCost: $500\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3124103\n\n17 Standard\nSou
+ Event Details: https://www.spicerack.gg/events/3124125\n\n17 Standard\nSou
  rce: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3124103
+URL;VALUE=URI:https://www.spicerack.gg/events/3124125
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3068234
+UID:spicerack-3124127
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Legacy] さくっとレガシー(平日無料)
-LOCATION:Runehammer Games\, 中区大須4丁目11-5\, 名古屋市\, 23\, 
- 460-0011\, Japan
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Modern] 17時の部 Modern
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Modern\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3124127\n\n17 Modern\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124127
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124128
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Legacy] 17時の部 Legacy
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Legacy\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3124128\n\n17 Legacy\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124128
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3026280
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Commander] WALK IN MAGIC @ MABON
+LOCATION:Runehammer Games\, 45 Charles St\, Milford Haven\, Wales\, SA73 2
+ AA\, United Kingdom
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3026280\n\nJoin us for dai
+ ly Magic at Mabon! Come along to learn with us\, or bring some friends to 
+ play here! We have decks of all levels to borrow\, so join us for some fre
+ e fun!\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3026280
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049026
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Standard] サクッとデイリー（スタンダード）
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Standard\nCost: Free\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/3049026\n\nサクッとデ
+ イリー（スタンダード）\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049026
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049027
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Pioneer] サクッとデイリー（パイオニア）
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Pioneer\nCost: Free\nStore Website: http://www.runeham
+ mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
+ vent Details: https://www.spicerack.gg/events/3049027\n\nサクッとデ
+ イリー（パイオニア）\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049027
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049028
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Modern] サクッとデイリー（モダン）
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Modern\nCost: Free\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3049028\n\nサクッとデイ
+ リー（モダン）\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049028
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049029
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Legacy] サクッとデイリー（レガシー）
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
 DESCRIPTION:Format: Legacy\nCost: Free\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3068234\n\n****\nSource: spic
- erack
-URL;VALUE=URI:https://www.spicerack.gg/events/3068234
+ ent Details: https://www.spicerack.gg/events/3049029\n\nサクッとデイ
+ リー（レガシー）\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049029
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3127179
+UID:spicerack-3049030
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Commander] サクッとデイリー（統率者戦）
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3049030\n\nサクッとデ
+ イリー（統率者戦）\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049030
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3049031
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Runehammer Games\, 上天神町562-1 2F\, 高松市\, 37 761-8056
+ \, Japan
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/3049031\n\nマジックの遊
+ び方【初心者体験会】\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3049031
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3124129
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Pauper] 17時の部 Pauper
+LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
+  169-0075\, Japan
+DESCRIPTION:Format: Pauper\nCost: $500\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3124129\n\n17 Pauper\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3124129
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3127185
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Commander] カジュアルコマンダー【ブラケット3推
  奨】
 LOCATION:Runehammer Games\, 葵区伝馬町10-25 中央ビル5F\, 静岡
  市\, 22 420-0858\, Japan
 DESCRIPTION:Format: Commander\nCost: $300\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3127179\n\nブラケット
+ nEvent Details: https://www.spicerack.gg/events/3127185\n\nブラケット
  3推奨 1回戦固定イベント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3127179
+URL;VALUE=URI:https://www.spicerack.gg/events/3127185
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3129264
+UID:spicerack-3129283
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Commander] 平日さくっと統率者
 LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
   大阪市\, 27 556-0011\, Japan
 DESCRIPTION:Format: Commander\nCost: $100\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3129264\n\n統率者イベ
+ nEvent Details: https://www.spicerack.gg/events/3129283\n\n統率者イベ
  ント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129264
+URL;VALUE=URI:https://www.spicerack.gg/events/3129283
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3129265
+UID:spicerack-3129284
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Legacy] 100円デイリー レガシー
 LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
   大阪市\, 27 556-0011\, Japan
 DESCRIPTION:Format: Legacy\nCost: $100\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3129265\n\n2回戦固定、BO
+ ent Details: https://www.spicerack.gg/events/3129284\n\n2回戦固定、BO
  2のイベント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129265
+URL;VALUE=URI:https://www.spicerack.gg/events/3129284
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3129266
+UID:spicerack-3129285
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Pioneer] 100円デイリー パイオニア
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Pioneer] 100円デイリー パイオニア(推奨日)
 LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
   大阪市\, 27 556-0011\, Japan
 DESCRIPTION:Format: Pioneer\nCost: $100\nStore Website: http://www.runeham
  mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3129266\n\n2回戦固定、B
+ vent Details: https://www.spicerack.gg/events/3129285\n\n2回戦固定、B
  O2のイベント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129266
+URL;VALUE=URI:https://www.spicerack.gg/events/3129285
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3129267
+UID:spicerack-3129286
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Modern] 100円デイリー モダン
 LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
   大阪市\, 27 556-0011\, Japan
 DESCRIPTION:Format: Modern\nCost: $100\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3129267\n\n2回戦固定、BO
+ ent Details: https://www.spicerack.gg/events/3129286\n\n2回戦固定、BO
  2のイベント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129267
+URL;VALUE=URI:https://www.spicerack.gg/events/3129286
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3129268
+UID:spicerack-3129287
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
-SUMMARY:[Standard] 100円デイリー スタンダード(推奨日)
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
+SUMMARY:[Standard] 100円デイリー スタンダード
 LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
   大阪市\, 27 556-0011\, Japan
 DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3129268\n\n2回戦固定、
+ Event Details: https://www.spicerack.gg/events/3129287\n\n2回戦固定、
  BO2のイベント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3129268
+URL;VALUE=URI:https://www.spicerack.gg/events/3129287
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3138698
+UID:spicerack-3138714
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T080000Z
-DTEND:20260413T110000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T080000Z
+DTEND:20260414T110000Z
 SUMMARY:[Commander] コマンダー 17:00
 LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
  30-0001\, Japan
 DESCRIPTION:Format: Commander\nCost: $500\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3138698\n\nhttps://www.har
+ nEvent Details: https://www.spicerack.gg/events/3138714\n\nhttps://www.har
  eruyamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138698
+URL;VALUE=URI:https://www.spicerack.gg/events/3138714
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3012292
+UID:spicerack-2907359
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Commander] Evento Casual
-LOCATION:Runehammer Games\, C/ Setenil\, 13\, Ronda\, MA\, 29400\, Spain
-DESCRIPTION:Format: Commander\nCost: $5\nStore Website: http://www.runeham
- mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3012292\n\nEvento\nSource: s
- picerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3012292
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Commander] Tuesday Night Commander
+LOCATION:Runehammer Games\, LG 62 Queen St\, Brisbane City\, QLD\, 4000\, 
+ Australia
+DESCRIPTION:Format: Commander\nCost: $14\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/2907359\n\nTuesday Night Co
+ mmander at Vault Games Brisbane. \n\n$14 entry 1x Booster for attending.\n
+ Source: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2907359
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3068693
+UID:spicerack-3068695
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
 SUMMARY:[Commander] Commander Reimagined
 LOCATION:Runehammer Games\, 363 Gympie Rd\, Strathpine\, QLD\, 4500\, Aust
  ralia
 DESCRIPTION:Format: Commander\nCost: $15\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3068693\n\ncommander\nSourc
+ Event Details: https://www.spicerack.gg/events/3068695\n\ncommander\nSourc
  e: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3068693
+URL;VALUE=URI:https://www.spicerack.gg/events/3068695
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3068694
+UID:spicerack-3053842
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Commander] CEDH at Good Games Strathpine
-LOCATION:Runehammer Games\, 363 Gympie Rd\, Strathpine\, QLD\, 4500\, Aust
- ralia
-DESCRIPTION:Format: Commander\nCost: $15\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3068694\n\nCEDH\nSource: sp
- icerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3068694
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3053840
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Standard] さくっとスタンダード
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Pioneer] さくっとパイオニア
 LOCATION:Runehammer Games\, 七条通新町路東入る西堺町149-14\, 
  京都市下京区\, 京都府\, 600-8218\, Japan
-DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3053840\n\nhttps://www.hare
- ruyamtg.com/ja/events/?shop=29\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3053840
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3053841
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Pauper] さくっとパウパー
-LOCATION:Runehammer Games\, 七条通新町路東入る西堺町149-14\, 
- 京都市下京区\, 京都府\, 600-8218\, Japan
-DESCRIPTION:Format: Pauper\nCost: $100\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3053841\n\nhttps://www.hareru
- yamtg.com/ja/events/?shop=29\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3053841
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132949
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Standard] 【4月より賞品量up！】【ビギナー向け】
- 晴れ吉さくっとデイリースタンダード【2回戦】
-LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
- \, 180-0004\, Japan
-DESCRIPTION:Format: Standard\nCost: $300\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3132949\n\n参加賞：シ
- ングルカード100円割引券×3枚\n2勝：500ポイント\n1勝：
- シングルカード100円割引券\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132949
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132950
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Pioneer] 【4月より賞品量up！】【ビギナー向け】
- 晴れ吉さくっとデイリーパイオニア【2回戦】
-LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
- \, 180-0004\, Japan
-DESCRIPTION:Format: Pioneer\nCost: $300\nStore Website: http://www.runeham
+DESCRIPTION:Format: Pioneer\nCost: $100\nStore Website: http://www.runeham
  mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3132950\n\n参加賞：シ
- ングルカード100円割引券×3枚\n2勝：500ポイント\n1勝：
- シングルカード100円割引券\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132950
+ vent Details: https://www.spicerack.gg/events/3053842\n\nhttps://www.harer
+ uyamtg.com/ja/events/?shop=29\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3053842
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3133284
+UID:spicerack-3132962
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Other] Magic Academy: Deck Building
-LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
-  大阪市\, 27 556-0011\, Japan
-DESCRIPTION:Format: Other\nCost: $3300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3133284\n\n初心者イベン
- ト、参加費はパック購入代金の一例になっております
- 。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3133284
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3133285
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Other] 初心者体験会
-LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
-  大阪市\, 27 556-0011\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3133285\n\n初心者向けイ
- ベント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3133285
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132463
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Commander] Commander Casual
-LOCATION:Runehammer Games\, Avda. María Auxiliador 45\, Bajo Dcha \, Bada
- joz\, BA\, 06011\, Spain
-DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3132463\n\nGratis\nSource:
-  spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132463
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132953
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Commander] カジュアル統率者交流会in吉祥寺【1回戦
- 】【ブラケット3：アップグレード】
-LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
- \, 180-0004\, Japan
-DESCRIPTION:Format: Commander\nCost: $100\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3132953\n\n参加賞：シ
- ングルカード100円割引券+特製プロモオリパ1つ\n勝者：
- シングルカード100円割引券\n盛り上げ賞：シングルカー
- ド100円割引券\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132953
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132951
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Modern] 【4月より賞品量up！】【ビギナー向け】晴
- れ吉さくっとデイリーモダン【2回戦】
-LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
- \, 180-0004\, Japan
-DESCRIPTION:Format: Modern\nCost: $300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3132951\n\n参加賞：シン
- グルカード100円割引券×3枚\n2勝：500ポイント\n1勝：シ
- ングルカード100円割引券\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132951
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132948
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
 SUMMARY:[Standard] カジュアルマジック！【スタンダード交
  流会】
 LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
  \, 180-0004\, Japan
 DESCRIPTION:Format: Standard\nCost: $600\nStore Website: http://www.runeha
  mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3132948\n\n参加費の中
+ Event Details: https://www.spicerack.gg/events/3132962\n\n参加費の中
  に以下賞品が含まれます。\n①『マジック：ザ・ギャザ
  リング | ミュータント タートルズ』日本語版プレイブ
  ースター1パック※\n②100円割引券2枚\n\nグッドデッキ賞
@@ -1250,383 +1388,267 @@ DESCRIPTION:Format: Standard\nCost: $600\nStore Website: http://www.runeha
  デーションズ』日本語版プレイブースターに代えてご
  案内する場合があります。予めご了承ください。\nSource
  : spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132948
+URL;VALUE=URI:https://www.spicerack.gg/events/3132962
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3132952
+UID:spicerack-3132963
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Standard] 【4月より賞品量up！】【ビギナー向け】
+ 晴れ吉さくっとデイリースタンダード【2回戦】
+LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
+ \, 180-0004\, Japan
+DESCRIPTION:Format: Standard\nCost: $300\nStore Website: http://www.runeha
+ mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
+ Event Details: https://www.spicerack.gg/events/3132963\n\n参加賞：シ
+ ングルカード100円割引券×3枚\n2勝：500ポイント\n1勝：
+ シングルカード100円割引券\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3132963
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3133286
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Other] Magic Academy: Learn to Play
+LOCATION:Runehammer Games\, 浪速区難波中2丁目2-15 高砂ビル2F\,
+  大阪市\, 27 556-0011\, Japan
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/3133286\n\n初心者体験会\
+ nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3133286
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3132464
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Commander] Commander Casual
+LOCATION:Runehammer Games\, Avda. María Auxiliador 45\, Bajo Dcha \, Bada
+ joz\, BA\, 06011\, Spain
+DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3132464\n\nGratis\nSource:
+  spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3132464
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3132964
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Pioneer] 【4月より賞品量up！】【ビギナー向け】
+ 晴れ吉さくっとデイリーパイオニア【2回戦】
+LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
+ \, 180-0004\, Japan
+DESCRIPTION:Format: Pioneer\nCost: $300\nStore Website: http://www.runeham
+ mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
+ vent Details: https://www.spicerack.gg/events/3132964\n\n参加賞：シ
+ ングルカード100円割引券×3枚\n2勝：500ポイント\n1勝：
+ シングルカード100円割引券\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3132964
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3132967
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Commander] カジュアル統率者交流会in吉祥寺【1回戦
+ 】【ブラケット3：アップグレード】
+LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
+ \, 180-0004\, Japan
+DESCRIPTION:Format: Commander\nCost: $100\nStore Website: http://www.runeh
+ ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
+ nEvent Details: https://www.spicerack.gg/events/3132967\n\n参加賞：シ
+ ングルカード100円割引券+特製プロモオリパ1つ\n勝者：
+ シングルカード100円割引券\n盛り上げ賞：シングルカー
+ ド100円割引券\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3132967
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3132965
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
+SUMMARY:[Modern] 【4月より賞品量up！】【ビギナー向け】晴
+ れ吉さくっとデイリーモダン【2回戦】
+LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
+ \, 180-0004\, Japan
+DESCRIPTION:Format: Modern\nCost: $300\nStore Website: http://www.runehamm
+ er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
+ ent Details: https://www.spicerack.gg/events/3132965\n\n参加賞：シン
+ グルカード100円割引券×3枚\n2勝：500ポイント\n1勝：シ
+ ングルカード100円割引券\nSource: spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/3132965
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-3132966
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T083000Z
+DTEND:20260414T113000Z
 SUMMARY:[Legacy] 【4月より賞品量up！】【ビギナー向け】晴
  れ吉さくっとデイリーレガシー【2回戦】
 LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
  \, 180-0004\, Japan
 DESCRIPTION:Format: Legacy\nCost: $300\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3132952\n\n参加賞：シン
+ ent Details: https://www.spicerack.gg/events/3132966\n\n参加賞：シン
  グルカード100円割引券×3枚\n2勝：500ポイント\n1勝：シ
  ングルカード100円割引券\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132952
+URL;VALUE=URI:https://www.spicerack.gg/events/3132966
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3159487
+UID:spicerack-2909716
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T083000Z
-DTEND:20260413T113000Z
-SUMMARY:[Draft] NJC Hosts a Draft of Edge of Eternities!
-LOCATION:Runehammer Games\, Unit 7\, 1 Reliance Drive\, Tuggerah\, NSW\, 2
- 259\, Australia
-DESCRIPTION:Format: Draft\nCost: $35\nStore Website: http://www.runehammer
- .online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEven
- t Details: https://www.spicerack.gg/events/3159487\n\nNJC is hosting an Ed
- ge of Eternities Draft! \n$35 entry\n3 packs to draft\n1 Pack into the pri
- ze pool for top down prizing!\nCasual but fun. Bring your best drafting sk
- ills~\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3159487
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2906159
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T085900Z
-DTEND:20260413T115900Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T085900Z
+DTEND:20260414T115900Z
 SUMMARY:[Other] It's Turtle Time!
 LOCATION:Runehammer Games\, 太田町14-42 尾形ビル1F\, 福島市\, 07
   960-8068\, Japan
 DESCRIPTION:Format: Other\nCost: $2500\nStore Website: http://www.runehamm
  er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/2906159\n\nIt's Turtle Time!\
+ ent Details: https://www.spicerack.gg/events/2909716\n\nIt's Turtle Time!\
  nマジックプレゼンツ：イッツタートルタイム！\nブー
  スター３パック使用賞品ありプレイブースターパック
  などくわしくは https://x.com/LitaikaiR\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2906159
+URL;VALUE=URI:https://www.spicerack.gg/events/2909716
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2904279
+UID:spicerack-2990489
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Commander] Monday Night Commander
-LOCATION:Runehammer Games\, LG 62 Queen St\, Brisbane City\, QLD\, 4000\, 
- Australia
-DESCRIPTION:Format: Commander\nCost: $14\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/2904279\n\nMonday night com
- mander at Vault Games Brisbane City. \n\nCost:\n$14 1x Booster for attendi
- ng\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2904279
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T090000Z
+DTEND:20260414T120000Z
+SUMMARY:[Other] Ankauf Einzelkarten\, Sammlung oder Tausch - Nachmittag im
+  Laden
+LOCATION:Runehammer Games\, 48 Hauptstraße\, Goslar\, NDS\, 38690\, Germa
+ ny
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/2990489\n\nTausche mit der Com
+ munity oder wir kaufen deine Karten im Store für Store Guthaben\nSource: 
+ spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2990489
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2905714
+UID:spicerack-2907252
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T090000Z
+DTEND:20260414T120000Z
+SUMMARY:[Other] Casual Play
+LOCATION:Runehammer Games\, C/ Valladolid 41\, Barcelona\, B\, 08014\, Spa
+ in
+DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
+ r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
+ nt Details: https://www.spicerack.gg/events/2907252\n\n[CAT] Vine a jugar 
+ a Magic a la nostra sala! :D Botiga LGTBIQ+ 🏳️‍🌈 | [ES] ¡Ven a 
+ jugar a Magic a nuestra sala! :D Tienda LGTBIQ+ 🏳️‍🌈 | [EN] Come
+  play Magic in our game room! :D LGTBIQ+ Safe Space 🏳️‍🌈\nSource
+ : spicerack
+URL;VALUE=URI:https://www.spicerack.gg/events/2907252
+END:VEVENT
+BEGIN:VEVENT
+UID:spicerack-2909323
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T090000Z
+DTEND:20260414T120000Z
 SUMMARY:[Other] Magic
 LOCATION:Runehammer Games\, 2 Victoria Rd\, Scarborough\, England\, YO11 1
  SD\, United Kingdom
 DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
  r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/2905714\n\nMagic\nSource: spic
+ nt Details: https://www.spicerack.gg/events/2909323\n\nMagic\nSource: spic
  erack
-URL;VALUE=URI:https://www.spicerack.gg/events/2905714
+URL;VALUE=URI:https://www.spicerack.gg/events/2909323
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2928811
+UID:spicerack-2910497
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Other] Magic Academy: Deck Building
-LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
- 市\, 23 453-0015\, Japan
-DESCRIPTION:Format: Other\nCost: $3300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/2928811\n\n*-*/\nSource: spic
- erack
-URL;VALUE=URI:https://www.spicerack.gg/events/2928811
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3019081
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Commander] Casual Store Play
-LOCATION:Runehammer Games\, Norra Rådmansgatan 2\, Gävle\,  803 11\, Swe
- den
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T090000Z
+DTEND:20260414T120000Z
+SUMMARY:[Commander] Two Headed Giant Commander Dice Goblin TH commander
+LOCATION:Runehammer Games\, Unit 56/691 Manukau Road\, Royal Oak Mall\, Au
+ ckland\, AUK\, 1023\, New Zealand
 DESCRIPTION:Format: Commander\nCost: Free\nStore Website: http://www.runeh
  ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3019081\n\nCasual!\nSource
- : spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3019081
+ nEvent Details: https://www.spicerack.gg/events/2910497\n\nc\nSource: spic
+ erack
+URL;VALUE=URI:https://www.spicerack.gg/events/2910497
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-2968585
+UID:spicerack-2929967
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Modern] Monday Modern
-LOCATION:Runehammer Games\, 88 Grenfell St\, Adelaide\, SA\, 5000\, Austra
- lia
-DESCRIPTION:Format: Modern\nCost: Free\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/2968585\n\n123\nSource: spice
- rack
-URL;VALUE=URI:https://www.spicerack.gg/events/2968585
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3049288
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Commander] 月曜日-統率者戦　Mon-Commaner
-LOCATION:Runehammer Games\, 中区大手町1-5-14\, 広島市\, 34 730-005
- 1\, Japan
-DESCRIPTION:Format: Commander\nCost: $500\nStore Website: http://www.runeh
- ammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\
- nEvent Details: https://www.spicerack.gg/events/3049288\n\n参加賞プロ
- モカード\n500円以上のお買い物でエントリー\nSource: spice
- rack
-URL;VALUE=URI:https://www.spicerack.gg/events/3049288
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3068235
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
+DTSTAMP:20260414T105548Z
+DTSTART:20260414T090000Z
+DTEND:20260414T120000Z
 SUMMARY:[Other] Magic Academy: Learn to Play
-LOCATION:Runehammer Games\, 中区大須4丁目11-5\, 名古屋市\, 23\, 
- 460-0011\, Japan
+LOCATION:Runehammer Games\, 中村区椿町21-5 桜木ビル4F\, 名古屋
+ 市\, 23 453-0015\, Japan
 DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
  r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3068235\n\n****\nSource: spice
+ nt Details: https://www.spicerack.gg/events/2929967\n\n*-*/\nSource: spice
  rack
-URL;VALUE=URI:https://www.spicerack.gg/events/3068235
+URL;VALUE=URI:https://www.spicerack.gg/events/2929967
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3126950
+UID:wotc-10794074
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Standard] 【ビギナー向け】平日スタンダード練習
- 会
-LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
- ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
-DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3126950\n\n参加者3名以
- 上で成立となります。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3126950
+DTSTAMP:20260414T105548Z
+DTSTART:20260417T230000Z
+DTEND:20260418T020000Z
+SUMMARY:[Sealed] 1V1 Prerelease Prerelease
+LOCATION:Dark Depths Games
+DESCRIPTION:Format: Sealed\nCost: $30\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://locator.wizards.com/store/969
+ 0\nEvent Details: https://locator.wizards.com/event/10794074\n\nSold out\n
+ Source: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794074
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3126951
+UID:wotc-10794075
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Modern] 川崎さくっとデイリー！モダン（夕方の部
- ）
-LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
- ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
-DESCRIPTION:Format: Modern\nCost: $300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3126951\n\n参加者3名以
- 上で成立となります。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3126951
+DTSTAMP:20260414T105548Z
+DTSTART:20260418T170000Z
+DTEND:20260418T200000Z
+SUMMARY:[Sealed] 1V1 Prerelease Prerelease
+LOCATION:Dark Depths Games
+DESCRIPTION:Format: Sealed\nCost: $30\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://locator.wizards.com/store/969
+ 0\nEvent Details: https://locator.wizards.com/event/10794075\n\nSold out\n
+ Source: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794075
 END:VEVENT
 BEGIN:VEVENT
-UID:spicerack-3126952
+UID:wotc-10794076
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Legacy] 川崎さくっとデイリー！レガシー（夕方の
- 部）
-LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
- ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
-DESCRIPTION:Format: Legacy\nCost: $300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3126952\n\n参加者3名以
- 上で成立となります。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3126952
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3126953
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Pioneer] 川崎さくっとデイリー！パイオニア（夕
- 方の部）
-LOCATION:Runehammer Games\, 川崎区小川町15-13 川崎トーセイビ
- ル6階\, 川崎市\, 神奈川県\, 210-0023\, Japan
-DESCRIPTION:Format: Pioneer\nCost: $300\nStore Website: http://www.runeham
- mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3126953\n\n参加者3名以
- 上で成立となります。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3126953
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3132954
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Other] Magic Academy: Deck Building
-LOCATION:Runehammer Games\, 吉祥寺本町2丁目27-2\, 武蔵野市\, 13
- \, 180-0004\, Japan
-DESCRIPTION:Format: Other\nCost: $3300\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3132954\n\n参加賞：\n参
- 加者全員に購入特典プロモ：《ダークスティールの巨
- 像/Darksteel Colossus》(Gift-with-Purchase Promo)を進呈します。\n
- イベントで使用するプレイブースターのカードはお持
- ち帰りいただけます。\nまた、希望される方にはウェル
- カムデッキ、ウェルカムブースター、ストレージボッ
- クス、「マジックの遊び方」パンフレットと早見表カ
- ードを進呈します。\n\n\n晴れる屋チュートリアルチケ
- ット：\n商品やサービスのご購入に最大5\,000円以上の割
- 引が適用される『晴れる屋チュートリアルチケット』
- を進呈します。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3132954
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3138699
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Standard] スタンダード 18:00
-LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
- 30-0001\, Japan
-DESCRIPTION:Format: Standard\nCost: $100\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/3138699\n\nhttps://www.hare
- ruyamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138699
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3138700
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Pioneer] パイオニア 18:00
-LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
- 30-0001\, Japan
-DESCRIPTION:Format: Pioneer\nCost: $100\nStore Website: http://www.runeham
- mer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nE
- vent Details: https://www.spicerack.gg/events/3138700\n\nhttps://www.harer
- uyamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138700
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3138701
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Modern] モダン 18:00
-LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
- 30-0001\, Japan
-DESCRIPTION:Format: Modern\nCost: $100\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3138701\n\nhttps://www.hareru
- yamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138701
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3138702
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T090000Z
-DTEND:20260413T120000Z
-SUMMARY:[Legacy] レガシー 18:00
-LOCATION:Runehammer Games\, 北区梅田1-11-4\, 大阪市\, 大阪府\, 5
- 30-0001\, Japan
-DESCRIPTION:Format: Legacy\nCost: $100\nStore Website: http://www.runehamm
- er.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEv
- ent Details: https://www.spicerack.gg/events/3138702\n\nhttps://www.hareru
- yamtg.com/ja/events/?shop=5&date=202604\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3138702
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2945169
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T093000Z
-DTEND:20260413T123000Z
-SUMMARY:[Commander] 月曜"統率者"交流会
-LOCATION:Runehammer Games\, 川崎区小川町13-21-201\, 川崎市\, 14 2
- 10-0023\, Japan
-DESCRIPTION:Format: Commander\nCost: $1200\nStore Website: http://www.rune
- hammer.online\nStore Details: https://www.spicerack.gg/events/stores/11455
- \nEvent Details: https://www.spicerack.gg/events/2945169\n\n統率者の
- デッキを持ち寄って遊ぶ交流イベントです。デッキの
- ブラケットレベルは3前後が多めです。 また参加費にソ
- フトドリンク飲み放題orアルコールドリンク１杯が含ま
- れています。初心者さんから初めての方まで気楽に参
- 加できるイベントです。\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2945169
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-2953739
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T093000Z
-DTEND:20260413T123000Z
-SUMMARY:[Standard] スタンダードで遊ぼう
-LOCATION:Runehammer Games\, 中区大須3-32-23 Zeque大須6階\, 名古
- 屋市\, 23 460-0011\, Japan
-DESCRIPTION:Format: Standard\nCost: $300\nStore Website: http://www.runeha
- mmer.online\nStore Details: https://www.spicerack.gg/events/stores/11455\n
- Event Details: https://www.spicerack.gg/events/2953739\n\n参加賞とし
- て400円分のお買物券とランダム賞で過去の販促品をプ
- レゼント\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/2953739
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3124107
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T093000Z
-DTEND:20260413T123000Z
-SUMMARY:[Other] Magic Academy: Learn to Play
-LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
-  169-0075\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3124107\n\nMagic Academy Learn
-  to Play\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3124107
-END:VEVENT
-BEGIN:VEVENT
-UID:spicerack-3124108
-SEQUENCE:0
-DTSTAMP:20260413T110851Z
-DTSTART:20260413T093000Z
-DTEND:20260413T123000Z
-SUMMARY:[Other] Magic Academy: Deck Building
-LOCATION:Runehammer Games\, 高田馬場3-12-2 OCビル2F\, 新宿区\, 13
-  169-0075\, Japan
-DESCRIPTION:Format: Other\nCost: Free\nStore Website: http://www.runehamme
- r.online\nStore Details: https://www.spicerack.gg/events/stores/11455\nEve
- nt Details: https://www.spicerack.gg/events/3124108\n\nMagic Academy Deck 
- Building\nSource: spicerack
-URL;VALUE=URI:https://www.spicerack.gg/events/3124108
+DTSTAMP:20260414T105548Z
+DTSTART:20260419T170000Z
+DTEND:20260419T200000Z
+SUMMARY:[Sealed] 1V1 Prerelease Prerelease
+LOCATION:Dark Depths Games
+DESCRIPTION:Format: Sealed\nCost: $30\nStore Website: https://www.facebook
+ .com/darkdepthsgames\nStore Details: https://locator.wizards.com/store/969
+ 0\nEvent Details: https://locator.wizards.com/event/10794076\n\n1V1 Prerel
+ ease\nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794076
 END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721006
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260424T220000Z
 DTEND:20260425T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -1642,7 +1664,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461082
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260501T223000Z
 DTEND:20260502T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -1656,7 +1678,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570209
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260503T213000Z
 DTEND:20260504T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -1676,7 +1698,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461056
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260504T223000Z
 DTEND:20260505T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -1690,7 +1712,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461068
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260505T223000Z
 DTEND:20260506T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -1704,9 +1726,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461068
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794453
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260507T223000Z
+DTEND:20260508T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794453\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794453
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461083
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260508T223000Z
 DTEND:20260509T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -1720,7 +1760,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570210
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260510T213000Z
 DTEND:20260511T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -1740,7 +1780,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461057
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260511T223000Z
 DTEND:20260512T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -1754,7 +1794,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461069
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260512T223000Z
 DTEND:20260513T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -1768,9 +1808,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461069
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794454
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260514T223000Z
+DTEND:20260515T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794454\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794454
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461084
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260515T223000Z
 DTEND:20260516T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -1784,7 +1842,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721597
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260516T220000Z
 DTEND:20260517T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -1798,7 +1856,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570211
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260517T213000Z
 DTEND:20260518T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -1818,7 +1876,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461058
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260518T223000Z
 DTEND:20260519T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -1832,7 +1890,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461070
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260519T223000Z
 DTEND:20260520T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -1846,9 +1904,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461070
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794455
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260521T223000Z
+DTEND:20260522T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794455\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794455
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461085
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260522T223000Z
 DTEND:20260523T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -1862,7 +1938,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570212
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260524T213000Z
 DTEND:20260525T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -1882,7 +1958,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461060
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260525T223000Z
 DTEND:20260526T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -1896,7 +1972,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461071
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260526T223000Z
 DTEND:20260527T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -1910,9 +1986,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461071
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794456
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260528T223000Z
+DTEND:20260529T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794456\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794456
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461086
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260529T223000Z
 DTEND:20260530T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -1926,7 +2020,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570213
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260531T213000Z
 DTEND:20260601T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
@@ -1946,7 +2040,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461061
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260601T223000Z
 DTEND:20260602T013000Z
 SUMMARY:[Pauper] PGS Monday Pauper
@@ -1960,7 +2054,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461072
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260602T223000Z
 DTEND:20260603T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -1974,9 +2068,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461072
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794457
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260604T223000Z
+DTEND:20260605T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794457\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794457
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10737683
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260605T190000Z
 DTEND:20260605T220000Z
 SUMMARY:[Commander] PGS Presents: SOS Commander Party
@@ -1996,7 +2108,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461087
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260605T223000Z
 DTEND:20260606T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -2010,7 +2122,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722161
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260606T220000Z
 DTEND:20260607T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -2024,7 +2136,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461073
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260609T223000Z
 DTEND:20260610T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -2038,9 +2150,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461073
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794458
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260611T223000Z
+DTEND:20260612T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794458\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794458
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461088
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260612T223000Z
 DTEND:20260613T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -2054,7 +2184,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461074
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260616T223000Z
 DTEND:20260617T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -2068,9 +2198,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461074
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794459
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260618T223000Z
+DTEND:20260619T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794459\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794459
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10461089
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260619T223000Z
 DTEND:20260620T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -2084,7 +2232,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461075
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260623T223000Z
 DTEND:20260624T013000Z
 SUMMARY:[Draft] Tuesday Draft at PGS
@@ -2098,9 +2246,27 @@ DESCRIPTION:Format: Draft\nCost: $30\nStore Website: http://phillygameshop
 URL;VALUE=URI:https://locator.wizards.com/event/10461075
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10794460
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260625T223000Z
+DTEND:20260626T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794460\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794460
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10722747
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260626T220000Z
 DTEND:20260627T010000Z
 SUMMARY:[Commander] GameStop Magic Meetup - Commander 
@@ -2115,7 +2281,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461090
 SEQUENCE:0
-DTSTAMP:20260413T110851Z
+DTSTAMP:20260414T105548Z
 DTSTART:20260626T223000Z
 DTEND:20260627T013000Z
 SUMMARY:[Draft] Friday Night Magic Draft
@@ -2125,5 +2291,41 @@ DESCRIPTION:Format: Draft\nCost: $22\nStore Website: http://phillygameshop
  ls: https://locator.wizards.com/event/10461090\n\n*\nSource: wizards-locat
  or
 URL;VALUE=URI:https://locator.wizards.com/event/10461090
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794461
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260702T223000Z
+DTEND:20260703T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794461\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794461
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794462
+SEQUENCE:0
+DTSTAMP:20260414T105548Z
+DTSTART:20260709T223000Z
+DTEND:20260710T013000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop
+DESCRIPTION:Format: Modern\nCost: $10\nStore Website: http://phillygamesho
+ p.com/\nStore Details: https://locator.wizards.com/store/13099\nEvent Deta
+ ils: https://locator.wizards.com/event/10794462\n\nCome by the Philly Game
+  Shop every Thursday to play the modern format! Entry is $10 with prizing 
+ in store credit depending on the number of attendees. More information on 
+ our store and events can be found on our discord server\, which you can fi
+ nd a link to on our website at www.phillygameshop.com. \n\n\nSource: wizar
+ ds-locator
+URL;VALUE=URI:https://locator.wizards.com/event/10794462
 END:VEVENT
 END:VCALENDAR
