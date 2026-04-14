@@ -5,11 +5,11 @@ export const config = {
     zip: "19125",
     city: "Philadelphia",
     state: "PA",
-    lat: 39.9688,
-    lng: -75.1246,
+    lat: 39.9526, // Center of Philadelphia (City Hall) for broader coverage
+    lng: -75.1652,
   },
 
-  searchRadiusMiles: 5,
+  searchRadiusMiles: 8,
   daysAhead: 60,
 
   // Google Sheet ID — source of truth for event curation
@@ -22,8 +22,8 @@ export const config = {
 
   output: {
     icsFile: "./output/mtg-events.ics",
-    calendarName: "MTG Events — Philadelphia (5mi)",
-    calendarDescription: "Local MTG events within 5 miles of Philadelphia",
+    calendarName: "MTG Events — Philadelphia",
+    calendarDescription: "Local MTG events in Philadelphia area",
   },
 
   formatFilter: [],
