@@ -19,7 +19,7 @@ export const config = {
   // --- Sources ---
   sources: {
     wizardsLocator: true,   // WotC official locator (locator.wizards.com)
-    spicerack: true,        // Spicerack — catches events not on WotC locator
+    spicerack: false,       // disabled -- returns global events, fix in progress
     // discord: false,
     // customStores: false,
   },
