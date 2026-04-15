@@ -5,95 +5,25 @@ NAME:MTG Standard — Philadelphia
 X-WR-CALNAME:MTG Standard — Philadelphia
 X-WR-CALDESC:Standard events in Philadelphia area
 BEGIN:VEVENT
-UID:wotc-10518755
+UID:wotc-10145736
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260422T020000Z
-DTEND:20260422T050000Z
-SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
- ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
- rce: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10518756
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260429T020000Z
-DTEND:20260429T050000Z
-SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
- ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
- rce: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10518757
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260506T020000Z
-DTEND:20260506T050000Z
-SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
- ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
- rce: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10518722
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260513T020000Z
-DTEND:20260513T050000Z
-SUMMARY:[Standard] Standard Store Championship
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://queenandro
- okcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSour
- ce: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10518759
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260520T020000Z
-DTEND:20260520T050000Z
-SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
- ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
- rce: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10518760
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260527T020000Z
-DTEND:20260527T050000Z
-SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
- ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
- rce: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
+DTSTAMP:20260415T024510Z
+DTSTART:20260417T223000Z
+DTEND:20260418T013000Z
+SUMMARY:[Standard] Friday Night Magic Standard Showdown
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
+ kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
+ nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
 END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10570207
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260420T013000Z
-DTEND:20260420T043000Z
+DTSTAMP:20260415T024510Z
+DTSTART:20260419T213000Z
+DTEND:20260420T003000Z
 SUMMARY:[Standard] PGS Sunday Standard Showdown
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
@@ -103,109 +33,25 @@ DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
 URL;VALUE=URI:https://locator.wizards.com/store/13099/
 END:VEVENT
 BEGIN:VEVENT
-UID:wotc-10570208
+UID:wotc-10518755
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260427T013000Z
-DTEND:20260427T043000Z
-SUMMARY:[Standard] PGS Sunday Standard Showdown
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
- hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
-  wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10570209
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260504T013000Z
-DTEND:20260504T043000Z
-SUMMARY:[Standard] PGS Sunday Standard Showdown
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
- hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
-  wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10570210
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260511T013000Z
-DTEND:20260511T043000Z
-SUMMARY:[Standard] PGS Sunday Standard Showdown
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
- hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
-  wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10570211
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260518T013000Z
-DTEND:20260518T043000Z
-SUMMARY:[Standard] PGS Sunday Standard Showdown
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
- hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
-  wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10570212
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260525T013000Z
-DTEND:20260525T043000Z
-SUMMARY:[Standard] PGS Sunday Standard Showdown
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
- hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
-  wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10570213
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260601T013000Z
-DTEND:20260601T043000Z
-SUMMARY:[Standard] PGS Sunday Standard Showdown
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
- hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
-  wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10145736
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260418T023000Z
-DTEND:20260418T053000Z
-SUMMARY:[Standard] Friday Night Magic Standard Showdown
-LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
- rry Hill Township\, New Jersey\, 08003
-DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
- kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
- nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/8281/
+DTSTAMP:20260415T024510Z
+DTSTART:20260421T220000Z
+DTEND:20260422T010000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
+ ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
 END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653676
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260425T023000Z
-DTEND:20260425T053000Z
+DTSTAMP:20260415T024510Z
+DTSTART:20260424T223000Z
+DTEND:20260425T013000Z
 SUMMARY:[Standard] Friday Night Magic Standard Showdown
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
@@ -213,13 +59,41 @@ DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
  kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
  nSource: wizards-locator
 URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570208
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260426T213000Z
+DTEND:20260427T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
+ hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
+  wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518756
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260428T220000Z
+DTEND:20260429T010000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
+ ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
 END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653677
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260502T023000Z
-DTEND:20260502T053000Z
+DTSTAMP:20260415T024510Z
+DTSTART:20260501T223000Z
+DTEND:20260502T013000Z
 SUMMARY:[Standard] Friday Night Magic Standard Showdown
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
@@ -227,55 +101,41 @@ DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
  kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
  nSource: wizards-locator
 URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570209
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260503T213000Z
+DTEND:20260504T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
+ hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
+  wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518757
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260505T220000Z
+DTEND:20260506T010000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
+ ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
 END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653678
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260509T023000Z
-DTEND:20260509T053000Z
-SUMMARY:[Standard] Friday Night Magic Standard Showdown
-LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
- rry Hill Township\, New Jersey\, 08003
-DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
- kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
- nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/8281/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10653679
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260516T023000Z
-DTEND:20260516T053000Z
-SUMMARY:[Standard] Friday Night Magic Standard Showdown
-LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
- rry Hill Township\, New Jersey\, 08003
-DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
- kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
- nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/8281/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10653680
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260523T023000Z
-DTEND:20260523T053000Z
-SUMMARY:[Standard] Friday Night Magic Standard Showdown
-LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
- rry Hill Township\, New Jersey\, 08003
-DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
- kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
- nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/8281/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10653681
-SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260530T023000Z
-DTEND:20260530T053000Z
+DTSTAMP:20260415T024510Z
+DTSTART:20260508T223000Z
+DTEND:20260509T013000Z
 SUMMARY:[Standard] Friday Night Magic Standard Showdown
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
@@ -287,9 +147,9 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10484101
 SEQUENCE:0
-DTSTAMP:20260415T024408Z
-DTSTART:20260509T210000Z
-DTEND:20260510T000000Z
+DTSTAMP:20260415T024510Z
+DTSTART:20260509T170000Z
+DTEND:20260509T200000Z
 SUMMARY:[Standard] Saturday Standard Store Championship
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
@@ -297,5 +157,145 @@ DESCRIPTION:Format: Standard\nCost: $12\nStore Details: http://www.7thdime
  nsiongames.com\nEvent Details: https://locator.wizards.com/store/8863/\nSo
  urce: wizards-locator
 URL;VALUE=URI:https://locator.wizards.com/store/8863/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570210
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260510T213000Z
+DTEND:20260511T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
+ hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
+  wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518722
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260512T220000Z
+DTEND:20260513T010000Z
+SUMMARY:[Standard] Standard Store Championship
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://queenandro
+ okcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSour
+ ce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653679
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260515T223000Z
+DTEND:20260516T013000Z
+SUMMARY:[Standard] Friday Night Magic Standard Showdown
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
+ kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
+ nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570211
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260517T213000Z
+DTEND:20260518T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
+ hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
+  wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518759
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260519T220000Z
+DTEND:20260520T010000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
+ ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653680
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260522T223000Z
+DTEND:20260523T013000Z
+SUMMARY:[Standard] Friday Night Magic Standard Showdown
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
+ kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
+ nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570212
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260524T213000Z
+DTEND:20260525T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
+ hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
+  wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10518760
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260526T220000Z
+DTEND:20260527T010000Z
+SUMMARY:[Standard] Queen & Rook Game Tavern 1v1 / Standard Showdown
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Standard\nCost: Free\nStore Details: https://queenandr
+ ookcafe.com/\nEvent Details: https://locator.wizards.com/store/12804/\nSou
+ rce: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653681
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260529T223000Z
+DTEND:20260530T013000Z
+SUMMARY:[Standard] Friday Night Magic Standard Showdown
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Standard\nCost: $15\nStore Details: https://www.topdec
+ kgamesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\
+ nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10570213
+SEQUENCE:0
+DTSTAMP:20260415T024510Z
+DTSTART:20260531T213000Z
+DTEND:20260601T003000Z
+SUMMARY:[Standard] PGS Sunday Standard Showdown
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Standard\nCost: $10\nStore Details: http://phillygames
+ hop.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource:
+  wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
 END:VEVENT
 END:VCALENDAR
