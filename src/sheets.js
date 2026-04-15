@@ -37,10 +37,7 @@ async function ensureSetup(sh) {
 
 function toRow(event, ex=null) {
   const now = new Date().toISOString().split("T")[0];
-  const d = event.startDate;
-  const date = d ? d.toISOString().split("T")[0] : "";
-  const time = d ? d.toLocaleTimeString("en-US", { timeZone: event.timeZone||"America/New_York", hour:"2-digit", minute:"2-digit", hour12:false }) : "";
-  return [event.id, event.title, event.format, date, time, event.timeZone||"America/New_York", event.location?.name||"", event.location?.address||"", event.cost||"", event.location?.storeUrl||event.location?.website||"", event.detailUrl||"", event.source, ex?.status||"active", ex?.notes||"", ex?.added_date||now, now];
+  return [event.id, event.title, event.format, event.date||"", event.time||"", event.timezone||"America/New_York", event.location||"", event.address||"", event.cost||"", event.store_url||"", event.detail_url||"", event.source, ex?.status||"active", ex?.notes||"", ex?.added_date||now, now];
 }
 
 export function rowToEvent(row) {
