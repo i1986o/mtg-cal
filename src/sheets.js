@@ -42,7 +42,8 @@ function toRow(event, ex=null) {
 
 export function rowToEvent(row) {
   if (!row.date || !row.time) return null;
-  const startDate = new Date(`${row.date}T${row.time}:00`);
+  // Times in the sheet are UTC (scraped from WotC API UTC timestamps)
+  const startDate = new Date(`${row.date}T${row.time}:00Z`);
   return { id: row.id, title: row.title, format: row.format, location: { name: row.location, address: row.address, storeUrl: row.store_url }, startDate, endDate: null, timeZone: row.timezone||"America/New_York", cost: row.cost, detailUrl: row.detail_url, description: row.notes||null, source: row.source };
 }
 

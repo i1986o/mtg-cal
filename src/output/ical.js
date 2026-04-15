@@ -45,7 +45,8 @@ function writeCalendar(events, filePath, name, description) {
   return events.length;
 }
 
-// Map format names from the API to short slugs for filenames
+// Map format names to short slugs for filenames.
+// Multiple format names can map to the same slug (e.g. "Booster Draft" and "Draft" → "draft")
 const FORMAT_SLUGS = {
   "Commander": "commander",
   "Modern": "modern",
@@ -54,7 +55,9 @@ const FORMAT_SLUGS = {
   "Pioneer": "pioneer",
   "Legacy": "legacy",
   "Booster Draft": "draft",
+  "Draft": "draft",
   "Sealed Deck": "sealed",
+  "Sealed": "sealed",
 };
 
 export function generateIcal(events) {
@@ -64,21 +67,23 @@ export function generateIcal(events) {
   const allPath = path.resolve(config.output.icsFile);
   writeCalendar(events, allPath, config.output.calendarName, config.output.calendarDescription);
 
-  // 2. Per-format calendars
-  const formats = {};
+  // 2. Per-format calendars (group by slug so "Booster Draft" + "Draft" → one file)
+  const bySlug = {};
   for (const event of events) {
     const fmt = event.format || "Other";
-    if (!formats[fmt]) formats[fmt] = [];
-    formats[fmt].push(event);
+    const slug = FORMAT_SLUGS[fmt] || fmt.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    if (!bySlug[slug]) bySlug[slug] = { events: [], formats: new Set() };
+    bySlug[slug].events.push(event);
+    bySlug[slug].formats.add(fmt);
   }
 
   const written = [];
-  for (const [fmt, fmtEvents] of Object.entries(formats).sort((a, b) => b[1].length - a[1].length)) {
-    const slug = FORMAT_SLUGS[fmt] || fmt.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  for (const [slug, { events: fmtEvents, formats }] of Object.entries(bySlug).sort((a, b) => b[1].events.length - a[1].events.length)) {
+    const label = [...formats].sort().join(" / ");
     const filePath = path.join(outDir, `mtg-${slug}.ics`);
     const city = config.location.city;
-    writeCalendar(fmtEvents, filePath, `MTG ${fmt} — ${city}`, `${fmt} events in ${city} area`);
-    written.push({ format: fmt, slug, count: fmtEvents.length });
+    writeCalendar(fmtEvents, filePath, `MTG ${label} — ${city}`, `${label} events in ${city} area`);
+    written.push({ format: label, slug, count: fmtEvents.length });
   }
 
   console.log(`\n✅ Calendars written to: ${outDir}/`);
