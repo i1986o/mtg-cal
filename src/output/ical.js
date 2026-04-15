@@ -41,7 +41,13 @@ function writeCalendar(events, filePath, name, description) {
   }
 
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, cal.toString());
+  // Add refresh hint so calendar apps check for updates more often
+  let icsString = cal.toString();
+  icsString = icsString.replace(
+    "BEGIN:VCALENDAR",
+    "BEGIN:VCALENDAR\r\nX-PUBLISHED-TTL:PT1H\r\nREFRESH-INTERVAL;VALUE=DURATION:PT1H"
+  );
+  fs.writeFileSync(filePath, icsString);
   return events.length;
 }
 
