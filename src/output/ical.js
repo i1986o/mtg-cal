@@ -30,7 +30,9 @@ function writeCalendar(events, filePath, name, description) {
 
     cal.createEvent({
       id: event.id,
-      summary: `[${event.format}] ${event.title}`,
+      summary: event.location?.name
+        ? `${event.title} @ ${event.location.name}`
+        : event.title,
       description: buildDescription(event),
       location: formatLocationString(event.location),
       start: event.startDate,
