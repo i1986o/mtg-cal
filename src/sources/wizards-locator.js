@@ -133,7 +133,7 @@ export async function fetchWizardsEvents() {
       allEvents.push({
         id: "wotc-" + ev.id,
         title: (ev.title || "").trim(),
-        format: ev.eventFormat?.name || "",
+        format: (ev.eventFormat?.name || "").replace("Sealed Deck", "Sealed"),
         date: (ev.scheduledStartTime || "").slice(0, 10),
         time: (ev.scheduledStartTime || "").slice(11, 16),
         timezone: "America/New_York",
