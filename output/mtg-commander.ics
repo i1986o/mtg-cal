@@ -9,10 +9,11 @@ X-WR-CALDESC:Commander events in Philadelphia area
 BEGIN:VEVENT
 UID:wotc-10518581
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260415T210000Z
 DTEND:20260416T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -23,10 +24,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10356634
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260415T210000Z
 DTEND:20260416T000000Z
-SUMMARY:[Commander] Wednesday Night Commander
+SUMMARY:Wednesday Night Commander @ The Guild Hall Hobby
 LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
   08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.guild
@@ -37,10 +38,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599477
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260415T223000Z
 DTEND:20260416T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -51,10 +52,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10363820
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260416T203000Z
 DTEND:20260416T233000Z
-SUMMARY:[Commander] MTG Night at Garden of Earthly Delights
+SUMMARY:MTG Night at Garden of Earthly Delights @ Garden of Earthly Deligh
+ ts
 LOCATION:Garden of Earthly Delights\, 7907 Bustleton Avenue\, Philadelphia
  \, Pennsylvania\, 19152
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.inst
@@ -65,10 +67,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710221
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260416T210000Z
 DTEND:20260417T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -79,10 +81,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10145749
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260417T210000Z
 DTEND:20260418T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -93,10 +95,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599490
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260417T223000Z
 DTEND:20260418T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -107,10 +109,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739372
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260417T230000Z
 DTEND:20260418T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -121,10 +123,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599465
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260419T190000Z
 DTEND:20260419T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -135,10 +137,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10145645
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260420T210000Z
 DTEND:20260421T000000Z
-SUMMARY:[Commander] Monday Commander
+SUMMARY:Monday Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -149,10 +151,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650590
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260421T210000Z
 DTEND:20260422T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -163,10 +165,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710222
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260421T210000Z
 DTEND:20260422T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -177,10 +179,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10306873
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260421T223000Z
 DTEND:20260422T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -191,10 +193,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518582
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260422T210000Z
 DTEND:20260423T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -205,10 +208,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10356635
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260422T210000Z
 DTEND:20260423T000000Z
-SUMMARY:[Commander] Wednesday Night Commander
+SUMMARY:Wednesday Night Commander @ The Guild Hall Hobby
 LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
   08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.guild
@@ -219,10 +222,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599478
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260422T223000Z
 DTEND:20260423T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -233,10 +236,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10363821
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260423T203000Z
 DTEND:20260423T233000Z
-SUMMARY:[Commander] MTG Night at Garden of Earthly Delights
+SUMMARY:MTG Night at Garden of Earthly Delights @ Garden of Earthly Deligh
+ ts
 LOCATION:Garden of Earthly Delights\, 7907 Bustleton Avenue\, Philadelphia
  \, Pennsylvania\, 19152
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.inst
@@ -247,10 +251,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710223
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260423T210000Z
 DTEND:20260424T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -261,10 +265,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653682
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T210000Z
 DTEND:20260425T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -275,10 +279,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721006
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T220000Z
 DTEND:20260425T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 1735 - Philadelphia
+   
 LOCATION:GameStop - 1735 - Philadelphia  \, 3745 Aramingo Avenue\, Philade
  lphia\, Pennsylvania\, 19137
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
@@ -289,12 +294,12 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10720930
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T220000Z
 DTEND:20260425T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
-LOCATION:GameStop - 636 - Port Richmond\, Aramingo Avenue\, Philadelphia\,
-  Pennsylvania\, 19134
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 636 - Port Richmond
+LOCATION:GameStop - 636 - Port Richmond\, Delaware Expressway\, Philadelph
+ ia\, Pennsylvania\, 19125
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
  stop.com/\nEvent Details: https://locator.wizards.com/store/20720/\nSource
  : wizards-locator
@@ -303,10 +308,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10720936
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T220000Z
 DTEND:20260425T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 666 - Great Northea
+ st Plaza
 LOCATION:GameStop - 666 - Great Northeast Plaza\, 2231 Cottman Avenue\, Ph
  iladelphia\, Pennsylvania\, 19149
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
@@ -317,10 +323,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599491
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T223000Z
 DTEND:20260425T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -331,10 +337,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10306891
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T223000Z
 DTEND:20260425T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -345,10 +351,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739373
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T230000Z
 DTEND:20260425T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -359,10 +365,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599231
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T230000Z
 DTEND:20260425T020000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -373,10 +379,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599466
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260426T190000Z
 DTEND:20260426T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -387,10 +393,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653645
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260427T210000Z
 DTEND:20260428T000000Z
-SUMMARY:[Commander] Monday Commander
+SUMMARY:Monday Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -401,10 +407,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650591
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260428T210000Z
 DTEND:20260429T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -415,10 +421,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710224
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260428T210000Z
 DTEND:20260429T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -429,10 +435,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650402
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260428T223000Z
 DTEND:20260429T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -443,10 +449,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518583
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260429T210000Z
 DTEND:20260430T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -457,10 +464,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10356636
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260429T210000Z
 DTEND:20260430T000000Z
-SUMMARY:[Commander] Wednesday Night Commander
+SUMMARY:Wednesday Night Commander @ The Guild Hall Hobby
 LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
   08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.guild
@@ -471,10 +478,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599479
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260429T223000Z
 DTEND:20260430T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -485,10 +492,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710225
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260430T210000Z
 DTEND:20260501T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -499,10 +506,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737681
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T190000Z
 DTEND:20260501T220000Z
-SUMMARY:[Commander] PGS Presents: SOS Commander Party
+SUMMARY:PGS Presents: SOS Commander Party @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: http://phillygam
@@ -513,10 +520,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653683
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T210000Z
 DTEND:20260502T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -527,10 +534,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599492
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T223000Z
 DTEND:20260502T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -541,10 +548,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650417
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T223000Z
 DTEND:20260502T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -555,10 +562,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739374
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T230000Z
 DTEND:20260502T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -569,10 +576,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599232
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T230000Z
 DTEND:20260502T020000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -583,10 +590,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599467
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260503T190000Z
 DTEND:20260503T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -597,10 +604,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653646
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260504T210000Z
 DTEND:20260505T000000Z
-SUMMARY:[Commander] Monday Commander
+SUMMARY:Monday Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -611,10 +618,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650592
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260505T210000Z
 DTEND:20260506T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -625,10 +632,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710226
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260505T210000Z
 DTEND:20260506T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -639,10 +646,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650403
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260505T223000Z
 DTEND:20260506T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -653,10 +660,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518868
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260506T210000Z
 DTEND:20260507T000000Z
-SUMMARY:[Commander] Queen & Rook Strixhaven Commander Party
+SUMMARY:Queen & Rook Strixhaven Commander Party @ Queen and Rook Game Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -667,10 +674,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599480
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260506T223000Z
 DTEND:20260507T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -681,10 +688,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710227
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260507T210000Z
 DTEND:20260508T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -695,10 +702,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653684
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T210000Z
 DTEND:20260509T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -709,10 +716,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599493
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T223000Z
 DTEND:20260509T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -723,10 +730,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650418
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T223000Z
 DTEND:20260509T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -737,10 +744,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739375
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T230000Z
 DTEND:20260509T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -751,10 +758,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599233
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T230000Z
 DTEND:20260509T020000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -765,10 +772,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599468
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260510T190000Z
 DTEND:20260510T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -779,10 +786,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653647
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260511T210000Z
 DTEND:20260512T000000Z
-SUMMARY:[Commander] Monday Commander
+SUMMARY:Monday Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -793,10 +800,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650593
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260512T210000Z
 DTEND:20260513T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -807,10 +814,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710228
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260512T210000Z
 DTEND:20260513T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -821,10 +828,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650404
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260512T223000Z
 DTEND:20260513T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -835,10 +842,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518585
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260513T210000Z
 DTEND:20260514T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -849,10 +857,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599481
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260513T223000Z
 DTEND:20260514T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -863,10 +871,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710229
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260514T210000Z
 DTEND:20260515T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -877,10 +885,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653685
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T210000Z
 DTEND:20260516T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -891,10 +899,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599494
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T223000Z
 DTEND:20260516T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -905,10 +913,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650419
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T223000Z
 DTEND:20260516T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -919,10 +927,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739376
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T230000Z
 DTEND:20260516T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -933,10 +941,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599234
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T230000Z
 DTEND:20260516T020000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -947,10 +955,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721597
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260516T220000Z
 DTEND:20260517T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 1735 - Philadelphia
+   
 LOCATION:GameStop - 1735 - Philadelphia  \, 3745 Aramingo Avenue\, Philade
  lphia\, Pennsylvania\, 19137
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
@@ -961,12 +970,12 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721523
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260516T220000Z
 DTEND:20260517T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
-LOCATION:GameStop - 636 - Port Richmond\, Aramingo Avenue\, Philadelphia\,
-  Pennsylvania\, 19134
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 636 - Port Richmond
+LOCATION:GameStop - 636 - Port Richmond\, Delaware Expressway\, Philadelph
+ ia\, Pennsylvania\, 19125
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
  stop.com/\nEvent Details: https://locator.wizards.com/store/20720/\nSource
  : wizards-locator
@@ -975,10 +984,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10721528
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260516T220000Z
 DTEND:20260517T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 666 - Great Northea
+ st Plaza
 LOCATION:GameStop - 666 - Great Northeast Plaza\, 2231 Cottman Avenue\, Ph
  iladelphia\, Pennsylvania\, 19149
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
@@ -989,10 +999,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599469
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260517T190000Z
 DTEND:20260517T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1003,10 +1013,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653648
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260518T210000Z
 DTEND:20260519T000000Z
-SUMMARY:[Commander] Monday Commander
+SUMMARY:Monday Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -1017,10 +1027,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650594
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260519T210000Z
 DTEND:20260520T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -1031,10 +1041,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710230
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260519T210000Z
 DTEND:20260520T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1045,10 +1055,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650405
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260519T223000Z
 DTEND:20260520T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1059,10 +1069,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518586
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260520T210000Z
 DTEND:20260521T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -1073,10 +1084,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599482
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260520T223000Z
 DTEND:20260521T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1087,10 +1098,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710231
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260521T210000Z
 DTEND:20260522T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1101,10 +1112,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653686
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T210000Z
 DTEND:20260523T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -1115,10 +1126,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599495
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T223000Z
 DTEND:20260523T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1129,10 +1140,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650420
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T223000Z
 DTEND:20260523T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1143,10 +1154,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739377
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T230000Z
 DTEND:20260523T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -1157,10 +1168,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599235
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T230000Z
 DTEND:20260523T020000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -1171,10 +1182,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599470
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260524T190000Z
 DTEND:20260524T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1185,10 +1196,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653649
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260525T210000Z
 DTEND:20260526T000000Z
-SUMMARY:[Commander] Monday Commander
+SUMMARY:Monday Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -1199,10 +1210,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650595
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260526T210000Z
 DTEND:20260527T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -1213,10 +1224,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710232
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260526T210000Z
 DTEND:20260527T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1227,10 +1238,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650406
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260526T223000Z
 DTEND:20260527T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1241,10 +1252,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518587
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260527T210000Z
 DTEND:20260528T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -1255,10 +1267,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599483
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260527T223000Z
 DTEND:20260528T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1269,10 +1281,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710233
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260528T210000Z
 DTEND:20260529T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1283,10 +1295,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653687
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T210000Z
 DTEND:20260530T000000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: https://www.topde
@@ -1297,10 +1309,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599496
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T223000Z
 DTEND:20260530T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1311,10 +1323,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650421
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T223000Z
 DTEND:20260530T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1325,10 +1337,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739378
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T230000Z
 DTEND:20260530T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -1339,10 +1351,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599236
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T230000Z
 DTEND:20260530T020000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -1353,10 +1365,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599471
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260531T190000Z
 DTEND:20260531T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1367,10 +1379,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650596
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260602T210000Z
 DTEND:20260603T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -1381,10 +1393,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710234
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260602T210000Z
 DTEND:20260603T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1395,10 +1407,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650407
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260602T223000Z
 DTEND:20260603T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1409,10 +1421,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518588
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260603T210000Z
 DTEND:20260604T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -1423,10 +1436,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599484
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260603T223000Z
 DTEND:20260604T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1437,10 +1450,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710235
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260604T210000Z
 DTEND:20260605T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1451,10 +1464,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737683
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260605T190000Z
 DTEND:20260605T220000Z
-SUMMARY:[Commander] PGS Presents: SOS Commander Party
+SUMMARY:PGS Presents: SOS Commander Party @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: http://phillygam
@@ -1465,10 +1478,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599497
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260605T223000Z
 DTEND:20260606T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1479,10 +1492,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650422
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260605T223000Z
 DTEND:20260606T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1493,10 +1506,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739379
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260605T230000Z
 DTEND:20260606T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -1507,10 +1520,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10423824
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260605T230000Z
 DTEND:20260606T020000Z
-SUMMARY:[Commander] Magic: Presents Pride FNM Commander
+SUMMARY:Magic: Presents Pride FNM Commander @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Commander\nCost: $9\nStore Details: http://www.7thdime
@@ -1521,10 +1534,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722161
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260606T220000Z
 DTEND:20260607T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 1735 - Philadelphia
+   
 LOCATION:GameStop - 1735 - Philadelphia  \, 3745 Aramingo Avenue\, Philade
  lphia\, Pennsylvania\, 19137
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
@@ -1535,12 +1549,12 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722086
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260606T220000Z
 DTEND:20260607T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
-LOCATION:GameStop - 636 - Port Richmond\, Aramingo Avenue\, Philadelphia\,
-  Pennsylvania\, 19134
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 636 - Port Richmond
+LOCATION:GameStop - 636 - Port Richmond\, Delaware Expressway\, Philadelph
+ ia\, Pennsylvania\, 19125
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
  stop.com/\nEvent Details: https://locator.wizards.com/store/20720/\nSource
  : wizards-locator
@@ -1549,10 +1563,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722091
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260606T220000Z
 DTEND:20260607T010000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander
+SUMMARY:GameStop Magic Meetup - Commander @ GameStop - 666 - Great Northea
+ st Plaza
 LOCATION:GameStop - 666 - Great Northeast Plaza\, 2231 Cottman Avenue\, Ph
  iladelphia\, Pennsylvania\, 19149
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.game
@@ -1563,10 +1578,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599472
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260607T190000Z
 DTEND:20260607T220000Z
-SUMMARY:[Commander] Sunday Afternoon Commander
+SUMMARY:Sunday Afternoon Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1577,10 +1592,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650597
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260609T210000Z
 DTEND:20260610T000000Z
-SUMMARY:[Commander] Cryptid Edition
+SUMMARY:Cryptid Edition @ Cryptid Toys and Games
 LOCATION:Cryptid Toys and Games\, North Forklanding Road\, Maple Shade Tow
  nship\, New Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://www.youtub
@@ -1591,10 +1606,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710236
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260609T210000Z
 DTEND:20260610T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1605,10 +1620,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650408
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260609T223000Z
 DTEND:20260610T013000Z
-SUMMARY:[Commander] Tuesday Commander Nights
+SUMMARY:Tuesday Commander Nights @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1619,10 +1634,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518589
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260610T210000Z
 DTEND:20260611T000000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -1633,10 +1649,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518872
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260610T210000Z
 DTEND:20260611T000000Z
-SUMMARY:[Commander] Queen & Rook Strixhaven Commander Party
+SUMMARY:Queen & Rook Strixhaven Commander Party @ Queen and Rook Game Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://queenand
@@ -1647,10 +1663,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599485
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260610T223000Z
 DTEND:20260611T013000Z
-SUMMARY:[Commander] Wednesday Commander Night
+SUMMARY:Wednesday Commander Night @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1661,10 +1677,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10710237
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260611T210000Z
 DTEND:20260612T000000Z
-SUMMARY:[Commander] Booster Pack Entry Commander
+SUMMARY:Booster Pack Entry Commander @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://www.topd
@@ -1675,10 +1691,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599498
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260612T223000Z
 DTEND:20260613T013000Z
-SUMMARY:[Commander] Friday Night Commander
+SUMMARY:Friday Night Commander @ Kryptic Collections
 LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
   Jersey\, 08077
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.krypti
@@ -1689,10 +1705,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10650423
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260612T223000Z
 DTEND:20260613T013000Z
-SUMMARY:[Commander] Friday Night Magic Commander
+SUMMARY:Friday Night Magic Commander @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://www.hobby-
@@ -1703,10 +1719,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10739380
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260612T230000Z
 DTEND:20260613T020000Z
-SUMMARY:[Commander] FNM COMMANDER NIGHTS
+SUMMARY:FNM COMMANDER NIGHTS @ Play Another Game
 LOCATION:Play Another Game\, 7919 Barnes Street\, Philadelphia\, Pennsylva
  nia\, 19111
 DESCRIPTION:Format: Commander\nCost: $10\nStore Details: http://magic.wiza
@@ -1717,10 +1733,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518781
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260614T163000Z
 DTEND:20260614T193000Z
-SUMMARY:[Commander] Magic: Presents Pride @ Queen & Rook Game Tavern!
+SUMMARY:Magic: Presents Pride @ Queen & Rook Game Tavern! @ Queen and Rook
+  Game Cafe
 LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
  nsylvania\, 19106
 DESCRIPTION:Format: Commander\nCost: $5\nStore Details: https://queenandro
@@ -1731,10 +1748,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10518590
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260617T170000Z
 DTEND:20260617T200000Z
-SUMMARY:[Commander] Commander Night @ Queen & Rook Game Tavern!
+SUMMARY:Commander Night @ Queen & Rook Game Tavern! @ Queen and Rook Game 
+ Cafe
 LOCATION:Queen and Rook Game Cafe
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
  wizards.com/store/12804\nEvent Details: https://locator.wizards.com/event/
@@ -1744,10 +1762,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722747
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260626T180000Z
 DTEND:20260626T210000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+SUMMARY:GameStop Magic Meetup - Commander  @ GameStop - 1735 - Philadelphi
+ a  
 LOCATION:GameStop - 1735 - Philadelphia  
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
  wizards.com/store/19777\nEvent Details: https://locator.wizards.com/event/
@@ -1757,10 +1776,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10722668
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260626T180000Z
 DTEND:20260626T210000Z
-SUMMARY:[Commander] GameStop Magic Meetup - Commander 
+SUMMARY:GameStop Magic Meetup - Commander  @ GameStop - 636 - Port Richmon
+ d
 LOCATION:GameStop - 636 - Port Richmond
 DESCRIPTION:Format: Commander\nCost: Free\nStore Details: https://locator.
  wizards.com/store/20720\nEvent Details: https://locator.wizards.com/event/

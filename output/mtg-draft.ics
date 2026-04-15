@@ -9,10 +9,10 @@ X-WR-CALDESC:Booster Draft / Draft events in Philadelphia area
 BEGIN:VEVENT
 UID:wotc-10151184
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260415T223000Z
 DTEND:20260416T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -23,10 +23,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461080
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260417T223000Z
 DTEND:20260418T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -37,10 +37,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10526203
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260419T190000Z
 DTEND:20260419T220000Z
-SUMMARY:[Booster Draft] Secrets of Strixhaven Draft
+SUMMARY:Secrets of Strixhaven Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -51,10 +51,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461066
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260421T223000Z
 DTEND:20260422T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -65,10 +65,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653656
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260422T223000Z
 DTEND:20260423T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -79,10 +79,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461081
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T223000Z
 DTEND:20260425T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -93,10 +93,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653670
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260424T223000Z
 DTEND:20260425T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Booster Draft
+SUMMARY:Friday Night Magic Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: https://www.t
@@ -107,10 +107,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599266
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260425T170000Z
 DTEND:20260425T200000Z
-SUMMARY:[Booster Draft] Saturday Draft
+SUMMARY:Saturday Draft @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -121,10 +121,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10762286
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260425T223000Z
 DTEND:20260426T013000Z
-SUMMARY:[Booster Draft] Saturday Night Chaos Draft
+SUMMARY:Saturday Night Chaos Draft @ Hobby Vault
 LOCATION:Hobby Vault\, 300 South Lenola Road\, Maple Shade Township\, New 
  Jersey\, 08052
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://www.ho
@@ -135,10 +135,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461067
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260428T223000Z
 DTEND:20260429T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -149,10 +149,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653657
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260429T223000Z
 DTEND:20260430T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -163,10 +163,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461082
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T223000Z
 DTEND:20260502T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -177,10 +177,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653671
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260501T223000Z
 DTEND:20260502T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Booster Draft
+SUMMARY:Friday Night Magic Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: https://www.t
@@ -191,10 +191,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599267
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260502T170000Z
 DTEND:20260502T200000Z
-SUMMARY:[Booster Draft] Saturday Draft
+SUMMARY:Saturday Draft @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -205,10 +205,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461068
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260505T223000Z
 DTEND:20260506T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -219,10 +219,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653658
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260506T223000Z
 DTEND:20260507T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -233,10 +233,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461083
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T223000Z
 DTEND:20260509T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -247,10 +247,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653672
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260508T223000Z
 DTEND:20260509T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Booster Draft
+SUMMARY:Friday Night Magic Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: https://www.t
@@ -261,10 +261,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461069
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260512T223000Z
 DTEND:20260513T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -275,10 +275,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653659
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260513T223000Z
 DTEND:20260514T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -289,10 +289,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461084
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T223000Z
 DTEND:20260516T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -303,10 +303,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653673
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260515T223000Z
 DTEND:20260516T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Booster Draft
+SUMMARY:Friday Night Magic Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: https://www.t
@@ -317,10 +317,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599269
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260516T170000Z
 DTEND:20260516T200000Z
-SUMMARY:[Booster Draft] Saturday Draft
+SUMMARY:Saturday Draft @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -331,10 +331,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461070
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260519T223000Z
 DTEND:20260520T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -345,10 +345,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653660
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260520T223000Z
 DTEND:20260521T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -359,10 +359,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461085
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T223000Z
 DTEND:20260523T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -373,10 +373,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653674
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260522T223000Z
 DTEND:20260523T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Booster Draft
+SUMMARY:Friday Night Magic Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: https://www.t
@@ -387,10 +387,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10484119
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260523T170000Z
 DTEND:20260523T200000Z
-SUMMARY:[Booster Draft] Magic Presents: Open The Archive Special Draft
+SUMMARY:Magic Presents: Open The Archive Special Draft @ 7th Dimension Gam
+ es
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -401,10 +402,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461071
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260526T223000Z
 DTEND:20260527T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -415,10 +416,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653661
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260527T223000Z
 DTEND:20260528T013000Z
-SUMMARY:[Booster Draft] Wednesday Booster Draft
+SUMMARY:Wednesday Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: https://www.t
@@ -429,10 +430,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461086
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T223000Z
 DTEND:20260530T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -443,10 +444,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653675
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260529T223000Z
 DTEND:20260530T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Booster Draft
+SUMMARY:Friday Night Magic Booster Draft @ Top Deck Games - Cherry Hill
 LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
  rry Hill Township\, New Jersey\, 08003
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: https://www.t
@@ -457,10 +458,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599271
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260530T170000Z
 DTEND:20260530T200000Z
-SUMMARY:[Booster Draft] Saturday Draft
+SUMMARY:Saturday Draft @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -471,10 +472,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461072
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260602T223000Z
 DTEND:20260603T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -485,10 +486,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461087
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260605T223000Z
 DTEND:20260606T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -499,10 +500,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599268
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260606T170000Z
 DTEND:20260606T200000Z
-SUMMARY:[Booster Draft] Saturday Draft
+SUMMARY:Saturday Draft @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -513,10 +514,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461073
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260609T223000Z
 DTEND:20260610T013000Z
-SUMMARY:[Booster Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $30\nStore Details: http://philly
@@ -527,10 +528,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461088
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260612T223000Z
 DTEND:20260613T013000Z
-SUMMARY:[Booster Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
  Pennsylvania\, 19147
 DESCRIPTION:Format: Booster Draft\nCost: $22\nStore Details: http://philly
@@ -541,10 +542,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10599270
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260613T170000Z
 DTEND:20260613T200000Z
-SUMMARY:[Booster Draft] Saturday Draft
+SUMMARY:Saturday Draft @ 7th Dimension Games
 LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
  , 19046
 DESCRIPTION:Format: Booster Draft\nCost: $25\nStore Details: http://www.7t
@@ -555,10 +556,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461074
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260616T183000Z
 DTEND:20260616T213000Z
-SUMMARY:[Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop
 DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
  ds.com/store/13099\nEvent Details: https://locator.wizards.com/event/10461
@@ -568,10 +569,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461089
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260619T183000Z
 DTEND:20260619T213000Z
-SUMMARY:[Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop
 DESCRIPTION:Format: Draft\nCost: $22\nStore Details: https://locator.wizar
  ds.com/store/13099\nEvent Details: https://locator.wizards.com/event/10461
@@ -581,10 +582,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461075
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260623T183000Z
 DTEND:20260623T213000Z
-SUMMARY:[Draft] Tuesday Draft at PGS
+SUMMARY:Tuesday Draft at PGS @ The Philly Game Shop
 LOCATION:The Philly Game Shop
 DESCRIPTION:Format: Draft\nCost: $30\nStore Details: https://locator.wizar
  ds.com/store/13099\nEvent Details: https://locator.wizards.com/event/10461
@@ -594,10 +595,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10461090
 SEQUENCE:0
-DTSTAMP:20260415T032346Z
+DTSTAMP:20260415T033714Z
 DTSTART:20260626T183000Z
 DTEND:20260626T213000Z
-SUMMARY:[Draft] Friday Night Magic Draft
+SUMMARY:Friday Night Magic Draft @ The Philly Game Shop
 LOCATION:The Philly Game Shop
 DESCRIPTION:Format: Draft\nCost: $22\nStore Details: https://locator.wizar
  ds.com/store/13099\nEvent Details: https://locator.wizards.com/event/10461
