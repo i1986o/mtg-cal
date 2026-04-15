@@ -21,6 +21,11 @@ jobs:
         with:
           node-version: "20"
       - run: npm install
+      - name: Remove legacy pinned rows from Sheet (one-time cleanup)
+        if: hashFiles('scripts/remove-pinned-rows.js') != ''
+        run: node scripts/remove-pinned-rows.js
+        env:
+          GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
       - name: Fetch events, sync to Sheet, generate calendar
         run: npm run fetch
         env:
