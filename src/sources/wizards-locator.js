@@ -25,7 +25,12 @@ export async function fetchWizardsEvents() {
 
     const res = await fetch(GRAPHQL_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Origin": "https://locator.wizards.com",
+        "Referer": "https://locator.wizards.com/",
+        "User-Agent": "Mozilla/5.0 (compatible; mtg-cal-bot/1.0)",
+      },
       body: JSON.stringify({
         operationName: "searchEvents",
         variables,
