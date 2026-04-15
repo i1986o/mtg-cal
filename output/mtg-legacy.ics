@@ -1,0 +1,105 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//mtg-cal//mtg-event-aggregator//EN
+NAME:MTG Legacy — Philadelphia
+X-WR-CALNAME:MTG Legacy — Philadelphia
+X-WR-CALDESC:Legacy events in Philadelphia area
+BEGIN:VEVENT
+UID:wotc-10145614
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260421T023000Z
+DTEND:20260421T053000Z
+SUMMARY:[Legacy] Monday Legacy
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653622
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260428T023000Z
+DTEND:20260428T053000Z
+SUMMARY:[Legacy] Monday Legacy
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653623
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260505T023000Z
+DTEND:20260505T053000Z
+SUMMARY:[Legacy] Monday Legacy
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10740561
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260509T190000Z
+DTEND:20260509T220000Z
+SUMMARY:[Legacy] Legacy Spring 1K
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $40\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653624
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260512T023000Z
+DTEND:20260512T053000Z
+SUMMARY:[Legacy] Monday Legacy
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653625
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260519T023000Z
+DTEND:20260519T053000Z
+SUMMARY:[Legacy] Monday Legacy
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653626
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260526T023000Z
+DTEND:20260526T053000Z
+SUMMARY:[Legacy] Monday Legacy
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Legacy\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+END:VCALENDAR

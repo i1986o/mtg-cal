@@ -18,18 +18,14 @@ function buildDescription(event) {
   return lines.join("\n");
 }
 
-export function generateIcal(events) {
-  // No calendar-level timezone — we write all timestamps as UTC (with Z suffix)
-  // so every calendar app converts to the user's local time automatically.
+function writeCalendar(events, filePath, name, description) {
   const cal = ical({
-    name: config.output.calendarName,
-    description: config.output.calendarDescription,
+    name,
+    description,
     prodId: { company: "mtg-cal", product: "mtg-event-aggregator", language: "EN" },
   });
 
   for (const event of events) {
-    // startDate is already a JS Date (parsed from the UTC ISO string from WotC).
-    // Default duration: 3 hours.
     const end = event.endDate || new Date(event.startDate.getTime() + 3 * 60 * 60 * 1000);
 
     cal.createEvent({
@@ -37,8 +33,6 @@ export function generateIcal(events) {
       summary: `[${event.format}] ${event.title}`,
       description: buildDescription(event),
       location: formatLocationString(event.location),
-      // floating: false forces ical-generator to write DTSTART as UTC (with Z suffix)
-      // e.g. DTSTART:20260424T220000Z = 10pm UTC = 6pm Eastern
       start: event.startDate,
       end,
       floating: false,
@@ -46,10 +40,50 @@ export function generateIcal(events) {
     });
   }
 
-  const outPath = path.resolve(config.output.icsFile);
-  fs.mkdirSync(path.dirname(outPath), { recursive: true });
-  fs.writeFileSync(outPath, cal.toString());
-  console.log(`\n✅ Calendar written to: ${outPath}`);
-  console.log(`   ${events.length} events total`);
-  return outPath;
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, cal.toString());
+  return events.length;
+}
+
+// Map format names from the API to short slugs for filenames
+const FORMAT_SLUGS = {
+  "Commander": "commander",
+  "Modern": "modern",
+  "Standard": "standard",
+  "Pauper": "pauper",
+  "Pioneer": "pioneer",
+  "Legacy": "legacy",
+  "Booster Draft": "draft",
+  "Sealed Deck": "sealed",
+};
+
+export function generateIcal(events) {
+  const outDir = path.dirname(path.resolve(config.output.icsFile));
+
+  // 1. All events calendar
+  const allPath = path.resolve(config.output.icsFile);
+  writeCalendar(events, allPath, config.output.calendarName, config.output.calendarDescription);
+
+  // 2. Per-format calendars
+  const formats = {};
+  for (const event of events) {
+    const fmt = event.format || "Other";
+    if (!formats[fmt]) formats[fmt] = [];
+    formats[fmt].push(event);
+  }
+
+  const written = [];
+  for (const [fmt, fmtEvents] of Object.entries(formats).sort((a, b) => b[1].length - a[1].length)) {
+    const slug = FORMAT_SLUGS[fmt] || fmt.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    const filePath = path.join(outDir, `mtg-${slug}.ics`);
+    const city = config.location.city;
+    writeCalendar(fmtEvents, filePath, `MTG ${fmt} — ${city}`, `${fmt} events in ${city} area`);
+    written.push({ format: fmt, slug, count: fmtEvents.length });
+  }
+
+  console.log(`\n✅ Calendars written to: ${outDir}/`);
+  console.log(`   mtg-events.ics — ${events.length} events (all formats)`);
+  for (const { format, slug, count } of written) {
+    console.log(`   mtg-${slug}.ics — ${count} events (${format})`);
+  }
 }

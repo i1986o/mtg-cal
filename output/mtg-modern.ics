@@ -1,0 +1,217 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//mtg-cal//mtg-event-aggregator//EN
+NAME:MTG Modern — Philadelphia
+X-WR-CALNAME:MTG Modern — Philadelphia
+X-WR-CALDESC:Modern events in Philadelphia area
+BEGIN:VEVENT
+UID:wotc-10189909
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260417T023000Z
+DTEND:20260417T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794451
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260424T023000Z
+DTEND:20260424T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794452
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260501T023000Z
+DTEND:20260501T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794453
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260508T023000Z
+DTEND:20260508T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794454
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260515T023000Z
+DTEND:20260515T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794455
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260522T023000Z
+DTEND:20260522T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794456
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260529T023000Z
+DTEND:20260529T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794457
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260605T023000Z
+DTEND:20260605T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10794458
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260612T023000Z
+DTEND:20260612T053000Z
+SUMMARY:[Modern] PGS Modern Thursdays
+LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
+ Pennsylvania\, 19147
+DESCRIPTION:Format: Modern\nCost: $10\nStore Details: http://phillygamesho
+ p.com/\nEvent Details: https://locator.wizards.com/store/13099/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/13099/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10151190
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260422T023000Z
+DTEND:20260422T053000Z
+SUMMARY:[Modern] Tuesday Modern
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Modern\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653650
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260429T023000Z
+DTEND:20260429T053000Z
+SUMMARY:[Modern] Tuesday Modern
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Modern\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653651
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260506T023000Z
+DTEND:20260506T053000Z
+SUMMARY:[Modern] Tuesday Modern
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Modern\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653652
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260513T023000Z
+DTEND:20260513T053000Z
+SUMMARY:[Modern] Tuesday Modern
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Modern\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653653
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260520T023000Z
+DTEND:20260520T053000Z
+SUMMARY:[Modern] Tuesday Modern
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Modern\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10653654
+SEQUENCE:0
+DTSTAMP:20260415T024408Z
+DTSTART:20260527T023000Z
+DTEND:20260527T053000Z
+SUMMARY:[Modern] Tuesday Modern
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Modern\nCost: $15\nStore Details: https://www.topdeckg
+ amesonline.com/\nEvent Details: https://locator.wizards.com/store/8281/\nS
+ ource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+END:VCALENDAR
