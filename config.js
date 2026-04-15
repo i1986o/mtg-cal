@@ -5,11 +5,11 @@ export const config = {
     zip: "19125",
     city: "Philadelphia",
     state: "PA",
-    lat: 39.9526, // Center of Philadelphia (City Hall) for broader coverage
-    lng: -75.1652,
+    lat: 39.9688,
+    lng: -75.1246,
   },
 
-  searchRadiusMiles: 8,
+  searchRadiusMiles: 10,
   daysAhead: 60,
 
   // Google Sheet ID — source of truth for event curation
