@@ -3,7 +3,7 @@ import { config } from "../../config.js";
 const GRAPHQL_URL = "https://api.tabletop.wizards.com/silverbeak-griffin-service/graphql";
 const PAGE_SIZE = 200;
 
-const QUERY = `query searchEvents($q: EventSearchQuery!) {
+const EVENTS_QUERY = `query searchEvents($q: EventSearchQuery!) {
   searchEvents(query: $q) {
     events {
       id title scheduledStartTime description tags status
@@ -15,6 +15,68 @@ const QUERY = `query searchEvents($q: EventSearchQuery!) {
   }
 }`;
 
+const STORES_QUERY = `query storesByLocation($input: StoreByLocationInput!) {
+  storesByLocation(input: $input) {
+    stores { id name latitude longitude website phoneNumber }
+  }
+}`;
+
+async function fetchStores(maxMeters) {
+  const res = await fetch(GRAPHQL_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      operationName: "storesByLocation",
+      variables: {
+        input: {
+          latitude: config.location.lat,
+          longitude: config.location.lng,
+          maxMeters,
+        },
+      },
+      query: STORES_QUERY,
+    }),
+  });
+
+  if (!res.ok) throw new Error("WotC stores API HTTP error: " + res.status);
+  const data = await res.json();
+  if (data.errors) throw new Error("WotC stores GraphQL: " + data.errors[0].message);
+  return data.data?.storesByLocation?.stores || [];
+}
+
+async function reverseGeocode(lat, lng) {
+  const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
+  const res = await fetch(url, {
+    headers: { "User-Agent": "mtg-cal-bot/1.0 (https://github.com/i1986o/mtg-cal)" },
+  });
+  if (!res.ok) return "";
+  const data = await res.json();
+  const a = data.address;
+  if (!a) return "";
+  const parts = [
+    a.house_number && a.road ? `${a.house_number} ${a.road}` : a.road || "",
+    a.city || a.town || a.village || "",
+    a.state || "",
+    a.postcode || "",
+  ].filter(Boolean);
+  return parts.join(", ");
+}
+
+function findStore(stores, lat, lng) {
+  if (lat == null || lng == null) return null;
+  let best = null;
+  let bestDist = Infinity;
+  for (const s of stores) {
+    const d = Math.abs(s.latitude - lat) + Math.abs(s.longitude - lng);
+    if (d < bestDist) {
+      bestDist = d;
+      best = s;
+    }
+  }
+  // ~0.002 degrees ≈ 200m — generous tolerance for GPS variance
+  return bestDist < 0.002 ? best : null;
+}
+
 export async function fetchWizardsEvents() {
   const startDate = new Date().toISOString().slice(0, 10);
   const endDate = new Date(Date.now() + config.daysAhead * 24 * 60 * 60 * 1000)
@@ -22,6 +84,19 @@ export async function fetchWizardsEvents() {
     .slice(0, 10);
   const maxMeters = Math.round(config.searchRadiusMiles * 1609.34);
 
+  // Step 1: Fetch all stores in the radius and reverse-geocode their addresses
+  const stores = await fetchStores(maxMeters);
+  console.log(`[wotc] ${stores.length} stores found in radius`);
+
+  const storeAddresses = {};
+  for (const s of stores) {
+    storeAddresses[s.id] = await reverseGeocode(s.latitude, s.longitude);
+    // Nominatim asks for max 1 request/second
+    await new Promise((r) => setTimeout(r, 1100));
+  }
+  console.log(`[wotc] reverse-geocoded ${Object.keys(storeAddresses).length} store addresses`);
+
+  // Step 2: Fetch all events with pagination
   const allEvents = [];
   let page = 0;
 
@@ -41,7 +116,7 @@ export async function fetchWizardsEvents() {
     const res = await fetch(GRAPHQL_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ operationName: "searchEvents", variables, query: QUERY }),
+      body: JSON.stringify({ operationName: "searchEvents", variables, query: EVENTS_QUERY }),
     });
 
     if (!res.ok) throw new Error("WotC API HTTP error: " + res.status);
@@ -53,14 +128,7 @@ export async function fetchWizardsEvents() {
 
     for (const ev of events) {
       const fee = ev.entryFee;
-      const venueName = ev.venue?.name || "";
-      // Extract store name from title patterns:
-      //   "Commander Night @ Queen & Rook Game Tavern!"
-      //   "Queen & Rook Presents: Secrets of Strixhaven"
-      //   "PGS Modern Thursdays"  (no reliable pattern — leave blank)
-      const atMatch = ev.title?.match(/@\s*(.+)/);
-      const location = venueName || (atMatch ? atMatch[1].replace(/[!.]+$/, "").trim() : "");
-      const venueAddress = ev.venue?.address || ev.address || "";
+      const store = findStore(stores, ev.latitude, ev.longitude);
 
       allEvents.push({
         id: "wotc-" + ev.id,
@@ -69,12 +137,12 @@ export async function fetchWizardsEvents() {
         date: (ev.scheduledStartTime || "").slice(0, 10),
         time: (ev.scheduledStartTime || "").slice(11, 16),
         timezone: "America/New_York",
-        location,
-        address: venueAddress,
+        location: store?.name || "",
+        address: store ? storeAddresses[store.id] || "" : "",
         cost: fee ? (fee.amount === 0 ? "Free" : "$" + Math.round(fee.amount / 100)) : "",
-        store_url: "",
-        detail_url: ev.venue?.id
-          ? "https://locator.wizards.com/store/" + ev.venue.id + "/"
+        store_url: store?.website || "",
+        detail_url: store
+          ? "https://locator.wizards.com/store/" + store.id + "/"
           : "",
         source: "wizards-locator",
       });
