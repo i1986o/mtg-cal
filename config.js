@@ -17,7 +17,7 @@ export const config = {
 
   sources: {
     wizardsLocator: true,
-    spicerack: false,
+    topdeck: true,
   },
 
   output: {

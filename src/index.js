@@ -2,7 +2,7 @@ import { config } from "../config.js";
 import { fetchAllSources } from "./sources/index.js";
 import { upsertEvents, readActiveEvents } from "./sheets.js";
 import { generateIcal } from "./output/ical.js";
-import { dedupe, logSummary } from "./utils.js";
+import { dedupeAcrossSources, logSummary } from "./utils.js";
 
 async function main() {
   console.log("🃏 MTG Calendar — Sheet Pipeline");
@@ -12,7 +12,7 @@ async function main() {
 
   // 1. Scrape all enabled sources
   const scraped = await fetchAllSources();
-  const deduped = dedupe(scraped);
+  const deduped = dedupeAcrossSources(scraped);
   console.log(`[sources] Total scraped: ${deduped.length}\n`);
 
   // 2. Upsert into Google Sheet (source of truth)

@@ -5,6 +5,7 @@ import { validateEvents } from "./schema.js";
 // Each value is a lazy loader returning the module's default export.
 const SOURCE_MODULES = {
   wizardsLocator: () => import("./wizards-locator.js"),
+  topdeck: () => import("./topdeck.js"),
 };
 
 export async function fetchAllSources() {

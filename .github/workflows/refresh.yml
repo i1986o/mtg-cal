@@ -25,6 +25,7 @@ jobs:
         run: npm run fetch
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+          TOPDECK_API_KEY: ${{ secrets.TOPDECK_API_KEY }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh MTG events [skip ci]"
