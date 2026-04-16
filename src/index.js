@@ -1,5 +1,5 @@
 import { config } from "../config.js";
-import { fetchWizardsEvents } from "./sources/wizards-locator.js";
+import { fetchAllSources } from "./sources/index.js";
 import { upsertEvents, readActiveEvents } from "./sheets.js";
 import { generateIcal } from "./output/ical.js";
 import { dedupe, logSummary } from "./utils.js";
@@ -10,13 +10,8 @@ async function main() {
   console.log(`   Radius: ${config.searchRadiusMiles}mi | Days ahead: ${config.daysAhead}`);
   console.log();
 
-  // 1. Scrape
-  const scraped = [];
-  if (config.sources.wizardsLocator) {
-    const events = await fetchWizardsEvents();
-    scraped.push(...events);
-    console.log(`[sources] WotC: ${events.length} events`);
-  }
+  // 1. Scrape all enabled sources
+  const scraped = await fetchAllSources();
   const deduped = dedupe(scraped);
   console.log(`[sources] Total scraped: ${deduped.length}\n`);
 

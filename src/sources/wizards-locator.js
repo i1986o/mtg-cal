@@ -77,7 +77,7 @@ function findStore(stores, lat, lng) {
   return bestDist < 0.002 ? best : null;
 }
 
-export async function fetchWizardsEvents() {
+export default async function fetchWizardsEvents(sourceConfig = {}) {
   const startDate = new Date().toISOString().slice(0, 10);
   const endDate = new Date(Date.now() + config.daysAhead * 24 * 60 * 60 * 1000)
     .toISOString()
