@@ -18,6 +18,9 @@ export const config = {
   sources: {
     wizardsLocator: true,
     topdeck: true,
+    discord: {
+      guildIds: ["1451305700322967794"], // Hamilton's Hand
+    },
   },
 
   output: {

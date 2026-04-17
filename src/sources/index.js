@@ -6,6 +6,7 @@ import { validateEvents } from "./schema.js";
 const SOURCE_MODULES = {
   wizardsLocator: () => import("./wizards-locator.js"),
   topdeck: () => import("./topdeck.js"),
+  discord: () => import("./discord.js"),
 };
 
 export async function fetchAllSources() {
