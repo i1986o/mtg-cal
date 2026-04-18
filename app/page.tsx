@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FloatingActions from "./floating-actions";
 import RadiusSelector from "./radius-selector";
+import StoreLink from "./store-link";
 
 // Format emoji mapping for fun visual flair
 const FORMAT_EMOJI: Record<string, string> = {
@@ -123,18 +124,7 @@ export default async function HomePage({
                     </div>
                     <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-white group-hover:text-gray-100 transition-colors">{ev.title}</h3>
                     {ev.location && (
-                      ev.store_url ? (
-                        <p className="mt-1 text-sm text-gray-400">
-                          <span
-                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(ev.store_url, "_blank"); }}
-                            className="hover:text-blue-400 hover:underline cursor-pointer transition-colors"
-                          >
-                            {ev.location}
-                          </span>
-                        </p>
-                      ) : (
-                        <p className="mt-1 text-sm text-gray-400">{ev.location}</p>
-                      )
+                      <StoreLink name={ev.location} url={ev.store_url || undefined} />
                     )}
                   </div>
                   <div className="text-right shrink-0">
