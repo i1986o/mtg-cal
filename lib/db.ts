@@ -61,4 +61,18 @@ function initSchema(db: Database.Database) {
   insert.run("scrape_interval_hours", "24");
   insert.run("last_scrape", "");
   insert.run("last_scrape_result", "");
+
+  // Auto-populate on first startup if database is empty
+  const count = db.prepare("SELECT COUNT(*) as c FROM events").get() as { c: number };
+  if (count.c === 0) {
+    console.log("[db] Empty database detected — triggering initial scrape...");
+    // Run scraper async (don't block startup)
+    import("./scraper").then(({ runScraper }) => {
+      runScraper().then((result) => {
+        console.log(`[db] Initial scrape complete: ${result.added} events added`);
+      }).catch((err) => {
+        console.error("[db] Initial scrape failed:", err.message);
+      });
+    });
+  }
 }
