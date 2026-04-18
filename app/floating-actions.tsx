@@ -44,10 +44,10 @@ export default function FloatingActions() {
   }
 
   const buttons = [
-    { icon: <CalendarIcon />, label: "Subscribe", onClick: () => setShowCalModal(true), color: "hover:bg-purple-500/30 hover:border-purple-500/50 hover:text-purple-300" },
-    { icon: <DiscordIcon />, label: "Discord", onClick: () => showToast("\uD83D\uDCAC Discord coming soon!"), color: "hover:bg-indigo-500/30 hover:border-indigo-500/50 hover:text-indigo-300" },
-    { icon: <EmailIcon />, label: "Email", onClick: () => showToast("\u2709\uFE0F Newsletter coming soon!"), color: "hover:bg-pink-500/30 hover:border-pink-500/50 hover:text-pink-300" },
-    { icon: <LinkIcon />, label: "Links", onClick: () => showToast("\uD83D\uDD17 Link tree coming soon!"), color: "hover:bg-green-500/30 hover:border-green-500/50 hover:text-green-300" },
+    { icon: <CalendarIcon />, label: "Subscribe", onClick: () => setShowCalModal(true), color: "hover:bg-[#182035] hover:border-[#2a3a5c] hover:text-gray-300" },
+    { icon: <DiscordIcon />, label: "Discord", onClick: () => showToast("\uD83D\uDCAC Discord coming soon!"), color: "hover:bg-[#182035] hover:border-[#2a3a5c] hover:text-gray-300" },
+    { icon: <EmailIcon />, label: "Email", onClick: () => showToast("\u2709\uFE0F Newsletter coming soon!"), color: "hover:bg-[#182035] hover:border-[#2a3a5c] hover:text-gray-300" },
+    { icon: <LinkIcon />, label: "Links", onClick: () => showToast("\uD83D\uDD17 Link tree coming soon!"), color: "hover:bg-[#182035] hover:border-[#2a3a5c] hover:text-gray-300" },
   ];
 
   return (
@@ -58,7 +58,7 @@ export default function FloatingActions() {
             key={btn.label}
             onClick={btn.onClick}
             title={btn.label}
-            className={`group flex items-center justify-center w-10 h-10 bg-white/5 text-gray-500 rounded-xl border border-white/10 transition-all duration-200 cursor-pointer ${btn.color}`}
+            className={`group flex items-center justify-center w-10 h-10 bg-[#131a2b] text-gray-500 rounded-xl border border-[#1e2a42] transition-all duration-200 cursor-pointer ${btn.color}`}
           >
             {btn.icon}
           </button>
@@ -66,7 +66,7 @@ export default function FloatingActions() {
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-[#131a2b] backdrop-blur-md border border-[#1e2a42] rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
           {toast}
         </div>
       )}
