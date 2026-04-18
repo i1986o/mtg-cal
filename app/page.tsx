@@ -123,9 +123,18 @@ export default async function HomePage({
                     </div>
                     <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-white group-hover:text-gray-100 transition-colors">{ev.title}</h3>
                     {ev.location && (
-                      <p className="mt-1 text-sm text-gray-400">
-                        {ev.location}
-                      </p>
+                      ev.store_url ? (
+                        <p className="mt-1 text-sm text-gray-400">
+                          <span
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(ev.store_url, "_blank"); }}
+                            className="hover:text-blue-400 hover:underline cursor-pointer transition-colors"
+                          >
+                            {ev.location}
+                          </span>
+                        </p>
+                      ) : (
+                        <p className="mt-1 text-sm text-gray-400">{ev.location}</p>
+                      )
                     )}
                   </div>
                   <div className="text-right shrink-0">
