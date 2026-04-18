@@ -48,7 +48,7 @@ export default function RadiusSelector({
 
   return (
     <p className="text-gray-400 flex items-center justify-center gap-1 flex-wrap text-lg leading-relaxed">
-      <span className="text-white font-[family-name:var(--font-ultra)] text-3xl">{eventCount}</span>
+      <span className="text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
       {/* Format selector */}
       <select
