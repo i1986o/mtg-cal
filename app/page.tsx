@@ -86,10 +86,14 @@ export default async function HomePage({
       </div>
 
       {/* Hero header */}
-      <header className="mb-10 flex flex-col items-center text-center gap-3">
+      <header className="mb-6 flex flex-col items-center text-center gap-3">
         <Image src="/logo.png" alt="Philly MTG" width={120} height={120} className="w-28 h-28 object-contain" />
-        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
       </header>
+
+      {/* Sticky filter bar */}
+      <div className="sticky top-0 z-10 backdrop-blur-md py-3 -mx-4 px-4 mb-6">
+        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+      </div>
 
       {/* Events by date */}
       {Object.keys(grouped).length === 0 && (
