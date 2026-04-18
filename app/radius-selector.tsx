@@ -33,7 +33,7 @@ export default function RadiusSelector({
   const timeLabel = TIME_OPTIONS.find(t => t.value === String(currentDays))?.label || `${currentDays} days`;
 
   return (
-    <p className="text-gray-400 mt-2 flex items-center gap-1.5 flex-wrap text-base">
+    <p className="text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-base">
       <span className="text-white font-semibold">{eventCount}</span>
       <span>events within</span>
       <select
