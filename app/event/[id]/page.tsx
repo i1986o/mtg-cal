@@ -78,8 +78,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         <div className="px-6 pb-2">
           <dl>
             <DetailRow label="Date" value={formatDate(ev.date)} />
-            <DetailRow label="Start" value={ev.time ? `${formatTime(ev.time)} UTC` : ""} />
-            <DetailRow label="End" value={ev.time ? `${formatTime((() => { const [h,m] = ev.time.split(":").map(Number); return `${(h+3)%24}:${String(m).padStart(2,"0")}`; })())} UTC` : ""} />
+            <DetailRow label="Time" value={ev.time ? `${formatTime(ev.time)} \u2013 ${formatTime((() => { const [h,m] = ev.time.split(":").map(Number); return `${(h+3)%24}:${String(m).padStart(2,"0")}`; })())} UTC` : ""} />
             <DetailRow label="Format" value={ev.format} />
             <DetailRow label="Cost" value={ev.cost || "Not listed"} />
             <DetailRow label="Store" value={ev.location} href={ev.store_url || undefined} />
