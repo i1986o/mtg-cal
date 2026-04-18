@@ -1,25 +1,36 @@
 "use client";
 
+const FORMAT_EMOJI: Record<string, string> = {
+  Commander: "\u2694\uFE0F",
+  Modern: "\u26A1",
+  Standard: "\u2B50",
+  Pioneer: "\uD83E\uDE90",
+  Legacy: "\uD83D\uDC51",
+  Pauper: "\uD83E\uDE99",
+  Draft: "\uD83C\uDFB2",
+  Sealed: "\uD83C\uDF81",
+};
+
 const FORMAT_ACTIVE: Record<string, string> = {
-  Commander: "bg-purple-600 text-white dark:bg-purple-500",
-  Modern: "bg-blue-600 text-white dark:bg-blue-500",
-  Standard: "bg-green-600 text-white dark:bg-green-500",
-  Pioneer: "bg-orange-600 text-white dark:bg-orange-500",
-  Legacy: "bg-red-600 text-white dark:bg-red-500",
-  Pauper: "bg-yellow-500 text-white dark:bg-yellow-500",
-  Draft: "bg-cyan-600 text-white dark:bg-cyan-500",
-  Sealed: "bg-pink-600 text-white dark:bg-pink-500",
+  Commander: "bg-purple-500/30 text-purple-200 border-purple-500/60",
+  Modern: "bg-blue-500/30 text-blue-200 border-blue-500/60",
+  Standard: "bg-green-500/30 text-green-200 border-green-500/60",
+  Pioneer: "bg-orange-500/30 text-orange-200 border-orange-500/60",
+  Legacy: "bg-red-500/30 text-red-200 border-red-500/60",
+  Pauper: "bg-yellow-500/30 text-yellow-200 border-yellow-500/60",
+  Draft: "bg-cyan-500/30 text-cyan-200 border-cyan-500/60",
+  Sealed: "bg-pink-500/30 text-pink-200 border-pink-500/60",
 };
 
 const FORMAT_INACTIVE: Record<string, string> = {
-  Commander: "border-purple-400 text-purple-600 dark:border-purple-500 dark:text-purple-400",
-  Modern: "border-blue-400 text-blue-600 dark:border-blue-500 dark:text-blue-400",
-  Standard: "border-green-400 text-green-600 dark:border-green-500 dark:text-green-400",
-  Pioneer: "border-orange-400 text-orange-600 dark:border-orange-500 dark:text-orange-400",
-  Legacy: "border-red-400 text-red-600 dark:border-red-500 dark:text-red-400",
-  Pauper: "border-yellow-400 text-yellow-600 dark:border-yellow-500 dark:text-yellow-400",
-  Draft: "border-cyan-400 text-cyan-600 dark:border-cyan-500 dark:text-cyan-400",
-  Sealed: "border-pink-400 text-pink-600 dark:border-pink-500 dark:text-pink-400",
+  Commander: "border-purple-500/20 text-purple-400 hover:bg-purple-500/10",
+  Modern: "border-blue-500/20 text-blue-400 hover:bg-blue-500/10",
+  Standard: "border-green-500/20 text-green-400 hover:bg-green-500/10",
+  Pioneer: "border-orange-500/20 text-orange-400 hover:bg-orange-500/10",
+  Legacy: "border-red-500/20 text-red-400 hover:bg-red-500/10",
+  Pauper: "border-yellow-500/20 text-yellow-400 hover:bg-yellow-500/10",
+  Draft: "border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/10",
+  Sealed: "border-pink-500/20 text-pink-400 hover:bg-pink-500/10",
 };
 
 export default function FormatFilter({ formats, activeFormat }: { formats: string[]; activeFormat?: string }) {
@@ -29,19 +40,17 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
   }
 
   return (
-    <div className="sticky top-0 z-10 bg-white/80 dark:bg-black/80 backdrop-blur-sm py-3 -mx-4 px-4 mb-6">
-      <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Format</p>
-
+    <div className="sticky top-0 z-10 bg-[#0c0a1a]/90 backdrop-blur-md py-3 -mx-4 px-4 mb-6">
       {/* Mobile: dropdown */}
       <div className="md:hidden">
         <select
           value={activeFormat || ""}
           onChange={handleSelect}
-          className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-sm font-medium text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2.5 rounded-xl border border-white/10 bg-white/5 text-sm font-medium text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
         >
-          <option value="">All Formats</option>
+          <option value="">{"\uD83C\uDCCF"} All Formats</option>
           {formats.map((f) => (
-            <option key={f} value={f}>{f}</option>
+            <option key={f} value={f}>{FORMAT_EMOJI[f] || "\uD83C\uDCCF"} {f}</option>
           ))}
         </select>
       </div>
@@ -52,11 +61,11 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
           href="/"
           className={`px-3 py-1.5 rounded-lg text-sm font-medium transition border ${
             !activeFormat
-              ? "bg-gray-900 text-white border-gray-900 dark:bg-gray-100 dark:text-gray-900 dark:border-gray-100"
-              : "border-gray-300 text-gray-600 dark:border-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+              ? "bg-white/15 text-white border-white/30"
+              : "border-white/10 text-gray-400 hover:bg-white/5"
           }`}
         >
-          All
+          {"\uD83C\uDCCF"} All
         </a>
         {formats.map((f) => (
           <a
@@ -64,11 +73,11 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
             href={`/?format=${encodeURIComponent(f)}`}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition border ${
               activeFormat === f
-                ? (FORMAT_ACTIVE[f] || "bg-gray-900 text-white") + " border-transparent"
-                : (FORMAT_INACTIVE[f] || "border-gray-300 text-gray-600 dark:border-gray-600 dark:text-gray-400") + " bg-transparent hover:opacity-80"
+                ? FORMAT_ACTIVE[f] || "bg-white/15 text-white border-white/30"
+                : FORMAT_INACTIVE[f] || "border-white/10 text-gray-400 hover:bg-white/5"
             }`}
           >
-            {f}
+            {FORMAT_EMOJI[f] || "\uD83C\uDCCF"} {f}
           </a>
         ))}
       </div>

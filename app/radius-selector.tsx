@@ -33,12 +33,13 @@ export default function RadiusSelector({
   const timeLabel = TIME_OPTIONS.find(t => t.value === String(currentDays))?.label || `${currentDays} days`;
 
   return (
-    <p className="text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-1 flex-wrap">
-      <span>{eventCount} events within</span>
+    <p className="text-gray-400 mt-2 flex items-center gap-1.5 flex-wrap text-base">
+      <span className="text-white font-semibold">{eventCount}</span>
+      <span>events within</span>
       <select
         value={currentRadius}
         onChange={handleRadiusChange}
-        className="inline-block bg-transparent border-b border-gray-400 dark:border-gray-500 text-gray-700 dark:text-gray-300 font-medium focus:outline-none focus:border-blue-500 cursor-pointer appearance-none text-center px-1"
+        className="inline-block bg-transparent border-b-2 border-purple-500/50 text-purple-300 font-semibold focus:outline-none focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-400 transition-colors"
         style={{ width: `${String(currentRadius).length + 7}ch` }}
       >
         {RADIUS_OPTIONS.map((r) => (
@@ -49,7 +50,7 @@ export default function RadiusSelector({
       <select
         value={currentDays}
         onChange={handleDaysChange}
-        className="inline-block bg-transparent border-b border-gray-400 dark:border-gray-500 text-gray-700 dark:text-gray-300 font-medium focus:outline-none focus:border-blue-500 cursor-pointer appearance-none text-center px-1"
+        className="inline-block bg-transparent border-b-2 border-pink-500/50 text-pink-300 font-semibold focus:outline-none focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-400 transition-colors"
         style={{ width: `${timeLabel.length + 2}ch` }}
       >
         {TIME_OPTIONS.map((t) => (
