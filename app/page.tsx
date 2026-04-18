@@ -81,11 +81,15 @@ export default async function HomePage({
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-8">
+      {/* Subscribe button - top right */}
+      <div className="flex justify-end mb-4">
+        <SubscribeButton />
+      </div>
+
       {/* Hero header */}
       <header className="mb-10 flex flex-col items-center text-center gap-3">
         <Image src="/logo.png" alt="Philly MTG" width={120} height={120} className="w-28 h-28 object-contain" />
         <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} eventCount={events.length} />
-        <SubscribeButton />
       </header>
 
       <FormatFilter formats={formats} activeFormat={params.format} />
