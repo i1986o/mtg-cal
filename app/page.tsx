@@ -88,7 +88,7 @@ export default async function HomePage({
       </header>
 
       {/* Sticky filter bar */}
-      <div className="sticky top-0 z-10 py-3 mb-6 bg-[#0d1117]">
+      <div className="sticky top-0 z-10 py-3 mb-6 bg-[#0d1117] max-w-3xl">
         <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
       </div>
 

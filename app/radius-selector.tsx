@@ -45,7 +45,6 @@ export default function RadiusSelector({
   }
 
   const [showToast, setShowToast] = useState(false);
-  const timeLabel = TIME_OPTIONS.find(t => t.value === String(currentDays))?.label || `${currentDays} days`;
   const formatLabel = currentFormat || "MTG";
 
   function handleCityClick() {
@@ -67,8 +66,7 @@ export default function RadiusSelector({
       <select
         value={currentFormat || ""}
         onChange={(e) => updateParam("format", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-orange-500/50 text-orange-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-orange-400 cursor-pointer appearance-none text-center px-1 hover:border-orange-400 transition-colors"
-        style={{ width: `${(currentFormat ? FORMAT_EMOJI[currentFormat] + " " : "").length + formatLabel.length + 2}ch` }}
+        className="inline-block bg-transparent border-b-2 border-orange-500/50 text-orange-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-orange-400 cursor-pointer appearance-none text-center px-1 hover:border-orange-400 transition-colors w-[8ch]"
       >
         <option value="">MTG</option>
         {formats.map((f) => (
@@ -82,8 +80,7 @@ export default function RadiusSelector({
       <select
         value={currentRadius}
         onChange={(e) => updateParam("radius", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-purple-500/50 text-purple-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-400 transition-colors"
-        style={{ width: `${String(currentRadius).length + 1}ch` }}
+        className="inline-block bg-transparent border-b-2 border-purple-500/50 text-purple-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-400 transition-colors w-[3ch]"
       >
         {RADIUS_OPTIONS.map((r) => (
           <option key={r} value={r}>{r}</option>
@@ -106,8 +103,7 @@ export default function RadiusSelector({
       <select
         value={currentDays}
         onChange={(e) => updateParam("days", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-pink-500/50 text-pink-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-400 transition-colors"
-        style={{ width: `${timeLabel.length + 2}ch` }}
+        className="inline-block bg-transparent border-b-2 border-pink-500/50 text-pink-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-400 transition-colors w-[10ch]"
       >
         {TIME_OPTIONS.map((t) => (
           <option key={t.value} value={t.value}>{t.label}</option>
