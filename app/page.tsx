@@ -61,7 +61,7 @@ export default async function HomePage({
     <main className="max-w-4xl mx-auto px-4 py-8">
       <header className="mb-8 flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Philly MTG Events</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Philly MTG</h1>
           <RadiusSelector currentRadius={currentRadius} eventCount={events.length} />
         </div>
         <SubscribeButton />
