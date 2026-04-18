@@ -3,14 +3,25 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 const FORMAT_COLORS: Record<string, string> = {
-  Commander: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-  Modern: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-  Standard: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-  Pioneer: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
-  Legacy: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-  Pauper: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-  Draft: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200",
-  Sealed: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
+  Commander: "bg-purple-500/20 text-purple-300 border border-purple-500/30",
+  Modern: "bg-blue-500/20 text-blue-300 border border-blue-500/30",
+  Standard: "bg-green-500/20 text-green-300 border border-green-500/30",
+  Pioneer: "bg-orange-500/20 text-orange-300 border border-orange-500/30",
+  Legacy: "bg-red-500/20 text-red-300 border border-red-500/30",
+  Pauper: "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30",
+  Draft: "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30",
+  Sealed: "bg-pink-500/20 text-pink-300 border border-pink-500/30",
+};
+
+const FORMAT_EMOJI: Record<string, string> = {
+  Commander: "\u2694\uFE0F",
+  Modern: "\u26A1",
+  Standard: "\u2B50",
+  Pioneer: "\uD83E\uDE90",
+  Legacy: "\uD83D\uDC51",
+  Pauper: "\uD83E\uDE99",
+  Draft: "\uD83C\uDFB2",
+  Sealed: "\uD83C\uDF81",
 };
 
 function formatTime(time: string): string {
@@ -35,11 +46,11 @@ const SOURCE_LABELS: Record<string, string> = {
 function DetailRow({ label, value, href }: { label: string; value: string; href?: string }) {
   if (!value) return null;
   return (
-    <div className="flex justify-between items-baseline py-3 border-b border-gray-100 dark:border-gray-800 last:border-0">
-      <dt className="text-sm text-gray-500 dark:text-gray-400 shrink-0 w-28">{label}</dt>
-      <dd className="text-sm font-medium text-gray-900 dark:text-gray-100 text-right">
+    <div className="flex justify-between items-baseline py-3 border-b border-[#1c2333] last:border-0">
+      <dt className="text-sm text-gray-500 shrink-0 w-28">{label}</dt>
+      <dd className="text-sm font-medium text-gray-200 text-right">
         {href ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:underline">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-blue-400 hover:underline">
             {value}
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
           </a>
@@ -57,21 +68,21 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-8">
-      <Link href="/" className="text-sm text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block">
+      <Link href="/" className="text-sm text-gray-400 hover:text-white hover:underline mb-6 inline-block">
         &larr; Back to events
       </Link>
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+      <div className="bg-[#0d1117] border border-[#1c2333] rounded-xl overflow-hidden">
         {/* Header */}
         <div className="p-6 pb-4">
           <div className="flex items-center gap-2 mb-3">
-            <span className={`px-2.5 py-1 rounded text-xs font-semibold ${FORMAT_COLORS[ev.format] || "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"}`}>
-              {ev.format || "MTG"}
+            <span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${FORMAT_COLORS[ev.format] || "bg-gray-500/20 text-gray-300 border border-gray-500/30"}`}>
+              {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
             </span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{ev.title}</h1>
+          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-white">{ev.title}</h1>
           {ev.location && (
-            <p className="text-gray-500 dark:text-gray-400 mt-1">{ev.location}</p>
+            <p className="text-gray-400 mt-1">{"\uD83D\uDCCD"} {ev.location}</p>
           )}
         </div>
 
@@ -90,9 +101,9 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
         {/* Notes */}
         {ev.notes && (
-          <div className="mx-6 mb-4 bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">Notes</p>
-            <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
+          <div className="mx-6 mb-4 bg-[#131a2b] rounded-lg p-4">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Notes</p>
+            <p className="text-sm text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
           </div>
         )}
 
@@ -105,13 +116,13 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             </a>
           )}
           {ev.store_url && (
-            <a href={ev.store_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition border border-gray-200 dark:border-gray-700">
+            <a href={ev.store_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0d1117] text-gray-300 text-sm font-medium rounded-lg hover:bg-[#131a2b] transition border border-[#1c2333]">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg>
               Store Website
             </a>
           )}
           {ev.address && (
-            <a href={`https://maps.google.com/?q=${encodeURIComponent(ev.address)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition border border-gray-200 dark:border-gray-700">
+            <a href={`https://maps.google.com/?q=${encodeURIComponent(ev.address)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0d1117] text-gray-300 text-sm font-medium rounded-lg hover:bg-[#131a2b] transition border border-[#1c2333]">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
               Open in Maps
             </a>
@@ -119,7 +130,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         </div>
 
         {/* Meta footer */}
-        <div className="bg-gray-50 dark:bg-gray-950 px-6 py-3 text-xs text-gray-400 dark:text-gray-500 flex justify-between">
+        <div className="bg-[#0a0e14] px-6 py-3 text-xs text-gray-600 flex justify-between">
           <span>ID: {ev.id}</span>
           <span>Added {ev.added_date} · Updated {ev.updated_date}</span>
         </div>
