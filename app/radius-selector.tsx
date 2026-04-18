@@ -56,7 +56,7 @@ export default function RadiusSelector({
   return (
     <>
       {showToast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-[#131a2b] backdrop-blur-md border border-[#1e2a42] rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-[#0d1117] backdrop-blur-md border border-[#1c2333] rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
           {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
         </div>
       )}
