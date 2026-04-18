@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
 const TIME_OPTIONS = [
@@ -43,10 +44,22 @@ export default function RadiusSelector({
     window.location.href = url.toString();
   }
 
+  const [showToast, setShowToast] = useState(false);
   const timeLabel = TIME_OPTIONS.find(t => t.value === String(currentDays))?.label || `${currentDays} days`;
   const formatLabel = currentFormat || "MTG";
 
+  function handleCityClick() {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2500);
+  }
+
   return (
+    <>
+      {showToast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
+          {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
+        </div>
+      )}
     <p className="text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-xl leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
       <span className="text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
@@ -77,7 +90,17 @@ export default function RadiusSelector({
         ))}
       </select>
 
-      <span>miles of Philly in the next</span>
+      <span>miles of</span>
+
+      {/* City selector — coming soon */}
+      <button
+        onClick={handleCityClick}
+        className="inline-block bg-transparent border-b-2 border-emerald-500/50 text-emerald-300 font-[family-name:var(--font-ultra)] cursor-pointer hover:border-emerald-400 transition-colors px-1"
+      >
+        Philly
+      </button>
+
+      <span>in the next</span>
 
       {/* Time selector */}
       <select
@@ -91,5 +114,6 @@ export default function RadiusSelector({
         ))}
       </select>
     </p>
+    </>
   );
 }
