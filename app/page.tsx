@@ -91,7 +91,7 @@ export default async function HomePage({
       </header>
 
       {/* Sticky filter bar */}
-      <div className="sticky top-0 z-10 py-3 mb-6">
+      <div className="sticky top-0 z-10 py-3 mb-6 bg-[#111318]">
         <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
       </div>
 
@@ -106,7 +106,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] backdrop-blur-md text-base font-semibold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="sticky top-12 z-[5] bg-[#111318] text-base font-semibold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
