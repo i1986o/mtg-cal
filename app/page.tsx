@@ -35,16 +35,20 @@ function formatDateHeading(dateStr: string): string {
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ format?: string; radius?: string }>;
+  searchParams: Promise<{ format?: string; radius?: string; days?: string }>;
 }) {
   const params = await searchParams;
   const currentRadius = params.radius ? parseInt(params.radius, 10) : parseInt(getSetting("search_radius_miles") || "10", 10);
-  // Save radius preference
+  const currentDays = params.days ? parseInt(params.days, 10) : 60;
+  // Save preferences
   if (params.radius) setSetting("search_radius_miles", params.radius);
+  const today = new Date();
+  const toDate = new Date(today.getTime() + currentDays * 24 * 60 * 60 * 1000);
   const formats = getFormats();
   const events = getActiveEvents({
     format: params.format || undefined,
-    from: new Date().toISOString().split("T")[0],
+    from: today.toISOString().split("T")[0],
+    to: toDate.toISOString().split("T")[0],
     radiusMiles: currentRadius,
     centerLat: config.location.lat,
     centerLng: config.location.lng,
@@ -62,7 +66,7 @@ export default async function HomePage({
       <header className="mb-8 flex items-start justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Philly MTG</h1>
-          <RadiusSelector currentRadius={currentRadius} eventCount={events.length} />
+          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} eventCount={events.length} />
         </div>
         <SubscribeButton />
       </header>
