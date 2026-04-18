@@ -73,13 +73,13 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       </Link>
 
       <div className="bg-[#0d1117] border border-[#1c2333] rounded-xl overflow-hidden">
-        {/* Map header */}
+        {/* Map header — dark themed via OSM embed with CSS inversion */}
         {ev.latitude && ev.longitude && (
-          <div className="relative h-48 overflow-hidden bg-[#131a2b]">
+          <div className="relative h-44 overflow-hidden bg-[#131a2b]">
             <iframe
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${ev.longitude-0.008},${ev.latitude-0.004},${ev.longitude+0.008},${ev.latitude+0.004}&layer=mapnik&marker=${ev.latitude},${ev.longitude}`}
-              className="w-full h-full border-0 pointer-events-none"
-              style={{ filter: "brightness(0.7) saturate(0.5)" }}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${ev.longitude-0.006},${ev.latitude-0.003},${ev.longitude+0.006},${ev.latitude+0.003}&layer=mapnik&marker=${ev.latitude},${ev.longitude}`}
+              className="w-full border-0 pointer-events-none"
+              style={{ filter: "invert(1) hue-rotate(200deg) brightness(0.6) contrast(1.2) saturate(0.3)", height: "250px", marginTop: "-25px" }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent pointer-events-none" />
             <a
@@ -87,6 +87,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               target="_blank"
               rel="noopener noreferrer"
               className="absolute inset-0 z-10"
+              title="Open in Google Maps"
             />
           </div>
         )}
