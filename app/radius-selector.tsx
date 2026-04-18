@@ -12,7 +12,7 @@ export default function RadiusSelector({ currentRadius, eventCount }: { currentR
 
   return (
     <p className="text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-1 flex-wrap">
-      <span>{eventCount} upcoming events within</span>
+      <span>{eventCount} MTG events within</span>
       <select
         value={currentRadius}
         onChange={handleChange}
@@ -23,6 +23,7 @@ export default function RadiusSelector({ currentRadius, eventCount }: { currentR
           <option key={r} value={r}>{r} miles</option>
         ))}
       </select>
+      <span>of Philly</span>
     </p>
   );
 }
