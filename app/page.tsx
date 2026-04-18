@@ -90,9 +90,11 @@ export default async function HomePage({
         <Image src="/logo.png" alt="Philly MTG" width={120} height={120} className="w-28 h-28 object-contain" />
       </header>
 
-      {/* Sticky filter bar */}
-      <div className="sticky top-0 z-10 backdrop-blur-md py-3 -mx-4 px-4 mb-6">
-        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+      {/* Sticky filter bar — masked edges for seamless fade */}
+      <div className="sticky top-0 z-10 py-3 -mx-4 px-4 mb-6" style={{ maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)" }}>
+        <div className="backdrop-blur-md rounded-2xl py-2">
+          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+        </div>
       </div>
 
       {/* Events by date */}
