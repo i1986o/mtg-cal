@@ -47,7 +47,7 @@ export default function RadiusSelector({
   const formatLabel = currentFormat || "MTG";
 
   return (
-    <p className="text-gray-400 flex items-center justify-center gap-1 flex-wrap text-lg leading-relaxed">
+    <p className="text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-xl leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
       <span className="text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
       {/* Format selector */}

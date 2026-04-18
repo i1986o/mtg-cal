@@ -103,7 +103,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] bg-[#111318] text-base font-[family-name:var(--font-ultra)] text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="sticky top-12 z-[5] bg-[#111318] text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
@@ -121,7 +121,7 @@ export default async function HomePage({
                       </span>
                       <span className="text-xs text-gray-500">{formatTime(ev.time)} UTC</span>
                     </div>
-                    <h3 className="font-[family-name:var(--font-ultra)] text-white group-hover:text-purple-200 transition-colors">{ev.title}</h3>
+                    <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-white group-hover:text-purple-200 transition-colors">{ev.title}</h3>
                     {ev.location && (
                       <p className="flex items-center gap-1 mt-1 text-sm text-gray-400">
                         {"\uD83D\uDCCD"} {ev.location}
@@ -129,7 +129,7 @@ export default async function HomePage({
                     )}
                   </div>
                   <div className="text-right shrink-0">
-                    <span className={`text-sm font-[family-name:var(--font-ultra)] ${ev.cost === "Free" ? "text-emerald-400" : "text-white"}`}>
+                    <span className={`text-base font-[family-name:var(--font-ultra)] font-bold ${ev.cost === "Free" ? "text-emerald-400" : "text-white"}`}>
                       {ev.cost === "Free" ? "\u2728 Free" : ev.cost || "\u2014"}
                     </span>
                   </div>
