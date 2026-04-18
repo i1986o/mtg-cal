@@ -88,7 +88,7 @@ export default async function HomePage({
       </header>
 
       {/* Sticky filter bar */}
-      <div className="sticky top-0 z-10 py-3 mb-6 bg-[#0d1117] max-w-3xl">
+      <div className="sticky top-0 z-10 py-3 mb-6 bg-[#0e2240] max-w-3xl">
         <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
       </div>
 
@@ -103,7 +103,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] bg-[#0d1117] text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="sticky top-12 z-[5] bg-[#0e2240] text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
@@ -111,7 +111,7 @@ export default async function HomePage({
               <Link
                 key={ev.id}
                 href={`/event/${encodeURIComponent(ev.id)}`}
-                className="group block bg-[#0d1117] hover:bg-[#131a2b] border border-[#1c2333] rounded-xl p-4 transition-all duration-200 cursor-pointer"
+                className="group block bg-[#0e2240] hover:bg-[#132c50] border border-[#1a3558] rounded-xl p-4 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
