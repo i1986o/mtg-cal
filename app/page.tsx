@@ -87,7 +87,7 @@ export default async function HomePage({
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
-        <Image src="/logo.png" alt="Philly MTG" width={120} height={120} className="w-28 h-28 object-contain" />
+        <Image src="/logo.png" alt="Philly MTG" width={180} height={180} className="w-44 h-44 object-contain" />
       </header>
 
       {/* Sticky filter bar */}
