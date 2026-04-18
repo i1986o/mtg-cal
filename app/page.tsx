@@ -4,7 +4,7 @@ import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/event
 import { config } from "@/lib/config";
 import Link from "next/link";
 import Image from "next/image";
-import SubscribeButton from "./subscribe-modal";
+import FloatingActions from "./floating-actions";
 import RadiusSelector from "./radius-selector";
 
 // Format emoji mapping for fun visual flair
@@ -80,10 +80,7 @@ export default async function HomePage({
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-8">
-      {/* Subscribe button - top right */}
-      <div className="flex justify-end mb-4">
-        <SubscribeButton />
-      </div>
+      <FloatingActions />
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
