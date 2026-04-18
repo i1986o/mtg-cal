@@ -5,7 +5,6 @@ import { config } from "@/lib/config";
 import Link from "next/link";
 import Image from "next/image";
 import SubscribeButton from "./subscribe-modal";
-import FormatFilter from "./format-filter";
 import RadiusSelector from "./radius-selector";
 
 // Format emoji mapping for fun visual flair
@@ -89,10 +88,8 @@ export default async function HomePage({
       {/* Hero header */}
       <header className="mb-10 flex flex-col items-center text-center gap-3">
         <Image src="/logo.png" alt="Philly MTG" width={120} height={120} className="w-28 h-28 object-contain" />
-        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} eventCount={events.length} />
+        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
       </header>
-
-      <FormatFilter formats={formats} activeFormat={params.format} />
 
       {/* Events by date */}
       {Object.keys(grouped).length === 0 && (
@@ -105,7 +102,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] bg-[#060d1f]/90 backdrop-blur-md text-base font-semibold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="sticky top-0 z-[5] bg-[#060d1f]/90 backdrop-blur-md text-base font-semibold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
