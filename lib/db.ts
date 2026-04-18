@@ -29,6 +29,8 @@ function initSchema(db: Database.Database) {
       cost         TEXT DEFAULT '',
       store_url    TEXT DEFAULT '',
       detail_url   TEXT DEFAULT '',
+      latitude     REAL,
+      longitude    REAL,
       source       TEXT NOT NULL,
       status       TEXT DEFAULT 'active' CHECK(status IN ('active','skip','pinned','pending')),
       notes        TEXT DEFAULT '',
@@ -46,6 +48,10 @@ function initSchema(db: Database.Database) {
       value TEXT NOT NULL
     );
   `);
+
+  // Migrations — add columns if they don't exist yet
+  try { db.exec("ALTER TABLE events ADD COLUMN latitude REAL"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN longitude REAL"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");
