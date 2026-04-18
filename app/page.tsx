@@ -123,8 +123,8 @@ export default async function HomePage({
                     </div>
                     <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-white group-hover:text-gray-100 transition-colors">{ev.title}</h3>
                     {ev.location && (
-                      <p className="flex items-center gap-1 mt-1 text-sm text-gray-400">
-                        {"\uD83D\uDCCD"} {ev.location}
+                      <p className="mt-1 text-sm text-gray-400">
+                        {ev.location}
                       </p>
                     )}
                   </div>
