@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/events";
 import { config } from "@/lib/config";
 import Link from "next/link";
+import Image from "next/image";
 import SubscribeButton from "./subscribe-modal";
 import FormatFilter from "./format-filter";
 import RadiusSelector from "./radius-selector";
@@ -82,11 +83,14 @@ export default async function HomePage({
     <main className="max-w-3xl mx-auto px-4 py-8">
       {/* Hero header */}
       <header className="mb-10 flex items-start justify-between gap-4">
-        <div>
-          <h1 className="font-[family-name:var(--font-display)] text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-            Philly MTG
-          </h1>
-          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} eventCount={events.length} />
+        <div className="flex items-center gap-4">
+          <Image src="/logo.png" alt="Philly MTG" width={64} height={64} className="w-16 h-16 object-contain" />
+          <div>
+            <h1 className="font-[family-name:var(--font-display)] text-5xl font-bold tracking-tight bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+              Philly MTG
+            </h1>
+            <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} eventCount={events.length} />
+          </div>
         </div>
         <SubscribeButton />
       </header>
@@ -104,7 +108,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] bg-[#0c0a1a]/90 backdrop-blur-md text-base font-semibold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="sticky top-12 z-[5] bg-[#060d1f]/90 backdrop-blur-md text-base font-semibold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">

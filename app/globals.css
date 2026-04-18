@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0a1a;
+    --background: #060d1f;
     --foreground: #ededed;
   }
 }
@@ -27,7 +27,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: linear-gradient(180deg, #0c0a1a 0%, #1a0e2e 50%, #0c0a1a 100%);
+    background: linear-gradient(180deg, #060d1f 0%, #0a1a3a 50%, #060d1f 100%);
     background-attachment: fixed;
   }
 }
