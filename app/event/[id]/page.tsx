@@ -73,6 +73,24 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       </Link>
 
       <div className="bg-[#0d1117] border border-[#1c2333] rounded-xl overflow-hidden">
+        {/* Map header */}
+        {ev.latitude && ev.longitude && (
+          <div className="relative h-48 overflow-hidden bg-[#131a2b]">
+            <iframe
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${ev.longitude-0.008},${ev.latitude-0.004},${ev.longitude+0.008},${ev.latitude+0.004}&layer=mapnik&marker=${ev.latitude},${ev.longitude}`}
+              className="w-full h-full border-0 pointer-events-none"
+              style={{ filter: "brightness(0.7) saturate(0.5)" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent pointer-events-none" />
+            <a
+              href={`https://maps.google.com/?q=${ev.latitude},${ev.longitude}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 z-10"
+            />
+          </div>
+        )}
+
         {/* Header */}
         <div className="p-6 pb-4">
           <div className="flex items-center gap-2 mb-3">
