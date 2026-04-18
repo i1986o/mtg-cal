@@ -48,13 +48,13 @@ export default function RadiusSelector({
 
   return (
     <p className="text-gray-400 flex items-center justify-center gap-1 flex-wrap text-lg leading-relaxed">
-      <span className="text-white font-bold text-2xl">{eventCount}</span>
+      <span className="text-white font-[family-name:var(--font-ultra)] text-3xl">{eventCount}</span>
 
       {/* Format selector */}
       <select
         value={currentFormat || ""}
         onChange={(e) => updateParam("format", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-orange-500/50 text-orange-300 font-semibold focus:outline-none focus:border-orange-400 cursor-pointer appearance-none text-center px-1 hover:border-orange-400 transition-colors"
+        className="inline-block bg-transparent border-b-2 border-orange-500/50 text-orange-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-orange-400 cursor-pointer appearance-none text-center px-1 hover:border-orange-400 transition-colors"
         style={{ width: `${(currentFormat ? FORMAT_EMOJI[currentFormat] + " " : "").length + formatLabel.length + 2}ch` }}
       >
         <option value="">MTG</option>
@@ -69,7 +69,7 @@ export default function RadiusSelector({
       <select
         value={currentRadius}
         onChange={(e) => updateParam("radius", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-purple-500/50 text-purple-300 font-semibold focus:outline-none focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-400 transition-colors"
+        className="inline-block bg-transparent border-b-2 border-purple-500/50 text-purple-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-400 transition-colors"
         style={{ width: `${String(currentRadius).length + 1}ch` }}
       >
         {RADIUS_OPTIONS.map((r) => (
@@ -83,7 +83,7 @@ export default function RadiusSelector({
       <select
         value={currentDays}
         onChange={(e) => updateParam("days", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-pink-500/50 text-pink-300 font-semibold focus:outline-none focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-400 transition-colors"
+        className="inline-block bg-transparent border-b-2 border-pink-500/50 text-pink-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-400 transition-colors"
         style={{ width: `${timeLabel.length + 2}ch` }}
       >
         {TIME_OPTIONS.map((t) => (
