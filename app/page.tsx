@@ -127,11 +127,10 @@ export default async function HomePage({
                       </p>
                     )}
                   </div>
-                  <div className="text-right shrink-0 flex flex-col items-end gap-1">
+                  <div className="text-right shrink-0">
                     <span className={`text-sm font-bold ${ev.cost === "Free" ? "text-emerald-400" : "text-white"}`}>
                       {ev.cost === "Free" ? "\u2728 Free" : ev.cost || "\u2014"}
                     </span>
-                    <span className="text-xs text-gray-500 group-hover:text-purple-400 transition-colors">View &rarr;</span>
                   </div>
                 </div>
               </Link>
