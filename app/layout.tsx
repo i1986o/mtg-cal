@@ -33,8 +33,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${zillaSlab.variable} h-full antialiased dark`}
+      style={{ backgroundColor: "#0e2240" }}
     >
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">{children}</body>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]" style={{ backgroundColor: "#0e2240" }}>{children}</body>
     </html>
   );
 }
