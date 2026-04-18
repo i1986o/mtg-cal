@@ -36,41 +36,40 @@ function LinkIcon() {
 
 export default function FloatingActions() {
   const [showCalModal, setShowCalModal] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
+
+  function showToast(message: string) {
+    setToast(message);
+    setTimeout(() => setToast(null), 2500);
+  }
 
   const buttons = [
     { icon: <CalendarIcon />, label: "Subscribe", onClick: () => setShowCalModal(true), color: "hover:bg-purple-500/30 hover:border-purple-500/50 hover:text-purple-300" },
-    { icon: <DiscordIcon />, label: "Discord", href: "https://discord.gg/phillymtg", color: "hover:bg-indigo-500/30 hover:border-indigo-500/50 hover:text-indigo-300" },
-    { icon: <EmailIcon />, label: "Email", href: "mailto:phillymtg@gmail.com", color: "hover:bg-pink-500/30 hover:border-pink-500/50 hover:text-pink-300" },
-    { icon: <LinkIcon />, label: "Links", href: "https://linktr.ee/phillymtg", color: "hover:bg-green-500/30 hover:border-green-500/50 hover:text-green-300" },
+    { icon: <DiscordIcon />, label: "Discord", onClick: () => showToast("\uD83D\uDCAC Discord coming soon!"), color: "hover:bg-indigo-500/30 hover:border-indigo-500/50 hover:text-indigo-300" },
+    { icon: <EmailIcon />, label: "Email", onClick: () => showToast("\u2709\uFE0F Newsletter coming soon!"), color: "hover:bg-pink-500/30 hover:border-pink-500/50 hover:text-pink-300" },
+    { icon: <LinkIcon />, label: "Links", onClick: () => showToast("\uD83D\uDD17 Link tree coming soon!"), color: "hover:bg-green-500/30 hover:border-green-500/50 hover:text-green-300" },
   ];
 
   return (
     <>
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2">
-        {buttons.map((btn) =>
-          btn.href ? (
-            <a
-              key={btn.label}
-              href={btn.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={btn.label}
-              className={`group flex items-center justify-center w-10 h-10 bg-white/5 text-gray-500 rounded-xl border border-white/10 transition-all duration-200 cursor-pointer ${btn.color}`}
-            >
-              {btn.icon}
-            </a>
-          ) : (
-            <button
-              key={btn.label}
-              onClick={btn.onClick}
-              title={btn.label}
-              className={`group flex items-center justify-center w-10 h-10 bg-white/5 text-gray-500 rounded-xl border border-white/10 transition-all duration-200 cursor-pointer ${btn.color}`}
-            >
-              {btn.icon}
-            </button>
-          )
-        )}
+        {buttons.map((btn) => (
+          <button
+            key={btn.label}
+            onClick={btn.onClick}
+            title={btn.label}
+            className={`group flex items-center justify-center w-10 h-10 bg-white/5 text-gray-500 rounded-xl border border-white/10 transition-all duration-200 cursor-pointer ${btn.color}`}
+          >
+            {btn.icon}
+          </button>
+        ))}
       </div>
+
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
+          {toast}
+        </div>
+      )}
 
       {showCalModal && <SubscribeModal onClose={() => setShowCalModal(false)} />}
     </>
