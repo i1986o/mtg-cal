@@ -144,6 +144,8 @@ export default async function fetchWizardsEvents(sourceConfig = {}) {
         detail_url: store
           ? "https://locator.wizards.com/store/" + store.id + "/"
           : "",
+        latitude: ev.latitude ?? null,
+        longitude: ev.longitude ?? null,
         source: "wizards-locator",
       });
     }

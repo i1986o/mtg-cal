@@ -12,6 +12,8 @@ export interface EventRow {
   cost: string;
   store_url: string;
   detail_url: string;
+  latitude: number | null;
+  longitude: number | null;
   source: string;
   status: string;
   notes: string;
@@ -31,6 +33,8 @@ export interface ScrapedEvent {
   cost: string;
   store_url: string;
   detail_url: string;
+  latitude?: number | null;
+  longitude?: number | null;
   source: string;
 }
 
@@ -45,12 +49,12 @@ export function upsertEvents(events: ScrapedEvent[]): {
   const getStmt = db.prepare("SELECT status, notes, added_date FROM events WHERE id = ?");
 
   const insertStmt = db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, source, status, notes, added_date, updated_date)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', '', ?, ?)
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', '', ?, ?)
   `);
 
   const updateStmt = db.prepare(`
-    UPDATE events SET title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?, store_url=?, detail_url=?, source=?, status=?, updated_date=?
+    UPDATE events SET title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?, store_url=?, detail_url=?, latitude=?, longitude=?, source=?, status=?, updated_date=?
     WHERE id=?
   `);
 
@@ -61,14 +65,14 @@ export function upsertEvents(events: ScrapedEvent[]): {
       const existing = getStmt.get(ev.id) as { status: string; notes: string; added_date: string } | undefined;
 
       if (!existing) {
-        insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.source, now, now);
+        insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, now, now);
         added++;
       } else if (existing.status === "pinned") {
         skipped++;
       } else {
         // Preserve skip status on update
         const status = existing.status === "skip" ? "skip" : "active";
-        updateStmt.run(ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.source, status, now, ev.id);
+        updateStmt.run(ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, status, now, ev.id);
         updated++;
       }
     }
@@ -78,10 +82,28 @@ export function upsertEvents(events: ScrapedEvent[]): {
   return { added, updated, skipped };
 }
 
-export function getActiveEvents(filters?: { format?: string; from?: string; to?: string }): EventRow[] {
+// Haversine distance in miles
+function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 3959;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+export function getActiveEvents(filters?: {
+  format?: string;
+  from?: string;
+  to?: string;
+  radiusMiles?: number;
+  centerLat?: number;
+  centerLng?: number;
+}): EventRow[] {
   const db = getDb();
   let sql = "SELECT * FROM events WHERE status IN ('active', 'pinned')";
-  const params: string[] = [];
+  const params: (string | number)[] = [];
 
   if (filters?.format) {
     sql += " AND format = ?";
@@ -97,7 +119,22 @@ export function getActiveEvents(filters?: { format?: string; from?: string; to?:
   }
 
   sql += " ORDER BY date ASC, time ASC";
-  return db.prepare(sql).all(...params) as EventRow[];
+  let rows = db.prepare(sql).all(...params) as EventRow[];
+
+  // Filter by distance if radius is specified
+  if (filters?.radiusMiles && filters?.centerLat != null && filters?.centerLng != null) {
+    const maxMiles = filters.radiusMiles;
+    const cLat = filters.centerLat;
+    const cLng = filters.centerLng;
+    const before = rows.length;
+    rows = rows.filter(ev => {
+      if (ev.latitude == null || ev.longitude == null) return true; // include events without coords
+      return haversineDistance(cLat, cLng, ev.latitude, ev.longitude) <= maxMiles;
+    });
+    console.log(`[filter] radius=${maxMiles}mi: ${before} → ${rows.length} events`);
+  }
+
+  return rows;
 }
 
 export function getAllEvents(): EventRow[] {

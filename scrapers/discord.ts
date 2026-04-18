@@ -4,6 +4,11 @@
 
 const DISCORD_API = "https://discord.com/api/v10";
 
+// Known guild coordinates for distance filtering
+const GUILD_COORDS: Record<string, { lat: number; lng: number; address: string }> = {
+  "1451305700322967794": { lat: 39.9518, lng: -75.1849, address: "226 Walnut St, Philadelphia, PA 19106" }, // Hamilton's Hand
+};
+
 // Keywords that identify an MTG event
 const MTG_KEYWORDS = ["mtg", "magic", "commander", "modern", "standard", "pioneer", "legacy", "pauper", "draft", "sealed"];
 
@@ -99,6 +104,7 @@ export default async function fetchDiscordEvents(sourceConfig: any = {}) {
       const start = new Date(ev.scheduled_start_time);
       const { title, locationHint } = parseEventName(ev.name);
       const desc = cleanDescription(ev.description);
+      const coords = GUILD_COORDS[guildId];
 
       allEvents.push({
         id: "discord-" + ev.id,
@@ -108,10 +114,12 @@ export default async function fetchDiscordEvents(sourceConfig: any = {}) {
         time: start.toISOString().slice(11, 16),
         timezone: "America/New_York",
         location: locationHint,
-        address: "",
+        address: coords?.address || "",
         cost: extractCost(ev.description),
         store_url: "",
         detail_url: `https://discord.com/events/${ev.guild_id}/${ev.id}`,
+        latitude: coords?.lat ?? null,
+        longitude: coords?.lng ?? null,
         source: "discord",
       });
     }

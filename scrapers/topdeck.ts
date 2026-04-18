@@ -96,6 +96,8 @@ export default async function fetchTopdeckEvents(sourceConfig: any = {}) {
       cost: "",
       store_url: "",
       detail_url: `https://topdeck.gg/event/${t.TID || t.tid}`,
+      latitude: tLat,
+      longitude: tLng,
       source: "topdeck",
     });
   }
