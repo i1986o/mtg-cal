@@ -33,7 +33,17 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${bricolage.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark');
+            }
+          })();
+        `}} />
+      </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] bg-white dark:bg-[#0e2240] text-gray-900 dark:text-gray-100">{children}</body>
     </html>
   );

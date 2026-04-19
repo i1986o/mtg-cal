@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SubscribeModal from "./subscribe-modal-content";
 
 function CalendarIcon() {
@@ -34,52 +34,78 @@ function LinkIcon() {
   );
 }
 
+function SunIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+  );
+}
+
+const BTN_CLASS = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300";
+
 export default function FloatingActions() {
   const [showCalModal, setShowCalModal] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(true);
 
-  function showToast(message: string) {
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark") || window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }, []);
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      html.style.colorScheme = "light";
+      setIsDark(false);
+    } else {
+      html.classList.add("dark");
+      html.style.colorScheme = "dark";
+      setIsDark(true);
+    }
+  }
+
+  function showToastMsg(message: string) {
     setToast(message);
     setTimeout(() => setToast(null), 2500);
   }
 
-  const buttons = [
-    { icon: <CalendarIcon />, label: "Subscribe", onClick: () => setShowCalModal(true), color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
-    { icon: <DiscordIcon />, label: "Discord", href: "https://discord.gg/axDSujPTfj", color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
-    { icon: <EmailIcon />, label: "Email", onClick: () => showToast("\u2709\uFE0F Newsletter coming soon!"), color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
-    { icon: <LinkIcon />, label: "Links", onClick: () => showToast("\uD83D\uDD17 Link tree coming soon!"), color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
-  ];
-
   return (
     <>
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2">
-        {buttons.map((btn) =>
-          btn.href ? (
-            <a
-              key={btn.label}
-              href={btn.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={btn.label}
-              className={`group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer ${btn.color}`}
-            >
-              {btn.icon}
-            </a>
-          ) : (
-            <button
-              key={btn.label}
-              onClick={btn.onClick}
-              title={btn.label}
-              className={`group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer ${btn.color}`}
-            >
-              {btn.icon}
-            </button>
-          )
-        )}
+        <button onClick={() => setShowCalModal(true)} title="Subscribe" className={BTN_CLASS}>
+          <CalendarIcon />
+        </button>
+        <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" title="Discord" className={BTN_CLASS}>
+          <DiscordIcon />
+        </a>
+        <button onClick={() => showToastMsg("\u2709\uFE0F Newsletter coming soon!")} title="Email" className={BTN_CLASS}>
+          <EmailIcon />
+        </button>
+        <button onClick={() => showToastMsg("\uD83D\uDD17 Link tree coming soon!")} title="Links" className={BTN_CLASS}>
+          <LinkIcon />
+        </button>
+
+        {/* Divider */}
+        <div className="w-6 mx-auto border-t border-gray-200 dark:border-[#1a3558]" />
+
+        {/* Theme toggle */}
+        <button onClick={toggleTheme} title={isDark ? "Switch to light mode" : "Switch to dark mode"} className={BTN_CLASS}>
+          {isDark ? <SunIcon /> : <MoonIcon />}
+        </button>
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white dark:bg-[#0e2240] backdrop-blur-md border border-gray-200 dark:border-[#1a3558] rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white dark:bg-[#0e2240] backdrop-blur-md border border-gray-200 dark:border-[#1a3558] rounded-xl text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
           {toast}
         </div>
       )}
