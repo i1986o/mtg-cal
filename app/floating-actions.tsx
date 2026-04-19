@@ -51,7 +51,7 @@ function MoonIcon() {
   );
 }
 
-const BTN = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0c1220] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1e2a3e] shadow-lg shadow-black/5 dark:shadow-black/20 transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#141c2e] hover:border-gray-300 dark:hover:border-[#1e2a3e] hover:text-gray-600 dark:hover:text-gray-300";
+const BTN = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0c1220] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-100 dark:border-white/8 shadow-lg shadow-black/5 dark:shadow-black/20 transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#141c2e] hover:border-gray-200 dark:hover:border-white/15 hover:text-gray-600 dark:hover:text-gray-300";
 
 export default function FloatingActions() {
   const [showCalModal, setShowCalModal] = useState(false);
@@ -101,7 +101,7 @@ export default function FloatingActions() {
           <EmailIcon />
         </a>
 
-        <div className="w-6 mx-auto border-t border-gray-200 dark:border-[#1e2a3e]" />
+        <div className="w-6 mx-auto border-t border-gray-100 dark:border-white/8" />
 
         <button onClick={toggleTheme} title={isDark ? "Switch to light mode" : "Switch to dark mode"} className={BTN}>
           {isDark ? <SunIcon /> : <MoonIcon />}
@@ -110,7 +110,7 @@ export default function FloatingActions() {
 
       {toast && (
         <div
-          className="fixed right-16 z-50 px-3 py-2 bg-white dark:bg-[#0c1220] border border-gray-200 dark:border-[#1e2a3e] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
+          className="fixed right-16 z-50 px-3 py-2 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
           style={{ top: `${toast.top}px`, transform: "translateY(-50%)" }}
         >
           {toast.message}

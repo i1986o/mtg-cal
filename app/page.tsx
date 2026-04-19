@@ -116,7 +116,7 @@ export default async function HomePage({
               <Link
                 key={ev.id}
                 href={`/event/${encodeURIComponent(ev.id)}`}
-                className="group block bg-white dark:bg-[#0c1220] hover:bg-gray-50 dark:hover:bg-[#141c2e] border border-gray-200 dark:border-[#1e2a3e] rounded-xl p-4 transition-all duration-200 cursor-pointer"
+                className="group block bg-white dark:bg-[#0c1220] hover:bg-gray-50 dark:hover:bg-[#141c2e] border border-gray-100 dark:border-white/8 rounded-xl p-4 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
@@ -143,7 +143,7 @@ export default async function HomePage({
         </div>
       ))}
 
-      <footer className="mt-16 pt-6 border-t border-gray-200 dark:border-white/10 text-center text-sm text-gray-400 dark:text-gray-500">
+      <footer className="mt-16 pt-6 border-t border-gray-100 dark:border-white/5 text-center text-sm text-gray-400 dark:text-gray-500">
         <p>{"\uD83C\uDCCF"} PlayIRL.GG</p>
         <p className="mt-1 text-xs text-gray-400 dark:text-gray-600">
           Data from Wizards of the Coast &amp; Discord &middot;{" "}

@@ -5,7 +5,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       <div
-        className="relative bg-white dark:bg-[#0c1220] rounded-xl shadow-2xl border border-gray-200 dark:border-[#1e2a3e] w-full max-w-lg p-6 space-y-4"
+        className="relative bg-white dark:bg-[#0c1220] rounded-xl shadow-2xl border border-gray-100 dark:border-white/8 w-full max-w-lg p-6 space-y-4"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">
@@ -42,7 +42,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
               href="https://github.com/i1986o/mtg-cal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-[#141c2e] transition border border-gray-200 dark:border-[#1e2a3e]"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8"
             >
               {"\u2B50"} GitHub
             </a>
