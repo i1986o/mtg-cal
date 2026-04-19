@@ -2,13 +2,29 @@
 import { useState } from "react";
 
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
-const TIME_OPTIONS = [
-  { value: "7", label: "week" },
-  { value: "14", label: "2 weeks" },
-  { value: "30", label: "month" },
-  { value: "60", label: "2 months" },
-  { value: "90", label: "3 months" },
-];
+function getTimeOptions() {
+  const now = new Date();
+  const options = [
+    { value: "7", label: "this week" },
+    { value: "14", label: "next 2 weeks" },
+  ];
+
+  // Add current month + next 5 months
+  for (let i = 0; i < 6; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    const endOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+    const daysUntilEnd = Math.ceil((endOfMonth.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+    if (daysUntilEnd < 7) continue; // skip if less than a week left
+    const label = i === 0
+      ? `this month`
+      : d.toLocaleDateString("en-US", { month: "long" });
+    options.push({ value: String(daysUntilEnd), label });
+  }
+
+  return options;
+}
+
+const TIME_OPTIONS = getTimeOptions();
 
 const FORMAT_EMOJI: Record<string, string> = {
   Commander: "\u2694\uFE0F",
@@ -101,7 +117,7 @@ export default function RadiusSelector({
         Philly
       </button>
 
-      <span>in the next</span>
+      <span>in</span>
 
       {/* Time selector */}
       <select
