@@ -85,7 +85,7 @@ export default async function HomePage({
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
-        <Image src="/logo.png" alt="Philly MTG" width={180} height={180} className="w-44 h-44 object-contain" />
+        <Image src="/logo.png" alt="PlayIRL.GG" width={180} height={180} className="w-44 h-44 object-contain" />
       </header>
 
       {/* Sticky filter bar */}
@@ -140,7 +140,7 @@ export default async function HomePage({
       ))}
 
       <footer className="mt-16 pt-6 border-t border-white/10 text-center text-sm text-gray-500">
-        <p>{"\uD83C\uDCCF"} Built for the Philly MTG community</p>
+        <p>{"\uD83C\uDCCF"} PlayIRL.GG</p>
         <p className="mt-1 text-xs text-gray-600">
           Data from Wizards of the Coast &amp; Discord &middot;{" "}
           <a href="https://github.com/i1986o/mtg-cal" className="text-purple-400 hover:underline">Open Source</a>

@@ -21,7 +21,7 @@ export const config = {
   },
 
   output: {
-    calendarName: "MTG Events — Philadelphia",
-    calendarDescription: "Local MTG events in Philadelphia area",
+    calendarName: "PlayIRL.GG — Philadelphia",
+    calendarDescription: "MTG events near Philadelphia via PlayIRL.GG",
   },
 };

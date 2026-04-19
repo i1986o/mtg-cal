@@ -69,7 +69,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   return (
     <main className="max-w-2xl mx-auto px-4 py-8">
       <Link href="/" className="text-sm text-gray-400 hover:text-white hover:underline mb-6 inline-block">
-        &larr; Back to Philly MTG
+        &larr; Back to PlayIRL.GG
       </Link>
 
       <div className="bg-[#0e2240] border border-[#1a3558] rounded-xl overflow-hidden">

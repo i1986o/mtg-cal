@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, Zilla_Slab } from "next/font/google";
+import { Inter, Space_Grotesk, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,15 +13,15 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["700"],
 });
 
-const zillaSlab = Zilla_Slab({
+const bricolage = Bricolage_Grotesque({
   variable: "--font-ultra",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Philly MTG",
-  description: "Find Magic: The Gathering events near Philadelphia",
+  title: "PlayIRL.GG",
+  description: "Find Magic: The Gathering events near you",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${zillaSlab.variable} h-full antialiased dark`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${bricolage.variable} h-full antialiased dark`}
       style={{ backgroundColor: "#0e2240" }}
     >
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]" style={{ backgroundColor: "#0e2240" }}>{children}</body>
