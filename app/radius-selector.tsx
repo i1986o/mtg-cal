@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
 const TIME_OPTIONS = [
@@ -45,6 +45,7 @@ export default function RadiusSelector({
   }
 
   const [showToast, setShowToast] = useState(false);
+  const cityRef = useRef<HTMLButtonElement>(null);
   const formatLabel = currentFormat || "MTG";
 
   function handleCityClick() {
@@ -54,11 +55,17 @@ export default function RadiusSelector({
 
   return (
     <>
-      {showToast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white dark:bg-[#0e2240] backdrop-blur-md border border-gray-200 dark:border-[#1a3558] rounded-xl text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
-          {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
-        </div>
-      )}
+      {showToast && cityRef.current && (() => {
+        const rect = cityRef.current!.getBoundingClientRect();
+        return (
+          <div
+            className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0e2240] border border-gray-200 dark:border-[#1a3558] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.2s_ease-out] whitespace-nowrap"
+            style={{ top: rect.bottom + 8, left: rect.left + rect.width / 2, transform: "translateX(-50%)" }}
+          >
+            {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
+          </div>
+        );
+      })()}
     <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-xl leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
       <span className="text-gray-900 dark:text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
@@ -91,6 +98,7 @@ export default function RadiusSelector({
 
       {/* City selector — coming soon */}
       <button
+        ref={cityRef}
         onClick={handleCityClick}
         className="inline-block bg-transparent border-b-2 border-emerald-400 dark:border-emerald-500/50 text-emerald-600 dark:text-emerald-300 font-[family-name:var(--font-ultra)] cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-400 transition-colors px-1"
       >

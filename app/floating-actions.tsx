@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SubscribeModal from "./subscribe-modal-content";
 import AboutModal from "./about-modal";
 
@@ -56,7 +56,7 @@ const BTN = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[
 export default function FloatingActions() {
   const [showCalModal, setShowCalModal] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
-  const [toast, setToast] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ message: string; top: number } | null>(null);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -76,8 +76,9 @@ export default function FloatingActions() {
     }
   }
 
-  function showToastMsg(message: string) {
-    setToast(message);
+  function showToastMsg(message: string, e: React.MouseEvent) {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setToast({ message, top: rect.top + rect.height / 2 });
     setTimeout(() => setToast(null), 2500);
   }
 
@@ -93,7 +94,7 @@ export default function FloatingActions() {
         <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" title="Discord" className={BTN}>
           <DiscordIcon />
         </a>
-        <button onClick={() => showToastMsg("\u2709\uFE0F Newsletter coming soon!")} title="Email" className={BTN}>
+        <button onClick={(e) => showToastMsg("\u2709\uFE0F Newsletter coming soon!", e)} title="Email" className={BTN}>
           <EmailIcon />
         </button>
 
@@ -105,8 +106,11 @@ export default function FloatingActions() {
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white dark:bg-[#0e2240] backdrop-blur-md border border-gray-200 dark:border-[#1a3558] rounded-xl text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
-          {toast}
+        <div
+          className="fixed right-16 z-50 px-3 py-2 bg-white dark:bg-[#0e2240] border border-gray-200 dark:border-[#1a3558] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.2s_ease-out] whitespace-nowrap"
+          style={{ top: toast.top, transform: "translateY(-50%)" }}
+        >
+          {toast.message}
         </div>
       )}
 
