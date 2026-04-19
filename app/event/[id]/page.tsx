@@ -72,7 +72,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         &larr; Back to PlayIRL.GG
       </Link>
 
-      <div className="bg-gray-50 dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl overflow-hidden">
         {/* Map header — Google Maps embed */}
         {ev.location && (
           <div className="relative h-48 overflow-hidden">
