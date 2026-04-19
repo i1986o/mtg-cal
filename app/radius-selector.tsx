@@ -57,8 +57,8 @@ export default function RadiusSelector({
     <>
       {toastPos && (
         <div
-          className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0e2240] border border-gray-200 dark:border-[#1a3558] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.2s_ease-out] whitespace-nowrap pointer-events-none"
-          style={{ top: toastPos.top, left: toastPos.left, transform: "translateX(-50%)" }}
+          className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0e2240] border border-gray-200 dark:border-[#1a3558] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
+          style={{ top: `${toastPos.top}px`, left: `${toastPos.left}px`, transform: "translateX(-50%)" }}
         >
           {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
         </div>
