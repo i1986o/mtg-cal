@@ -51,7 +51,7 @@ function MoonIcon() {
   );
 }
 
-const BTN = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300";
+const BTN = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] shadow-lg shadow-black/5 dark:shadow-black/20 transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300";
 
 export default function FloatingActions() {
   const [showCalModal, setShowCalModal] = useState(false);
