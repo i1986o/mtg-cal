@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
-@variant dark (&:is(.dark *));
+@variant dark (&:is(.dark, .dark *));
 
 :root {
-  --background: #f9fafb;
-  --foreground: #111827;
+  --bg: #f9fafb;
+  --fg: #111827;
 }
 
 .dark {
-  --background: #0c1220;
-  --foreground: #ededed;
+  --bg: #0c1220;
+  --fg: #ededed;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
   --font-sans: var(--font-inter);
   --font-display: var(--font-display);
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
+html, body {
+  background-color: var(--bg) !important;
+  color: var(--fg);
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
