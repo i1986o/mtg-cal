@@ -83,7 +83,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0c1220] via-transparent to-transparent pointer-events-none" />
             <a
-              href={`https://maps.google.com/?q=${ev.latitude},${ev.longitude}`}
+              href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}`}
               target="_blank"
               rel="noopener noreferrer"
               className="absolute inset-0 z-10"
@@ -119,7 +119,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             <DetailRow label="Time" value={ev.time ? `${formatTime(ev.time)} \u2013 ${formatTime((() => { const [h,m] = ev.time.split(":").map(Number); return `${(h+3)%24}:${String(m).padStart(2,"0")}`; })())} UTC` : ""} />
             <DetailRow label="Format" value={ev.format} />
             <DetailRow label="Cost" value={ev.cost || "Not listed"} />
-            <DetailRow label="Address" value={ev.address} href={ev.address ? `https://maps.google.com/?q=${encodeURIComponent(ev.address)}` : undefined} />
+            <DetailRow label="Address" value={ev.address} href={ev.address ? `https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}` : undefined} />
             <DetailRow label="Source" value={SOURCE_LABELS[ev.source] || ev.source} href={ev.detail_url || undefined} />
           </dl>
         </div>
@@ -141,7 +141,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             </a>
           )}
           {ev.address && (
-            <a href={`https://maps.google.com/?q=${encodeURIComponent(ev.address)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8">
+            <a href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
               Open in Maps
             </a>
