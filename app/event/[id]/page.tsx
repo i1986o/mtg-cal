@@ -101,7 +101,13 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
           </div>
           <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white">{ev.title}</h1>
           {ev.location && (
-            <p className="text-gray-500 dark:text-gray-400 mt-1">{"\uD83D\uDCCD"} {ev.location}</p>
+            ev.store_url ? (
+              <a href={ev.store_url} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:underline mt-1 inline-block transition-colors">
+                {ev.location}
+              </a>
+            ) : (
+              <p className="text-gray-500 dark:text-gray-400 mt-1">{ev.location}</p>
+            )
           )}
         </div>
 
@@ -112,7 +118,6 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             <DetailRow label="Time" value={ev.time ? `${formatTime(ev.time)} \u2013 ${formatTime((() => { const [h,m] = ev.time.split(":").map(Number); return `${(h+3)%24}:${String(m).padStart(2,"0")}`; })())} UTC` : ""} />
             <DetailRow label="Format" value={ev.format} />
             <DetailRow label="Cost" value={ev.cost || "Not listed"} />
-            <DetailRow label="Store" value={ev.location} href={ev.store_url || undefined} />
             <DetailRow label="Address" value={ev.address} href={ev.address ? `https://maps.google.com/?q=${encodeURIComponent(ev.address)}` : undefined} />
             <DetailRow label="Source" value={SOURCE_LABELS[ev.source] || ev.source} href={ev.detail_url || undefined} />
           </dl>
