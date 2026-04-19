@@ -23,7 +23,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
           </p>
 
           <div className="bg-gray-50 dark:bg-[#132c50] rounded-lg p-4 space-y-2">
-            <p className="font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white">{"\uD83D\uDEA7"} Early Development</p>
+            <p className="text-sm font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white">{"\uD83D\uDEA7"} Early Development</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               This project is in active development. We&apos;re working on adding more cities, user-submitted events, store profiles, and more game support beyond MTG. Got ideas or want to help?
             </p>

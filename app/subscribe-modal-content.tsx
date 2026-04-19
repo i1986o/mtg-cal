@@ -47,7 +47,7 @@ export default function SubscribeModal({ onClose }: { onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white">Subscribe to Calendar</h2>
+          <h2 className="text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white">Subscribe to Calendar</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-white text-xl leading-none cursor-pointer">&times;</button>
         </div>
 

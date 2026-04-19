@@ -30,7 +30,7 @@ export default function LoginPage() {
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950">
       <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700">
-        <h1 className="text-xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100">Admin Login</h1>
+        <h1 className="text-xl font-[family-name:var(--font-ultra)] font-bold mb-6 text-center text-gray-900 dark:text-gray-100">Admin Login</h1>
         {error && <p className="text-red-600 dark:text-red-400 text-sm mb-4 text-center">{error}</p>}
         <input
           type="password"
