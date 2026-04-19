@@ -84,7 +84,7 @@ export default async function HomePage({
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
-        <h1 className="text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-tight">
+        <h1 className="text-7xl md:text-8xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-tighter leading-none">
           PlayIRL.gg
         </h1>
       </header>
