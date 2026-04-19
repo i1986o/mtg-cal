@@ -40,7 +40,7 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
   }
 
   return (
-    <div className="sticky top-0 z-10 bg-gray-50 dark:bg-[#0c1220] backdrop-blur-md py-3 -mx-4 px-4 mb-6">
+    <div className="sticky top-0 z-10 bg-white dark:bg-[#0c1220] backdrop-blur-md py-3 -mx-4 px-4 mb-6">
       {/* Mobile: dropdown */}
       <div className="md:hidden">
         <select

@@ -110,7 +110,7 @@ export default function FloatingActions() {
 
       {toast && (
         <div
-          className="fixed right-16 z-50 px-3 py-2 bg-gray-50 dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
+          className="fixed right-16 z-50 px-3 py-2 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
           style={{ top: `${toast.top}px`, transform: "translateY(-50%)" }}
         >
           {toast.message}

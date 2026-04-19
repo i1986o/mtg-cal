@@ -130,13 +130,13 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         {/* Action buttons */}
         <div className="px-6 pb-6 pt-2 flex flex-wrap gap-3">
           {ev.store_url && (
-            <a href={ev.store_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8">
+            <a href={ev.store_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg>
               Store Website
             </a>
           )}
           {ev.address && (
-            <a href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8">
+            <a href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#141c2e] transition border border-gray-100 dark:border-white/8">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
               Open in Maps
             </a>
