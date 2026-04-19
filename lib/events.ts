@@ -131,7 +131,7 @@ export function getActiveEvents(filters?: {
       if (ev.latitude == null || ev.longitude == null) return true; // include events without coords
       return haversineDistance(cLat, cLng, ev.latitude, ev.longitude) <= maxMiles;
     });
-    console.log(`[filter] radius=${maxMiles}mi: ${before} → ${rows.length} events`);
+    // debug: console.log(`[filter] radius=${maxMiles}mi: ${before} → ${rows.length} events`);
   }
 
   return rows;

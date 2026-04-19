@@ -6,6 +6,8 @@ import Link from "next/link";
 import FloatingActions from "./floating-actions";
 import RadiusSelector from "./radius-selector";
 import StoreLink from "./store-link";
+import ViewToggle from "./view-toggle";
+import CalendarView from "./calendar-view";
 import StickyBar from "./sticky-bar";
 
 // Format emoji mapping for fun visual flair
@@ -57,11 +59,12 @@ function formatDateHeading(dateStr: string): string {
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ format?: string; radius?: string; days?: string }>;
+  searchParams: Promise<{ format?: string; radius?: string; days?: string; view?: string }>;
 }) {
   const params = await searchParams;
   const currentRadius = params.radius ? parseInt(params.radius, 10) : parseInt(getSetting("search_radius_miles") || "10", 10);
   const currentDays = params.days ? parseInt(params.days, 10) : 60;
+  const currentView = params.view || "list";
   if (params.radius) setSetting("search_radius_miles", params.radius);
   const today = new Date();
   const toDate = new Date(today.getTime() + currentDays * 24 * 60 * 60 * 1000);
@@ -95,54 +98,63 @@ export default async function HomePage({
 
       {/* Sticky filter bar */}
       <StickyBar>
-        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+        <div className="flex items-center justify-between gap-3">
+          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+          <ViewToggle currentView={currentView} />
+        </div>
       </StickyBar>
 
-      {/* Events by date */}
-      {Object.keys(grouped).length === 0 && (
-        <div className="text-center py-16">
-          <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
-          <p className="text-gray-400 text-lg">No events found</p>
-          <p className="text-gray-500 text-sm mt-1">Try expanding your distance or time range</p>
-        </div>
-      )}
+      {currentView === "calendar" ? (
+        <CalendarView events={events} />
+      ) : (
+        <>
+          {/* Events by date */}
+          {Object.keys(grouped).length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
+              <p className="text-gray-400 text-lg">No events found</p>
+              <p className="text-gray-500 text-sm mt-1">Try expanding your distance or time range</p>
+            </div>
+          )}
 
-      {Object.entries(grouped).map(([date, dayEvents]) => (
-        <div key={date} className="mb-6">
-          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-800 dark:text-gray-200 tracking-tight pb-2 mb-3 pt-2">
-            {formatDateHeading(date)}
-          </h2>
-          <div className="space-y-2">
-            {dayEvents.map((ev) => (
-              <Link
-                key={ev.id}
-                href={`/event/${encodeURIComponent(ev.id)}`}
-                className="group block bg-white dark:bg-[#0c1220] hover:bg-gray-50 dark:hover:bg-[#141c2e] border border-gray-100 dark:border-white/8 rounded-xl p-4 transition-all duration-200 cursor-pointer"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className={`px-2 py-0.5 rounded-md text-xs font-medium ${FORMAT_BADGE[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
-                        {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
-                      </span>
-                      <span className="text-xs text-gray-400 dark:text-gray-500">{formatTime(ev.time)} UTC</span>
+          {Object.entries(grouped).map(([date, dayEvents]) => (
+            <div key={date} className="mb-6">
+              <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-800 dark:text-gray-200 tracking-tight pb-2 mb-3 pt-2">
+                {formatDateHeading(date)}
+              </h2>
+              <div className="space-y-2">
+                {dayEvents.map((ev) => (
+                  <Link
+                    key={ev.id}
+                    href={`/event/${encodeURIComponent(ev.id)}`}
+                    className="group block bg-white dark:bg-[#0c1220] hover:bg-gray-50 dark:hover:bg-[#141c2e] border border-gray-100 dark:border-white/8 rounded-xl p-4 transition-all duration-200 cursor-pointer"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className={`px-2 py-0.5 rounded-md text-xs font-medium ${FORMAT_BADGE[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
+                            {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
+                          </span>
+                          <span className="text-xs text-gray-400 dark:text-gray-500">{formatTime(ev.time)} UTC</span>
+                        </div>
+                        <h3 className="font-[family-name:var(--font-ultra)] font-bold text-xl tracking-tight text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{ev.title}</h3>
+                        {ev.location && (
+                          <StoreLink name={ev.location} url={ev.store_url || undefined} />
+                        )}
+                      </div>
+                      <div className="text-right shrink-0">
+                        <span className={`text-base font-[family-name:var(--font-ultra)] font-bold ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
+                          {ev.cost === "Free" ? "\u2728 Free" : ev.cost || "\u2014"}
+                        </span>
+                      </div>
                     </div>
-                    <h3 className="font-[family-name:var(--font-ultra)] font-bold text-xl tracking-tight text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{ev.title}</h3>
-                    {ev.location && (
-                      <StoreLink name={ev.location} url={ev.store_url || undefined} />
-                    )}
-                  </div>
-                  <div className="text-right shrink-0">
-                    <span className={`text-base font-[family-name:var(--font-ultra)] font-bold ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
-                      {ev.cost === "Free" ? "\u2728 Free" : ev.cost || "\u2014"}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      ))}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </>
+      )}
 
       <footer className="mt-16 pt-6 border-t border-gray-100 dark:border-white/5 text-center text-sm text-gray-400 dark:text-gray-500">
         <p>{"\uD83C\uDCCF"} PlayIRL.GG</p>
