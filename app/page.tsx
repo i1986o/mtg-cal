@@ -108,7 +108,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-700 dark:text-gray-300 pb-2 mb-3 pt-2">
+          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-800 dark:text-gray-200 tracking-tight pb-2 mb-3 pt-2">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
@@ -126,7 +126,7 @@ export default async function HomePage({
                       </span>
                       <span className="text-xs text-gray-400 dark:text-gray-500">{formatTime(ev.time)} UTC</span>
                     </div>
-                    <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{ev.title}</h3>
+                    <h3 className="font-[family-name:var(--font-ultra)] font-bold text-xl tracking-tight text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{ev.title}</h3>
                     {ev.location && (
                       <StoreLink name={ev.location} url={ev.store_url || undefined} />
                     )}
