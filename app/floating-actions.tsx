@@ -85,6 +85,9 @@ export default function FloatingActions() {
   return (
     <>
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2">
+        <button onClick={(e) => showToastMsg("\u2795 Submit events coming soon!", e)} title="Add Event" className={BTN}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>
+        </button>
         <button onClick={() => setShowAbout(true)} title="About PlayIRL.GG" className={BTN}>
           <InfoIcon />
         </button>
@@ -94,9 +97,9 @@ export default function FloatingActions() {
         <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" title="Discord" className={BTN}>
           <DiscordIcon />
         </a>
-        <button onClick={(e) => showToastMsg("\u2709\uFE0F Newsletter coming soon!", e)} title="Email" className={BTN}>
+        <a href="mailto:CardSlingerTCG@gmail.com" title="Contact us" className={BTN}>
           <EmailIcon />
-        </button>
+        </a>
 
         <div className="w-6 mx-auto border-t border-gray-200 dark:border-[#1a3558]" />
 
