@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
 const TIME_OPTIONS = [
@@ -44,28 +44,25 @@ export default function RadiusSelector({
     window.location.href = url.toString();
   }
 
-  const [showToast, setShowToast] = useState(false);
-  const cityRef = useRef<HTMLButtonElement>(null);
+  const [toastPos, setToastPos] = useState<{ top: number; left: number } | null>(null);
   const formatLabel = currentFormat || "MTG";
 
-  function handleCityClick() {
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 2500);
+  function handleCityClick(e: React.MouseEvent) {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setToastPos({ top: rect.bottom + 8, left: rect.left + rect.width / 2 });
+    setTimeout(() => setToastPos(null), 2500);
   }
 
   return (
     <>
-      {showToast && cityRef.current && (() => {
-        const rect = cityRef.current!.getBoundingClientRect();
-        return (
-          <div
-            className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0e2240] border border-gray-200 dark:border-[#1a3558] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.2s_ease-out] whitespace-nowrap"
-            style={{ top: rect.bottom + 8, left: rect.left + rect.width / 2, transform: "translateX(-50%)" }}
-          >
-            {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
-          </div>
-        );
-      })()}
+      {toastPos && (
+        <div
+          className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0e2240] border border-gray-200 dark:border-[#1a3558] rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg animate-[fadeInUp_0.2s_ease-out] whitespace-nowrap pointer-events-none"
+          style={{ top: toastPos.top, left: toastPos.left, transform: "translateX(-50%)" }}
+        >
+          {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
+        </div>
+      )}
     <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-xl leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
       <span className="text-gray-900 dark:text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
@@ -98,7 +95,6 @@ export default function RadiusSelector({
 
       {/* City selector — coming soon */}
       <button
-        ref={cityRef}
         onClick={handleCityClick}
         className="inline-block bg-transparent border-b-2 border-emerald-400 dark:border-emerald-500/50 text-emerald-600 dark:text-emerald-300 font-[family-name:var(--font-ultra)] cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-400 transition-colors px-1"
       >
