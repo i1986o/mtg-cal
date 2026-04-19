@@ -46,10 +46,12 @@ function formatDateHeading(dateStr: string): string {
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
-  if (dateStr === today.toISOString().split("T")[0]) return "\uD83D\uDD25 Today";
-  if (dateStr === tomorrow.toISOString().split("T")[0]) return "\uD83D\uDC4B Tomorrow";
+  const formatted = d.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
 
-  return d.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
+  if (dateStr === today.toISOString().split("T")[0]) return `Today, ${formatted}`;
+  if (dateStr === tomorrow.toISOString().split("T")[0]) return `Tomorrow, ${formatted}`;
+
+  return formatted;
 }
 
 export default async function HomePage({
