@@ -90,7 +90,7 @@ export default async function HomePage({
         <h1 className="text-7xl md:text-8xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-tighter leading-none">
           PlayIRL.gg
         </h1>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">Find local MTG events near you. Every store. Every format. One feed.</p>
+        <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">An alternative way to find and schedule MTG events near you.</p>
       </header>
 
       {/* Sticky filter bar */}
