@@ -46,9 +46,9 @@ const SOURCE_LABELS: Record<string, string> = {
 function DetailRow({ label, value, href }: { label: string; value: string; href?: string }) {
   if (!value) return null;
   return (
-    <div className="flex justify-between items-baseline py-3 border-b border-gray-100 dark:border-white/8 last:border-0">
-      <dt className="text-sm text-gray-400 dark:text-gray-500 shrink-0 w-28">{label}</dt>
-      <dd className="text-sm font-medium text-gray-900 dark:text-gray-200 text-right">
+    <div className="py-3 border-b border-gray-100 dark:border-white/8 last:border-0">
+      <dt className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{label}</dt>
+      <dd className="text-sm font-medium text-gray-900 dark:text-gray-200">
         {href ? (
           <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:underline">
             {value}
