@@ -1,6 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
 import SubscribeModal from "./subscribe-modal-content";
+import AboutModal from "./about-modal";
+
+function InfoIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+}
 
 function CalendarIcon() {
   return (
@@ -26,14 +35,6 @@ function EmailIcon() {
   );
 }
 
-function LinkIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-    </svg>
-  );
-}
-
 function SunIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -50,15 +51,16 @@ function MoonIcon() {
   );
 }
 
-const BTN_CLASS = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300";
+const BTN = "group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300";
 
 export default function FloatingActions() {
   const [showCalModal, setShowCalModal] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark") || window.matchMedia("(prefers-color-scheme: dark)").matches);
+    setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   function toggleTheme() {
@@ -82,24 +84,22 @@ export default function FloatingActions() {
   return (
     <>
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2">
-        <button onClick={() => setShowCalModal(true)} title="Subscribe" className={BTN_CLASS}>
+        <button onClick={() => setShowAbout(true)} title="About PlayIRL.GG" className={BTN}>
+          <InfoIcon />
+        </button>
+        <button onClick={() => setShowCalModal(true)} title="Subscribe" className={BTN}>
           <CalendarIcon />
         </button>
-        <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" title="Discord" className={BTN_CLASS}>
+        <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" title="Discord" className={BTN}>
           <DiscordIcon />
         </a>
-        <button onClick={() => showToastMsg("\u2709\uFE0F Newsletter coming soon!")} title="Email" className={BTN_CLASS}>
+        <button onClick={() => showToastMsg("\u2709\uFE0F Newsletter coming soon!")} title="Email" className={BTN}>
           <EmailIcon />
         </button>
-        <button onClick={() => showToastMsg("\uD83D\uDD17 Link tree coming soon!")} title="Links" className={BTN_CLASS}>
-          <LinkIcon />
-        </button>
 
-        {/* Divider */}
         <div className="w-6 mx-auto border-t border-gray-200 dark:border-[#1a3558]" />
 
-        {/* Theme toggle */}
-        <button onClick={toggleTheme} title={isDark ? "Switch to light mode" : "Switch to dark mode"} className={BTN_CLASS}>
+        <button onClick={toggleTheme} title={isDark ? "Switch to light mode" : "Switch to dark mode"} className={BTN}>
           {isDark ? <SunIcon /> : <MoonIcon />}
         </button>
       </div>
@@ -111,6 +111,7 @@ export default function FloatingActions() {
       )}
 
       {showCalModal && <SubscribeModal onClose={() => setShowCalModal(false)} />}
+      {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
     </>
   );
 }
