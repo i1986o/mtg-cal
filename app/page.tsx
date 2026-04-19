@@ -20,16 +20,16 @@ const FORMAT_EMOJI: Record<string, string> = {
   Sealed: "\uD83C\uDF81",
 };
 
-// Badge colors for event cards
+// Badge colors for event cards — light and dark
 const FORMAT_BADGE: Record<string, string> = {
-  Commander: "bg-purple-500/20 text-purple-300 border border-purple-500/30",
-  Modern: "bg-blue-500/20 text-blue-300 border border-blue-500/30",
-  Standard: "bg-green-500/20 text-green-300 border border-green-500/30",
-  Pioneer: "bg-orange-500/20 text-orange-300 border border-orange-500/30",
-  Legacy: "bg-red-500/20 text-red-300 border border-red-500/30",
-  Pauper: "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30",
-  Draft: "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30",
-  Sealed: "bg-pink-500/20 text-pink-300 border border-pink-500/30",
+  Commander: "bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/30",
+  Modern: "bg-blue-100 text-blue-700 border border-blue-200 dark:bg-blue-500/20 dark:text-blue-300 dark:border-blue-500/30",
+  Standard: "bg-green-100 text-green-700 border border-green-200 dark:bg-green-500/20 dark:text-green-300 dark:border-green-500/30",
+  Pioneer: "bg-orange-100 text-orange-700 border border-orange-200 dark:bg-orange-500/20 dark:text-orange-300 dark:border-orange-500/30",
+  Legacy: "bg-red-100 text-red-700 border border-red-200 dark:bg-red-500/20 dark:text-red-300 dark:border-red-500/30",
+  Pauper: "bg-yellow-100 text-yellow-700 border border-yellow-200 dark:bg-yellow-500/20 dark:text-yellow-300 dark:border-yellow-500/30",
+  Draft: "bg-cyan-100 text-cyan-700 border border-cyan-200 dark:bg-cyan-500/20 dark:text-cyan-300 dark:border-cyan-500/30",
+  Sealed: "bg-pink-100 text-pink-700 border border-pink-200 dark:bg-pink-500/20 dark:text-pink-300 dark:border-pink-500/30",
 };
 
 function formatTime(time: string): string {
@@ -89,7 +89,7 @@ export default async function HomePage({
       </header>
 
       {/* Sticky filter bar */}
-      <div className="sticky top-0 z-10 py-3 mb-6 bg-[#0e2240] max-w-3xl">
+      <div className="sticky top-0 z-10 py-3 mb-6 bg-white dark:bg-[#0e2240] max-w-3xl">
         <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
       </div>
 
@@ -104,7 +104,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] bg-[#0e2240] text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="sticky top-12 z-[5] bg-white dark:bg-[#0e2240] text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-700 dark:text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
@@ -112,23 +112,23 @@ export default async function HomePage({
               <Link
                 key={ev.id}
                 href={`/event/${encodeURIComponent(ev.id)}`}
-                className="group block bg-[#0e2240] hover:bg-[#132c50] border border-[#1a3558] rounded-xl p-4 transition-all duration-200 cursor-pointer"
+                className="group block bg-white dark:bg-[#0e2240] hover:bg-gray-50 dark:hover:bg-[#132c50] border border-gray-200 dark:border-[#1a3558] rounded-xl p-4 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <span className={`px-2 py-0.5 rounded-md text-xs font-medium ${FORMAT_BADGE[ev.format] || "bg-gray-500/20 text-gray-300 border border-gray-500/30"}`}>
+                      <span className={`px-2 py-0.5 rounded-md text-xs font-medium ${FORMAT_BADGE[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
                         {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
                       </span>
-                      <span className="text-xs text-gray-500">{formatTime(ev.time)} UTC</span>
+                      <span className="text-xs text-gray-400 dark:text-gray-500">{formatTime(ev.time)} UTC</span>
                     </div>
-                    <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-white group-hover:text-gray-100 transition-colors">{ev.title}</h3>
+                    <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{ev.title}</h3>
                     {ev.location && (
                       <StoreLink name={ev.location} url={ev.store_url || undefined} />
                     )}
                   </div>
                   <div className="text-right shrink-0">
-                    <span className={`text-base font-[family-name:var(--font-ultra)] font-bold ${ev.cost === "Free" ? "text-emerald-400" : "text-white"}`}>
+                    <span className={`text-base font-[family-name:var(--font-ultra)] font-bold ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
                       {ev.cost === "Free" ? "\u2728 Free" : ev.cost || "\u2014"}
                     </span>
                   </div>
@@ -139,11 +139,11 @@ export default async function HomePage({
         </div>
       ))}
 
-      <footer className="mt-16 pt-6 border-t border-white/10 text-center text-sm text-gray-500">
+      <footer className="mt-16 pt-6 border-t border-gray-200 dark:border-white/10 text-center text-sm text-gray-400 dark:text-gray-500">
         <p>{"\uD83C\uDCCF"} PlayIRL.GG</p>
-        <p className="mt-1 text-xs text-gray-600">
+        <p className="mt-1 text-xs text-gray-400 dark:text-gray-600">
           Data from Wizards of the Coast &amp; Discord &middot;{" "}
-          <a href="https://github.com/i1986o/mtg-cal" className="text-purple-400 hover:underline">Open Source</a>
+          <a href="https://github.com/i1986o/mtg-cal" className="text-blue-500 dark:text-purple-400 hover:underline">Open Source</a>
         </p>
       </footer>
     </main>

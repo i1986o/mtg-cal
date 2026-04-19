@@ -32,10 +32,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${bricolage.variable} h-full antialiased dark`}
-      style={{ backgroundColor: "#0e2240" }}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${bricolage.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]" style={{ backgroundColor: "#0e2240" }}>{children}</body>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] bg-white dark:bg-[#0e2240] text-gray-900 dark:text-gray-100">{children}</body>
     </html>
   );
 }

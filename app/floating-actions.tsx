@@ -44,10 +44,10 @@ export default function FloatingActions() {
   }
 
   const buttons = [
-    { icon: <CalendarIcon />, label: "Subscribe", onClick: () => setShowCalModal(true), color: "hover:bg-[#132c50] hover:border-[#1a3558] hover:text-gray-300" },
-    { icon: <DiscordIcon />, label: "Discord", href: "https://discord.gg/axDSujPTfj", color: "hover:bg-[#132c50] hover:border-[#1a3558] hover:text-gray-300" },
-    { icon: <EmailIcon />, label: "Email", onClick: () => showToast("\u2709\uFE0F Newsletter coming soon!"), color: "hover:bg-[#132c50] hover:border-[#1a3558] hover:text-gray-300" },
-    { icon: <LinkIcon />, label: "Links", onClick: () => showToast("\uD83D\uDD17 Link tree coming soon!"), color: "hover:bg-[#132c50] hover:border-[#1a3558] hover:text-gray-300" },
+    { icon: <CalendarIcon />, label: "Subscribe", onClick: () => setShowCalModal(true), color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
+    { icon: <DiscordIcon />, label: "Discord", href: "https://discord.gg/axDSujPTfj", color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
+    { icon: <EmailIcon />, label: "Email", onClick: () => showToast("\u2709\uFE0F Newsletter coming soon!"), color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
+    { icon: <LinkIcon />, label: "Links", onClick: () => showToast("\uD83D\uDD17 Link tree coming soon!"), color: "hover:bg-gray-100 dark:hover:bg-[#132c50] hover:border-gray-300 dark:hover:border-[#1a3558] hover:text-gray-600 dark:hover:text-gray-300" },
   ];
 
   return (
@@ -61,7 +61,7 @@ export default function FloatingActions() {
               target="_blank"
               rel="noopener noreferrer"
               title={btn.label}
-              className={`group flex items-center justify-center w-10 h-10 bg-[#0e2240] text-gray-500 rounded-xl border border-[#1a3558] transition-all duration-200 cursor-pointer ${btn.color}`}
+              className={`group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer ${btn.color}`}
             >
               {btn.icon}
             </a>
@@ -70,7 +70,7 @@ export default function FloatingActions() {
               key={btn.label}
               onClick={btn.onClick}
               title={btn.label}
-              className={`group flex items-center justify-center w-10 h-10 bg-[#0e2240] text-gray-500 rounded-xl border border-[#1a3558] transition-all duration-200 cursor-pointer ${btn.color}`}
+              className={`group flex items-center justify-center w-10 h-10 bg-white dark:bg-[#0e2240] text-gray-400 dark:text-gray-500 rounded-xl border border-gray-200 dark:border-[#1a3558] transition-all duration-200 cursor-pointer ${btn.color}`}
             >
               {btn.icon}
             </button>
@@ -79,7 +79,7 @@ export default function FloatingActions() {
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-[#0e2240] backdrop-blur-md border border-[#1a3558] rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-white dark:bg-[#0e2240] backdrop-blur-md border border-gray-200 dark:border-[#1a3558] rounded-xl text-sm text-white font-medium shadow-lg animate-[fadeInUp_0.3s_ease-out]">
           {toast}
         </div>
       )}
