@@ -3,7 +3,7 @@
 @variant dark (&:is(.dark, .dark *));
 
 :root {
-  --bg: #f9fafb;
+  --bg: #ffffff;
   --fg: #111827;
 }
 
