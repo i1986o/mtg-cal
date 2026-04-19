@@ -3,7 +3,6 @@ export const dynamic = "force-dynamic";
 import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/events";
 import { config } from "@/lib/config";
 import Link from "next/link";
-import Image from "next/image";
 import FloatingActions from "./floating-actions";
 import RadiusSelector from "./radius-selector";
 import StoreLink from "./store-link";
@@ -85,7 +84,9 @@ export default async function HomePage({
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
-        <Image src="/logo.png" alt="PlayIRL.GG" width={180} height={180} className="w-44 h-44 object-contain" />
+        <h1 className="text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-tight">
+          PlayIRL.gg
+        </h1>
       </header>
 
       {/* Sticky filter bar */}
