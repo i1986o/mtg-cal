@@ -43,7 +43,7 @@ export default function SubscribeModal({ onClose }: { onClose: () => void }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm" />
       <div
-        className="relative bg-white dark:bg-[#0e2240] rounded-xl shadow-2xl border border-gray-200 dark:border-[#1a3558] w-full max-w-lg p-6 space-y-5"
+        className="relative bg-white dark:bg-[#0c1220] rounded-xl shadow-2xl border border-gray-200 dark:border-[#1e2a3e] w-full max-w-lg p-6 space-y-5"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">

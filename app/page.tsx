@@ -116,7 +116,7 @@ export default async function HomePage({
               <Link
                 key={ev.id}
                 href={`/event/${encodeURIComponent(ev.id)}`}
-                className="group block bg-white dark:bg-[#0e2240] hover:bg-gray-50 dark:hover:bg-[#132c50] border border-gray-200 dark:border-[#1a3558] rounded-xl p-4 transition-all duration-200 cursor-pointer"
+                className="group block bg-white dark:bg-[#0c1220] hover:bg-gray-50 dark:hover:bg-[#141c2e] border border-gray-200 dark:border-[#1e2a3e] rounded-xl p-4 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">

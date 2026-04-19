@@ -44,7 +44,7 @@ export default function RootLayout({
           })();
         `}} />
       </head>
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] bg-white dark:bg-[#0e2240] text-gray-900 dark:text-gray-100">{children}</body>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] bg-white dark:bg-[#0c1220] text-gray-900 dark:text-gray-100">{children}</body>
     </html>
   );
 }
