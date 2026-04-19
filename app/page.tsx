@@ -6,6 +6,7 @@ import Link from "next/link";
 import FloatingActions from "./floating-actions";
 import RadiusSelector from "./radius-selector";
 import StoreLink from "./store-link";
+import StickyBar from "./sticky-bar";
 
 // Format emoji mapping for fun visual flair
 const FORMAT_EMOJI: Record<string, string> = {
@@ -90,9 +91,9 @@ export default async function HomePage({
       </header>
 
       {/* Sticky filter bar */}
-      <div className="sticky top-0 z-10 py-3 mb-6 bg-white dark:bg-[#0e2240] -mx-4 px-4 shadow-sm dark:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.4)]">
+      <StickyBar>
         <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
-      </div>
+      </StickyBar>
 
       {/* Events by date */}
       {Object.keys(grouped).length === 0 && (
