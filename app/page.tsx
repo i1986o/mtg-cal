@@ -121,14 +121,12 @@ export default async function HomePage({
                       <span className={`px-2 py-0.5 rounded-md text-xs font-medium ${FORMAT_BADGE[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
                         {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
                       </span>
+                      <span className="text-xs text-gray-400 dark:text-gray-500">{formatTime(ev.time)} UTC</span>
                     </div>
                     <h3 className="font-[family-name:var(--font-ultra)] font-bold text-lg text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors">{ev.title}</h3>
-                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                      {formatTime(ev.time)} UTC{ev.location && ` · `}
-                      {ev.location && ev.store_url ? (
-                        <StoreLink name={ev.location} url={ev.store_url} inline />
-                      ) : ev.location || null}
-                    </p>
+                    {ev.location && (
+                      <StoreLink name={ev.location} url={ev.store_url || undefined} />
+                    )}
                   </div>
                   <div className="text-right shrink-0">
                     <span className={`text-base font-[family-name:var(--font-ultra)] font-bold ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
