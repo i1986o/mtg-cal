@@ -73,22 +73,17 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       </Link>
 
       <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl overflow-hidden">
-        {/* Map header */}
-        {ev.latitude && ev.longitude && (
-          <div className="relative h-44 overflow-hidden">
+        {/* Map header — Google Maps embed */}
+        {ev.location && (
+          <div className="relative h-48 overflow-hidden">
             <iframe
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${ev.longitude-0.006},${ev.latitude-0.003},${ev.longitude+0.006},${ev.latitude+0.003}&layer=mapnik&marker=${ev.latitude},${ev.longitude}`}
-              className="w-full border-0 pointer-events-none"
-              style={{ height: "250px", marginTop: "-25px" }}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}&output=embed&z=15`}
+              className="w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0c1220] via-transparent to-transparent pointer-events-none" />
-            <a
-              href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute inset-0 z-10"
-              title="Open in Google Maps"
-            />
           </div>
         )}
 
