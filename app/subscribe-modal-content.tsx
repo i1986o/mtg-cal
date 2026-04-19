@@ -56,12 +56,12 @@ export default function SubscribeModal({ onClose }: { onClose: () => void }) {
         </p>
 
         <div>
-          <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-2">All Events</p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">All Events</p>
           <CopyRow label="All formats" path="/calendar" />
         </div>
 
         <div>
-          <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-2">By Format</p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">By Format</p>
           <div className="space-y-2">
             {FORMAT_FEEDS.map((f) => (
               <CopyRow key={f.slug} label={f.label} path={`/calendar/${f.slug}`} />
