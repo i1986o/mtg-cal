@@ -59,14 +59,14 @@ export default function RadiusSelector({
           {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
         </div>
       )}
-    <p className="text-gray-500 dark:text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-xl leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
+    <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center gap-1.5 flex-wrap text-xl leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
       <span className="text-gray-900 dark:text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
       {/* Format selector */}
       <select
         value={currentFormat || ""}
         onChange={(e) => updateParam("format", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-orange-500/50 text-orange-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-orange-400 cursor-pointer appearance-none text-center px-1 hover:border-orange-400 transition-colors w-[8ch]"
+        className="inline-block bg-transparent border-b-2 border-orange-400 dark:border-orange-500/50 text-orange-600 dark:text-orange-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-orange-500 dark:focus:border-orange-400 cursor-pointer appearance-none text-center px-1 hover:border-orange-500 dark:hover:border-orange-400 transition-colors w-[8ch]"
       >
         <option value="">MTG</option>
         {formats.map((f) => (
@@ -80,7 +80,7 @@ export default function RadiusSelector({
       <select
         value={currentRadius}
         onChange={(e) => updateParam("radius", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-purple-500/50 text-purple-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-400 transition-colors w-[3ch]"
+        className="inline-block bg-transparent border-b-2 border-purple-400 dark:border-purple-500/50 text-purple-600 dark:text-purple-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-purple-500 dark:focus:border-purple-400 cursor-pointer appearance-none text-center px-1 hover:border-purple-500 dark:hover:border-purple-400 transition-colors w-[3ch]"
       >
         {RADIUS_OPTIONS.map((r) => (
           <option key={r} value={r}>{r}</option>
@@ -92,7 +92,7 @@ export default function RadiusSelector({
       {/* City selector — coming soon */}
       <button
         onClick={handleCityClick}
-        className="inline-block bg-transparent border-b-2 border-emerald-500/50 text-emerald-300 font-[family-name:var(--font-ultra)] cursor-pointer hover:border-emerald-400 transition-colors px-1"
+        className="inline-block bg-transparent border-b-2 border-emerald-400 dark:border-emerald-500/50 text-emerald-600 dark:text-emerald-300 font-[family-name:var(--font-ultra)] cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-400 transition-colors px-1"
       >
         Philly
       </button>
@@ -103,7 +103,7 @@ export default function RadiusSelector({
       <select
         value={currentDays}
         onChange={(e) => updateParam("days", e.target.value)}
-        className="inline-block bg-transparent border-b-2 border-pink-500/50 text-pink-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-400 transition-colors w-[10ch]"
+        className="inline-block bg-transparent border-b-2 border-pink-400 dark:border-pink-500/50 text-pink-600 dark:text-pink-300 font-[family-name:var(--font-ultra)] focus:outline-none focus:border-pink-500 dark:focus:border-pink-400 cursor-pointer appearance-none text-center px-1 hover:border-pink-500 dark:hover:border-pink-400 transition-colors w-[10ch]"
       >
         {TIME_OPTIONS.map((t) => (
           <option key={t.value} value={t.value}>{t.label}</option>
