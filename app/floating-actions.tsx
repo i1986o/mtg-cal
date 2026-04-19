@@ -66,11 +66,11 @@ export default function FloatingActions() {
   function toggleTheme() {
     const html = document.documentElement;
     if (html.classList.contains("dark")) {
-      html.classList.remove("dark");
+      html.classList.remove("dark"); localStorage.setItem("theme","light");
       html.style.colorScheme = "light";
       setIsDark(false);
     } else {
-      html.classList.add("dark");
+      html.classList.add("dark"); localStorage.setItem("theme","dark");
       html.style.colorScheme = "dark";
       setIsDark(true);
     }
