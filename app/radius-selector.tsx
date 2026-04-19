@@ -4,20 +4,15 @@ import { useState } from "react";
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
 function getTimeOptions() {
   const now = new Date();
-  const options = [
-    { value: "7", label: "this week" },
-    { value: "14", label: "next 2 weeks" },
-  ];
+  const options: { value: string; label: string }[] = [];
 
-  // Add current month + next 5 months
+  // Current month + next 5 months
   for (let i = 0; i < 6; i++) {
     const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
     const endOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
     const daysUntilEnd = Math.ceil((endOfMonth.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-    if (daysUntilEnd < 7) continue; // skip if less than a week left
-    const label = i === 0
-      ? `this month`
-      : d.toLocaleDateString("en-US", { month: "long" });
+    if (daysUntilEnd < 3) continue;
+    const label = d.toLocaleDateString("en-US", { month: "long" });
     options.push({ value: String(daysUntilEnd), label });
   }
 
