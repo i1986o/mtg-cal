@@ -106,7 +106,7 @@ export default async function HomePage({
 
       {Object.entries(grouped).map(([date, dayEvents]) => (
         <div key={date} className="mb-6">
-          <h2 className="sticky top-12 z-[5] bg-white dark:bg-[#0e2240] text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-700 dark:text-gray-300 pb-2 mb-3 pt-2 -mx-4 px-4">
+          <h2 className="text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-700 dark:text-gray-300 pb-2 mb-3 pt-2">
             {formatDateHeading(date)}
           </h2>
           <div className="space-y-2">
