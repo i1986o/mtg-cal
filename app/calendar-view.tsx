@@ -89,7 +89,8 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-px bg-gray-100 dark:bg-white/10 border border-gray-100 dark:border-white/10 rounded-xl overflow-hidden">
+      <div className="overflow-x-auto -mx-4 px-4">
+      <div className="grid grid-cols-7 gap-px bg-gray-100 dark:bg-white/10 border border-gray-100 dark:border-white/10 rounded-xl overflow-hidden min-w-[560px]">
         {weekDays.map((day) => {
           const isToday = day.date === todayStr;
           const isPast = day.date < todayStr;
@@ -145,6 +146,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );

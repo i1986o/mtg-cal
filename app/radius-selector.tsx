@@ -153,7 +153,7 @@ export default function RadiusSelector({
           {"\uD83D\uDCC5"} Subscribe coming soon!
         </div>
       )}
-      <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center gap-1.5 text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold whitespace-nowrap">
+      <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 text-sm sm:text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
         <span className="text-gray-900 dark:text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
 
         <ChipSelect

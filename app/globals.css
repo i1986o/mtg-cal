@@ -23,12 +23,14 @@
 
 html {
   background-color: var(--bg) !important;
+  overflow-x: clip;
 }
 
 body {
   background-color: var(--bg) !important;
   color: var(--fg);
   font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 /* Apply consistent tracking to all Stack Sans Notch usage */
