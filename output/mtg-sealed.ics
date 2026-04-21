@@ -7,36 +7,9 @@ NAME:MTG Sealed — Philadelphia
 X-WR-CALNAME:MTG Sealed — Philadelphia
 X-WR-CALDESC:Sealed events in Philadelphia area
 BEGIN:VEVENT
-UID:wotc-10820749
-SEQUENCE:0
-DTSTAMP:20260420T195018Z
-DTSTART:20260420T160000Z
-DTEND:20260420T190000Z
-SUMMARY:Sealed At-Home Prerelease @ 7th Dimension Games
-LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
- , 19046
-DESCRIPTION:Format: Sealed\nCost: $40\nStore: http://www.7thdimensiongames
- .com\nDetails: https://locator.wizards.com/store/8863/\nSource: wizards-lo
- cator
-URL;VALUE=URI:https://locator.wizards.com/store/8863/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10737662
-SEQUENCE:0
-DTSTAMP:20260420T195018Z
-DTSTART:20260420T223000Z
-DTEND:20260421T013000Z
-SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Sealed\nCost: $40\nStore: http://phillygameshop.com/\n
- Details: https://locator.wizards.com/store/13099/\nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
 UID:wotc-10623803
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260421T220000Z
 DTEND:20260422T010000Z
 SUMMARY:Runehammer MTG Strixhaven Prerelease @ Runehammer Games
@@ -50,7 +23,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10647527
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260421T223000Z
 DTEND:20260422T013000Z
 SUMMARY:Queen & Rook Presents: Secrets of Strixhaven Prerelease @ Queen an
@@ -65,7 +38,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737663
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260421T223000Z
 DTEND:20260422T013000Z
 SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
@@ -78,7 +51,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737664
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260422T223000Z
 DTEND:20260423T013000Z
 SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
@@ -91,7 +64,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10737665
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260423T223000Z
 DTEND:20260424T013000Z
 SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
@@ -104,7 +77,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10653574
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260425T153000Z
 DTEND:20260425T183000Z
 SUMMARY:Sealed RCQ - Secrets of Strixhaven @ Top Deck Games - Cherry Hill
@@ -118,7 +91,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10819527
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260619T230000Z
 DTEND:20260620T020000Z
 SUMMARY:Kryptic Collections Marvel Super Heroes Prerelease @ Kryptic Colle
@@ -133,7 +106,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10702521
 SEQUENCE:0
-DTSTAMP:20260420T195018Z
+DTSTAMP:20260421T200216Z
 DTSTART:20260619T230000Z
 DTEND:20260620T020000Z
 SUMMARY:Marvel Super Heroes Prerelease @ 7th Dimension Games
@@ -143,5 +116,34 @@ DESCRIPTION:Format: Sealed\nCost: $35\nStore: http://www.7thdimensiongames
  .com\nDetails: https://locator.wizards.com/store/8863/\nSource: wizards-lo
  cator
 URL;VALUE=URI:https://locator.wizards.com/store/8863/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10702522
+SEQUENCE:0
+DTSTAMP:20260421T200216Z
+DTSTART:20260620T130000Z
+DTEND:20260620T160000Z
+SUMMARY:Marvel Super Heroes Prerelease @ 7th Dimension Games
+LOCATION:7th Dimension Games\, Johnson Street\, Jenkintown\, Pennsylvania\
+ , 19046
+DESCRIPTION:Format: Sealed\nCost: $35\nStore: http://www.7thdimensiongames
+ .com\nDetails: https://locator.wizards.com/store/8863/\nSource: wizards-lo
+ cator
+URL;VALUE=URI:https://locator.wizards.com/store/8863/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10819530
+SEQUENCE:0
+DTSTAMP:20260421T200216Z
+DTSTART:20260620T170000Z
+DTEND:20260620T200000Z
+SUMMARY:Kryptic Collections Marvel Super Heroes Prerelease @ Kryptic Colle
+ ctions
+LOCATION:Kryptic Collections\, 235 Lilac Lane\, Cinnaminson Township\, New
+  Jersey\, 08077
+DESCRIPTION:Format: Sealed\nCost: $50\nStore: http://www.krypticcollection
+ s.com/\nDetails: https://locator.wizards.com/store/14773/\nSource: wizards
+ -locator
+URL;VALUE=URI:https://locator.wizards.com/store/14773/
 END:VEVENT
 END:VCALENDAR

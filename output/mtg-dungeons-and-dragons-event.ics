@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+X-PUBLISHED-TTL:PT1H
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+VERSION:2.0
+PRODID:-//mtg-cal//mtg-event-aggregator//EN
+NAME:MTG Dungeons and Dragons Event — Philadelphia
+X-WR-CALNAME:MTG Dungeons and Dragons Event — Philadelphia
+X-WR-CALDESC:Dungeons and Dragons Event events in Philadelphia area
+BEGIN:VEVENT
+UID:wotc-10831245
+SEQUENCE:0
+DTSTAMP:20260421T200216Z
+DTSTART:20260606T180000Z
+DTEND:20260606T210000Z
+SUMMARY:D&D Encounters Celebration D&D Encounters Celebration @ The Guild 
+ Hall @ The Guild Hall Hobby
+LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
+  08052
+DESCRIPTION:Format: Dungeons and Dragons Event\nCost: $10\nStore: https://
+ www.guildhallhobby.com/\nDetails: https://locator.wizards.com/store/17250/
+ \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/17250/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10831811
+SEQUENCE:0
+DTSTAMP:20260421T200216Z
+DTSTART:20260610T223000Z
+DTEND:20260611T013000Z
+SUMMARY:D&D Encounters Celebration @ Queen & Rook! @ Queen and Rook Game C
+ afe
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: Dungeons and Dragons Event\nCost: $15\nStore: https://
+ queenandrookcafe.com/\nDetails: https://locator.wizards.com/store/12804/\n
+ Source: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10831718
+SEQUENCE:0
+DTSTAMP:20260421T200216Z
+DTSTART:20260613T180000Z
+DTEND:20260613T210000Z
+SUMMARY:D&D Encounters Weekly Play D&D Encounters Weekly Play for Ravenlof
+ t Season @ The Guild Hall @ The Guild Hall Hobby
+LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
+  08052
+DESCRIPTION:Format: Dungeons and Dragons Event\nCost: $10\nStore: https://
+ www.guildhallhobby.com/\nDetails: https://locator.wizards.com/store/17250/
+ \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/17250/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10831719
+SEQUENCE:0
+DTSTAMP:20260421T200216Z
+DTSTART:20260620T180000Z
+DTEND:20260620T210000Z
+SUMMARY:D&D Encounters Weekly Play D&D Encounters Weekly Play for Ravenlof
+ t Season @ The Guild Hall @ The Guild Hall Hobby
+LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
+  08052
+DESCRIPTION:Format: Dungeons and Dragons Event\nCost: $10\nStore: https://
+ www.guildhallhobby.com/\nDetails: https://locator.wizards.com/store/17250/
+ \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/17250/
+END:VEVENT
+END:VCALENDAR
