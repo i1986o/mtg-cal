@@ -60,7 +60,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   if (!ev) return notFound();
 
   return (
-    <main className="max-w-2xl mx-auto px-4 py-8">
+    <main className="max-w-[52.5rem] mx-auto px-4 py-8">
       <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline mb-6 inline-block">
         &larr; Back to PlayIRL.GG
       </Link>
