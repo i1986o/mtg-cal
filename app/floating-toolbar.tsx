@@ -77,14 +77,29 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
 
   return (
     <>
-      {/* View toggle — desktop only, vertically centered */}
-      <div className={`hidden sm:flex flex-col gap-0.5 fixed right-4 top-1/2 -translate-y-1/2 z-40 bg-white dark:bg-[#1a2438] rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50`}>
-        <button onClick={() => setView("list")} title="List view" className={`${BTN} ${currentView === "list" ? BTN_ACTIVE : BTN_INACTIVE}`}>
-          <ListIcon />
-        </button>
-        <button onClick={() => setView("calendar")} title="Calendar view" className={`${BTN} ${currentView === "calendar" ? BTN_ACTIVE : BTN_INACTIVE}`}>
-          <CalendarIcon />
-        </button>
+      {/* View toggle — desktop only, vertically centered, sliding indicator */}
+      <div className="hidden sm:flex fixed right-4 top-1/2 -translate-y-1/2 z-40">
+        <div className="relative flex flex-col bg-gray-100/80 dark:bg-[#0e1828] rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 shadow-lg shadow-black/10 dark:shadow-black/40 backdrop-blur-sm">
+          {/* sliding pill */}
+          <div
+            className="absolute left-1 right-1 h-8 rounded-xl bg-white dark:bg-white/12 shadow-sm transition-transform duration-200 ease-out"
+            style={{ top: "4px", transform: currentView === "calendar" ? "translateY(36px)" : "translateY(0px)" }}
+          />
+          <button
+            onClick={() => setView("list")}
+            title="List view"
+            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer ${currentView === "list" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
+          >
+            <ListIcon />
+          </button>
+          <button
+            onClick={() => setView("calendar")}
+            title="Calendar view"
+            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer mt-1 ${currentView === "calendar" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
+          >
+            <CalendarIcon />
+          </button>
+        </div>
       </div>
 
       {/* Theme toggle — always bottom-right */}
