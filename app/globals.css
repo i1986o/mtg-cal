@@ -39,6 +39,38 @@ body {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95) translateY(-6px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Reusable animation classes */
+.anim-fade-in-up {
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.anim-fade-in {
+  animation: fadeIn 0.25s ease-out both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.anim-scale-in {
+  animation: scaleIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-in-up,
+  .anim-fade-in,
+  .anim-scale-in { animation: none; }
 }

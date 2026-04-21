@@ -63,7 +63,7 @@ export default async function HomePage({
       <FloatingToolbar currentView={currentView} />
 
       {/* Hero header */}
-      <header className="mb-6 flex flex-col items-center text-center gap-3 w-full">
+      <header className="mb-6 flex flex-col items-center text-center gap-3 w-full anim-fade-in-up">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ultra)] font-normal text-gray-900 dark:text-white tracking-wide leading-none">
           PlayIRL.gg
         </h1>
@@ -94,7 +94,7 @@ export default async function HomePage({
       ) : (
         <>
           {Object.keys(grouped).length === 0 && (
-            <div className="text-center py-16">
+            <div className="text-center py-16 anim-fade-in-up" style={{ "--delay": "120ms" } as React.CSSProperties}>
               <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
               <p className="text-gray-400 text-lg">No events found</p>
               <p className="text-gray-500 text-sm mt-1">Try expanding your distance or time range</p>
@@ -102,21 +102,22 @@ export default async function HomePage({
           )}
 
           <div className="space-y-2">
-            {Object.entries(grouped).map(([date, dayEvents]) => {
+            {Object.entries(grouped).map(([date, dayEvents], i) => {
               const d = new Date(date + "T12:00:00");
               const todayStr = today.toISOString().split("T")[0];
               const tomorrowStr = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
               return (
-                <DayCard
-                  key={date}
-                  date={date}
-                  weekday={d.toLocaleDateString("en-US", { weekday: "long" })}
-                  dayNum={d.getDate()}
-                  isToday={date === todayStr}
-                  isPast={date < todayStr}
-                  events={dayEvents}
-                  headingLabel={dayHeadingLabel(date, todayStr, tomorrowStr)}
-                />
+                <div key={date} className="anim-fade-in-up" style={{ "--delay": `${Math.min(i * 50 + 120, 400)}ms` } as React.CSSProperties}>
+                  <DayCard
+                    date={date}
+                    weekday={d.toLocaleDateString("en-US", { weekday: "long" })}
+                    dayNum={d.getDate()}
+                    isToday={date === todayStr}
+                    isPast={date < todayStr}
+                    events={dayEvents}
+                    headingLabel={dayHeadingLabel(date, todayStr, tomorrowStr)}
+                  />
+                </div>
               );
             })}
           </div>

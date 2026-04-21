@@ -52,7 +52,7 @@ export default function ShareButton({ title, url }: { title: string; url: string
       </button>
 
       {open && (
-        <div className="absolute bottom-full mb-2 right-0 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-[160px]">
+        <div className="absolute bottom-full mb-2 right-0 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-[160px] anim-scale-in" style={{ transformOrigin: "bottom right" }}>
           <button
             onClick={copyLink}
             className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left"

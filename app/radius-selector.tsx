@@ -65,7 +65,7 @@ function ChipSelect({
         {label}
       </button>
       {open && (
-        <div className={`${DROPDOWN_BASE} ${DROPDOWN_ALIGN[align]}`}>
+        <div className={`${DROPDOWN_BASE} ${DROPDOWN_ALIGN[align]} anim-scale-in`}>
           <div className="px-4 py-2.5 border-b border-gray-100 dark:border-white/8">
             <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-400 dark:text-gray-500">{heading}</p>
           </div>

@@ -62,11 +62,11 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="max-w-[52.5rem] mx-auto px-4 py-8">
-      <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline mb-6 inline-block">
+      <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline mb-6 inline-block anim-fade-in">
         &larr; Back to PlayIRL.GG
       </Link>
 
-      <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl">
+      <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
         {/* Map header — Google Maps embed */}
         {ev.location && (
           <div className="relative h-48 overflow-hidden rounded-t-xl">

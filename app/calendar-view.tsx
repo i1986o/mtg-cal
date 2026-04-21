@@ -89,7 +89,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
         </button>
       </div>
 
-      <div className="overflow-x-auto -mx-4 px-4">
+      <div className="overflow-x-auto -mx-4 px-4 anim-fade-in" style={{ "--delay": "100ms" } as React.CSSProperties}>
       <div className="grid grid-cols-7 gap-px bg-gray-100 dark:bg-white/10 border border-gray-100 dark:border-white/10 rounded-xl overflow-hidden min-w-[560px]">
         {weekDays.map((day) => {
           const isToday = day.date === todayStr;
