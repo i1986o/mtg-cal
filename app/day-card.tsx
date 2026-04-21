@@ -61,16 +61,16 @@ export default function DayCard({
             <Link
               key={ev.id}
               href={`/event/${encodeURIComponent(ev.id)}`}
-              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+              className="flex items-center gap-3 px-4 py-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
             >
               <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-16">{formatEventTime(ev.date, ev.time, ev.timezone)}</span>
               <div className="flex-1 min-w-0">
                 <span className={`px-2 py-0.5 rounded text-[10px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                   {ev.format}
                 </span>
-                <p className="text-sm font-medium text-gray-900 dark:text-white truncate mt-0.5">{ev.title}</p>
+                <p className="text-base font-semibold text-gray-900 dark:text-white truncate mt-1">{ev.title}</p>
                 {ev.location && (
-                  <p className="text-xs text-gray-400 dark:text-gray-500 truncate">{ev.location}</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-500 truncate">{ev.location}</p>
                 )}
               </div>
               <span className={`text-sm font-[family-name:var(--font-ultra)] font-bold shrink-0 ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
