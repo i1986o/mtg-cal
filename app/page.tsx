@@ -152,9 +152,9 @@ export default async function HomePage({
               An open-source, community-run alternative to the official Wizards of the Coast event locator — built by players, for players.
             </p>
             <div className="flex flex-wrap gap-2 mt-3">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/30">✨ Open source</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-500/30">👥 Community-run</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-gray-100 text-gray-500 border border-gray-200 dark:bg-white/5 dark:text-gray-400 dark:border-white/10">Not affiliated with WotC</span>
+              <span className="text-[11px] text-gray-400 dark:text-gray-500">✨ Open source</span>
+              <span className="text-[11px] text-gray-400 dark:text-gray-500">· Community-run</span>
+              <span className="text-[11px] text-gray-400 dark:text-gray-500">· Not affiliated with WotC</span>
             </div>
           </div>
 
