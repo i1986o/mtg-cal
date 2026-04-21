@@ -74,7 +74,7 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
   }
 
   return (
-    <div className="fixed right-4 bottom-6 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-40 flex flex-col gap-0.5 bg-gray-100 dark:bg-white/5 rounded-xl p-0.5 border border-gray-100 dark:border-white/8 shadow-lg shadow-black/5 dark:shadow-black/20">
+    <div className="fixed right-4 bottom-6 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-40 flex flex-col gap-0.5 bg-white dark:bg-[#1a2438] rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
       <button onClick={() => setView("list")} title="List view" className={`${BTN} ${currentView === "list" ? BTN_ACTIVE : BTN_INACTIVE}`}>
         <ListIcon />
       </button>
