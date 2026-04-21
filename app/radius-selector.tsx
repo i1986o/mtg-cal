@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { FORMAT_DOT } from "@/lib/format-style";
 
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
@@ -114,11 +114,18 @@ export default function RadiusSelector({
   }
 
   const [toastPos, setToastPos] = useState<{ top: number; left: number } | null>(null);
+  const [subscribeToast, setSubscribeToast] = useState<{ top: number; left: number } | null>(null);
 
   function handleCityClick(e: React.MouseEvent) {
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
     setToastPos({ top: rect.bottom + 8, left: rect.left + rect.width / 2 });
     setTimeout(() => setToastPos(null), 2500);
+  }
+
+  function handleSubscribeClick(e: React.MouseEvent) {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setSubscribeToast({ top: rect.bottom + 8, left: rect.left + rect.width / 2 });
+    setTimeout(() => setSubscribeToast(null), 2500);
   }
 
   const formatOptions = [
@@ -136,6 +143,14 @@ export default function RadiusSelector({
           style={{ top: `${toastPos.top}px`, left: `${toastPos.left}px`, transform: "translateX(-50%)" }}
         >
           {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
+        </div>
+      )}
+      {subscribeToast && (
+        <div
+          className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
+          style={{ top: `${subscribeToast.top}px`, left: `${subscribeToast.left}px`, transform: "translateX(-50%)" }}
+        >
+          {"\uD83D\uDCC5"} Subscribe coming soon!
         </div>
       )}
       <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center gap-1.5 text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold whitespace-nowrap">
@@ -175,6 +190,12 @@ export default function RadiusSelector({
           value={String(currentDays)}
           onChange={(v) => updateParam("days", v)}
         />
+
+        <span className="text-gray-400 dark:text-gray-500">,</span>
+
+        <button onClick={handleSubscribeClick} className={CHIP_TRIGGER}>
+          subscribe
+        </button>
       </p>
     </>
   );

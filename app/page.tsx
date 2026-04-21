@@ -7,7 +7,6 @@ import CalendarView from "./calendar-view";
 import StickyBar from "./sticky-bar";
 import ViewToggle from "./view-toggle";
 import AboutInfoButton from "./about-info-button";
-import SubscribeButton from "./subscribe-button";
 import ThemeToggle from "./theme-toggle";
 import DayCard from "./day-card";
 
@@ -82,11 +81,8 @@ export default async function HomePage({
 
       {/* Sticky filter bar */}
       <StickyBar>
-        <div className="flex items-center gap-3">
-          <div className="flex-1 flex justify-center">
-            <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
-          </div>
-          <SubscribeButton />
+        <div className="flex justify-center">
+          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
         </div>
       </StickyBar>
 
