@@ -87,8 +87,8 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
         </button>
       </div>
 
-      {/* Theme toggle — bottom-right on mobile, above view toggle gap on desktop */}
-      <div className={`${PILL} bottom-6 sm:top-1/2 sm:bottom-auto sm:[transform:translateY(calc(-50%+52px))]`}>
+      {/* Theme toggle — always bottom-right */}
+      <div className={`${PILL} bottom-6`}>
         <button
           onClick={toggleTheme}
           title={isDark ? "Switch to light mode" : "Switch to dark mode"}
