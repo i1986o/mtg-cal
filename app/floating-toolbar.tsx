@@ -75,13 +75,13 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
 
   return (
     <div className="fixed right-4 bottom-6 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-40 flex flex-col gap-0.5 bg-white dark:bg-[#1a2438] rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
-      <button onClick={() => setView("list")} title="List view" className={`${BTN} ${currentView === "list" ? BTN_ACTIVE : BTN_INACTIVE}`}>
+      <button onClick={() => setView("list")} title="List view" className={`hidden sm:flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer ${currentView === "list" ? BTN_ACTIVE : BTN_INACTIVE}`}>
         <ListIcon />
       </button>
-      <button onClick={() => setView("calendar")} title="Calendar view" className={`${BTN} ${currentView === "calendar" ? BTN_ACTIVE : BTN_INACTIVE}`}>
+      <button onClick={() => setView("calendar")} title="Calendar view" className={`hidden sm:flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer ${currentView === "calendar" ? BTN_ACTIVE : BTN_INACTIVE}`}>
         <CalendarIcon />
       </button>
-      <div className="my-0.5 h-px bg-gray-200 dark:bg-white/10 mx-1" />
+      <div className="hidden sm:block my-0.5 h-px bg-gray-200 dark:bg-white/10 mx-1" />
       <button
         onClick={toggleTheme}
         title={isDark ? "Switch to light mode" : "Switch to dark mode"}
