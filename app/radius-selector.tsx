@@ -55,24 +55,34 @@ function ChipSelect({
   dot?: boolean;
   align?: "start" | "center" | "end";
 }) {
-  const [open, setOpen] = useState(false);
-  const [closing, setClosing] = useState(false);
+  const [status, setStatus] = useState<"closed" | "open" | "closing">("closed");
+  const statusRef = useRef<"closed" | "open" | "closing">("closed");
   const ref = useRef<HTMLDivElement>(null);
 
   const close = useCallback(() => {
-    setClosing(true);
-    setTimeout(() => { setOpen(false); setClosing(false); }, 140);
+    if (statusRef.current !== "open") return;
+    statusRef.current = "closing";
+    setStatus("closing");
+    setTimeout(() => {
+      statusRef.current = "closed";
+      setStatus("closed");
+    }, 140);
+  }, []);
+
+  const open = useCallback(() => {
+    statusRef.current = "open";
+    setStatus("open");
   }, []);
 
   useClickOutside(ref, close);
 
   return (
     <div ref={ref} className="relative inline-block">
-      <button onClick={() => open ? close() : setOpen(true)} className={CHIP_TRIGGER}>
+      <button onClick={() => status === "open" ? close() : open()} className={CHIP_TRIGGER}>
         {label}
       </button>
-      {(open || closing) && (
-        <div className={`${DROPDOWN_BASE} ${DROPDOWN_ALIGN[align]} ${closing ? "anim-scale-out" : "anim-scale-in"}`}>
+      {status !== "closed" && (
+        <div className={`${DROPDOWN_BASE} ${DROPDOWN_ALIGN[align]} ${status === "closing" ? "anim-scale-out" : "anim-scale-in"}`}>
           <div className="px-4 py-2.5 border-b border-gray-100 dark:border-white/8">
             <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-400 dark:text-gray-500">{heading}</p>
           </div>
@@ -81,7 +91,7 @@ function ChipSelect({
             return (
               <button
                 key={opt.value}
-                onClick={() => { onChange(opt.value); close(); }}
+                onClick={() => { close(); onChange(opt.value); }}
                 className={`${OPTION} ${selected ? "bg-gray-50 dark:bg-white/8 text-gray-900 dark:text-white font-semibold" : "text-gray-500 dark:text-gray-400 font-medium"}`}
               >
                 {dot && <span className={`w-2 h-2 rounded-full shrink-0 ${opt.dot || "bg-gray-400 dark:bg-gray-600"}`} />}
