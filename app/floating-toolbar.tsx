@@ -47,15 +47,18 @@ function MoonIcon() {
 
 export default function FloatingToolbar({ currentView }: { currentView: string }) {
   const [isDark, setIsDark] = useState(false);
+  const [activeView, setActiveView] = useState(currentView);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   function setView(view: string) {
+    if (view === activeView) return;
+    setActiveView(view);
     const url = new URL(window.location.href);
     url.searchParams.set("view", view);
-    window.location.href = url.toString();
+    setTimeout(() => { window.location.href = url.toString(); }, 220);
   }
 
   function toggleTheme() {
@@ -83,19 +86,19 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
           {/* sliding pill */}
           <div
             className="absolute left-1 right-1 h-8 rounded-xl bg-white dark:bg-white/12 shadow-sm transition-transform duration-200 ease-out"
-            style={{ top: "4px", transform: currentView === "calendar" ? "translateY(36px)" : "translateY(0px)" }}
+            style={{ top: "4px", transform: activeView === "calendar" ? "translateY(36px)" : "translateY(0px)" }}
           />
           <button
             onClick={() => setView("list")}
             title="List view"
-            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer ${currentView === "list" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
+            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer ${activeView === "list" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
           >
             <ListIcon />
           </button>
           <button
             onClick={() => setView("calendar")}
             title="Calendar view"
-            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer mt-1 ${currentView === "calendar" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
+            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer mt-1 ${activeView === "calendar" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
           >
             <CalendarIcon />
           </button>
