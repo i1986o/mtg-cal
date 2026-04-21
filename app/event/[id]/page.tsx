@@ -92,7 +92,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         </div>
 
         {/* Details table */}
-        <div className="px-6 pb-2">
+        <div className="px-6 pb-2 border-t border-gray-100 dark:border-white/8">
           <dl>
             <DetailRow label="Host" value={ev.location} href={ev.store_url || undefined} />
             <DetailRow label="Date" value={formatDate(ev.date)} />
