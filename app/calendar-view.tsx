@@ -125,15 +125,17 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
                       className="group block rounded p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                     >
                       <div className="flex items-center gap-1">
-                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${FORMAT_DOT[ev.format] || "bg-gray-400"}`} />
+                        <span className="text-[9px] text-gray-400 dark:text-gray-500 shrink-0">{formatEventTime(ev.date, ev.time, ev.timezone)}</span>
                         <span className={`px-1 py-0 rounded text-[9px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                           {ev.format}
                         </span>
                       </div>
-                      <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
                       <div className="text-[11px] font-medium text-gray-900 dark:text-white leading-tight line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-100">
                         {ev.title}
                       </div>
+                      {ev.location && (
+                        <div className="text-[9px] text-gray-400 dark:text-gray-500 truncate mt-0.5">{ev.location}</div>
+                      )}
                     </Link>
                   ))
                 )}
