@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { FORMAT_EMOJI, FORMAT_BADGE, FORMAT_BADGE_DEFAULT, FORMAT_EMOJI_DEFAULT } from "@/lib/format-style";
 
 const FORMAT_FEEDS = [
   { slug: "commander", label: "Commander" },
@@ -11,6 +12,17 @@ const FORMAT_FEEDS = [
   { slug: "legacy", label: "Legacy" },
   { slug: "pauper", label: "Pauper" },
 ];
+
+function FormatBadge({ label }: { label: string }) {
+  const badgeClass = FORMAT_BADGE[label] || FORMAT_BADGE_DEFAULT;
+  const emoji = FORMAT_EMOJI[label] || FORMAT_EMOJI_DEFAULT;
+  return (
+    <span className={`w-28 shrink-0 inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium ${badgeClass}`}>
+      <span>{emoji}</span>
+      <span className="truncate">{label}</span>
+    </span>
+  );
+}
 
 function CopyRow({ label, path }: { label: string; path: string }) {
   const [copied, setCopied] = useState(false);
@@ -24,13 +36,13 @@ function CopyRow({ label, path }: { label: string; path: string }) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm text-gray-600 dark:text-gray-300 w-24 shrink-0">{label}</span>
+      <FormatBadge label={label} />
       <code className="flex-1 bg-gray-100 dark:bg-white/5 text-xs px-3 py-2 rounded truncate text-gray-500 dark:text-gray-400">
         {url}
       </code>
       <button
         onClick={handleCopy}
-        className="shrink-0 px-3 py-2 text-xs font-medium rounded bg-blue-600 dark:bg-purple-600 text-white hover:bg-blue-700 dark:hover:bg-purple-700 transition min-w-[60px] cursor-pointer"
+        className="shrink-0 px-3 py-2 text-xs font-medium rounded bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-white/15 transition min-w-[60px] cursor-pointer"
       >
         {copied ? "Copied!" : "Copy"}
       </button>

@@ -23,13 +23,13 @@ Add to Google Calendar: Other calendars → From URL → paste above.
 
 ## Config
 
-Edit `config.js` to change location, radius, format filters, or enable Discord/store scrapers.
+Edit `lib/config.ts` to change location, radius, format filters, or source settings.
 
 ## Sources
-- ✅ WotC Store & Event Locator (GraphQL API, confirmed April 2026)
-- 🔧 Discord bot (stubbed, see `src/sources/discord.js`)
-- 🔧 Store website scraper (stubbed, see `src/sources/custom-stores.js`)
+- ✅ WotC Store & Event Locator (GraphQL API, confirmed April 2026) — `scrapers/wizards-locator.ts`
+- ✅ TopDeck API — `scrapers/topdeck.ts` (requires `TOPDECK_API_KEY`)
+- ✅ Discord bot — `scrapers/discord.ts` (requires `DISCORD_BOT_TOKEN`)
 
 ## Auto-refresh
 
-GitHub Actions runs daily at 6am ET and commits the updated `.ics` back to the repo.
+GitHub Actions runs daily at 10am UTC and commits the updated `.ics` files + `data/mtg-cal.db` back to the repo. See `.github/workflows/refresh.yml`.
