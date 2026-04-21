@@ -70,7 +70,7 @@ export default async function HomePage({
           PlayIRL.gg
         </h1>
         <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
-          An alternative way to find and schedule MTG events near you.
+          An independent, alternative way to find and schedule MTG events near you.
           <AboutInfoButton />
         </p>
       </header>
@@ -149,12 +149,29 @@ export default async function HomePage({
         </>
       )}
 
-      <footer className="mt-16 pt-6 border-t border-gray-100 dark:border-white/5 text-center text-sm text-gray-400 dark:text-gray-500">
-        <p>{"\uD83C\uDCCF"} PlayIRL.GG</p>
-        <p className="mt-1 text-xs text-gray-400 dark:text-gray-600">
-          Data from Wizards of the Coast &amp; Discord &middot;{" "}
-          <a href="https://github.com/i1986o/mtg-cal" className="text-blue-500 dark:text-purple-400 hover:underline">Open Source</a>
-        </p>
+      <footer className="mt-16 pt-8 border-t border-gray-100 dark:border-white/5 text-sm text-gray-400 dark:text-gray-500">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+          {/* Brand + tagline */}
+          <div>
+            <p className="font-[family-name:var(--font-ultra)] text-base text-gray-900 dark:text-white tracking-wider">PlayIRL.GG</p>
+            <p className="mt-1 text-xs leading-relaxed max-w-xs">
+              An open-source, community-run alternative to the official Wizards of the Coast event locator — built by players, for players.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-3">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/30">✨ Open source</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-500/30">👥 Community-run</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-gray-100 text-gray-500 border border-gray-200 dark:bg-white/5 dark:text-gray-400 dark:border-white/10">Not affiliated with WotC</span>
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-col gap-2 text-xs shrink-0">
+            <a href="/about" className="hover:text-gray-900 dark:hover:text-white transition">About PlayIRL.GG</a>
+            <a href="https://github.com/i1986o/mtg-cal" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">GitHub</a>
+            <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">Join the Discord</a>
+            <a href="mailto:CardSlingerTCG@gmail.com?subject=PlayIRL.GG%20event%20submission" className="hover:text-gray-900 dark:hover:text-white transition">Submit your events</a>
+          </div>
+        </div>
       </footer>
     </main>
   );
