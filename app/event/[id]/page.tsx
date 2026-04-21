@@ -1,6 +1,7 @@
 import { getEvent } from "@/lib/events";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { formatEventTimeRange } from "@/lib/format-time";
 
 const FORMAT_COLORS: Record<string, string> = {
   Commander: "bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/30",
@@ -23,14 +24,6 @@ const FORMAT_EMOJI: Record<string, string> = {
   Draft: "\uD83C\uDFB2",
   Sealed: "\uD83C\uDF81",
 };
-
-function formatTime(time: string): string {
-  if (!time) return "";
-  const [h, m] = time.split(":").map(Number);
-  const ampm = h >= 12 ? "PM" : "AM";
-  const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
-  return `${h12}:${m.toString().padStart(2, "0")} ${ampm}`;
-}
 
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T12:00:00");
@@ -111,7 +104,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         <div className="px-6 pb-2">
           <dl>
             <DetailRow label="Date" value={formatDate(ev.date)} />
-            <DetailRow label="Time" value={ev.time ? `${formatTime(ev.time)} \u2013 ${formatTime((() => { const [h,m] = ev.time.split(":").map(Number); return `${(h+3)%24}:${String(m).padStart(2,"0")}`; })())} UTC` : ""} />
+            <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
             <DetailRow label="Format" value={ev.format} />
             <DetailRow label="Cost" value={ev.cost || "Not listed"} />
             <DetailRow label="Address" value={ev.address} href={ev.address ? `https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}` : undefined} />

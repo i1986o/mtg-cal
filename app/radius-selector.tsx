@@ -4,7 +4,9 @@ import { useState } from "react";
 const RADIUS_OPTIONS = [5, 10, 15, 25, 50];
 function getTimeOptions() {
   const now = new Date();
-  const options: { value: string; label: string }[] = [];
+  const options: { value: string; label: string }[] = [
+    { value: "7", label: "This week" },
+  ];
 
   // Current month + next 5 months
   for (let i = 0; i < 6; i++) {
@@ -12,7 +14,7 @@ function getTimeOptions() {
     const endOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
     const daysUntilEnd = Math.ceil((endOfMonth.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
     if (daysUntilEnd < 3) continue;
-    const label = d.toLocaleDateString("en-US", { month: "long" });
+    const label = i === 0 ? "This month" : d.toLocaleDateString("en-US", { month: "long" });
     options.push({ value: String(daysUntilEnd), label });
   }
 
@@ -31,6 +33,9 @@ const FORMAT_EMOJI: Record<string, string> = {
   Draft: "\uD83C\uDFB2",
   Sealed: "\uD83C\uDF81",
 };
+
+const CHIP =
+  "inline-block underline decoration-dotted underline-offset-4 decoration-gray-400 dark:decoration-gray-500 text-gray-900 dark:text-white font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer appearance-none text-center bg-transparent hover:decoration-solid hover:decoration-gray-700 dark:hover:decoration-gray-300 transition-all px-1 [field-sizing:content]";
 
 export default function RadiusSelector({
   currentRadius,
@@ -81,7 +86,7 @@ export default function RadiusSelector({
       <select
         value={currentFormat || ""}
         onChange={(e) => updateParam("format", e.target.value)}
-        className="inline-block bg-orange-50 dark:bg-orange-500/10 border-b-2 border-orange-300 dark:border-orange-500/40 text-orange-600 dark:text-orange-300 font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer appearance-none text-center px-2 py-0.5 rounded-md hover:bg-orange-100 dark:hover:bg-orange-500/20 transition-all w-[8ch]"
+        className={CHIP}
       >
         <option value="">MTG</option>
         {formats.map((f) => (
@@ -95,7 +100,7 @@ export default function RadiusSelector({
       <select
         value={currentRadius}
         onChange={(e) => updateParam("radius", e.target.value)}
-        className="inline-block bg-purple-50 dark:bg-purple-500/10 border-b-2 border-purple-300 dark:border-purple-500/40 text-purple-600 dark:text-purple-300 font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer appearance-none text-center px-2 py-0.5 rounded-md hover:bg-purple-100 dark:hover:bg-purple-500/20 transition-all w-[3ch]"
+        className={CHIP}
       >
         {RADIUS_OPTIONS.map((r) => (
           <option key={r} value={r}>{r}</option>
@@ -107,7 +112,7 @@ export default function RadiusSelector({
       {/* City selector — coming soon */}
       <button
         onClick={handleCityClick}
-        className="inline-block bg-emerald-50 dark:bg-emerald-500/10 border-b-2 border-emerald-300 dark:border-emerald-500/40 text-emerald-600 dark:text-emerald-300 font-[family-name:var(--font-ultra)] cursor-pointer px-2 py-0.5 rounded-md hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-all"
+        className={CHIP}
       >
         Philly
       </button>
@@ -118,7 +123,7 @@ export default function RadiusSelector({
       <select
         value={currentDays}
         onChange={(e) => updateParam("days", e.target.value)}
-        className="inline-block bg-pink-50 dark:bg-pink-500/10 border-b-2 border-pink-300 dark:border-pink-500/40 text-pink-600 dark:text-pink-300 font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer appearance-none text-center px-2 py-0.5 rounded-md hover:bg-pink-100 dark:hover:bg-pink-500/20 transition-all w-[10ch]"
+        className={CHIP}
       >
         {TIME_OPTIONS.map((t) => (
           <option key={t.value} value={t.value}>{t.label}</option>

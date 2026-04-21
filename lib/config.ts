@@ -21,6 +21,7 @@ export const config = {
   },
 
   output: {
+    icsFile: "./output/mtg-events.ics",
     calendarName: "PlayIRL.GG — Philadelphia",
     calendarDescription: "MTG events near Philadelphia via PlayIRL.GG",
   },

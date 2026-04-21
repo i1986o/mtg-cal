@@ -21,14 +21,13 @@ jobs:
         with:
           node-version: "20"
       - run: npm install
-      - name: Fetch events, sync to Sheet, generate calendar
+      - name: Fetch events and generate calendar
         run: npm run fetch
         env:
-          GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
           TOPDECK_API_KEY: ${{ secrets.TOPDECK_API_KEY }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh MTG events [skip ci]"
-          file_pattern: "output/*.ics"
+          file_pattern: "output/*.ics data/mtg-cal.db"
         continue-on-error: true
