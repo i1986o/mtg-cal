@@ -25,7 +25,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <h1 className="text-4xl md:text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-tight mb-3">
+      <h1 className="text-4xl md:text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-wider mb-3">
         About PlayIRL.GG
       </h1>
 

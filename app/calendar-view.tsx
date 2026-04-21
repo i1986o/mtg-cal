@@ -70,7 +70,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
           </svg>
         </button>
         <div className="flex items-center gap-3">
-          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white tracking-tight">{weekLabel}</h2>
+          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white tracking-wider">{weekLabel}</h2>
           <button
             onClick={() => setWeekStart(startOfWeek(today))}
             className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10 transition cursor-pointer"
@@ -103,7 +103,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
               } ${isPast && !isToday ? "opacity-70" : ""}`}
             >
               <div className={`flex flex-col items-center py-2 border-b border-gray-100 dark:border-white/8 ${isToday ? "bg-blue-50 dark:bg-blue-500/10" : ""}`}>
-                <span className={`text-[10px] uppercase tracking-wide font-medium ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-400 dark:text-gray-500"}`}>
+                <span className={`text-[10px] uppercase tracking-wider font-medium ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-400 dark:text-gray-500"}`}>
                   {day.weekday}
                 </span>
                 <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-[family-name:var(--font-ultra)] font-bold mt-0.5 ${

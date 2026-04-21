@@ -63,13 +63,12 @@ export default function DayCard({
               href={`/event/${encodeURIComponent(ev.id)}`}
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
             >
-              <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${FORMAT_DOT[ev.format] || "bg-gray-400"}`} />
-              <span className={`px-2 py-0.5 rounded text-[10px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
-                {ev.format}
-              </span>
               <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-16">{formatEventTime(ev.date, ev.time, ev.timezone)}</span>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{ev.title}</p>
+                <span className={`px-2 py-0.5 rounded text-[10px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
+                  {ev.format}
+                </span>
+                <p className="text-sm font-medium text-gray-900 dark:text-white truncate mt-0.5">{ev.title}</p>
                 {ev.location && (
                   <p className="text-xs text-gray-400 dark:text-gray-500 truncate">{ev.location}</p>
                 )}

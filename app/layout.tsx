@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, Bricolage_Grotesque } from "next/font/google";
+import { Inter, Stack_Sans_Notch } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,16 +7,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["700"],
-});
-
-const bricolage = Bricolage_Grotesque({
+const stackSansNotch = Stack_Sans_Notch({
   variable: "--font-ultra",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${bricolage.variable} h-full antialiased`}
+      className={`${inter.variable} ${stackSansNotch.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

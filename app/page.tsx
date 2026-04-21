@@ -62,17 +62,11 @@ export default async function HomePage({
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-8">
-      <div className="fixed top-4 left-4 z-40">
-        <ViewToggle currentView={currentView} />
-      </div>
-      <div className="fixed top-4 right-4 z-40">
-        <SubscribeButton />
-      </div>
       <ThemeToggle />
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
-        <h1 className="text-7xl md:text-8xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-tighter leading-none">
+        <h1 className="text-5xl md:text-6xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-wider leading-none">
           PlayIRL.gg
         </h1>
         <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
@@ -83,7 +77,13 @@ export default async function HomePage({
 
       {/* Sticky filter bar */}
       <StickyBar>
-        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+        <div className="flex items-center gap-3">
+          <ViewToggle currentView={currentView} />
+          <div className="flex-1 flex justify-center">
+            <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+          </div>
+          <SubscribeButton />
+        </div>
       </StickyBar>
 
       {currentView === "calendar" ? (
