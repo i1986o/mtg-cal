@@ -125,7 +125,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
                       className="group block rounded p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                     >
                       <div className="text-[9px] text-gray-400 dark:text-gray-500">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
-                      <div className="mt-0.5">
+                      <div>
                         <span className={`px-1 py-0 rounded text-[9px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                           {ev.format}
                         </span>
