@@ -66,10 +66,10 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         &larr; Back to PlayIRL.GG
       </Link>
 
-      <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl">
         {/* Map header — Google Maps embed */}
         {ev.location && (
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative h-48 overflow-hidden rounded-t-xl">
             <iframe
               src={`https://www.google.com/maps?q=${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}&output=embed&z=15`}
               className="w-full h-full border-0"
@@ -78,6 +78,9 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               allowFullScreen
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0c1220] via-transparent to-transparent pointer-events-none" />
+            <div className="absolute top-3 right-3 z-10">
+              <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
+            </div>
           </div>
         )}
 
@@ -112,13 +115,8 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
           </div>
         )}
 
-        {/* Action buttons */}
-        <div className="px-6 pb-6 pt-2 flex flex-wrap gap-3">
-          <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
-        </div>
-
         {/* Meta footer */}
-        <div className="bg-gray-50 dark:bg-[#080e18] px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
+        <div className="bg-gray-50 dark:bg-[#080e18] rounded-b-xl px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
           <span>ID: {ev.id}</span>
           <span>Added {ev.added_date} · Updated {ev.updated_date}</span>
         </div>
