@@ -75,10 +75,14 @@ export default async function HomePage({
         </p>
       </header>
 
+      {/* Floating view toggle */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40">
+        <ViewToggle currentView={currentView} />
+      </div>
+
       {/* Sticky filter bar */}
       <StickyBar>
         <div className="flex items-center gap-3">
-          <ViewToggle currentView={currentView} />
           <div className="flex-1 flex justify-center">
             <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
           </div>
