@@ -124,13 +124,13 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
                       title={`${ev.title}${ev.location ? ` · ${ev.location}` : ""}${ev.cost ? ` · ${ev.cost}` : ""} · ${formatEventTime(ev.date, ev.time, ev.timezone)}`}
                       className="group block rounded p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                     >
-                      <div className="flex items-center gap-1">
-                        <span className="text-[9px] text-gray-400 dark:text-gray-500 shrink-0">{formatEventTime(ev.date, ev.time, ev.timezone)}</span>
-                        <span className={`px-1 py-0 rounded text-[9px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
+                      <div className="text-[9px] text-gray-400 dark:text-gray-500">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
+                      <div className="mt-0.5">
+                        <span className={`px-1 py-0 rounded text-[9px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                           {ev.format}
                         </span>
                       </div>
-                      <div className="text-[11px] font-medium text-gray-900 dark:text-white leading-tight line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-100">
+                      <div className="text-[11px] font-medium text-gray-900 dark:text-white leading-tight line-clamp-2 mt-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-100">
                         {ev.title}
                       </div>
                       {ev.location && (
