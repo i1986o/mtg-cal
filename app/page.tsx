@@ -5,9 +5,8 @@ import { config } from "@/lib/config";
 import RadiusSelector from "./radius-selector";
 import CalendarView from "./calendar-view";
 import StickyBar from "./sticky-bar";
-import ViewToggle from "./view-toggle";
+import FloatingToolbar from "./floating-toolbar";
 import AboutInfoButton from "./about-info-button";
-import ThemeToggle from "./theme-toggle";
 import DayCard from "./day-card";
 
 function dayHeadingLabel(dateStr: string, todayStr: string, tomorrowStr: string): string {
@@ -61,7 +60,7 @@ export default async function HomePage({
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-8">
-      <ThemeToggle />
+      <FloatingToolbar currentView={currentView} />
 
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-3">
@@ -73,11 +72,6 @@ export default async function HomePage({
           <AboutInfoButton />
         </p>
       </header>
-
-      {/* Floating view toggle */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40">
-        <ViewToggle currentView={currentView} />
-      </div>
 
       {/* Sticky filter bar */}
       <StickyBar>
