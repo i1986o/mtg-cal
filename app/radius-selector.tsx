@@ -24,7 +24,8 @@ function getTimeOptions() {
 const TIME_OPTIONS = getTimeOptions();
 
 const CHIP_TRIGGER = "inline-block underline decoration-dotted underline-offset-4 decoration-gray-400 dark:decoration-gray-500 text-gray-900 dark:text-white font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer bg-transparent hover:decoration-solid hover:decoration-gray-700 dark:hover:decoration-gray-300 transition-all px-1";
-const DROPDOWN = "absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-max";
+const DROPDOWN_BASE = "absolute top-full mt-2 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-max";
+const DROPDOWN_ALIGN = { start: "left-0", center: "left-1/2 -translate-x-1/2", end: "right-0" };
 const OPTION = "w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-left hover:bg-gray-50 dark:hover:bg-white/5 transition-colors";
 
 function useClickOutside(ref: React.RefObject<HTMLElement | null>, onClose: () => void) {
@@ -44,6 +45,7 @@ function ChipSelect({
   value,
   onChange,
   dot,
+  align = "center",
 }: {
   label: string;
   heading: string;
@@ -51,6 +53,7 @@ function ChipSelect({
   value: string;
   onChange: (v: string) => void;
   dot?: boolean;
+  align?: "start" | "center" | "end";
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -62,7 +65,7 @@ function ChipSelect({
         {label}
       </button>
       {open && (
-        <div className={DROPDOWN}>
+        <div className={`${DROPDOWN_BASE} ${DROPDOWN_ALIGN[align]}`}>
           <div className="px-4 py-2.5 border-b border-gray-100 dark:border-white/8">
             <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-400 dark:text-gray-500">{heading}</p>
           </div>
@@ -116,15 +119,19 @@ export default function RadiusSelector({
   const [toastPos, setToastPos] = useState<{ top: number; left: number } | null>(null);
   const [subscribeToast, setSubscribeToast] = useState<{ top: number; left: number } | null>(null);
 
+  function clampToast(rect: DOMRect) {
+    const margin = 80;
+    const center = rect.left + rect.width / 2;
+    return { top: rect.bottom + 8, left: Math.max(margin, Math.min(window.innerWidth - margin, center)) };
+  }
+
   function handleCityClick(e: React.MouseEvent) {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    setToastPos({ top: rect.bottom + 8, left: rect.left + rect.width / 2 });
+    setToastPos(clampToast((e.currentTarget as HTMLElement).getBoundingClientRect()));
     setTimeout(() => setToastPos(null), 2500);
   }
 
   function handleSubscribeClick(e: React.MouseEvent) {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    setSubscribeToast({ top: rect.bottom + 8, left: rect.left + rect.width / 2 });
+    setSubscribeToast(clampToast((e.currentTarget as HTMLElement).getBoundingClientRect()));
     setTimeout(() => setSubscribeToast(null), 2500);
   }
 
@@ -163,6 +170,7 @@ export default function RadiusSelector({
           value={currentFormat || ""}
           onChange={(v) => updateParam("format", v)}
           dot
+          align="start"
         />
 
         <span>events within</span>
@@ -189,6 +197,7 @@ export default function RadiusSelector({
           options={TIME_OPTIONS}
           value={String(currentDays)}
           onChange={(v) => updateParam("days", v)}
+          align="end"
         />
 
         <span className="text-gray-400 dark:text-gray-500">,</span>
