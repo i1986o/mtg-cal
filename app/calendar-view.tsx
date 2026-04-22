@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { FORMAT_DOT, FORMAT_BADGE, FORMAT_BADGE_DEFAULT } from "@/lib/format-style";
+import { FORMAT_BADGE, FORMAT_BADGE_DEFAULT } from "@/lib/format-style";
 import { formatEventTime } from "@/lib/format-time";
 
 interface EventRow {
@@ -39,6 +39,38 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
   const today = new Date();
   const todayStr = isoDate(today);
   const [weekStart, setWeekStart] = useState(() => startOfWeek(today));
+  const [isStuck, setIsStuck] = useState(false);
+
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const headerScrollRef = useRef<HTMLDivElement>(null);
+  const bodyScrollRef = useRef<HTMLDivElement>(null);
+
+  // Detect when the sticky calendar frame is pinned to the nav
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsStuck(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "-48px 0px 0px 0px" }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
+  // Sync horizontal scroll between hidden header scroller and visible body scroller
+  useEffect(() => {
+    const header = headerScrollRef.current;
+    const body = bodyScrollRef.current;
+    if (!header || !body) return;
+    const onBodyScroll = () => { header.scrollLeft = body.scrollLeft; };
+    const onHeaderScroll = () => { body.scrollLeft = header.scrollLeft; };
+    body.addEventListener("scroll", onBodyScroll, { passive: true });
+    header.addEventListener("scroll", onHeaderScroll, { passive: true });
+    return () => {
+      body.removeEventListener("scroll", onBodyScroll);
+      header.removeEventListener("scroll", onHeaderScroll);
+    };
+  }, []);
 
   const byDate: Record<string, EventRow[]> = {};
   for (const ev of events) {
@@ -59,94 +91,128 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
-        <button
-          onClick={() => setWeekStart(addDays(weekStart, -7))}
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
-          aria-label="Previous week"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <div className="flex items-center gap-3">
-          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white tracking-wider">{weekLabel}</h2>
-          <button
-            onClick={() => setWeekStart(startOfWeek(today))}
-            className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10 transition cursor-pointer"
-          >
-            This week
-          </button>
-        </div>
-        <button
-          onClick={() => setWeekStart(addDays(weekStart, 7))}
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
-          aria-label="Next week"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+      {/* Sentinel: detects when sticky frame pins to nav */}
+      <div ref={sentinelRef} className="h-0" />
 
-      <div className="overflow-x-auto -mx-4 px-4 anim-fade-in" style={{ "--delay": "100ms" } as React.CSSProperties}>
-      <div className="grid grid-cols-7 gap-px bg-gray-100 dark:bg-white/10 border border-gray-100 dark:border-white/10 rounded-xl overflow-hidden min-w-[560px]">
-        {weekDays.map((day) => {
-          const isToday = day.date === todayStr;
-          const isPast = day.date < todayStr;
-          const dayEvents = byDate[day.date] || [];
+      {/* Sticky: week nav + day headers together */}
+      <div className="sticky top-[47px] z-[5] -mx-4 px-4 bg-white dark:bg-[#0c1220]">
+        {/* Unified frame: rounded top corners only when not pinned */}
+        <div className={`border border-b-0 border-gray-200 dark:border-[#1e2535] overflow-hidden transition-all duration-150 ${isStuck ? "" : "rounded-t-xl"}`}>
 
-          return (
-            <div
-              key={day.date}
-              className={`flex flex-col min-h-[320px] ${
-                isToday ? "bg-blue-50/40 dark:bg-blue-500/5" : "bg-white dark:bg-[#0c1220]"
-              } ${isPast && !isToday ? "opacity-70" : ""}`}
+          {/* Week navigation — compact, bottom border acts as divider */}
+          <div className="flex items-center justify-between py-1.5 px-2 border-b border-gray-200 dark:border-[#1e2535] bg-white dark:bg-[#0c1220]">
+            <button
+              onClick={() => setWeekStart(addDays(weekStart, -7))}
+              className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
+              aria-label="Previous week"
             >
-              <div className={`flex flex-col items-center py-2 border-b border-gray-100 dark:border-white/8 ${isToday ? "bg-blue-50 dark:bg-blue-500/10" : ""}`}>
-                <span className={`text-[10px] uppercase tracking-wider font-medium ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-400 dark:text-gray-500"}`}>
-                  {day.weekday}
-                </span>
-                <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-[family-name:var(--font-ultra)] font-bold mt-0.5 ${
-                  isToday ? "bg-blue-600 text-white" : "text-gray-900 dark:text-gray-200"
-                }`}>
-                  {day.dayNum}
-                </span>
-              </div>
-
-              <div className="flex-1 flex flex-col gap-1 p-1.5">
-                {dayEvents.length === 0 ? (
-                  <div className="flex-1 flex items-center justify-center text-[10px] text-gray-300 dark:text-gray-700">—</div>
-                ) : (
-                  dayEvents.map((ev) => (
-                    <Link
-                      key={ev.id}
-                      href={`/event/${encodeURIComponent(ev.id)}`}
-                      title={`${ev.title}${ev.location ? ` · ${ev.location}` : ""}${ev.cost ? ` · ${ev.cost}` : ""} · ${formatEventTime(ev.date, ev.time, ev.timezone)}`}
-                      className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-blue-100/70 dark:hover:bg-blue-400/15" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
-                    >
-                      <div className="flex flex-col gap-px">
-                        <div className="text-[10px] text-gray-400 dark:text-gray-500 leading-none">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
-                        <div>
-                          <span className={`px-1 py-0 rounded text-[10px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
-                            {ev.format}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-xs font-medium text-gray-900 dark:text-white leading-tight line-clamp-2 mt-1 group-hover:text-gray-700 dark:group-hover:text-gray-100">
-                        {ev.title}
-                      </div>
-                      {ev.location && (
-                        <div className="text-[10px] text-gray-400 dark:text-gray-500 truncate mt-0.5">{ev.location}</div>
-                      )}
-                    </Link>
-                  ))
-                )}
-              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white tracking-wider">{weekLabel}</span>
+              <button
+                onClick={() => setWeekStart(startOfWeek(today))}
+                className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10 transition cursor-pointer"
+              >
+                Today
+              </button>
             </div>
-          );
-        })}
+            <button
+              onClick={() => setWeekStart(addDays(weekStart, 7))}
+              className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
+              aria-label="Next week"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Day-header row — hidden scrollbar, synced to body */}
+          <div
+            ref={headerScrollRef}
+            className="overflow-x-auto"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
+          >
+            <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-[#1e2535]">
+              {weekDays.map((day) => {
+                const isToday = day.date === todayStr;
+                return (
+                  <div
+                    key={day.date}
+                    className={`flex items-center justify-center gap-1.5 py-1.5 ${isToday ? "bg-blue-50 dark:bg-blue-950" : "bg-white dark:bg-[#0c1220]"}`}
+                  >
+                    <span className={`text-[10px] uppercase tracking-wider font-medium ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-400 dark:text-gray-500"}`}>
+                      {day.weekday}
+                    </span>
+                    <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-[family-name:var(--font-ultra)] font-bold shrink-0 ${
+                      isToday ? "bg-blue-600 text-white" : "text-gray-900 dark:text-gray-200"
+                    }`}>
+                      {day.dayNum}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      {/* Events body */}
+      <div
+        ref={bodyScrollRef}
+        className="overflow-x-auto -mx-4 px-4 anim-fade-in"
+        style={{ "--delay": "100ms" } as React.CSSProperties}
+      >
+        <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-[#1e2535] border-b border-x border-gray-200 dark:border-[#1e2535] rounded-b-xl overflow-hidden">
+          {weekDays.map((day) => {
+            const isToday = day.date === todayStr;
+            const isPast = day.date < todayStr;
+            const dayEvents = byDate[day.date] || [];
+
+            return (
+              <div
+                key={day.date}
+                className={`flex flex-col min-h-[320px] ${
+                  isToday ? "bg-blue-50/40 dark:bg-blue-500/5" : "bg-white dark:bg-[#0c1220]"
+                } ${isPast && !isToday ? "opacity-70" : ""}`}
+              >
+                <div className="flex-1 flex flex-col gap-1 p-1.5">
+                  {dayEvents.length === 0 ? (
+                    <div className="flex-1 flex items-center justify-center text-[10px] text-gray-300 dark:text-gray-700">—</div>
+                  ) : (
+                    dayEvents.map((ev) => (
+                      <Link
+                        key={ev.id}
+                        href={`/event/${encodeURIComponent(ev.id)}`}
+                        title={`${ev.title}${ev.location ? ` · ${ev.location}` : ""}${ev.cost ? ` · ${ev.cost}` : ""} · ${formatEventTime(ev.date, ev.time, ev.timezone)}`}
+                        className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-blue-100/70 dark:hover:bg-blue-400/15" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
+                      >
+                        <div className="flex flex-col gap-px">
+                          <div className="text-[10px] text-gray-400 dark:text-gray-500 leading-none">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
+                          <div>
+                            <span className={`px-1 py-0 rounded text-[10px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
+                              {ev.format}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="text-xs font-medium text-gray-900 dark:text-white leading-tight line-clamp-2 mt-1 group-hover:text-gray-700 dark:group-hover:text-gray-100">
+                          {ev.title}
+                        </div>
+                        {ev.location && (
+                          <div className="text-[10px] text-gray-400 dark:text-gray-500 truncate mt-0.5">{ev.location}</div>
+                        )}
+                      </Link>
+                    ))
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
