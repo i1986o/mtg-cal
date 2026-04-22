@@ -123,7 +123,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
                       key={ev.id}
                       href={`/event/${encodeURIComponent(ev.id)}`}
                       title={`${ev.title}${ev.location ? ` · ${ev.location}` : ""}${ev.cost ? ` · ${ev.cost}` : ""} · ${formatEventTime(ev.date, ev.time, ev.timezone)}`}
-                      className="group block rounded p-2 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                      className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-blue-100/70 dark:hover:bg-blue-400/15" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
                     >
                       <div className="flex flex-col gap-px">
                         <div className="text-[10px] text-gray-400 dark:text-gray-500 leading-none">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>

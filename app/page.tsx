@@ -8,6 +8,7 @@ import StickyBar from "./sticky-bar";
 import FloatingToolbar from "./floating-toolbar";
 import AboutInfoButton from "./about-info-button";
 import DayCard from "./day-card";
+import Reveal from "./reveal";
 
 function dayHeadingLabel(dateStr: string, todayStr: string, tomorrowStr: string): string {
   const d = new Date(dateStr + "T12:00:00");
@@ -63,7 +64,7 @@ export default async function HomePage({
       <FloatingToolbar currentView={currentView} />
 
       {/* Hero header */}
-      <header className="mb-6 flex flex-col items-center text-center gap-3 w-full anim-fade-in-up">
+      <header className="mb-6 flex flex-col items-center text-center gap-1 w-full anim-fade-in-up">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ultra)] font-normal text-gray-900 dark:text-white tracking-wide leading-none">
           PlayIRL.gg
         </h1>
@@ -94,11 +95,11 @@ export default async function HomePage({
       ) : (
         <>
           {Object.keys(grouped).length === 0 && (
-            <div className="text-center py-16 anim-fade-in-up" style={{ "--delay": "120ms" } as React.CSSProperties}>
+            <Reveal className="text-center py-16" delay={100}>
               <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
               <p className="text-gray-400 text-lg">No events found</p>
               <p className="text-gray-500 text-sm mt-1">Try expanding your distance or time range</p>
-            </div>
+            </Reveal>
           )}
 
           <div className="space-y-2">
@@ -107,43 +108,44 @@ export default async function HomePage({
               const todayStr = today.toISOString().split("T")[0];
               const tomorrowStr = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
               return (
-                <div key={date} className="anim-fade-in-up" style={{ "--delay": `${Math.min(i * 50 + 120, 400)}ms` } as React.CSSProperties}>
-                  <DayCard
-                    date={date}
-                    weekday={d.toLocaleDateString("en-US", { weekday: "long" })}
-                    dayNum={d.getDate()}
-                    isToday={date === todayStr}
-                    isPast={date < todayStr}
-                    events={dayEvents}
-                    headingLabel={dayHeadingLabel(date, todayStr, tomorrowStr)}
-                  />
-                </div>
+                <DayCard
+                  key={date}
+                  date={date}
+                  weekday={d.toLocaleDateString("en-US", { weekday: "long" })}
+                  dayNum={d.getDate()}
+                  isToday={date === todayStr}
+                  isPast={date < todayStr}
+                  events={dayEvents}
+                  headingLabel={dayHeadingLabel(date, todayStr, tomorrowStr)}
+                  staggerBase={Math.min(i * 60, 120)}
+                />
               );
             })}
           </div>
 
           {/* Week navigation */}
-          <div className="flex items-center justify-between mt-6">
+          <Reveal className="flex items-center justify-between mt-6">
             {currentOffset > 0 ? (
               <a
                 href={`?${new URLSearchParams({ ...Object.fromEntries(Object.entries(params).filter(([k]) => k !== "offset")), ...(currentOffset - 7 > 0 ? { offset: String(currentOffset - 7) } : {}) }).toString()}`}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:-translate-x-0.5 active:translate-x-0 transition-all duration-200"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 Previous week
               </a>
             ) : <div />}
             <a
               href={`?${new URLSearchParams({ ...Object.fromEntries(Object.entries(params).filter(([,v]) => v !== undefined) as [string,string][]), offset: String(currentOffset + 7) }).toString()}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+              className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:translate-x-0.5 active:translate-x-0 transition-all duration-200"
             >
               Next week
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </a>
-          </div>
+          </Reveal>
         </>
       )}
 
+      <Reveal>
       <footer className="mt-16 pt-8 border-t border-gray-100 dark:border-white/5 text-sm text-gray-400 dark:text-gray-500">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
           {/* Brand + tagline */}
@@ -168,6 +170,7 @@ export default async function HomePage({
           </div>
         </div>
       </footer>
+      </Reveal>
     </main>
   );
 }

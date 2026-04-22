@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatEventTimeRange } from "@/lib/format-time";
 import ShareButton from "./share-button";
+import Reveal from "@/app/reveal";
 
 const FORMAT_COLORS: Record<string, string> = {
   Commander: "bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/30",
@@ -62,14 +63,17 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="max-w-[52.5rem] mx-auto px-4 py-8">
-      <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline mb-6 inline-block anim-fade-in">
-        &larr; Back to PlayIRL.GG
-      </Link>
+      <div className="flex items-center justify-between mb-6 anim-fade-in">
+        <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline">
+          &larr; Back to PlayIRL.GG
+        </Link>
+        <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
+      </div>
 
       <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
         {/* Map header — Google Maps embed */}
         {ev.location && (
-          <div className="relative h-48 overflow-hidden rounded-t-xl">
+          <div className="relative h-72 overflow-hidden rounded-t-xl">
             <iframe
               src={`https://www.google.com/maps?q=${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}&output=embed&z=15`}
               className="w-full h-full border-0"
@@ -78,9 +82,6 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               allowFullScreen
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0c1220] via-transparent to-transparent pointer-events-none" />
-            <div className="absolute top-3 right-3 z-10">
-              <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
-            </div>
           </div>
         )}
 
@@ -95,31 +96,37 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         </div>
 
         {/* Details table */}
-        <div className="px-6 pb-2 border-t border-gray-100 dark:border-white/8">
-          <dl>
-            <DetailRow label="Host" value={ev.location} href={ev.store_url || undefined} />
-            <DetailRow label="Date" value={formatDate(ev.date)} />
-            <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
-            <DetailRow label="Format" value={ev.format} />
-            <DetailRow label="Cost" value={ev.cost || "Not listed"} />
-            <DetailRow label="Address" value={ev.address} href={ev.address ? `https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}` : undefined} />
-            <DetailRow label="Source" value={SOURCE_LABELS[ev.source] || ev.source} href={ev.detail_url || undefined} />
-          </dl>
-        </div>
+        <Reveal delay={120}>
+          <div className="px-6 pb-2 border-t border-gray-100 dark:border-white/8">
+            <dl>
+              <DetailRow label="Host" value={ev.location} href={ev.store_url || undefined} />
+              <DetailRow label="Date" value={formatDate(ev.date)} />
+              <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
+              <DetailRow label="Format" value={ev.format} />
+              <DetailRow label="Cost" value={ev.cost || "Not listed"} />
+              <DetailRow label="Address" value={ev.address} href={ev.address ? `https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}` : undefined} />
+              <DetailRow label="Source" value={SOURCE_LABELS[ev.source] || ev.source} href={ev.detail_url || undefined} />
+            </dl>
+          </div>
+        </Reveal>
 
         {/* Notes */}
         {ev.notes && (
-          <div className="mx-6 mb-4 bg-gray-50 dark:bg-[#141c2e] rounded-lg p-4">
-            <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Notes</p>
-            <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
-          </div>
+          <Reveal>
+            <div className="mx-6 mb-4 bg-gray-50 dark:bg-[#141c2e] rounded-lg p-4">
+              <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Notes</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
+            </div>
+          </Reveal>
         )}
 
         {/* Meta footer */}
-        <div className="bg-gray-50 dark:bg-[#080e18] rounded-b-xl px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
-          <span>ID: {ev.id}</span>
-          <span>Added {ev.added_date} · Updated {ev.updated_date}</span>
-        </div>
+        <Reveal>
+          <div className="bg-gray-50 dark:bg-[#080e18] rounded-b-xl px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
+            <span>ID: {ev.id}</span>
+            <span>Added {ev.added_date} · Updated {ev.updated_date}</span>
+          </div>
+        </Reveal>
       </div>
     </main>
   );

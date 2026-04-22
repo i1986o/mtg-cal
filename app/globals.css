@@ -58,6 +58,11 @@ body {
   to   { opacity: 0; transform: scale(0.95) translateY(-6px); }
 }
 
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Reusable animation classes */
 .anim-fade-in-up {
   animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -77,9 +82,14 @@ body {
   animation: scaleOut 0.14s cubic-bezier(0.4, 0, 1, 1) both;
 }
 
+.anim-row-in {
+  animation: fadeInRow 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   .anim-fade-in-up,
   .anim-fade-in,
-  .anim-scale-in { animation: none; }
+  .anim-scale-in,
+  .anim-row-in { animation: none; }
 }

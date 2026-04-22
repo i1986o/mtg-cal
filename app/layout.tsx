@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Stack_Sans_Notch } from "next/font/google";
 import "./globals.css";
+import ThemeSync from "./theme-sync";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,7 +40,10 @@ export default function RootLayout({
           })();
         `}} />
       </head>
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] text-gray-900 dark:text-gray-100">{children}</body>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] text-gray-900 dark:text-gray-100">
+        <ThemeSync />
+        {children}
+      </body>
     </html>
   );
 }
