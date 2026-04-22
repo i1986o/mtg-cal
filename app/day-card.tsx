@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { FORMAT_BADGE, FORMAT_BADGE_DEFAULT } from "@/lib/format-style";
 import { formatEventTime } from "@/lib/format-time";
+import { useStickySentinel } from "@/lib/use-sticky-sentinel";
 
 interface EventRow {
   id: string;
@@ -36,20 +37,7 @@ export default function DayCard({
   staggerBase?: number;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
-  const [isStuck, setIsStuck] = useState(false);
-
-  // Detect when the sticky header is actually pinned to the nav
-  useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsStuck(!entry.isIntersecting),
-      { threshold: 0, rootMargin: "-48px 0px 0px 0px" }
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
+  const { sentinelRef, isStuck } = useStickySentinel("-48px 0px 0px 0px");
 
   // Stagger-in animation for card shell + rows
   useEffect(() => {

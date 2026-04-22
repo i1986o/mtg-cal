@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { FORMAT_BADGE, FORMAT_BADGE_DEFAULT } from "@/lib/format-style";
 import { formatEventTime } from "@/lib/format-time";
+import { useStickySentinel } from "@/lib/use-sticky-sentinel";
 
 interface EventRow {
   id: string;
@@ -39,23 +40,10 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
   const today = new Date();
   const todayStr = isoDate(today);
   const [weekStart, setWeekStart] = useState(() => startOfWeek(today));
-  const [isStuck, setIsStuck] = useState(false);
+  const { sentinelRef, isStuck } = useStickySentinel("-48px 0px 0px 0px");
 
-  const sentinelRef = useRef<HTMLDivElement>(null);
   const headerScrollRef = useRef<HTMLDivElement>(null);
   const bodyScrollRef = useRef<HTMLDivElement>(null);
-
-  // Detect when the sticky calendar frame is pinned to the nav
-  useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsStuck(!entry.isIntersecting),
-      { threshold: 0, rootMargin: "-48px 0px 0px 0px" }
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
 
   // Sync horizontal scroll between hidden header scroller and visible body scroller
   useEffect(() => {

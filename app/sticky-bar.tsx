@@ -1,22 +1,8 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useStickySentinel } from "@/lib/use-sticky-sentinel";
 
 export default function StickyBar({ children }: { children: React.ReactNode }) {
-  const [isStuck, setIsStuck] = useState(false);
-  const sentinelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsStuck(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
+  const { sentinelRef, isStuck } = useStickySentinel();
 
   return (
     <>
