@@ -16,7 +16,18 @@ if (process.env.AUTH_DISCORD_ID && process.env.AUTH_DISCORD_SECRET) {
   providers.push(Discord({ clientId: process.env.AUTH_DISCORD_ID, clientSecret: process.env.AUTH_DISCORD_SECRET }));
 }
 if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
-  providers.push(Google({ clientId: process.env.AUTH_GOOGLE_ID, clientSecret: process.env.AUTH_GOOGLE_SECRET }));
+  providers.push(Google({
+    clientId: process.env.AUTH_GOOGLE_ID,
+    clientSecret: process.env.AUTH_GOOGLE_SECRET,
+    // Google's OIDC discovery doc claims `authorization_response_iss_parameter_supported: true`,
+    // but Google does NOT actually include `iss` in the redirect — oauth4webapi then throws
+    // "response parameter iss (issuer) missing". Disable the strict iss check via the v5 escape
+    // hatch (https://github.com/nextauthjs/next-auth/issues/8615).
+    authorization: {
+      params: { scope: "openid email profile" },
+    },
+    checks: ["pkce"],
+  }));
 }
 if (process.env.AUTH_RESEND_KEY && process.env.AUTH_EMAIL_FROM) {
   providers.push(Resend({ apiKey: process.env.AUTH_RESEND_KEY, from: process.env.AUTH_EMAIL_FROM }));
