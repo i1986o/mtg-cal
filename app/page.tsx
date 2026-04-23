@@ -167,6 +167,7 @@ export default async function HomePage({
             <a href="https://github.com/i1986o/mtg-cal" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">GitHub</a>
             <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">Join the Discord</a>
             <a href="mailto:CardSlingerTCG@gmail.com?subject=PlayIRL.GG%20event%20submission" className="hover:text-gray-900 dark:hover:text-white transition">Submit your events</a>
+            <a href="/admin/login" className="hover:text-gray-900 dark:hover:text-white transition text-gray-400 dark:text-gray-500">Admin login</a>
           </div>
         </div>
       </footer>
