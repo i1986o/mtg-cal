@@ -1,4 +1,5 @@
-import NextAuth, { type Provider } from "next-auth";
+import NextAuth from "next-auth";
+import type { Provider } from "@auth/core/providers";
 import Discord from "next-auth/providers/discord";
 import Google from "next-auth/providers/google";
 import Resend from "next-auth/providers/resend";
