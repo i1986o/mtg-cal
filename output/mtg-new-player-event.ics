@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+X-PUBLISHED-TTL:PT1H
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+VERSION:2.0
+PRODID:-//mtg-cal//mtg-event-aggregator//EN
+NAME:MTG New Player Event — Philadelphia
+X-WR-CALNAME:MTG New Player Event — Philadelphia
+X-WR-CALDESC:New Player Event events in Philadelphia area
+BEGIN:VEVENT
+UID:wotc-10846414
+SEQUENCE:0
+DTSTAMP:20260423T031118Z
+DTSTART:20260423T210000Z
+DTEND:20260424T000000Z
+SUMMARY:Magic Academy: Learn to Play @ Queen and Rook Game Cafe
+LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
+ nsylvania\, 19106
+DESCRIPTION:Format: New Player Event\nCost: Free\nStore: https://queenandr
+ ookcafe.com/\nDetails: https://locator.wizards.com/store/12804/\nSource: w
+ izards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/12804/
+END:VEVENT
+END:VCALENDAR
