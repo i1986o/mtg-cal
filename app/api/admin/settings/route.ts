@@ -1,11 +1,11 @@
-import { isAuthenticated } from "@/lib/auth";
+import { hasAdminAccess } from "@/lib/session";
 import { getSetting, setSetting } from "@/lib/events";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  if (!(await isAuthenticated())) {
+  if (!(await hasAdminAccess())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -17,7 +17,7 @@ export async function GET() {
 }
 
 export async function PUT(request: Request) {
-  if (!(await isAuthenticated())) {
+  if (!(await hasAdminAccess())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

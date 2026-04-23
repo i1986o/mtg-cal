@@ -1,0 +1,161 @@
+"use client";
+import { useEffect, useState } from "react";
+
+interface ConfigShape {
+  location: { zip: string; city: string; state: string; lat: number; lng: number };
+  searchRadiusMiles: number;
+  daysAhead: number;
+  sources: {
+    wizardsLocator: boolean;
+    topdeck: boolean;
+    discord: { guildIds: string[] };
+  };
+}
+
+const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
+
+export default function ConfigPage() {
+  const [config, setConfig] = useState<ConfigShape | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState("");
+  const [guildsText, setGuildsText] = useState("");
+
+  useEffect(() => {
+    fetch("/api/admin/config").then((r) => r.json()).then((c: ConfigShape) => {
+      setConfig(c);
+      setGuildsText(c.sources.discord.guildIds.join("\n"));
+    });
+  }, []);
+
+  async function save(e: React.FormEvent) {
+    e.preventDefault();
+    if (!config) return;
+    setSaving(true);
+    setMessage("");
+    const guildIds = guildsText.split("\n").map((s) => s.trim()).filter(Boolean);
+    const res = await fetch("/api/admin/config", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        location: config.location,
+        searchRadiusMiles: Number(config.searchRadiusMiles),
+        daysAhead: Number(config.daysAhead),
+        sourceWizardsLocator: config.sources.wizardsLocator,
+        sourceTopdeck: config.sources.topdeck,
+        sourceDiscordGuilds: guildIds,
+      }),
+    });
+    setSaving(false);
+    setMessage(res.ok ? "Saved." : "Save failed.");
+    setTimeout(() => setMessage(""), 3000);
+  }
+
+  if (!config) return <div className="p-6 lg:p-8 text-sm text-gray-500">Loading…</div>;
+
+  function update<K extends keyof ConfigShape>(key: K, value: ConfigShape[K]) {
+    setConfig((c) => c ? { ...c, [key]: value } : c);
+  }
+
+  return (
+    <div className="p-6 lg:p-8 max-w-3xl">
+      <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 mb-2">
+        Site config
+      </h1>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+        These values drive the scraper. Changes take effect on the next scrape run.
+      </p>
+
+      <form onSubmit={save} className="space-y-6">
+        <Section title="Location">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <Field label="ZIP">
+              <input className={FIELD} value={config.location.zip} onChange={(e) => update("location", { ...config.location, zip: e.target.value })} />
+            </Field>
+            <Field label="City">
+              <input className={FIELD} value={config.location.city} onChange={(e) => update("location", { ...config.location, city: e.target.value })} />
+            </Field>
+            <Field label="State">
+              <input className={FIELD} value={config.location.state} onChange={(e) => update("location", { ...config.location, state: e.target.value })} />
+            </Field>
+            <Field label="Latitude">
+              <input className={FIELD} inputMode="decimal" value={config.location.lat} onChange={(e) => update("location", { ...config.location, lat: Number(e.target.value) })} />
+            </Field>
+            <Field label="Longitude">
+              <input className={FIELD} inputMode="decimal" value={config.location.lng} onChange={(e) => update("location", { ...config.location, lng: Number(e.target.value) })} />
+            </Field>
+          </div>
+        </Section>
+
+        <Section title="Search">
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="Radius (miles)">
+              <input className={FIELD} type="number" min={1} value={config.searchRadiusMiles} onChange={(e) => update("searchRadiusMiles", Number(e.target.value))} />
+            </Field>
+            <Field label="Days ahead">
+              <input className={FIELD} type="number" min={1} max={365} value={config.daysAhead} onChange={(e) => update("daysAhead", Number(e.target.value))} />
+            </Field>
+          </div>
+        </Section>
+
+        <Section title="Sources">
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={config.sources.wizardsLocator}
+                onChange={(e) => update("sources", { ...config.sources, wizardsLocator: e.target.checked })}
+              />
+              <span>Wizards Locator (WotC GraphQL)</span>
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={config.sources.topdeck}
+                onChange={(e) => update("sources", { ...config.sources, topdeck: e.target.checked })}
+              />
+              <span>TopDeck.gg (requires TOPDECK_API_KEY)</span>
+            </label>
+          </div>
+          <Field label="Discord guild IDs (one per line)">
+            <textarea
+              className={FIELD}
+              rows={3}
+              value={guildsText}
+              onChange={(e) => setGuildsText(e.target.value)}
+              placeholder="1451305700322967794"
+            />
+          </Field>
+        </Section>
+
+        <div className="flex items-center gap-3">
+          <button
+            type="submit"
+            disabled={saving}
+            className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 transition"
+          >
+            {saving ? "Saving…" : "Save config"}
+          </button>
+          {message && <span className="text-xs text-gray-600 dark:text-gray-400">{message}</span>}
+        </div>
+      </form>
+    </div>
+  );
+}
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+      <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">{title}</h2>
+      <div className="space-y-3">{children}</div>
+    </section>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</span>
+      {children}
+    </label>
+  );
+}

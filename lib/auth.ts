@@ -9,7 +9,8 @@ const SESSION_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 export async function verifyPassword(password: string): Promise<boolean> {
   const hash = process.env.ADMIN_PASSWORD_HASH;
   if (!hash) {
-    // In dev, accept "admin" as password if no hash is set
+    // Dev-only fallback: accept "admin" if no hash is set. Refuse in prod.
+    if (process.env.NODE_ENV === "production") return false;
     return password === "admin";
   }
   return bcrypt.compare(password, hash);

@@ -19,6 +19,8 @@ export interface EventRow {
   notes: string;
   added_date: string;
   updated_date: string;
+  owner_id: string | null;
+  source_type: string;
 }
 
 export interface ScrapedEvent {
@@ -46,13 +48,14 @@ export function upsertEvents(events: ScrapedEvent[]): {
   const db = getDb();
   const now = new Date().toISOString().split("T")[0];
 
-  const getStmt = db.prepare("SELECT status, notes, added_date FROM events WHERE id = ?");
+  const getStmt = db.prepare("SELECT status, notes, added_date, owner_id, source_type FROM events WHERE id = ?");
 
   const insertStmt = db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', '', ?, ?)
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, source_type)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', '', ?, ?, 'scraper')
   `);
 
+  // Note: owner_id and source_type are intentionally omitted from UPDATE so they survive scraper re-runs (same pattern as pinned/skip).
   const updateStmt = db.prepare(`
     UPDATE events SET title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?, store_url=?, detail_url=?, latitude=?, longitude=?, source=?, status=?, updated_date=?
     WHERE id=?
@@ -62,11 +65,14 @@ export function upsertEvents(events: ScrapedEvent[]): {
 
   const upsert = db.transaction(() => {
     for (const ev of events) {
-      const existing = getStmt.get(ev.id) as { status: string; notes: string; added_date: string } | undefined;
+      const existing = getStmt.get(ev.id) as { status: string; notes: string; added_date: string; owner_id: string | null; source_type: string | null } | undefined;
 
       if (!existing) {
         insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, now, now);
         added++;
+      } else if (existing.source_type === "organizer" || existing.owner_id) {
+        // Organizer-owned events are authoritative — never overwritten by scrapers.
+        skipped++;
       } else if (existing.status === "pinned") {
         skipped++;
       } else {
@@ -182,4 +188,89 @@ export function getSetting(key: string): string {
 export function setSetting(key: string, value: string): void {
   const db = getDb();
   db.prepare("INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)").run(key, value);
+}
+
+// ----- Manual / organizer event mutations -----
+
+export type EventInput = Partial<Omit<EventRow, "id" | "added_date" | "updated_date">> & {
+  id?: string;
+};
+
+const VALID_STATUSES = new Set(["active", "skip", "pinned", "pending"]);
+
+export function createEvent(input: EventInput & { id: string; title: string; date: string; source: string }): EventRow {
+  const db = getDb();
+  const now = new Date().toISOString().split("T")[0];
+  db.prepare(`
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(
+    input.id,
+    input.title,
+    input.format ?? "",
+    input.date,
+    input.time ?? "",
+    input.timezone ?? "America/New_York",
+    input.location ?? "",
+    input.address ?? "",
+    input.cost ?? "",
+    input.store_url ?? "",
+    input.detail_url ?? "",
+    input.latitude ?? null,
+    input.longitude ?? null,
+    input.source,
+    VALID_STATUSES.has(input.status ?? "") ? input.status : "active",
+    input.notes ?? "",
+    now,
+    now,
+    input.owner_id ?? null,
+    input.source_type ?? "manual",
+  );
+  return getEvent(input.id)!;
+}
+
+export function updateEvent(id: string, patch: EventInput): EventRow | undefined {
+  const db = getDb();
+  const existing = getEvent(id);
+  if (!existing) return undefined;
+  const now = new Date().toISOString().split("T")[0];
+  const merged = { ...existing, ...patch };
+  if (!VALID_STATUSES.has(merged.status)) merged.status = existing.status;
+  db.prepare(`
+    UPDATE events SET
+      title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?,
+      store_url=?, detail_url=?, latitude=?, longitude=?, status=?, notes=?, updated_date=?
+    WHERE id=?
+  `).run(
+    merged.title, merged.format, merged.date, merged.time, merged.timezone, merged.location,
+    merged.address, merged.cost, merged.store_url, merged.detail_url,
+    merged.latitude ?? null, merged.longitude ?? null,
+    merged.status, merged.notes, now, id,
+  );
+  return getEvent(id);
+}
+
+export function deleteEvent(id: string): boolean {
+  const r = getDb().prepare("DELETE FROM events WHERE id = ?").run(id);
+  return r.changes > 0;
+}
+
+export function bulkUpdateStatus(ids: string[], status: string): number {
+  if (ids.length === 0 || !VALID_STATUSES.has(status)) return 0;
+  const db = getDb();
+  const now = new Date().toISOString().split("T")[0];
+  const placeholders = ids.map(() => "?").join(",");
+  const r = db.prepare(`UPDATE events SET status=?, updated_date=? WHERE id IN (${placeholders})`).run(status, now, ...ids);
+  return r.changes;
+}
+
+export function bulkDelete(ids: string[]): number {
+  if (ids.length === 0) return 0;
+  const placeholders = ids.map(() => "?").join(",");
+  const r = getDb().prepare(`DELETE FROM events WHERE id IN (${placeholders})`).run(...ids);
+  return r.changes;
+}
+
+export function getEventsByOwner(ownerId: string): EventRow[] {
+  return getDb().prepare("SELECT * FROM events WHERE owner_id = ? ORDER BY date ASC, time ASC").all(ownerId) as EventRow[];
 }

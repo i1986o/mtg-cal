@@ -1,4 +1,4 @@
-import { config } from "@/lib/config";
+import { getConfig } from "@/lib/runtime-config";
 
 const API_URL = "https://topdeck.gg/api/v2/tournaments";
 
@@ -36,6 +36,7 @@ export default async function fetchTopdeckEvents(sourceConfig: any = {}) {
     return [];
   }
 
+  const config = getConfig();
   const now = Math.floor(Date.now() / 1000);
   const end = Math.floor((Date.now() + config.daysAhead * 24 * 60 * 60 * 1000) / 1000);
 

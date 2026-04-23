@@ -1,0 +1,49 @@
+import { NextResponse, type NextRequest } from "next/server";
+
+// NOTE: This middleware runs on the edge runtime, which cannot open
+// better-sqlite3. We do a coarse check here (is there *any* auth cookie?)
+// and let server components / route handlers do the role check via
+// `lib/session.ts` (which can hit the DB).
+
+const LEGACY_COOKIE = "mtg-cal-session";
+// Auth.js v5 default session cookie name (with optional __Secure- prefix in prod).
+const AUTHJS_COOKIES = ["authjs.session-token", "__Secure-authjs.session-token"];
+
+function hasAnySession(req: NextRequest): boolean {
+  if (req.cookies.get(LEGACY_COOKIE)?.value) return true;
+  return AUTHJS_COOKIES.some((name) => !!req.cookies.get(name)?.value);
+}
+
+export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // Always allow the login pages and the auth endpoints themselves.
+  if (
+    pathname === "/admin/login" ||
+    pathname === "/organizer/login" ||
+    pathname.startsWith("/api/auth/") ||
+    pathname.startsWith("/api/admin/login") ||
+    pathname.startsWith("/api/admin/logout")
+  ) {
+    return NextResponse.next();
+  }
+
+  const isAdminPath = pathname === "/admin" || pathname.startsWith("/admin/") || pathname.startsWith("/api/admin/");
+  const isOrganizerPath = pathname === "/organizer" || pathname.startsWith("/organizer/") || pathname.startsWith("/api/organizer/");
+
+  if (!isAdminPath && !isOrganizerPath) return NextResponse.next();
+
+  if (hasAnySession(req)) return NextResponse.next();
+
+  // No session at all → redirect HTML, 401 JSON for APIs.
+  if (pathname.startsWith("/api/")) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  const loginUrl = new URL(isOrganizerPath ? "/organizer/login" : "/admin/login", req.url);
+  loginUrl.searchParams.set("from", pathname);
+  return NextResponse.redirect(loginUrl);
+}
+
+export const config = {
+  matcher: ["/admin/:path*", "/organizer/:path*", "/api/admin/:path*", "/api/organizer/:path*"],
+};
