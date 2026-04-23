@@ -1,4 +1,4 @@
-import { config } from "@/lib/config";
+import { getConfig } from "@/lib/runtime-config";
 
 const GRAPHQL_URL = "https://api.tabletop.wizards.com/silverbeak-griffin-service/graphql";
 const PAGE_SIZE = 200;
@@ -22,6 +22,7 @@ const STORES_QUERY = `query storesByLocation($input: StoreByLocationInput!) {
 }`;
 
 async function fetchStores(maxMeters: number) {
+  const { location } = getConfig();
   const res = await fetch(GRAPHQL_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -29,8 +30,8 @@ async function fetchStores(maxMeters: number) {
       operationName: "storesByLocation",
       variables: {
         input: {
-          latitude: config.location.lat,
-          longitude: config.location.lng,
+          latitude: location.lat,
+          longitude: location.lng,
           maxMeters,
         },
       },
@@ -78,6 +79,7 @@ function findStore(stores: any[], lat: number, lng: number) {
 }
 
 export default async function fetchWizardsEvents(sourceConfig = {}) {
+  const config = getConfig();
   const startDate = new Date().toISOString().slice(0, 10);
   const endDate = new Date(Date.now() + config.daysAhead * 24 * 60 * 60 * 1000)
     .toISOString()

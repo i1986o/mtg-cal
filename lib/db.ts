@@ -50,11 +50,70 @@ function initSchema(db: Database.Database) {
       key   TEXT PRIMARY KEY,
       value TEXT NOT NULL
     );
+
+    CREATE TABLE IF NOT EXISTS users (
+      id             TEXT PRIMARY KEY,
+      email          TEXT UNIQUE NOT NULL,
+      email_verified INTEGER,
+      name           TEXT,
+      image          TEXT,
+      role           TEXT NOT NULL DEFAULT 'user' CHECK(role IN ('admin','organizer','user')),
+      suspended      INTEGER NOT NULL DEFAULT 0,
+      created_at     TEXT DEFAULT (datetime('now')),
+      updated_at     TEXT DEFAULT (datetime('now')),
+      last_login_at  TEXT
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+    CREATE INDEX IF NOT EXISTS idx_users_role  ON users(role);
+
+    CREATE TABLE IF NOT EXISTS accounts (
+      id                  TEXT PRIMARY KEY,
+      user_id             TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      type                TEXT NOT NULL,
+      provider            TEXT NOT NULL,
+      provider_account_id TEXT NOT NULL,
+      refresh_token       TEXT,
+      access_token        TEXT,
+      expires_at          INTEGER,
+      token_type          TEXT,
+      scope               TEXT,
+      id_token            TEXT,
+      session_state       TEXT,
+      UNIQUE(provider, provider_account_id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_accounts_user ON accounts(user_id);
+
+    CREATE TABLE IF NOT EXISTS sessions (
+      id            TEXT PRIMARY KEY,
+      session_token TEXT UNIQUE NOT NULL,
+      user_id       TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      expires       INTEGER NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);
+    CREATE INDEX IF NOT EXISTS idx_sessions_token ON sessions(session_token);
+
+    CREATE TABLE IF NOT EXISTS verification_tokens (
+      identifier TEXT NOT NULL,
+      token      TEXT PRIMARY KEY,
+      expires    INTEGER NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS feature_flags (
+      key         TEXT PRIMARY KEY,
+      enabled     INTEGER NOT NULL DEFAULT 0,
+      description TEXT DEFAULT '',
+      updated_at  TEXT DEFAULT (datetime('now'))
+    );
   `);
 
   // Migrations — add columns if they don't exist yet
   try { db.exec("ALTER TABLE events ADD COLUMN latitude REAL"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN longitude REAL"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN owner_id TEXT REFERENCES users(id) ON DELETE SET NULL"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN source_type TEXT DEFAULT 'scraper'"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");
@@ -62,4 +121,18 @@ function initSchema(db: Database.Database) {
   insert.run("last_scrape", "");
   insert.run("last_scrape_result", "");
 
+  // Seed runtime config defaults (mirrors lib/config.ts; admin can override via /admin/config)
+  insert.run("config_location", JSON.stringify({ zip: "19125", city: "Philadelphia", state: "PA", lat: 39.9688, lng: -75.1246 }));
+  insert.run("config_radius_miles", "10");
+  insert.run("config_days_ahead", "60");
+  insert.run("config_source_wizardslocator", "1");
+  insert.run("config_source_topdeck", "1");
+  insert.run("config_source_discord_guilds", JSON.stringify(["1451305700322967794"]));
+
+  // Seed starter feature flags
+  const insertFlag = db.prepare("INSERT OR IGNORE INTO feature_flags (key, enabled, description) VALUES (?, ?, ?)");
+  insertFlag.run("organizer_portal_enabled", 1, "Kill-switch for the /organizer portal.");
+  insertFlag.run("public_organizer_signup", 0, "Allow users to self-request organizer role.");
+  insertFlag.run("event_submissions_open", 0, "Allow `user` role to submit events for review.");
+  insertFlag.run("calendar_v2", 0, "Experimental calendar view redesign.");
 }

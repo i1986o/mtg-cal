@@ -1,4 +1,4 @@
-import { config } from "@/lib/config";
+import { getConfig } from "@/lib/runtime-config";
 import { validateEvents } from "./schema";
 
 // Source registry — add new sources here (one line each).
@@ -25,9 +25,10 @@ export interface ScrapedEvent {
 
 export async function fetchAllSources(): Promise<ScrapedEvent[]> {
   const all: ScrapedEvent[] = [];
+  const cfg = getConfig();
 
   for (const [name, loader] of Object.entries(SOURCE_MODULES)) {
-    const sourceConfig = (config.sources as any)[name];
+    const sourceConfig = (cfg.sources as any)[name];
 
     // Skip disabled sources
     if (!sourceConfig) continue;
