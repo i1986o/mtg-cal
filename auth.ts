@@ -41,14 +41,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: { signIn: "/admin/login" },
   callbacks: {
     async signIn({ user }) {
+      // Reject suspended users. Admin promotion runs in events.signIn (which fires
+      // AFTER createUser, so the UPDATE actually hits a row on first login).
       if (!user.email) return false;
-      const db = getDb();
-      const row = db.prepare("SELECT suspended FROM users WHERE email = ?").get(user.email) as { suspended: number } | undefined;
+      const row = getDb().prepare("SELECT suspended FROM users WHERE email = ?").get(user.email) as { suspended: number } | undefined;
       if (row?.suspended === 1) return false;
-      // Auto-promote bootstrap admins by email match.
-      if (adminEmails.includes(user.email.toLowerCase())) {
-        db.prepare("UPDATE users SET role = 'admin', updated_at = datetime('now') WHERE email = ?").run(user.email);
-      }
       return true;
     },
     async session({ session, user }) {
@@ -63,8 +60,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   events: {
     async signIn({ user }) {
-      if (user?.id) {
-        getDb().prepare("UPDATE users SET last_login_at = datetime('now') WHERE id = ?").run(user.id);
+      if (!user?.id || !user.email) return;
+      const db = getDb();
+      // Bootstrap-admin promotion runs here so the UPDATE has a row to hit.
+      if (adminEmails.includes(user.email.toLowerCase())) {
+        db.prepare("UPDATE users SET role = 'admin', updated_at = datetime('now'), last_login_at = datetime('now') WHERE id = ?").run(user.id);
+      } else {
+        db.prepare("UPDATE users SET last_login_at = datetime('now') WHERE id = ?").run(user.id);
       }
     },
   },
