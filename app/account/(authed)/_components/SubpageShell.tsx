@@ -25,7 +25,7 @@ export default function SubpageShell({
       <AccountChip />
 
       <Link
-        href="/account"
+        href="/"
         className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
