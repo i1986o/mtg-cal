@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/events";
 import { getSavedEventIds } from "@/lib/event-saves";
+import { getPreferences, setPreferences } from "@/lib/user-preferences";
 import { getCurrentUser } from "@/lib/session";
 import { config } from "@/lib/config";
 import RadiusSelector from "./radius-selector";
@@ -28,11 +29,36 @@ export default async function HomePage({
   searchParams: Promise<{ format?: string; radius?: string; days?: string; view?: string; offset?: string }>;
 }) {
   const params = await searchParams;
-  const currentRadius = params.radius ? parseInt(params.radius, 10) : parseInt(getSetting("search_radius_miles") || "10", 10);
-  const currentDays = params.days ? parseInt(params.days, 10) : 7;
+  const user = await getCurrentUser();
+  const signedIn = !!user && !user.suspended;
+
+  // Filter defaults: URL param > per-user prefs (signed-in) > global setting (signed-out) > hardcoded default.
+  const prefs = signedIn ? getPreferences(user.id) : null;
+  const defaultRadius = prefs?.radius_miles ?? parseInt(getSetting("search_radius_miles") || "10", 10);
+  const defaultDays = prefs?.days_ahead ?? 7;
+  const defaultFormat = prefs?.formats[0] ?? "";
+
+  const currentRadius = params.radius ? parseInt(params.radius, 10) : defaultRadius;
+  const currentDays = params.days ? parseInt(params.days, 10) : defaultDays;
+  const currentFormat = params.format ?? defaultFormat;
   const currentView = params.view || "list";
   const currentOffset = params.offset ? Math.max(0, parseInt(params.offset, 10)) : 0;
-  if (params.radius) setSetting("search_radius_miles", params.radius);
+
+  // Persist any filter change so the next visit restores it.
+  if (signedIn && user) {
+    const patch: Parameters<typeof setPreferences>[1] = {};
+    if (params.radius && currentRadius !== prefs?.radius_miles) patch.radius_miles = currentRadius;
+    if (params.days && currentDays !== prefs?.days_ahead) patch.days_ahead = currentDays;
+    // `format` param can be explicitly empty (user cleared the filter) — still persist that.
+    if (params.format !== undefined && currentFormat !== (prefs?.formats[0] ?? "")) {
+      patch.formats = currentFormat ? [currentFormat] : [];
+    }
+    if (Object.keys(patch).length > 0) setPreferences(user.id, patch);
+  } else if (params.radius) {
+    // Signed-out: keep existing global-radius behavior.
+    setSetting("search_radius_miles", params.radius);
+  }
+
   const today = new Date();
   let fromDate: Date;
   let toDate: Date;
@@ -46,14 +72,12 @@ export default async function HomePage({
     fromDate = new Date(today.getTime() + currentOffset * 24 * 60 * 60 * 1000);
     toDate = new Date(today.getTime() + (currentOffset + currentDays) * 24 * 60 * 60 * 1000);
   }
-  const user = await getCurrentUser();
-  const signedIn = !!user && !user.suspended;
-  const isAdmin = signedIn && user.role === "admin";
-  const savedEventIds = signedIn ? getSavedEventIds(user.id) : new Set<string>();
+  const isAdmin = signedIn && user?.role === "admin";
+  const savedEventIds = signedIn && user ? getSavedEventIds(user.id) : new Set<string>();
 
   const formats = getFormats();
   const events = getActiveEvents({
-    format: params.format || undefined,
+    format: currentFormat || undefined,
     from: fromDate.toISOString().split("T")[0],
     to: toDate.toISOString().split("T")[0],
     radiusMiles: currentRadius,
@@ -89,7 +113,7 @@ export default async function HomePage({
       {/* Sticky filter bar */}
       <StickyBar>
         <div className="flex justify-center">
-          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={params.format} formats={formats} eventCount={events.length} />
+          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={currentFormat} formats={formats} eventCount={events.length} />
         </div>
       </StickyBar>
 
