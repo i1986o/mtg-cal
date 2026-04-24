@@ -2,6 +2,7 @@ import Link from "next/link";
 import { requireRole } from "@/lib/session";
 import { getSavedEvents, getSavedEventIds } from "@/lib/event-saves";
 import DayCard from "../../../day-card";
+import SubpageShell from "../_components/SubpageShell";
 
 export const dynamic = "force-dynamic";
 
@@ -30,20 +31,18 @@ export default async function SavedEventsPage() {
   for (const ev of upcoming) (groupedUpcoming[ev.date] ||= []).push(ev);
 
   return (
-    <div className="p-6 lg:p-8 max-w-5xl space-y-8">
-      <header>
-        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
-          Saved events
-        </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+    <SubpageShell
+      title="Saved events"
+      description={
+        <>
           Events you've starred. Tap the star on any card in{" "}
           <Link href="/account" className="text-blue-600 dark:text-blue-400 hover:underline">
             your feed
           </Link>{" "}
           to add more.
-        </p>
-      </header>
-
+        </>
+      }
+    >
       {upcoming.length === 0 && past.length === 0 ? (
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center">
           <p className="text-4xl mb-3">⭐️</p>
@@ -53,7 +52,7 @@ export default async function SavedEventsPage() {
           </Link>
         </div>
       ) : (
-        <>
+        <div className="space-y-8">
           {upcoming.length > 0 && (
             <section className="space-y-2">
               <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
@@ -104,8 +103,8 @@ export default async function SavedEventsPage() {
               </ul>
             </section>
           )}
-        </>
+        </div>
       )}
-    </div>
+    </SubpageShell>
   );
 }
