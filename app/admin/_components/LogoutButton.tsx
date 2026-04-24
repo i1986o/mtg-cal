@@ -1,22 +1,17 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-export default function LogoutButton({ legacy }: { legacy: boolean }) {
+export default function LogoutButton() {
   const router = useRouter();
   async function logout() {
-    if (legacy) {
-      await fetch("/api/admin/logout", { method: "POST" });
-    } else {
-      // Auth.js v5 signout endpoint requires a CSRF token; the simplest reliable
-      // path is a form POST to /api/auth/signout.
-      const csrfRes = await fetch("/api/auth/csrf");
-      const { csrfToken } = await csrfRes.json();
-      await fetch("/api/auth/signout", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ csrfToken, callbackUrl: "/admin/login" }).toString(),
-      });
-    }
+    // Auth.js v5 signout endpoint requires a CSRF token.
+    const csrfRes = await fetch("/api/auth/csrf");
+    const { csrfToken } = await csrfRes.json();
+    await fetch("/api/auth/signout", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ csrfToken, callbackUrl: "/admin/login" }).toString(),
+    });
     router.push("/admin/login");
     router.refresh();
   }
