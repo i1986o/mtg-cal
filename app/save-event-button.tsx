@@ -1,0 +1,103 @@
+"use client";
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+
+interface Props {
+  eventId: string;
+  initiallySaved: boolean;
+  /** When true, render a tiny icon-only button (for use on dense event cards). */
+  compact?: boolean;
+  /** Shown when the user isn't signed in — links them to /account/login instead of toggling. */
+  signedIn?: boolean;
+  className?: string;
+}
+
+export default function SaveEventButton({ eventId, initiallySaved, compact = false, signedIn = true, className = "" }: Props) {
+  const router = useRouter();
+  const [saved, setSaved] = useState(initiallySaved);
+  const [busy, setBusy] = useState(false);
+  const [, startTransition] = useTransition();
+
+  async function toggle(e: React.MouseEvent | React.KeyboardEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!signedIn) {
+      router.push(`/account/login?from=${encodeURIComponent(window.location.pathname)}`);
+      return;
+    }
+    if (busy) return;
+    setBusy(true);
+    const next = !saved;
+    setSaved(next); // optimistic
+    const res = await fetch(`/api/account/saves/${encodeURIComponent(eventId)}`, {
+      method: next ? "PUT" : "DELETE",
+    });
+    if (!res.ok) {
+      setSaved(!next); // rollback
+    }
+    setBusy(false);
+    startTransition(() => router.refresh());
+  }
+
+  const label = saved ? "Saved" : "Save";
+  const title = signedIn
+    ? saved
+      ? "Remove from your saved events"
+      : "Save to your events"
+    : "Sign in to save events";
+
+  if (compact) {
+    return (
+      <button
+        type="button"
+        onClick={toggle}
+        disabled={busy}
+        title={title}
+        aria-label={title}
+        aria-pressed={saved}
+        className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition ${
+          saved
+            ? "text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950"
+            : "text-gray-400 hover:text-amber-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+        } ${busy ? "opacity-50" : ""} ${className}`}
+      >
+        <StarIcon filled={saved} />
+      </button>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      disabled={busy}
+      title={title}
+      aria-pressed={saved}
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition border ${
+        saved
+          ? "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800 dark:hover:bg-amber-900"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
+      } ${busy ? "opacity-50" : ""} ${className}`}
+    >
+      <StarIcon filled={saved} />
+      {label}
+    </button>
+  );
+}
+
+function StarIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-4 h-4"
+      viewBox="0 0 24 24"
+      fill={filled ? "currentColor" : "none"}
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  );
+}

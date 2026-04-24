@@ -1,0 +1,67 @@
+import { getDb } from "./db";
+
+export interface UserPreferences {
+  user_id: string;
+  formats: string[];
+  radius_miles: number;
+  days_ahead: number;
+  updated_at: string;
+}
+
+interface Row {
+  user_id: string;
+  formats: string;
+  radius_miles: number;
+  days_ahead: number;
+  updated_at: string;
+}
+
+function rowToPrefs(row: Row): UserPreferences {
+  let formats: string[] = [];
+  try {
+    formats = JSON.parse(row.formats) as string[];
+  } catch {
+    formats = [];
+  }
+  return { ...row, formats };
+}
+
+export const DEFAULT_PREFS: Omit<UserPreferences, "user_id" | "updated_at"> = {
+  formats: [],
+  radius_miles: 10,
+  days_ahead: 7,
+};
+
+export function getPreferences(userId: string): UserPreferences {
+  const row = getDb()
+    .prepare("SELECT user_id, formats, radius_miles, days_ahead, updated_at FROM user_preferences WHERE user_id = ?")
+    .get(userId) as Row | undefined;
+  if (!row) {
+    return { user_id: userId, ...DEFAULT_PREFS, updated_at: "" };
+  }
+  return rowToPrefs(row);
+}
+
+export function setPreferences(
+  userId: string,
+  patch: Partial<Omit<UserPreferences, "user_id" | "updated_at">>,
+): UserPreferences {
+  const existing = getPreferences(userId);
+  const next = {
+    formats: patch.formats ?? existing.formats,
+    radius_miles: patch.radius_miles ?? existing.radius_miles,
+    days_ahead: patch.days_ahead ?? existing.days_ahead,
+  };
+  getDb()
+    .prepare(`
+      INSERT INTO user_preferences (user_id, formats, radius_miles, days_ahead, updated_at)
+      VALUES (?, ?, ?, ?, datetime('now'))
+      ON CONFLICT(user_id) DO UPDATE SET
+        formats = excluded.formats,
+        radius_miles = excluded.radius_miles,
+        days_ahead = excluded.days_ahead,
+        updated_at = excluded.updated_at
+    `)
+    .run(userId, JSON.stringify(next.formats), next.radius_miles, next.days_ahead);
+  return getPreferences(userId);
+}

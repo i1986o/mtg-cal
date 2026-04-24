@@ -7,6 +7,7 @@ export interface UserRecord {
   image: string | null;
   role: "admin" | "organizer" | "user";
   suspended: 0 | 1;
+  suspended_reason: string;
   created_at: string;
   updated_at: string;
   last_login_at: string | null;
@@ -44,15 +45,21 @@ export function getUser(id: string): UserRecord | undefined {
   return getDb().prepare("SELECT * FROM users WHERE id = ?").get(id) as UserRecord | undefined;
 }
 
-export function updateUser(id: string, patch: { role?: string; suspended?: boolean; name?: string }): UserRecord | undefined {
+export function updateUser(
+  id: string,
+  patch: { role?: string; suspended?: boolean; name?: string; suspended_reason?: string },
+): UserRecord | undefined {
   const db = getDb();
   const existing = getUser(id);
   if (!existing) return undefined;
   const role = patch.role && VALID_ROLES.has(patch.role) ? patch.role : existing.role;
   const suspended = patch.suspended === undefined ? existing.suspended : (patch.suspended ? 1 : 0);
   const name = patch.name ?? existing.name;
-  db.prepare("UPDATE users SET role=?, suspended=?, name=?, updated_at=datetime('now') WHERE id=?").run(role, suspended, name, id);
-  // When suspending, also nuke active sessions so the next request fails auth.
+  const suspendedReason =
+    suspended === 0 ? "" : patch.suspended_reason ?? existing.suspended_reason ?? "";
+  db.prepare(
+    "UPDATE users SET role=?, suspended=?, suspended_reason=?, name=?, updated_at=datetime('now') WHERE id=?",
+  ).run(role, suspended, suspendedReason, name, id);
   if (suspended === 1 && existing.suspended === 0) {
     db.prepare("DELETE FROM sessions WHERE user_id = ?").run(id);
   }

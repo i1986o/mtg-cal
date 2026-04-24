@@ -1,6 +1,8 @@
 export const dynamic = "force-dynamic";
 
 import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/events";
+import { getSavedEventIds } from "@/lib/event-saves";
+import { getCurrentUser } from "@/lib/session";
 import { config } from "@/lib/config";
 import RadiusSelector from "./radius-selector";
 import CalendarView from "./calendar-view";
@@ -44,6 +46,11 @@ export default async function HomePage({
     fromDate = new Date(today.getTime() + currentOffset * 24 * 60 * 60 * 1000);
     toDate = new Date(today.getTime() + (currentOffset + currentDays) * 24 * 60 * 60 * 1000);
   }
+  const user = await getCurrentUser();
+  const signedIn = !!user && !user.suspended;
+  const isAdmin = signedIn && user.role === "admin";
+  const savedEventIds = signedIn ? getSavedEventIds(user.id) : new Set<string>();
+
   const formats = getFormats();
   const events = getActiveEvents({
     format: params.format || undefined,
@@ -123,6 +130,9 @@ export default async function HomePage({
                   events={dayEvents}
                   headingLabel={dayHeadingLabel(date, todayStr, tomorrowStr)}
                   staggerBase={Math.min(i * 60, 120)}
+                  signedIn={signedIn}
+                  isAdmin={isAdmin}
+                  savedEventIds={savedEventIds}
                 />
               );
             })}
