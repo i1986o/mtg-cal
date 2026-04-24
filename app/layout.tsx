@@ -11,7 +11,7 @@ const inter = Inter({
 const stackSansNotch = Stack_Sans_Notch({
   variable: "--font-ultra",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400"],
 });
 
 export const metadata: Metadata = {
