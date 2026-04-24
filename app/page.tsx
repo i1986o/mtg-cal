@@ -68,7 +68,7 @@ export default async function HomePage({
       {/* Hero header */}
       <header className="mb-6 flex flex-col items-center text-center gap-1 w-full anim-fade-in-up">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ultra)] font-normal text-gray-900 dark:text-white tracking-wide leading-none">
-          PlayIRL.gg
+          PlayIRL.GG
         </h1>
         <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
           An independent, alternative way to find and schedule MTG events near you.
