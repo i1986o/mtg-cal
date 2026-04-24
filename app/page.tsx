@@ -147,11 +147,12 @@ export default async function HomePage({
 
       <Reveal>
       <footer className="mt-16 pt-8 border-t border-gray-100 dark:border-white/5 text-sm text-gray-400 dark:text-gray-500">
+        {/* Brand sits above; description and links share an aligned top edge below */}
+        <p className="font-[family-name:var(--font-ultra)] text-base text-gray-900 dark:text-white tracking-wider mb-3">PlayIRL.GG</p>
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-          {/* Brand + tagline */}
+          {/* Tagline */}
           <div>
-            <p className="font-[family-name:var(--font-ultra)] text-base text-gray-900 dark:text-white tracking-wider">PlayIRL.GG</p>
-            <p className="mt-1 text-xs leading-relaxed max-w-xs">
+            <p className="text-xs leading-relaxed max-w-xs">
               An open-source, community-run alternative to the official Wizards of the Coast event locator — built by players, for players.
             </p>
             <div className="flex flex-wrap gap-2 mt-3">
