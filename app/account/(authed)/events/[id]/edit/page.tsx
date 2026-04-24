@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getEvent } from "@/lib/events";
 import { requireRole } from "@/lib/session";
 import EventForm from "../../../../../admin/_components/EventForm";
+import SubpageShell from "../../../_components/SubpageShell";
 
 export const dynamic = "force-dynamic";
 
@@ -14,15 +14,7 @@ export default async function AccountEditEventPage({ params }: { params: Promise
   if (user.role !== "admin" && event.owner_id !== user.id) notFound();
 
   return (
-    <div className="p-6 lg:p-8 max-w-3xl">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
-          Edit event
-        </h1>
-        <Link href="/account/events" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
-          ← Back to my events
-        </Link>
-      </div>
+    <SubpageShell title="Edit event" maxWidth="max-w-3xl">
       <EventForm
         endpoint={`/api/account/events/${encodeURIComponent(event.id)}`}
         method="PATCH"
@@ -45,6 +37,6 @@ export default async function AccountEditEventPage({ params }: { params: Promise
           notes: event.notes,
         }}
       />
-    </div>
+    </SubpageShell>
   );
 }

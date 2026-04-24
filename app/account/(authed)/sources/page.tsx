@@ -2,6 +2,7 @@ import Link from "next/link";
 import { requireRole } from "@/lib/session";
 import { listSourcesForUser } from "@/lib/user-sources";
 import { botInviteUrl } from "@/lib/discord-bot";
+import SubpageShell from "../_components/SubpageShell";
 import SourcesList from "./SourcesList";
 
 export const dynamic = "force-dynamic";
@@ -12,19 +13,13 @@ export default async function AccountSourcesPage() {
   const inviteUrl = botInviteUrl();
 
   return (
-    <div className="p-6 lg:p-8 max-w-4xl">
-      <div className="flex items-end justify-between mb-6 gap-4 flex-wrap">
-        <div>
-          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
-            Event sources
-          </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-xl">
-            Connect a Discord server to automatically import its scheduled events. Invite the PlayIRL bot,
-            then pick which server you want to sync.
-          </p>
-        </div>
-        {inviteUrl ? (
-          <div className="flex gap-2 items-center">
+    <SubpageShell
+      title="Event sources"
+      description="Connect a Discord server to automatically import its scheduled events. Invite the PlayIRL bot, then pick which server you want to sync."
+      maxWidth="max-w-4xl"
+      actions={
+        inviteUrl ? (
+          <>
             <a
               href={inviteUrl}
               target="_blank"
@@ -32,24 +27,24 @@ export default async function AccountSourcesPage() {
               className="bg-[#5865F2] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#4752c4] transition inline-flex items-center gap-2"
             >
               <DiscordMark />
-              Add bot to my server
+              Add bot
             </a>
             <Link
               href="/account/sources/pick-guild"
               className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
             >
-              I've added it — pick a server
+              Pick a server
             </Link>
-          </div>
+          </>
         ) : (
           <span className="text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-md px-3 py-2">
             DISCORD_BOT_CLIENT_ID not set — ask an admin.
           </span>
-        )}
-      </div>
-
+        )
+      }
+    >
       <SourcesList sources={sources} />
-    </div>
+    </SubpageShell>
   );
 }
 
