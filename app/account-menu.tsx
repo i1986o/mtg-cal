@@ -71,11 +71,7 @@ export default function AccountMenu({
           </div>
 
           <MenuGroup>
-            <MenuLink href="/" onSelect={() => setOpen(false)}>Your feed</MenuLink>
             <MenuLink href="/account/saved" onSelect={() => setOpen(false)}>Saved events</MenuLink>
-          </MenuGroup>
-
-          <MenuGroup>
             <MenuLink href="/account/events" onSelect={() => setOpen(false)}>My events</MenuLink>
             <MenuLink href="/account/events/new" onSelect={() => setOpen(false)}>+ Submit event</MenuLink>
             <MenuLink href="/account/sources" onSelect={() => setOpen(false)}>Event sources</MenuLink>
