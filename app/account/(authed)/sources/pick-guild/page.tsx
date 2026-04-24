@@ -19,31 +19,49 @@ export default async function PickGuildPage() {
 
   return (
     <SubpageShell
-      title="Pick a Discord server"
-      description={
-        <>
-          These are the servers the PlayIRL bot is currently a member of. Pick the one you want to connect.
-          If yours isn't listed, the bot hasn't joined yet —{" "}
-          <Link href="/account/sources" className="text-blue-600 dark:text-blue-400 hover:underline">
-            go back and invite it
-          </Link>.
-        </>
-      }
+      title="One more step"
+      description="Tell us about the community you just linked. Once we're set, events will start flowing both ways."
     >
       {guilds.length === 0 ? (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          The bot isn't in any servers yet. Invite it first, then come back here.
-        </div>
+        <EmptyState
+          emoji="👀"
+          heading="We don't see the helper in any server yet"
+          body={
+            <>
+              Did you click <span className="font-medium">Authorize</span> inside Discord? If it didn't stick, head{" "}
+              <Link href="/account/sources" className="text-blue-600 dark:text-blue-400 hover:underline">
+                back to step 1
+              </Link>{" "}
+              and try again. Sometimes it takes a few seconds for Discord to register the change.
+            </>
+          }
+        />
       ) : unclaimed.length === 0 ? (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          Every server the bot is in is already connected by someone. If yours is listed,{" "}
-          <Link href="/account/sources" className="text-blue-600 dark:text-blue-400 hover:underline">
-            manage it here
-          </Link>.
-        </div>
+        <EmptyState
+          emoji="🤝"
+          heading="Already connected"
+          body={
+            <>
+              The only Discords available are already linked to other accounts. If one of those is yours,{" "}
+              <Link href="/account/sources" className="text-blue-600 dark:text-blue-400 hover:underline">
+                manage it on the sources page
+              </Link>.
+            </>
+          }
+        />
       ) : (
         <PickGuildForm guilds={unclaimed} />
       )}
     </SubpageShell>
+  );
+}
+
+function EmptyState({ emoji, heading, body }: { emoji: string; heading: string; body: React.ReactNode }) {
+  return (
+    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center space-y-2">
+      <p className="text-4xl">{emoji}</p>
+      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{heading}</p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 max-w-md mx-auto">{body}</p>
+    </div>
   );
 }

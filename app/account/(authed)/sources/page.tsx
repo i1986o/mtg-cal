@@ -11,40 +11,112 @@ export default async function AccountSourcesPage() {
   const user = await requireRole(["user", "organizer", "admin"]);
   const sources = listSourcesForUser(user.id);
   const inviteUrl = botInviteUrl();
+  const hasSources = sources.length > 0;
 
   return (
     <SubpageShell
-      title="Event sources"
-      description="Connect a Discord server to automatically import its scheduled events. Invite the PlayIRL bot, then pick which server you want to sync."
-      maxWidth="max-w-4xl"
-      actions={
-        inviteUrl ? (
-          <>
-            <a
-              href={inviteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#5865F2] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#4752c4] transition inline-flex items-center gap-2"
-            >
-              <DiscordMark />
-              Add bot
-            </a>
-            <Link
-              href="/account/sources/pick-guild"
-              className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
-            >
-              Pick a server
-            </Link>
-          </>
-        ) : (
-          <span className="text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-md px-3 py-2">
-            DISCORD_BOT_CLIENT_ID not set — ask an admin.
-          </span>
-        )
-      }
+      title="Connect your community"
+      description="Link your Discord with PlayIRL to trade events with other MTG groups nearby. You'll share a selection of your events out, and see what other local communities are running."
+      maxWidth="max-w-3xl"
     >
-      <SourcesList sources={sources} />
+      {!inviteUrl ? (
+        <NotAvailableYet />
+      ) : hasSources ? (
+        <>
+          <SourcesList sources={sources} />
+          <div className="pt-2">
+            <GetStartedCard inviteUrl={inviteUrl} compact />
+          </div>
+        </>
+      ) : (
+        <GetStartedCard inviteUrl={inviteUrl} />
+      )}
     </SubpageShell>
+  );
+}
+
+function NotAvailableYet() {
+  return (
+    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 text-center space-y-2">
+      <p className="text-4xl">🔌</p>
+      <p className="text-sm text-gray-700 dark:text-gray-200 font-medium">
+        Community connections aren't open yet
+      </p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+        We're still wiring this up. Check back soon — or drop a note to{" "}
+        <a href="mailto:hello@playirl.gg" className="text-blue-600 dark:text-blue-400 hover:underline">hello@playirl.gg</a>{" "}
+        and we'll let you know when it's live.
+      </p>
+    </div>
+  );
+}
+
+function GetStartedCard({ inviteUrl, compact = false }: { inviteUrl: string; compact?: boolean }) {
+  return (
+    <div className={`bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg ${compact ? "p-4" : "p-6"} space-y-5`}>
+      {!compact && (
+        <div>
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">Connect in two steps</h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            A curated set of events is exchanged — nothing gets shared without matching your community's style. You'll need to be an admin on your Discord to add the helper.
+          </p>
+        </div>
+      )}
+
+      <ol className="space-y-4">
+        <Step
+          n={1}
+          title="Add the helper to your Discord"
+          body={
+            <>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                Opens Discord in a new tab. Pick your server and hit Authorize. The helper only sees your scheduled events — not chat, DMs, or members.
+              </p>
+              <a
+                href={inviteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#5865F2] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#4752c4] transition"
+              >
+                <DiscordMark />
+                Open Discord
+              </a>
+            </>
+          }
+        />
+        <Step
+          n={2}
+          title="Come back and set things up"
+          body={
+            <>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                Confirm your venue and you're linked. Events flow both ways — you'll share out a selection of yours, and see events from other communities in your area.
+              </p>
+              <Link
+                href="/account/sources/pick-guild"
+                className="inline-flex items-center bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
+              >
+                I added it — set it up
+              </Link>
+            </>
+          }
+        />
+      </ol>
+    </div>
+  );
+}
+
+function Step({ n, title, body }: { n: number; title: string; body: React.ReactNode }) {
+  return (
+    <li className="flex gap-3">
+      <span className="shrink-0 w-7 h-7 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-semibold flex items-center justify-center">
+        {n}
+      </span>
+      <div className="flex-1">
+        <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">{title}</h3>
+        <div className="mt-1">{body}</div>
+      </div>
+    </li>
   );
 }
 
