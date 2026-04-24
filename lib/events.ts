@@ -38,6 +38,10 @@ export interface ScrapedEvent {
   latitude?: number | null;
   longitude?: number | null;
   source: string;
+  /** User-connected sources (e.g. private Discord) set owner_id + source_type + status. */
+  owner_id?: string | null;
+  source_type?: string;
+  status?: "active" | "pending";
 }
 
 export function upsertEvents(events: ScrapedEvent[]): {
@@ -51,8 +55,8 @@ export function upsertEvents(events: ScrapedEvent[]): {
   const getStmt = db.prepare("SELECT status, notes, added_date, owner_id, source_type FROM events WHERE id = ?");
 
   const insertStmt = db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, source_type)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', '', ?, ?, 'scraper')
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '', ?, ?, ?, ?)
   `);
 
   // Note: owner_id and source_type are intentionally omitted from UPDATE so they survive scraper re-runs (same pattern as pinned/skip).
@@ -68,10 +72,12 @@ export function upsertEvents(events: ScrapedEvent[]): {
       const existing = getStmt.get(ev.id) as { status: string; notes: string; added_date: string; owner_id: string | null; source_type: string | null } | undefined;
 
       if (!existing) {
-        insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, now, now);
+        const insertStatus = ev.status ?? "active";
+        const insertSourceType = ev.source_type ?? "scraper";
+        insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, insertStatus, now, now, ev.owner_id ?? null, insertSourceType);
         added++;
-      } else if (existing.source_type === "organizer" || existing.owner_id) {
-        // Organizer-owned events are authoritative — never overwritten by scrapers.
+      } else if (existing.source_type === "organizer" || existing.source_type === "user" || existing.source_type === "user-discord" || existing.owner_id) {
+        // User- and organizer-owned events are authoritative — never overwritten by re-scrapes.
         skipped++;
       } else if (existing.status === "pinned") {
         skipped++;
@@ -273,4 +279,26 @@ export function bulkDelete(ids: string[]): number {
 
 export function getEventsByOwner(ownerId: string): EventRow[] {
   return getDb().prepare("SELECT * FROM events WHERE owner_id = ? ORDER BY date ASC, time ASC").all(ownerId) as EventRow[];
+}
+
+export interface PendingEventRow extends EventRow {
+  owner_email: string | null;
+  owner_name: string | null;
+}
+
+export function getPendingEvents(): PendingEventRow[] {
+  return getDb()
+    .prepare(`
+      SELECT e.*, u.email AS owner_email, u.name AS owner_name
+      FROM events e
+      LEFT JOIN users u ON u.id = e.owner_id
+      WHERE e.status = 'pending'
+      ORDER BY e.added_date DESC, e.date ASC
+    `)
+    .all() as PendingEventRow[];
+}
+
+export function countPendingEvents(): number {
+  const row = getDb().prepare("SELECT COUNT(*) AS n FROM events WHERE status = 'pending'").get() as { n: number };
+  return row.n;
 }

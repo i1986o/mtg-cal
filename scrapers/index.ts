@@ -1,5 +1,7 @@
 import { getConfig } from "@/lib/runtime-config";
+import { listEnabledDiscordSources } from "@/lib/user-sources";
 import { validateEvents } from "./schema";
+import type { DiscordGuildSpec } from "./discord";
 
 // Source registry — add new sources here (one line each).
 const SOURCE_MODULES: Record<string, () => Promise<any>> = {
@@ -21,6 +23,12 @@ export interface ScrapedEvent {
   store_url: string;
   detail_url: string;
   source: string;
+  latitude?: number | null;
+  longitude?: number | null;
+  // Optional — used by user-connected sources (e.g. private Discord servers).
+  owner_id?: string | null;
+  source_type?: string;
+  status?: "active" | "pending";
 }
 
 export async function fetchAllSources(): Promise<ScrapedEvent[]> {
@@ -35,7 +43,28 @@ export async function fetchAllSources(): Promise<ScrapedEvent[]> {
     if (sourceConfig === false) continue;
     if (typeof sourceConfig === "object" && sourceConfig.enabled === false) continue;
 
-    const opts = typeof sourceConfig === "object" ? sourceConfig : {};
+    const opts: any = typeof sourceConfig === "object" ? { ...sourceConfig } : {};
+
+    // Merge user-connected Discord sources into the discord scraper's input.
+    if (name === "discord") {
+      let userGuilds: DiscordGuildSpec[] = [];
+      try {
+        userGuilds = listEnabledDiscordSources().map((s) => ({
+          guildId: s.external_id,
+          ownerId: s.user_id,
+          venueName: s.venue_name,
+          venueAddress: s.venue_address,
+          latitude: s.latitude,
+          longitude: s.longitude,
+        }));
+      } catch (err: any) {
+        console.error("[sources] discord user_sources lookup FAILED:", err.message);
+      }
+      if (userGuilds.length > 0) {
+        opts.guilds = userGuilds;
+        console.log(`[sources] discord: +${userGuilds.length} user-connected guild(s)`);
+      }
+    }
 
     try {
       const mod = await loader();

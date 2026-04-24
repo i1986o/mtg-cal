@@ -36,6 +36,12 @@ export async function hasOrganizerAccess(): Promise<boolean> {
   return !!user && !user.suspended && (user.role === "organizer" || user.role === "admin");
 }
 
+/** Any signed-in, non-suspended user (including base `user` role). */
+export async function hasAccountAccess(): Promise<boolean> {
+  const user = await getCurrentUser();
+  return !!user && !user.suspended;
+}
+
 /**
  * Server Component / route handler guard. Redirects to login when the user
  * lacks the required role. Pass a single role or an array.
@@ -43,7 +49,7 @@ export async function hasOrganizerAccess(): Promise<boolean> {
 export async function requireRole(role: Role | Role[]): Promise<CurrentUser> {
   const allowed = Array.isArray(role) ? role : [role];
   const needsAdmin = allowed.includes("admin") && allowed.length === 1;
-  const loginPath = needsAdmin ? "/admin/login" : "/organizer/login";
+  const loginPath = needsAdmin ? "/admin/login" : "/account/login";
 
   const user = await getCurrentUser();
   if (!user || user.suspended || !allowed.includes(user.role)) {

@@ -4,11 +4,11 @@ import { useSearchParams } from "next/navigation";
 
 interface Provider { id: string; name: string }
 
-export default function OrganizerLoginForm({ providers }: { providers: Provider[] }) {
+export default function AccountLoginForm({ providers }: { providers: Provider[] }) {
   const [email, setEmail] = useState("");
   const [csrfToken, setCsrfToken] = useState("");
   const searchParams = useSearchParams();
-  const from = searchParams.get("from") || "/organizer";
+  const from = searchParams.get("from") || "/account";
 
   useEffect(() => {
     fetch("/api/auth/csrf").then((r) => r.json()).then((d) => setCsrfToken(d.csrfToken));
@@ -23,9 +23,9 @@ export default function OrganizerLoginForm({ providers }: { providers: Provider[
     <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 p-4">
       <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-5">
         <div className="text-center">
-          <h1 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Organizer sign in</h1>
+          <h1 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Sign in to PlayIRL</h1>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Sign in to manage your events. Organizer access is invite-only — once you sign in, ask the admin to promote you.
+            Submit events and connect event sources. No invite needed — sign in and get started.
           </p>
         </div>
 

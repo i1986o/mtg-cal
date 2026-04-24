@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import OrganizerLoginForm from "./OrganizerLoginForm";
+import AccountLoginForm from "./AccountLoginForm";
 
 export const dynamic = "force-dynamic";
 
@@ -17,11 +17,11 @@ async function getProviders(): Promise<{ id: string; name: string }[]> {
   }
 }
 
-export default async function OrganizerLoginPage() {
+export default async function AccountLoginPage() {
   const providers = await getProviders();
   return (
     <Suspense fallback={null}>
-      <OrganizerLoginForm providers={providers} />
+      <AccountLoginForm providers={providers} />
     </Suspense>
   );
 }

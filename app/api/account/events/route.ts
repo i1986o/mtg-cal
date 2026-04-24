@@ -1,4 +1,4 @@
-import { getCurrentUser, hasOrganizerAccess } from "@/lib/session";
+import { getCurrentUser, hasAccountAccess } from "@/lib/session";
 import { getEventsByOwner, createEvent } from "@/lib/events";
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  if (!(await hasOrganizerAccess())) {
+  if (!(await hasAccountAccess())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const user = await getCurrentUser();
@@ -15,7 +15,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  if (!(await hasOrganizerAccess())) {
+  if (!(await hasAccountAccess())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const user = await getCurrentUser();
@@ -26,15 +26,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "title and date are required" }, { status: 400 });
   }
 
-  // Prefixed organizer event IDs guarantee no collision with scraper fingerprints.
-  const id = `org_${user.id}_${randomUUID()}`;
+  const publishesImmediately = user.role === "organizer" || user.role === "admin";
+  const idPrefix = publishesImmediately ? "org" : "user";
+  const id = `${idPrefix}_${user.id}_${randomUUID()}`;
+  const sourceTypeForRole = publishesImmediately ? "organizer" : "user";
+
   const event = createEvent({
     ...body,
     id,
-    source: `organizer:${user.id}`,
-    source_type: "organizer",
+    source: `${sourceTypeForRole}:${user.id}`,
+    source_type: sourceTypeForRole,
     owner_id: user.id,
-    status: "active",
+    status: publishesImmediately ? "active" : "pending",
   });
   return NextResponse.json({ ok: true, event });
 }

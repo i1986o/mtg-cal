@@ -6,8 +6,8 @@ import EventForm from "../../../../../admin/_components/EventForm";
 
 export const dynamic = "force-dynamic";
 
-export default async function OrganizerEditEventPage({ params }: { params: Promise<{ id: string }> }) {
-  const user = await requireRole(["organizer", "admin"]);
+export default async function AccountEditEventPage({ params }: { params: Promise<{ id: string }> }) {
+  const user = await requireRole(["user", "organizer", "admin"]);
   const { id } = await params;
   const event = getEvent(id);
   if (!event) notFound();
@@ -19,14 +19,14 @@ export default async function OrganizerEditEventPage({ params }: { params: Promi
         <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
           Edit event
         </h1>
-        <Link href="/organizer/events" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+        <Link href="/account/events" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
           ← Back to my events
         </Link>
       </div>
       <EventForm
-        endpoint={`/api/organizer/events/${encodeURIComponent(event.id)}`}
+        endpoint={`/api/account/events/${encodeURIComponent(event.id)}`}
         method="PATCH"
-        redirectTo="/organizer/events"
+        redirectTo="/account/events"
         showStatus={false}
         initial={{
           title: event.title,

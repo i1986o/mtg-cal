@@ -9,6 +9,7 @@ import FloatingToolbar from "./floating-toolbar";
 import AboutInfoButton from "./about-info-button";
 import DayCard from "./day-card";
 import Reveal from "./reveal";
+import AccountChip from "./account-chip";
 
 function dayHeadingLabel(dateStr: string, todayStr: string, tomorrowStr: string): string {
   const d = new Date(dateStr + "T12:00:00");
@@ -61,6 +62,7 @@ export default async function HomePage({
 
   return (
     <main className="w-full max-w-3xl mx-auto px-4 py-8">
+      <AccountChip />
       <FloatingToolbar currentView={currentView} />
 
       {/* Hero header */}
@@ -167,7 +169,8 @@ export default async function HomePage({
             <a href="/about" className="hover:text-gray-900 dark:hover:text-white transition">About PlayIRL.GG</a>
             <a href="https://github.com/i1986o/mtg-cal" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">GitHub</a>
             <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">Join the Discord</a>
-            <a href="mailto:CardSlingerTCG@gmail.com?subject=PlayIRL.GG%20event%20submission" className="hover:text-gray-900 dark:hover:text-white transition">Submit your events</a>
+            <a href="/account/events/new" className="hover:text-gray-900 dark:hover:text-white transition">Submit your events</a>
+            <a href="/account" className="hover:text-gray-900 dark:hover:text-white transition">Sign in / My account</a>
             <a href="/admin/login" className="hover:text-gray-900 dark:hover:text-white transition text-gray-400 dark:text-gray-500">Admin login</a>
           </div>
         </div>
