@@ -24,6 +24,8 @@ function getTimeOptions() {
 const TIME_OPTIONS = getTimeOptions();
 
 const CHIP_TRIGGER = "inline-block underline decoration-dotted underline-offset-4 decoration-gray-400 dark:decoration-gray-500 text-gray-900 dark:text-white font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer bg-transparent hover:decoration-solid hover:decoration-gray-900 dark:hover:decoration-white hover:text-gray-600 dark:hover:text-gray-300 active:opacity-60 transition-all duration-150 px-1";
+// Connector words ("events within", "miles of", "in") — Inter, body-text size, neutral weight, normal tracking. Matches the tagline rather than the slab madlib elements.
+const CONNECTOR = "font-[family-name:var(--font-inter)] font-normal text-sm tracking-normal";
 const DROPDOWN_BASE = "absolute top-full mt-2 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-max";
 const DROPDOWN_ALIGN = { start: "left-0", center: "left-1/2 -translate-x-1/2", end: "right-0" };
 const OPTION = "w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-left hover:bg-gray-50 dark:hover:bg-white/5 transition-colors";
@@ -178,10 +180,8 @@ export default function RadiusSelector({
         </div>
       )}
       <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 text-sm sm:text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
-        <span className="text-gray-900 dark:text-white font-[family-name:var(--font-ultra)]">{eventCount}</span>
-
         <ChipSelect
-          label={currentFormat || "MTG"}
+          label={currentFormat || "All MTG"}
           heading="Format"
           options={formatOptions}
           value={currentFormat || ""}
@@ -190,7 +190,7 @@ export default function RadiusSelector({
           align="start"
         />
 
-        <span>events within</span>
+        <span className={CONNECTOR}>events within</span>
 
         <ChipSelect
           label={`${currentRadius}`}
@@ -200,13 +200,13 @@ export default function RadiusSelector({
           onChange={(v) => updateParam("radius", v)}
         />
 
-        <span>miles of</span>
+        <span className={CONNECTOR}>miles of</span>
 
         <button onClick={handleCityClick} className={CHIP_TRIGGER}>
           Philly
         </button>
 
-        <span>in</span>
+        <span className={CONNECTOR}>in</span>
 
         <ChipSelect
           label={TIME_OPTIONS.find((t) => t.value === String(currentDays))?.label || "This week"}
@@ -217,13 +217,18 @@ export default function RadiusSelector({
           align="end"
         />
 
-        <span className="text-gray-400 dark:text-gray-500">,</span>
+        <span className={CONNECTOR}>=</span>
+        <span className="inline-flex items-center justify-center min-w-[1.75rem] px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-xs sm:text-sm font-semibold tabular-nums leading-none">{eventCount}</span>
 
-        <button onClick={handleSubscribeClick} className={`${CHIP_TRIGGER} inline-flex items-center gap-1`}>
-          subscribe
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+        <button
+          onClick={handleSubscribeClick}
+          title="Subscribe to calendar"
+          className="ml-1 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-[#0c1220] border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 text-xs hover:border-gray-300 dark:hover:border-white/20 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#141c2e] active:opacity-70 transition-all duration-150 cursor-pointer focus:outline-none"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 3v3m8-3v3M4 9h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
           </svg>
+          subscribe
         </button>
       </p>
     </>

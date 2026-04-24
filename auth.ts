@@ -34,7 +34,6 @@ if (process.env.AUTH_RESEND_KEY && process.env.AUTH_EMAIL_FROM) {
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  debug: true,
   adapter: SqliteAdapter(),
   session: { strategy: "database" },
   providers,
