@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-export default function OrganizerLogout() {
+export default function AccountLogout() {
   const router = useRouter();
   async function logout() {
     const csrfRes = await fetch("/api/auth/csrf");
@@ -9,9 +9,9 @@ export default function OrganizerLogout() {
     await fetch("/api/auth/signout", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ csrfToken, callbackUrl: "/organizer/login" }).toString(),
+      body: new URLSearchParams({ csrfToken, callbackUrl: "/account/login" }).toString(),
     });
-    router.push("/organizer/login");
+    router.push("/account/login");
     router.refresh();
   }
   return (

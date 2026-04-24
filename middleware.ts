@@ -20,7 +20,7 @@ export function middleware(req: NextRequest) {
   // Always allow the login pages and the auth endpoints themselves.
   if (
     pathname === "/admin/login" ||
-    pathname === "/organizer/login" ||
+    pathname === "/account/login" ||
     pathname.startsWith("/api/auth/") ||
     pathname.startsWith("/api/admin/login") ||
     pathname.startsWith("/api/admin/logout")
@@ -29,9 +29,9 @@ export function middleware(req: NextRequest) {
   }
 
   const isAdminPath = pathname === "/admin" || pathname.startsWith("/admin/") || pathname.startsWith("/api/admin/");
-  const isOrganizerPath = pathname === "/organizer" || pathname.startsWith("/organizer/") || pathname.startsWith("/api/organizer/");
+  const isAccountPath = pathname === "/account" || pathname.startsWith("/account/") || pathname.startsWith("/api/account/");
 
-  if (!isAdminPath && !isOrganizerPath) return NextResponse.next();
+  if (!isAdminPath && !isAccountPath) return NextResponse.next();
 
   if (hasAnySession(req)) return NextResponse.next();
 
@@ -39,11 +39,11 @@ export function middleware(req: NextRequest) {
   if (pathname.startsWith("/api/")) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const loginUrl = new URL(isOrganizerPath ? "/organizer/login" : "/admin/login", req.url);
+  const loginUrl = new URL(isAccountPath ? "/account/login" : "/admin/login", req.url);
   loginUrl.searchParams.set("from", pathname);
   return NextResponse.redirect(loginUrl);
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/organizer/:path*", "/api/admin/:path*", "/api/organizer/:path*"],
+  matcher: ["/admin/:path*", "/account/:path*", "/api/admin/:path*", "/api/account/:path*"],
 };

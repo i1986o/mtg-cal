@@ -107,6 +107,25 @@ function initSchema(db: Database.Database) {
       description TEXT DEFAULT '',
       updated_at  TEXT DEFAULT (datetime('now'))
     );
+
+    CREATE TABLE IF NOT EXISTS user_sources (
+      id             TEXT PRIMARY KEY,
+      user_id        TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      kind           TEXT NOT NULL,
+      external_id    TEXT NOT NULL,
+      label          TEXT NOT NULL,
+      venue_name     TEXT DEFAULT '',
+      venue_address  TEXT DEFAULT '',
+      latitude       REAL,
+      longitude      REAL,
+      enabled        INTEGER NOT NULL DEFAULT 1,
+      created_at     TEXT DEFAULT (datetime('now')),
+      last_synced_at TEXT,
+      UNIQUE(kind, external_id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_user_sources_user ON user_sources(user_id);
+    CREATE INDEX IF NOT EXISTS idx_user_sources_kind ON user_sources(kind);
   `);
 
   // Migrations — add columns if they don't exist yet
@@ -131,8 +150,7 @@ function initSchema(db: Database.Database) {
 
   // Seed starter feature flags
   const insertFlag = db.prepare("INSERT OR IGNORE INTO feature_flags (key, enabled, description) VALUES (?, ?, ?)");
-  insertFlag.run("organizer_portal_enabled", 1, "Kill-switch for the /organizer portal.");
-  insertFlag.run("public_organizer_signup", 0, "Allow users to self-request organizer role.");
-  insertFlag.run("event_submissions_open", 0, "Allow `user` role to submit events for review.");
+  insertFlag.run("organizer_portal_enabled", 1, "Kill-switch for the /account portal.");
+  insertFlag.run("public_organizer_signup", 0, "Allow new signups to auto-promote from `user` to `organizer` (skip review).");
   insertFlag.run("calendar_v2", 0, "Experimental calendar view redesign.");
 }

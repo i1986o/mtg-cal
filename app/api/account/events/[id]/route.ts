@@ -1,9 +1,9 @@
-import { getCurrentUser, hasOrganizerAccess } from "@/lib/session";
+import { getCurrentUser, hasAccountAccess } from "@/lib/session";
 import { getEvent, updateEvent, deleteEvent } from "@/lib/events";
 import { NextResponse } from "next/server";
 
 async function loadOwned(id: string) {
-  if (!(await hasOrganizerAccess())) return { error: "Unauthorized", status: 401 } as const;
+  if (!(await hasAccountAccess())) return { error: "Unauthorized", status: 401 } as const;
   const user = await getCurrentUser();
   if (!user) return { error: "Unauthorized", status: 401 } as const;
   const event = getEvent(id);
@@ -27,10 +27,11 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   const result = await loadOwned(id);
   if ("error" in result) return NextResponse.json({ error: result.error }, { status: result.status });
   const body = await req.json();
-  // Organizers cannot reassign ownership or change source/source_type.
   delete body.owner_id;
   delete body.source;
   delete body.source_type;
+  // Non-admin users cannot self-approve by flipping status — drop it.
+  if (result.user.role !== "admin") delete body.status;
   const event = updateEvent(id, body);
   return NextResponse.json({ ok: true, event });
 }

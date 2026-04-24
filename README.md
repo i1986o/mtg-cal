@@ -33,12 +33,12 @@ GitHub Actions runs daily at 10am UTC and commits the updated `.ics` files + `da
 
 `lib/config.ts` holds the static **defaults** (location, radius, days-ahead, source toggles). Once the app is running, the admin can override any of these from `/admin/config` — overrides are stored in the SQLite `settings` table and read at scrape time via `lib/runtime-config.ts`. To change defaults at the code level, edit `lib/config.ts`.
 
-## Admin & Organizer Portals
+## Admin & Account Portals
 
 There are two authenticated areas:
 
-- **`/admin`** — the operator's dashboard: full event CRUD, user management, feature flags, runtime config, manual scraper runs.
-- **`/organizer`** — for invited store owners / TOs: dashboard + create/edit/delete only their own events. Organizer access is **invite-only**: anyone can sign in (and starts as `user`), then the admin promotes them from `/admin/users`.
+- **`/admin`** — the operator's dashboard: full event CRUD, user management, feature flags, runtime config, manual scraper runs, pending-event approval queue.
+- **`/account`** — public-facing user portal. Anyone can sign in to submit events and connect private event sources (e.g. their own Discord server). Submissions from base `user` accounts land as `pending` and require admin approval before appearing on the public calendar. `organizer` and `admin` accounts publish immediately.
 
 ### Auth setup
 

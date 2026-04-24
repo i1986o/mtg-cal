@@ -2,10 +2,14 @@ import Sidebar from "../_components/Sidebar";
 import RoleBadge from "../_components/RoleBadge";
 import LogoutButton from "../_components/LogoutButton";
 import { getCurrentUser } from "@/lib/session";
+import { countPendingEvents } from "@/lib/events";
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   // Middleware ensures only sessioned requests reach this layout.
   const user = await getCurrentUser();
+  const pendingCount = countPendingEvents();
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex">
@@ -22,7 +26,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </div>
         </div>
         <div className="flex-1 overflow-y-auto">
-          <Sidebar />
+          <Sidebar pendingCount={pendingCount} />
         </div>
         <div className="p-3 border-t border-gray-200 dark:border-gray-800">
           <LogoutButton />
