@@ -112,6 +112,91 @@ function ChipSelect({
   );
 }
 
+function SubscribeDropdown({ currentFormat }: { currentFormat?: string }) {
+  const [status, setStatus] = useState<"closed" | "open" | "closing">("closed");
+  const statusRef = useRef<"closed" | "open" | "closing">("closed");
+  const ref = useRef<HTMLDivElement>(null);
+
+  const close = useCallback(() => {
+    if (statusRef.current !== "open") return;
+    statusRef.current = "closing";
+    setStatus("closing");
+    setTimeout(() => {
+      statusRef.current = "closed";
+      setStatus("closed");
+    }, 140);
+  }, []);
+
+  const open = useCallback(() => {
+    statusRef.current = "open";
+    setStatus("open");
+  }, []);
+
+  useClickOutside(ref, close);
+
+  // Build webcal:// URLs dynamically so they work in dev + prod
+  const host = typeof window !== "undefined" ? window.location.host : "playirl.gg";
+  const formatSlug = currentFormat ? currentFormat.toLowerCase() : null;
+  const allUrl = `webcal://${host}/calendar`;
+  const formatUrl = formatSlug ? `webcal://${host}/calendar/${formatSlug}` : null;
+  const downloadUrl = `https://${host}/calendar`;
+
+  return (
+    <div ref={ref} className="relative ml-1 inline-block">
+      <button
+        onClick={() => status === "open" ? close() : open()}
+        title="Subscribe to calendar"
+        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-[#0c1220] border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 text-xs hover:border-gray-300 dark:hover:border-white/20 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#141c2e] active:opacity-70 transition-all duration-150 cursor-pointer focus:outline-none"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 3v3m8-3v3M4 9h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+        </svg>
+        subscribe
+      </button>
+      {status !== "closed" && (
+        <div className={`${DROPDOWN_BASE} right-0 ${status === "closing" ? "anim-scale-out" : "anim-scale-in"}`}>
+          <div className="px-4 py-2.5 border-b border-gray-100 dark:border-white/8">
+            <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-400 dark:text-gray-500">Subscribe</p>
+          </div>
+          <a
+            href={allUrl}
+            onClick={close}
+            className={`${OPTION} text-gray-700 dark:text-gray-300`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 3v3m8-3v3M4 9h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+            </svg>
+            All events
+          </a>
+          {formatUrl && (
+            <a
+              href={formatUrl}
+              onClick={close}
+              className={`${OPTION} text-gray-700 dark:text-gray-300`}
+            >
+              <span className={`w-2 h-2 rounded-full shrink-0 ${FORMAT_DOT[currentFormat!] || "bg-gray-400"}`} />
+              {currentFormat} only
+            </a>
+          )}
+          <div className="border-t border-gray-100 dark:border-white/8 mt-1 pt-1">
+            <a
+              href={downloadUrl}
+              download="mtg-events.ics"
+              onClick={close}
+              className={`${OPTION} text-gray-500 dark:text-gray-400 text-xs`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3" />
+              </svg>
+              Download .ics
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function RadiusSelector({
   currentRadius,
   currentDays,
@@ -136,7 +221,6 @@ export default function RadiusSelector({
   }
 
   const [toastPos, setToastPos] = useState<{ top: number; left: number } | null>(null);
-  const [subscribeToast, setSubscribeToast] = useState<{ top: number; left: number } | null>(null);
 
   function clampToast(rect: DOMRect) {
     const margin = 80;
@@ -147,11 +231,6 @@ export default function RadiusSelector({
   function handleCityClick(e: React.MouseEvent) {
     setToastPos(clampToast((e.currentTarget as HTMLElement).getBoundingClientRect()));
     setTimeout(() => setToastPos(null), 2500);
-  }
-
-  function handleSubscribeClick(e: React.MouseEvent) {
-    setSubscribeToast(clampToast((e.currentTarget as HTMLElement).getBoundingClientRect()));
-    setTimeout(() => setSubscribeToast(null), 2500);
   }
 
   const formatOptions = [
@@ -169,14 +248,6 @@ export default function RadiusSelector({
           style={{ top: `${toastPos.top}px`, left: `${toastPos.left}px`, transform: "translateX(-50%)" }}
         >
           {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
-        </div>
-      )}
-      {subscribeToast && (
-        <div
-          className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
-          style={{ top: `${subscribeToast.top}px`, left: `${subscribeToast.left}px`, transform: "translateX(-50%)" }}
-        >
-          {"\uD83D\uDCC5"} Subscribe coming soon!
         </div>
       )}
       <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 text-sm sm:text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
@@ -220,16 +291,7 @@ export default function RadiusSelector({
         <span className={CONNECTOR}>=</span>
         <span className="inline-flex items-center justify-center min-w-[1.75rem] px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-xs sm:text-sm font-semibold tabular-nums leading-none">{eventCount}</span>
 
-        <button
-          onClick={handleSubscribeClick}
-          title="Subscribe to calendar"
-          className="ml-1 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-[#0c1220] border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 text-xs hover:border-gray-300 dark:hover:border-white/20 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#141c2e] active:opacity-70 transition-all duration-150 cursor-pointer focus:outline-none"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8 3v3m8-3v3M4 9h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
-          </svg>
-          subscribe
-        </button>
+        <SubscribeDropdown currentFormat={currentFormat} />
       </p>
     </>
   );

@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
-import { isAuthenticated as isLegacyAuthenticated } from "./auth";
 
 export type Role = "admin" | "organizer" | "user";
 
@@ -26,21 +25,13 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
   };
 }
 
-/**
- * Returns true if the current request has admin access via either:
- *  - The legacy HMAC password cookie (break-glass admin), OR
- *  - An Auth.js session whose user.role === "admin".
- *
- * Use this in /api/admin/* handlers to keep them backward compatible.
- */
+/** Returns true if the current request has an active admin Auth.js session. */
 export async function hasAdminAccess(): Promise<boolean> {
-  if (await isLegacyAuthenticated()) return true;
   const user = await getCurrentUser();
   return user?.role === "admin" && !user.suspended;
 }
 
 export async function hasOrganizerAccess(): Promise<boolean> {
-  if (await isLegacyAuthenticated()) return true;
   const user = await getCurrentUser();
   return !!user && !user.suspended && (user.role === "organizer" || user.role === "admin");
 }
@@ -54,10 +45,6 @@ export async function requireRole(role: Role | Role[]): Promise<CurrentUser> {
   const needsAdmin = allowed.includes("admin") && allowed.length === 1;
   const loginPath = needsAdmin ? "/admin/login" : "/organizer/login";
 
-  // Legacy admin cookie satisfies any required role (it's the break-glass path).
-  if (await isLegacyAuthenticated()) {
-    return { id: "__legacy_admin__", email: "", name: "Admin", image: null, role: "admin", suspended: false };
-  }
   const user = await getCurrentUser();
   if (!user || user.suspended || !allowed.includes(user.role)) {
     redirect(loginPath);
