@@ -126,6 +126,37 @@ function initSchema(db: Database.Database) {
 
     CREATE INDEX IF NOT EXISTS idx_user_sources_user ON user_sources(user_id);
     CREATE INDEX IF NOT EXISTS idx_user_sources_kind ON user_sources(kind);
+
+    CREATE TABLE IF NOT EXISTS user_preferences (
+      user_id       TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+      formats       TEXT DEFAULT '[]',
+      radius_miles  INTEGER DEFAULT 10,
+      days_ahead    INTEGER DEFAULT 7,
+      updated_at    TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS event_saves (
+      user_id    TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      event_id   TEXT NOT NULL REFERENCES events(id) ON DELETE CASCADE,
+      created_at TEXT DEFAULT (datetime('now')),
+      PRIMARY KEY (user_id, event_id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_event_saves_user ON event_saves(user_id);
+    CREATE INDEX IF NOT EXISTS idx_event_saves_event ON event_saves(event_id);
+
+    CREATE TABLE IF NOT EXISTS admin_actions (
+      id              TEXT PRIMARY KEY,
+      admin_id        TEXT REFERENCES users(id) ON DELETE SET NULL,
+      target_user_id  TEXT REFERENCES users(id) ON DELETE SET NULL,
+      target_event_id TEXT,
+      action          TEXT NOT NULL,
+      reason          TEXT DEFAULT '',
+      created_at      TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_admin_actions_target_user ON admin_actions(target_user_id);
+    CREATE INDEX IF NOT EXISTS idx_admin_actions_admin ON admin_actions(admin_id);
   `);
 
   // Migrations — add columns if they don't exist yet
@@ -133,6 +164,7 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE events ADD COLUMN longitude REAL"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN owner_id TEXT REFERENCES users(id) ON DELETE SET NULL"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN source_type TEXT DEFAULT 'scraper'"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN suspended_reason TEXT DEFAULT ''"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");

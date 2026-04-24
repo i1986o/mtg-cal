@@ -4,6 +4,8 @@ import Link from "next/link";
 import { FORMAT_BADGE, FORMAT_BADGE_DEFAULT } from "@/lib/format-style";
 import { formatEventTime } from "@/lib/format-time";
 import { useStickySentinel } from "@/lib/use-sticky-sentinel";
+import SaveEventButton from "./save-event-button";
+import AdminEventActions from "./admin-event-actions";
 
 interface EventRow {
   id: string;
@@ -26,6 +28,9 @@ export default function DayCard({
   events,
   headingLabel,
   staggerBase = 0,
+  signedIn = false,
+  isAdmin = false,
+  savedEventIds,
 }: {
   date: string;
   weekday: string;
@@ -35,6 +40,9 @@ export default function DayCard({
   events: EventRow[];
   headingLabel?: string;
   staggerBase?: number;
+  signedIn?: boolean;
+  isAdmin?: boolean;
+  savedEventIds?: Set<string>;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { sentinelRef, isStuck } = useStickySentinel("-48px 0px 0px 0px");
@@ -147,6 +155,13 @@ export default function DayCard({
                 <span className={`text-xs font-[family-name:var(--font-ultra)] font-bold transition-transform duration-200 group-hover:translate-x-0.5 ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
                   {ev.cost === "Free" ? "Free" : ev.cost || "\u2014"}
                 </span>
+                <SaveEventButton
+                  eventId={ev.id}
+                  initiallySaved={savedEventIds?.has(ev.id) ?? false}
+                  compact
+                  signedIn={signedIn}
+                />
+                {isAdmin && <AdminEventActions eventId={ev.id} />}
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0 text-gray-300 dark:text-gray-600 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
