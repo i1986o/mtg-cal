@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { geocodeAddress } from "@/lib/geocode";
 import { FORMAT_SUGGESTIONS } from "@/lib/format-style";
+import VenueAutocomplete, { type Venue } from "./VenueAutocomplete";
 
 export interface EventFormValues {
   id?: string;
@@ -67,6 +68,7 @@ export default function EventForm({
   const [values, setValues] = useState<EventFormValues>({ ...EMPTY, ...initial });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [venueFilled, setVenueFilled] = useState(false);
   const geoToken = useRef(0);
 
   // Cost UI state — derived from values.cost but kept local so "Paid with no
@@ -84,6 +86,21 @@ export default function EventForm({
     setCostPaid(nextPaid);
     setCostAmount(nextAmount);
     setValues((v) => ({ ...v, cost: serializeCost(nextPaid, nextAmount) }));
+  }
+
+  // Pulled from a known venue suggestion — fill in the details we have, but
+  // don't overwrite fields the user has already typed manually (except the
+  // hidden coordinates, which are always plumbing).
+  function applyVenue(venue: Venue) {
+    setValues((v) => ({
+      ...v,
+      location: venue.name,
+      address: v.address.trim() ? v.address : venue.address,
+      store_url: v.store_url.trim() ? v.store_url : venue.store_url,
+      latitude: venue.latitude != null ? String(venue.latitude) : v.latitude,
+      longitude: venue.longitude != null ? String(venue.longitude) : v.longitude,
+    }));
+    setVenueFilled(true);
   }
 
   // Auto-look-up coordinates when the address leaves focus. Users never see
@@ -158,8 +175,24 @@ export default function EventForm({
         </Field>
       </div>
 
-      <Field label="Location (venue name)">
-        <input className={FIELD} value={values.location} onChange={field("location")} />
+      <Field
+        label="Location (venue name)"
+        hint={
+          venueFilled
+            ? "We filled in what we know. Edit anything that's changed."
+            : "Start typing — we'll suggest venues we already know."
+        }
+      >
+        <VenueAutocomplete
+          value={values.location}
+          onChange={(next) => {
+            setValues((v) => ({ ...v, location: next }));
+            if (venueFilled) setVenueFilled(false);
+          }}
+          onPick={applyVenue}
+          className={FIELD}
+          placeholder="e.g. Hamilton's Hand"
+        />
       </Field>
 
       <Field label="Address">
