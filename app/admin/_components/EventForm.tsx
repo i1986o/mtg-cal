@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { geocodeAddress } from "@/lib/geocode";
 import { FORMAT_SUGGESTIONS } from "@/lib/format-style";
 import VenueAutocomplete, { type Venue } from "./VenueAutocomplete";
+import FormatCombobox from "./FormatCombobox";
 
 export interface EventFormValues {
   id?: string;
@@ -160,18 +161,13 @@ export default function EventForm({
           <input className={FIELD} type="time" value={values.time} onChange={field("time")} placeholder="HH:MM" />
         </Field>
         <Field label="Format">
-          <input
-            className={FIELD}
+          <FormatCombobox
             value={values.format}
-            onChange={field("format")}
-            list="event-format-suggestions"
+            onChange={(next) => setValues((v) => ({ ...v, format: next }))}
+            options={FORMAT_SUGGESTIONS}
+            className={FIELD}
             placeholder="Start typing…"
           />
-          <datalist id="event-format-suggestions">
-            {FORMAT_SUGGESTIONS.map((f) => (
-              <option key={f} value={f} />
-            ))}
-          </datalist>
         </Field>
       </div>
 
