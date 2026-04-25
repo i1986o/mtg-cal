@@ -35,3 +35,22 @@ export const FORMAT_BADGE_DEFAULT =
   "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30";
 
 export const FORMAT_EMOJI_DEFAULT = "\uD83C\uDCCF";
+
+/**
+ * Canonical format list shown in the event-form dropdown. Matches what the
+ * scrapers emit today (see scrapers/discord.ts extractFormat and WotC API
+ * format names) so admin-submitted and scraped events share one vocabulary.
+ * The form still accepts free-text for one-off formats.
+ */
+export const FORMAT_SUGGESTIONS = [
+  "Commander",
+  "Modern",
+  "Standard",
+  "Pioneer",
+  "Legacy",
+  "Pauper",
+  "Draft",
+  "Sealed",
+  "Dungeons and Dragons Event",
+  "New Player Event",
+] as const;
