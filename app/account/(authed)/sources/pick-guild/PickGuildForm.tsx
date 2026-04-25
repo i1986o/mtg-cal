@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { BotGuild } from "@/lib/discord-bot";
+import { geocodeAddress } from "@/lib/geocode";
 
 export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
 
   const selectedGuild = guilds.find((g) => g.id === selected);
 
-  async function geocodeAddress(value: string) {
+  async function lookupAddress(value: string) {
     const v = value.trim();
     if (!v) {
       setCoords(null);
@@ -26,23 +27,12 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
     }
     const myToken = ++geoToken.current;
     setAddressStatus("checking");
-    try {
-      const url = new URL("https://nominatim.openstreetmap.org/search");
-      url.searchParams.set("q", v);
-      url.searchParams.set("format", "json");
-      url.searchParams.set("limit", "1");
-      const res = await fetch(url.toString(), { headers: { "Accept-Language": "en" } });
-      const data = (await res.json()) as Array<{ lat: string; lon: string }>;
-      if (myToken !== geoToken.current) return; // stale
-      if (data.length === 0) {
-        setCoords(null);
-        setAddressStatus("missing");
-      } else {
-        setCoords({ lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) });
-        setAddressStatus("found");
-      }
-    } catch {
-      if (myToken !== geoToken.current) return;
+    const result = await geocodeAddress(v);
+    if (myToken !== geoToken.current) return;
+    if (result) {
+      setCoords({ lat: result.latitude, lng: result.longitude });
+      setAddressStatus("found");
+    } else {
       setCoords(null);
       setAddressStatus("missing");
     }
@@ -139,7 +129,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
               if (addressStatus !== "idle") setAddressStatus("idle");
               setCoords(null);
             }}
-            onBlur={(e) => geocodeAddress(e.target.value)}
+            onBlur={(e) => lookupAddress(e.target.value)}
             placeholder="Street, city, state"
             className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
           />
