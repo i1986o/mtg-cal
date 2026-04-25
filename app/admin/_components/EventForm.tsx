@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { geocodeAddress } from "@/lib/geocode";
+import { FORMAT_SUGGESTIONS } from "@/lib/format-style";
 
 export interface EventFormValues {
   id?: string;
@@ -29,6 +30,26 @@ const EMPTY: EventFormValues = {
 
 const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
+/**
+ * Stored cost strings use "Free" or "$N" (matches scraper output). Parse into
+ * a {paid, amount} pair for the UI, then serialize back on change.
+ */
+function parseCost(stored: string): { paid: boolean; amount: string } {
+  const s = (stored ?? "").trim();
+  if (!s) return { paid: false, amount: "" };
+  if (/^free$/i.test(s)) return { paid: false, amount: "" };
+  const m = s.match(/\$?\s*([0-9]+(?:\.[0-9]+)?)/);
+  if (m) return { paid: true, amount: m[1] };
+  return { paid: true, amount: s }; // fallback — preserve whatever was stored
+}
+
+function serializeCost(paid: boolean, amount: string): string {
+  if (!paid) return "Free";
+  const a = amount.trim();
+  if (!a) return ""; // treat "paid but no amount entered" as unspecified
+  return `$${a}`;
+}
+
 export default function EventForm({
   initial,
   endpoint,
@@ -48,9 +69,21 @@ export default function EventForm({
   const [error, setError] = useState("");
   const geoToken = useRef(0);
 
+  // Cost UI state — derived from values.cost but kept local so "Paid with no
+  // amount yet" doesn't immediately write an empty string back.
+  const initialCost = parseCost(values.cost);
+  const [costPaid, setCostPaid] = useState<boolean>(initialCost.paid);
+  const [costAmount, setCostAmount] = useState<string>(initialCost.amount);
+
   function field<K extends keyof EventFormValues>(key: K) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setValues((v) => ({ ...v, [key]: e.target.value }));
+  }
+
+  function updateCost(nextPaid: boolean, nextAmount: string) {
+    setCostPaid(nextPaid);
+    setCostAmount(nextAmount);
+    setValues((v) => ({ ...v, cost: serializeCost(nextPaid, nextAmount) }));
   }
 
   // Auto-look-up coordinates when the address leaves focus. Users never see
@@ -110,7 +143,18 @@ export default function EventForm({
           <input className={FIELD} type="time" value={values.time} onChange={field("time")} placeholder="HH:MM" />
         </Field>
         <Field label="Format">
-          <input className={FIELD} value={values.format} onChange={field("format")} placeholder="Commander, Modern, …" />
+          <input
+            className={FIELD}
+            value={values.format}
+            onChange={field("format")}
+            list="event-format-suggestions"
+            placeholder="Start typing…"
+          />
+          <datalist id="event-format-suggestions">
+            {FORMAT_SUGGESTIONS.map((f) => (
+              <option key={f} value={f} />
+            ))}
+          </datalist>
         </Field>
       </div>
 
@@ -123,15 +167,66 @@ export default function EventForm({
       </Field>
 
       <Field label="Cost">
-        <input className={FIELD} value={values.cost} onChange={field("cost")} placeholder="$5, Free, …" />
+        <div className="flex flex-wrap items-center gap-4">
+          <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="radio"
+              name="cost-kind"
+              checked={!costPaid}
+              onChange={() => updateCost(false, costAmount)}
+            />
+            Free
+          </label>
+          <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="radio"
+              name="cost-kind"
+              checked={costPaid}
+              onChange={() => updateCost(true, costAmount)}
+            />
+            Paid
+          </label>
+          <div className={`flex items-center gap-1 transition ${costPaid ? "opacity-100" : "opacity-40 pointer-events-none"}`}>
+            <span className="text-gray-500 dark:text-gray-400">$</span>
+            <input
+              type="number"
+              inputMode="decimal"
+              min="0"
+              step="1"
+              value={costAmount}
+              onChange={(e) => updateCost(costPaid, e.target.value)}
+              placeholder="5"
+              aria-label="Price in dollars"
+              className="w-24 px-2 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
       </Field>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Field label="Store URL">
-          <input className={FIELD} type="url" value={values.store_url} onChange={field("store_url")} />
+        <Field
+          label="Venue website"
+          hint="Optional. The store, bar, or club's main site — e.g. hamiltons.com."
+        >
+          <input
+            className={FIELD}
+            type="url"
+            value={values.store_url}
+            onChange={field("store_url")}
+            placeholder="https://"
+          />
         </Field>
-        <Field label="Event detail URL">
-          <input className={FIELD} type="url" value={values.detail_url} onChange={field("detail_url")} />
+        <Field
+          label="Event detail URL"
+          hint="Optional. Link directly to this event's registration or info page, if different from the venue site."
+        >
+          <input
+            className={FIELD}
+            type="url"
+            value={values.detail_url}
+            onChange={field("detail_url")}
+            placeholder="https://"
+          />
         </Field>
       </div>
 
@@ -170,13 +265,25 @@ export default function EventForm({
   );
 }
 
-function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+function Field({
+  label,
+  required,
+  hint,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  hint?: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
       <span className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-        {label}{required && <span className="text-red-500 ml-0.5">*</span>}
+        {label}
+        {required && <span className="text-red-500 ml-0.5">*</span>}
       </span>
       {children}
+      {hint && <span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">{hint}</span>}
     </label>
   );
 }
