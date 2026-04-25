@@ -21,6 +21,7 @@ export interface EventRow {
   updated_date: string;
   owner_id: string | null;
   source_type: string;
+  image_url: string;
 }
 
 export interface ScrapedEvent {
@@ -42,6 +43,8 @@ export interface ScrapedEvent {
   owner_id?: string | null;
   source_type?: string;
   status?: "active" | "pending";
+  /** Cover image URL (e.g. Discord CDN or hosted upload). Empty string if none. */
+  image_url?: string;
 }
 
 export function upsertEvents(events: ScrapedEvent[]): {
@@ -52,16 +55,17 @@ export function upsertEvents(events: ScrapedEvent[]): {
   const db = getDb();
   const now = new Date().toISOString().split("T")[0];
 
-  const getStmt = db.prepare("SELECT status, notes, added_date, owner_id, source_type FROM events WHERE id = ?");
+  const getStmt = db.prepare("SELECT status, notes, added_date, owner_id, source_type, image_url FROM events WHERE id = ?");
 
   const insertStmt = db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '', ?, ?, ?, ?)
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type, image_url)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '', ?, ?, ?, ?, ?)
   `);
 
   // Note: owner_id and source_type are intentionally omitted from UPDATE so they survive scraper re-runs (same pattern as pinned/skip).
+  // image_url is preserved when an existing row already has one — uploads should never get clobbered by a re-scrape.
   const updateStmt = db.prepare(`
-    UPDATE events SET title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?, store_url=?, detail_url=?, latitude=?, longitude=?, source=?, status=?, updated_date=?
+    UPDATE events SET title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?, store_url=?, detail_url=?, latitude=?, longitude=?, source=?, status=?, updated_date=?, image_url=?
     WHERE id=?
   `);
 
@@ -69,12 +73,14 @@ export function upsertEvents(events: ScrapedEvent[]): {
 
   const upsert = db.transaction(() => {
     for (const ev of events) {
-      const existing = getStmt.get(ev.id) as { status: string; notes: string; added_date: string; owner_id: string | null; source_type: string | null } | undefined;
+      const existing = getStmt.get(ev.id) as
+        | { status: string; notes: string; added_date: string; owner_id: string | null; source_type: string | null; image_url: string | null }
+        | undefined;
 
       if (!existing) {
         const insertStatus = ev.status ?? "active";
         const insertSourceType = ev.source_type ?? "scraper";
-        insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, insertStatus, now, now, ev.owner_id ?? null, insertSourceType);
+        insertStmt.run(ev.id, ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, insertStatus, now, now, ev.owner_id ?? null, insertSourceType, ev.image_url ?? "");
         added++;
       } else if (existing.source_type === "organizer" || existing.source_type === "user" || existing.source_type === "user-discord" || existing.owner_id) {
         // User- and organizer-owned events are authoritative — never overwritten by re-scrapes.
@@ -84,7 +90,9 @@ export function upsertEvents(events: ScrapedEvent[]): {
       } else {
         // Preserve skip status on update
         const status = existing.status === "skip" ? "skip" : "active";
-        updateStmt.run(ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, status, now, ev.id);
+        // Keep an existing image_url if the re-scrape doesn't carry one.
+        const nextImage = ev.image_url || existing.image_url || "";
+        updateStmt.run(ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, status, now, nextImage, ev.id);
         updated++;
       }
     }
@@ -208,8 +216,8 @@ export function createEvent(input: EventInput & { id: string; title: string; dat
   const db = getDb();
   const now = new Date().toISOString().split("T")[0];
   db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type, image_url)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).run(
     input.id,
     input.title,
@@ -231,6 +239,7 @@ export function createEvent(input: EventInput & { id: string; title: string; dat
     now,
     input.owner_id ?? null,
     input.source_type ?? "manual",
+    input.image_url ?? "",
   );
   return getEvent(input.id)!;
 }
@@ -245,13 +254,13 @@ export function updateEvent(id: string, patch: EventInput): EventRow | undefined
   db.prepare(`
     UPDATE events SET
       title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?,
-      store_url=?, detail_url=?, latitude=?, longitude=?, status=?, notes=?, updated_date=?
+      store_url=?, detail_url=?, latitude=?, longitude=?, status=?, notes=?, image_url=?, updated_date=?
     WHERE id=?
   `).run(
     merged.title, merged.format, merged.date, merged.time, merged.timezone, merged.location,
     merged.address, merged.cost, merged.store_url, merged.detail_url,
     merged.latitude ?? null, merged.longitude ?? null,
-    merged.status, merged.notes, now, id,
+    merged.status, merged.notes, merged.image_url ?? "", now, id,
   );
   return getEvent(id);
 }

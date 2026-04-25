@@ -5,6 +5,7 @@ import { geocodeAddress } from "@/lib/geocode";
 import { FORMAT_SUGGESTIONS } from "@/lib/format-style";
 import VenueAutocomplete, { type Venue } from "./VenueAutocomplete";
 import FormatCombobox from "./FormatCombobox";
+import EventImageInput from "./EventImageInput";
 
 export interface EventFormValues {
   id?: string;
@@ -22,12 +23,13 @@ export interface EventFormValues {
   longitude: string;
   status: string;
   notes: string;
+  image_url: string;
 }
 
 const EMPTY: EventFormValues = {
   title: "", format: "", date: "", time: "", timezone: "America/New_York",
   location: "", address: "", cost: "", store_url: "", detail_url: "",
-  latitude: "", longitude: "", status: "active", notes: "",
+  latitude: "", longitude: "", status: "active", notes: "", image_url: "",
 };
 
 const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
@@ -77,6 +79,7 @@ export default function EventForm({
   const initialCost = parseCost(values.cost);
   const [costPaid, setCostPaid] = useState<boolean>(initialCost.paid);
   const [costAmount, setCostAmount] = useState<string>(initialCost.amount);
+  const [imageUploading, setImageUploading] = useState(false);
 
   function field<K extends keyof EventFormValues>(key: K) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -270,6 +273,14 @@ export default function EventForm({
         </Field>
       )}
 
+      <Field label="Photo">
+        <EventImageInput
+          value={values.image_url}
+          onChange={(next) => setValues((v) => ({ ...v, image_url: next }))}
+          onUploadingChange={setImageUploading}
+        />
+      </Field>
+
       <Field label="Description">
         <textarea className={FIELD} rows={3} value={values.notes} onChange={field("notes")} />
       </Field>
@@ -277,10 +288,10 @@ export default function EventForm({
       <div className="flex gap-3">
         <button
           type="submit"
-          disabled={saving}
+          disabled={saving || imageUploading}
           className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 transition"
         >
-          {saving ? "Saving…" : "Save"}
+          {saving ? "Saving…" : imageUploading ? "Uploading photo…" : "Save"}
         </button>
         <button
           type="button"

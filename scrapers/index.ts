@@ -29,6 +29,8 @@ export interface ScrapedEvent {
   owner_id?: string | null;
   source_type?: string;
   status?: "active" | "pending";
+  /** Cover image URL provided by the source (e.g. Discord CDN). */
+  image_url?: string;
 }
 
 export async function fetchAllSources(): Promise<ScrapedEvent[]> {

@@ -35,6 +35,7 @@ export default async function AccountEditEventPage({ params }: { params: Promise
           longitude: event.longitude != null ? String(event.longitude) : "",
           status: event.status,
           notes: event.notes,
+          image_url: event.image_url ?? "",
         }}
       />
     </SubpageShell>

@@ -95,3 +95,52 @@ export function listKnownVenues(): VenueSuggestion[] {
     .map(({ updated_at: _, ...venue }) => venue)
     .sort((a, b) => b.usage_count - a.usage_count || a.name.localeCompare(b.name));
 }
+
+/** Normalised lookup key — must match the form used in event-image fallback. */
+export function venueKey(name: string): string {
+  return (name ?? "").trim().toLowerCase();
+}
+
+export interface VenueDefault {
+  venue_key: string;
+  image_url: string;
+  updated_at: string;
+}
+
+export function getVenueDefault(name: string): VenueDefault | null {
+  const key = venueKey(name);
+  if (!key) return null;
+  const row = getDb()
+    .prepare("SELECT venue_key, image_url, updated_at FROM venue_defaults WHERE venue_key = ?")
+    .get(key) as VenueDefault | undefined;
+  return row ?? null;
+}
+
+export function listVenueDefaults(): VenueDefault[] {
+  return getDb()
+    .prepare("SELECT venue_key, image_url, updated_at FROM venue_defaults")
+    .all() as VenueDefault[];
+}
+
+export function setVenueDefault(name: string, imageUrl: string): VenueDefault {
+  const key = venueKey(name);
+  if (!key) throw new Error("Venue name is required");
+  if (!imageUrl) throw new Error("image_url is required");
+  getDb()
+    .prepare(`
+      INSERT INTO venue_defaults (venue_key, image_url, updated_at)
+      VALUES (?, ?, datetime('now'))
+      ON CONFLICT(venue_key) DO UPDATE SET image_url = excluded.image_url, updated_at = excluded.updated_at
+    `)
+    .run(key, imageUrl);
+  return getVenueDefault(name)!;
+}
+
+export function deleteVenueDefault(name: string): VenueDefault | null {
+  const key = venueKey(name);
+  if (!key) return null;
+  const existing = getVenueDefault(name);
+  if (!existing) return null;
+  getDb().prepare("DELETE FROM venue_defaults WHERE venue_key = ?").run(key);
+  return existing;
+}

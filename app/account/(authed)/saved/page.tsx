@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { requireRole } from "@/lib/session";
 import { getSavedEvents, getSavedEventIds } from "@/lib/event-saves";
+import { resolveEventImage } from "@/lib/event-image";
 import DayCard from "../../../day-card";
 import SubpageShell from "../_components/SubpageShell";
 
@@ -24,10 +25,11 @@ export default async function SavedEventsPage() {
   const todayStr = today.toISOString().split("T")[0];
   const tomorrowStr = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
-  const upcoming = events.filter((e) => e.date >= todayStr);
-  const past = events.filter((e) => e.date < todayStr);
+  const enriched = events.map((ev) => ({ ...ev, imageUrl: resolveEventImage(ev) }));
+  const upcoming = enriched.filter((e) => e.date >= todayStr);
+  const past = enriched.filter((e) => e.date < todayStr);
 
-  const groupedUpcoming: Record<string, typeof events> = {};
+  const groupedUpcoming: Record<string, typeof enriched> = {};
   for (const ev of upcoming) (groupedUpcoming[ev.date] ||= []).push(ev);
 
   return (

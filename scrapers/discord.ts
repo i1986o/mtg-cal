@@ -148,6 +148,11 @@ export default async function fetchDiscordEvents(sourceConfig: DiscordScraperCon
       const start = new Date(ev.scheduled_start_time);
       const { title, locationHint } = parseEventName(ev.name);
       const desc = cleanDescription(ev.description);
+      // Discord exposes a cover image as an opaque hash; the public CDN URL
+      // is constructed from {guild_id, event_id, hash}. Hotlinked from there.
+      const imageUrl = ev.image
+        ? `https://cdn.discordapp.com/guild-events/${ev.guild_id}/${ev.id}/${ev.image}.png?size=1024`
+        : "";
 
       allEvents.push({
         id: isUserSource ? `discord-${spec.guildId}-${ev.id}` : `discord-${ev.id}`,
@@ -167,6 +172,7 @@ export default async function fetchDiscordEvents(sourceConfig: DiscordScraperCon
         owner_id: spec.ownerId ?? null,
         source_type: sourceType,
         status,
+        image_url: imageUrl,
       });
     }
   }
