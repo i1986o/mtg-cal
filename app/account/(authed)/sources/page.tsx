@@ -43,8 +43,13 @@ function NotAvailableYet() {
         Community connections aren't open yet
       </p>
       <p className="text-xs text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-        We're still wiring this up. Check back soon — or drop a note to{" "}
-        <a href="mailto:hello@playirl.gg" className="text-blue-600 dark:text-blue-400 hover:underline">hello@playirl.gg</a>{" "}
+        We're still wiring this up. Check back soon — or{" "}
+        <a
+          href="mailto:info@cardslinger.shop?subject=PlayIRL%20community%20connections"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          send us a note
+        </a>{" "}
         and we'll let you know when it's live.
       </p>
     </div>
