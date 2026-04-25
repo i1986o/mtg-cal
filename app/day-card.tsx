@@ -17,6 +17,8 @@ interface EventRow {
   location: string;
   cost: string;
   store_url: string;
+  /** Pre-resolved image URL (uploaded photo, scraped cover, venue default, or placeholder). */
+  imageUrl: string;
 }
 
 export default function DayCard({
@@ -139,7 +141,14 @@ export default function DayCard({
               style={{ opacity: 0 }}
               className={`group flex items-center gap-3 px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-blue-100/50 dark:hover:bg-blue-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
             >
-              <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-16 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={ev.imageUrl}
+                alt=""
+                className="w-10 h-10 rounded-md object-cover shrink-0 bg-gray-100 dark:bg-gray-800"
+                loading="lazy"
+              />
+              <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-14 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
                 {formatEventTime(ev.date, ev.time, ev.timezone)}
               </span>
               <div className="flex-1 min-w-0 transition-transform duration-200 group-hover:translate-x-1">

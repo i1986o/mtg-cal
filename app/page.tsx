@@ -4,6 +4,7 @@ import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/event
 import { getSavedEventIds } from "@/lib/event-saves";
 import { getPreferences, setPreferences } from "@/lib/user-preferences";
 import { getCurrentUser } from "@/lib/session";
+import { resolveEventImage } from "@/lib/event-image";
 import { config } from "@/lib/config";
 import RadiusSelector from "./radius-selector";
 import CalendarView from "./calendar-view";
@@ -85,8 +86,10 @@ export default async function HomePage({
     centerLng: config.location.lng,
   });
 
-  const grouped: Record<string, typeof events> = {};
-  for (const ev of events) {
+  const enriched = events.map((ev) => ({ ...ev, imageUrl: resolveEventImage(ev) }));
+
+  const grouped: Record<string, typeof enriched> = {};
+  for (const ev of enriched) {
     if (!grouped[ev.date]) grouped[ev.date] = [];
     grouped[ev.date].push(ev);
   }

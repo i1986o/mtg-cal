@@ -157,6 +157,12 @@ function initSchema(db: Database.Database) {
 
     CREATE INDEX IF NOT EXISTS idx_admin_actions_target_user ON admin_actions(target_user_id);
     CREATE INDEX IF NOT EXISTS idx_admin_actions_admin ON admin_actions(admin_id);
+
+    CREATE TABLE IF NOT EXISTS venue_defaults (
+      venue_key  TEXT PRIMARY KEY,
+      image_url  TEXT NOT NULL,
+      updated_at TEXT DEFAULT (datetime('now'))
+    );
   `);
 
   // Migrations — add columns if they don't exist yet
@@ -165,6 +171,7 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE events ADD COLUMN owner_id TEXT REFERENCES users(id) ON DELETE SET NULL"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN source_type TEXT DEFAULT 'scraper'"); } catch {}
   try { db.exec("ALTER TABLE users ADD COLUMN suspended_reason TEXT DEFAULT ''"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN image_url TEXT DEFAULT ''"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");

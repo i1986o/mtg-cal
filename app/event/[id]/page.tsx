@@ -2,6 +2,7 @@ import { getEvent } from "@/lib/events";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatEventTimeRange } from "@/lib/format-time";
+import { resolveEventImage, hasRealEventImage } from "@/lib/event-image";
 import ShareButton from "./share-button";
 import Reveal from "@/app/reveal";
 
@@ -61,6 +62,9 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
   if (!ev) return notFound();
 
+  const heroImage = resolveEventImage(ev);
+  const heroIsPhoto = hasRealEventImage(ev);
+
   return (
     <main className="max-w-[52.5rem] mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6 anim-fade-in">
@@ -71,19 +75,18 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       </div>
 
       <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
-        {/* Map header — Google Maps embed */}
-        {ev.location && (
-          <div className="relative h-72 overflow-hidden rounded-t-xl">
-            <iframe
-              src={`https://www.google.com/maps?q=${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}&output=embed&z=15`}
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+        {/* Hero image — uploaded photo, scraped cover, venue default, or placeholder. */}
+        <div className={`relative h-72 overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50 dark:bg-[#0c1828]"}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={heroImage}
+            alt={ev.title}
+            className={`w-full h-full ${heroIsPhoto ? "object-cover" : "object-contain p-12"}`}
+          />
+          {heroIsPhoto && (
             <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0c1220] via-transparent to-transparent pointer-events-none" />
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Header */}
         <div className="p-6 pb-4">
@@ -116,6 +119,21 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             <div className="mx-6 mb-4 bg-gray-50 dark:bg-[#141c2e] rounded-lg p-4">
               <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Description</p>
               <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
+            </div>
+          </Reveal>
+        )}
+
+        {/* Map */}
+        {ev.location && (
+          <Reveal>
+            <div className="mx-6 mb-6 rounded-lg overflow-hidden border border-gray-100 dark:border-white/8">
+              <iframe
+                src={`https://www.google.com/maps?q=${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}&output=embed&z=15`}
+                className="w-full h-56 border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </Reveal>
         )}

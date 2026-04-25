@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "api.mapbox.com" },
+      { protocol: "https", hostname: "cdn.discordapp.com" },
     ],
   },
 };
