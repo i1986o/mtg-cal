@@ -130,7 +130,7 @@ export default function EventForm({
         <Field label="Store URL">
           <input className={FIELD} type="url" value={values.store_url} onChange={field("store_url")} />
         </Field>
-        <Field label="Detail URL">
+        <Field label="Event detail URL">
           <input className={FIELD} type="url" value={values.detail_url} onChange={field("detail_url")} />
         </Field>
       </div>
