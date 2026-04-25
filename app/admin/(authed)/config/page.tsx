@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { geocodeAddress } from "@/lib/geocode";
 
 interface ConfigShape {
   location: { zip: string; city: string; state: string; lat: number; lng: number };
@@ -19,6 +20,23 @@ export default function ConfigPage() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
   const [guildsText, setGuildsText] = useState("");
+  const [geoStatus, setGeoStatus] = useState<"idle" | "checking" | "found" | "missing">("idle");
+  const geoToken = useRef(0);
+
+  async function lookupLocation(partial: ConfigShape["location"]) {
+    const parts = [partial.zip, partial.city, partial.state].filter(Boolean).join(", ");
+    if (!parts) return;
+    const myToken = ++geoToken.current;
+    setGeoStatus("checking");
+    const result = await geocodeAddress(parts);
+    if (myToken !== geoToken.current) return;
+    if (result) {
+      setConfig((c) => (c ? { ...c, location: { ...c.location, lat: result.latitude, lng: result.longitude } } : c));
+      setGeoStatus("found");
+    } else {
+      setGeoStatus("missing");
+    }
+  }
 
   useEffect(() => {
     fetch("/api/admin/config").then((r) => r.json()).then((c: ConfigShape) => {
@@ -69,21 +87,36 @@ export default function ConfigPage() {
         <Section title="Location">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             <Field label="ZIP">
-              <input className={FIELD} value={config.location.zip} onChange={(e) => update("location", { ...config.location, zip: e.target.value })} />
+              <input
+                className={FIELD}
+                value={config.location.zip}
+                onChange={(e) => update("location", { ...config.location, zip: e.target.value })}
+                onBlur={() => lookupLocation(config.location)}
+              />
             </Field>
             <Field label="City">
-              <input className={FIELD} value={config.location.city} onChange={(e) => update("location", { ...config.location, city: e.target.value })} />
+              <input
+                className={FIELD}
+                value={config.location.city}
+                onChange={(e) => update("location", { ...config.location, city: e.target.value })}
+                onBlur={() => lookupLocation(config.location)}
+              />
             </Field>
             <Field label="State">
-              <input className={FIELD} value={config.location.state} onChange={(e) => update("location", { ...config.location, state: e.target.value })} />
-            </Field>
-            <Field label="Latitude">
-              <input className={FIELD} inputMode="decimal" value={config.location.lat} onChange={(e) => update("location", { ...config.location, lat: Number(e.target.value) })} />
-            </Field>
-            <Field label="Longitude">
-              <input className={FIELD} inputMode="decimal" value={config.location.lng} onChange={(e) => update("location", { ...config.location, lng: Number(e.target.value) })} />
+              <input
+                className={FIELD}
+                value={config.location.state}
+                onChange={(e) => update("location", { ...config.location, state: e.target.value })}
+                onBlur={() => lookupLocation(config.location)}
+              />
             </Field>
           </div>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 min-h-[1rem]">
+            {geoStatus === "checking" && "Looking up coordinates…"}
+            {geoStatus === "found" && "✓ Coordinates updated for distance filtering."}
+            {geoStatus === "missing" && "Couldn't place that. Double-check the city/state/ZIP."}
+            {geoStatus === "idle" && "Coordinates are resolved automatically — no manual entry needed."}
+          </p>
         </Section>
 
         <Section title="Search">

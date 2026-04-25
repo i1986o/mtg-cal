@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { geocodeAddress } from "@/lib/geocode";
 
 export interface EventFormValues {
   id?: string;
@@ -45,10 +46,28 @@ export default function EventForm({
   const [values, setValues] = useState<EventFormValues>({ ...EMPTY, ...initial });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const geoToken = useRef(0);
 
   function field<K extends keyof EventFormValues>(key: K) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setValues((v) => ({ ...v, [key]: e.target.value }));
+  }
+
+  // Auto-look-up coordinates when the address leaves focus. Users never see
+  // lat/lng — we use them behind the scenes for distance filtering.
+  async function lookupAddress() {
+    const address = values.address.trim();
+    if (!address) return;
+    const myToken = ++geoToken.current;
+    const result = await geocodeAddress(address);
+    if (myToken !== geoToken.current) return;
+    if (result) {
+      setValues((v) => ({
+        ...v,
+        latitude: String(result.latitude),
+        longitude: String(result.longitude),
+      }));
+    }
   }
 
   async function onSubmit(e: React.FormEvent) {
@@ -100,20 +119,12 @@ export default function EventForm({
       </Field>
 
       <Field label="Address">
-        <input className={FIELD} value={values.address} onChange={field("address")} />
+        <input className={FIELD} value={values.address} onChange={field("address")} onBlur={lookupAddress} />
       </Field>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Field label="Cost">
-          <input className={FIELD} value={values.cost} onChange={field("cost")} placeholder="$5, Free, …" />
-        </Field>
-        <Field label="Latitude">
-          <input className={FIELD} value={values.latitude} onChange={field("latitude")} inputMode="decimal" />
-        </Field>
-        <Field label="Longitude">
-          <input className={FIELD} value={values.longitude} onChange={field("longitude")} inputMode="decimal" />
-        </Field>
-      </div>
+      <Field label="Cost">
+        <input className={FIELD} value={values.cost} onChange={field("cost")} placeholder="$5, Free, …" />
+      </Field>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Field label="Store URL">
@@ -135,7 +146,7 @@ export default function EventForm({
         </Field>
       )}
 
-      <Field label="Notes">
+      <Field label="Description">
         <textarea className={FIELD} rows={3} value={values.notes} onChange={field("notes")} />
       </Field>
 

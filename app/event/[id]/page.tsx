@@ -114,7 +114,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         {ev.notes && (
           <Reveal>
             <div className="mx-6 mb-4 bg-gray-50 dark:bg-[#141c2e] rounded-lg p-4">
-              <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Notes</p>
+              <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Description</p>
               <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
             </div>
           </Reveal>
