@@ -83,7 +83,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
       <div ref={sentinelRef} className="h-0" />
 
       {/* Sticky: week nav + day headers together */}
-      <div className="sticky top-[80px] z-[5] -mx-4 px-4 bg-white dark:bg-[#0c1220]">
+      <div className="sticky top-[var(--sticky-bar-h,80px)] z-[5] -mx-4 px-4 bg-white dark:bg-[#0c1220]">
         {/* Unified frame: rounded top corners only when not pinned */}
         <div className={`border border-b-0 border-gray-200 dark:border-[#1e2535] overflow-hidden transition-all duration-150 ${isStuck ? "" : "rounded-t-xl"}`}>
 
