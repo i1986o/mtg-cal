@@ -63,17 +63,14 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
 
   function toggleTheme() {
     const html = document.documentElement;
-    if (html.classList.contains("dark")) {
-      html.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      html.style.colorScheme = "light";
-      setIsDark(false);
-    } else {
-      html.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      html.style.colorScheme = "dark";
-      setIsDark(true);
-    }
+    const goingDark = !html.classList.contains("dark");
+    const value = goingDark ? "dark" : "light";
+    html.classList.toggle("dark", goingDark);
+    html.style.colorScheme = value;
+    localStorage.setItem("theme", value);
+    // Mirror to a cookie so RootLayout's SSR sees it on the next request.
+    document.cookie = `theme=${value}; max-age=${60 * 60 * 24 * 365}; path=/; samesite=lax`;
+    setIsDark(goingDark);
   }
 
   const PILL = "fixed right-4 z-40 flex flex-col gap-0.5 bg-white dark:bg-[#1a2438] rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
