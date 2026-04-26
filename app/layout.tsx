@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Stack_Sans_Notch } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 import ThemeSync from "./theme-sync";
 
@@ -19,27 +20,28 @@ export const metadata: Metadata = {
   description: "Find Magic: The Gathering events near you",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Server-side theme detection. Reads the `theme` cookie that ThemeSync /
+  // theme-toggle / floating-toolbar set on every change. SSR-applying the
+  // `dark` class avoids the previous inline-script approach (which fired
+  // React 19's "Encountered a script tag" warning every render). On the
+  // first visit there's no cookie yet, so we render light and ThemeSync
+  // re-applies the user's system preference on hydration; subsequent
+  // visits read the cookie and SSR with no flash.
+  const themeCookie = (await cookies()).get("theme")?.value;
+  const isDark = themeCookie === "dark";
+
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${stackSansNotch.variable} h-full antialiased`}
+      className={`${inter.variable} ${stackSansNotch.variable} h-full antialiased${isDark ? " dark" : ""}`}
+      style={{ colorScheme: isDark ? "dark" : "light" }}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function() {
-            var saved = localStorage.getItem('theme');
-            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-              document.documentElement.classList.add('dark');
-            }
-          })();
-        `}} />
-      </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] text-gray-900 dark:text-gray-100">
         <ThemeSync />
         {children}
