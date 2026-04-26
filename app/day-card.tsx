@@ -161,7 +161,7 @@ export default function DayCard({
                 <span className="block sm:hidden text-xs text-gray-400 dark:text-gray-500">
                   {formatEventTime(ev.date, ev.time, ev.timezone)}
                 </span>
-                <p className="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 sm:line-clamp-none sm:truncate">{ev.title}</p>
+                <p className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 sm:line-clamp-none sm:truncate">{ev.title}</p>
                 <div className="flex items-center gap-1.5 mt-0.5 min-w-0">
                   <span className={`px-1.5 py-0 rounded text-[10px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                     {ev.format}
