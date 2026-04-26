@@ -59,44 +59,75 @@ const VENUE_FETCH_RETRY_DAYS = 30;
 const VENUE_FETCH_MAX_ATTEMPTS = 3;
 const VENUE_FETCH_DELAY_MS = 250;
 
-function shouldSkipVenueFetch(name: string): boolean {
+interface SkipDecision {
+  skip: boolean;
+  reason: string;
+}
+
+function shouldSkipVenueFetch(name: string): SkipDecision {
   const existing = getVenueDefault(name);
-  if (!existing) return false;
-  if (existing.image_source === "manual") return true;
+  if (!existing) return { skip: false, reason: "no existing row" };
+  if (existing.image_source === "manual") return { skip: true, reason: "manual override" };
   // Self-heal: a non-empty image_url whose underlying file is missing (e.g.
   // Railway volume reset, file manually deleted) should NOT short-circuit a
   // re-fetch. Without this, prior runs' broken URLs stick forever.
-  if (existing.image_url && uploadFileExists(existing.image_url)) return true;
-  // Empty image_url (or missing file) = previous attempts failed or the file
-  // is gone. Back off if recent + at cap.
-  if ((existing.attempt_count ?? 0) < VENUE_FETCH_MAX_ATTEMPTS) return false;
-  if (!existing.last_fetched_at) return false;
+  if (existing.image_url) {
+    if (uploadFileExists(existing.image_url)) {
+      return { skip: true, reason: `image_url exists on disk (${existing.image_source ?? "?"})` };
+    }
+    return { skip: false, reason: `image_url set but file missing — re-fetch (${existing.image_source ?? "?"})` };
+  }
+  // Empty image_url = previous attempts failed. Back off if recent + at cap.
+  if ((existing.attempt_count ?? 0) < VENUE_FETCH_MAX_ATTEMPTS) {
+    return { skip: false, reason: `empty image_url, attempt_count=${existing.attempt_count ?? 0}` };
+  }
+  if (!existing.last_fetched_at) {
+    return { skip: false, reason: `at attempt cap but last_fetched_at unset` };
+  }
   const ageMs = Date.now() - new Date(existing.last_fetched_at).getTime();
-  return ageMs < VENUE_FETCH_RETRY_DAYS * 24 * 60 * 60 * 1000;
+  if (ageMs < VENUE_FETCH_RETRY_DAYS * 24 * 60 * 60 * 1000) {
+    return { skip: true, reason: `cap reached (${existing.attempt_count} tries, ${Math.floor(ageMs / 86400000)}d ago)` };
+  }
+  return { skip: false, reason: `cap reached but ${VENUE_FETCH_RETRY_DAYS}d elapsed — retry` };
 }
 
 async function enqueueVenueImageFetches(events: ScrapedEvent[]): Promise<void> {
   // Reduce events down to one record per venue, preferring rows with the most
   // info (store_url, coords, address). Skip venues we already have an image
   // for, manual overrides, and recently-failed attempts.
+  //
+  // Logs the skip decision per unique venue so prod issues are debuggable
+  // from Railway logs without redeploying.
   const byKey = new Map<string, ScrapedEvent>();
+  const seenKeys = new Set<string>();
+  let skippedCount = 0;
   for (const ev of events) {
     if (!ev.location) continue;
     const key = venueKey(ev.location);
-    if (!key || shouldSkipVenueFetch(ev.location)) continue;
-    const existing = byKey.get(key);
-    if (!existing) {
-      byKey.set(key, ev);
+    if (!key) continue;
+    if (seenKeys.has(key)) {
+      // Already decided for this venue. Just merge richer metadata if relevant.
+      const existing = byKey.get(key);
+      if (existing) {
+        const score = (e: ScrapedEvent) =>
+          (e.store_url ? 4 : 0) +
+          (e.detail_url ? 2 : 0) +
+          (e.latitude != null && e.longitude != null ? 1 : 0);
+        if (score(ev) > score(existing)) byKey.set(key, ev);
+      }
       continue;
     }
-    // Prefer the row with the richest metadata.
-    const score = (e: ScrapedEvent) =>
-      (e.store_url ? 4 : 0) +
-      (e.detail_url ? 2 : 0) +
-      (e.latitude != null && e.longitude != null ? 1 : 0);
-    if (score(ev) > score(existing)) byKey.set(key, ev);
+    seenKeys.add(key);
+    const decision = shouldSkipVenueFetch(ev.location);
+    console.log(`[venue-image] ${decision.skip ? "SKIP" : "FETCH"} "${ev.location}" — ${decision.reason}`);
+    if (decision.skip) {
+      skippedCount++;
+      continue;
+    }
+    byKey.set(key, ev);
   }
 
+  console.log(`[venue-image] decision summary: ${byKey.size} to fetch, ${skippedCount} skipped`);
   if (byKey.size === 0) return;
   console.log(`[venue-image] attempting auto-fetch for ${byKey.size} venue(s)`);
 
