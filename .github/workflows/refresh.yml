@@ -26,8 +26,18 @@ jobs:
         env:
           TOPDECK_API_KEY: ${{ secrets.TOPDECK_API_KEY }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      # NOTE: We deliberately do NOT auto-commit `data/mtg-cal.db` anymore.
+      # Production runs on a Railway persistent volume (DATABASE_PATH points
+      # at the volume), so the live DB is the source of truth. Auto-committing
+      # the CI's local DB would overwrite production's DB on the next deploy
+      # because the seed-on-first-boot logic in lib/db.ts only fires when the
+      # volume is empty — but if we shipped a "fresher" repo DB it'd lose
+      # admin uploads / venue images / scrape diffs that landed since.
+      #
+      # The ICS calendar files in `output/` ARE still committed because
+      # they're static feeds served directly from the deployed bundle.
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh MTG events [skip ci]"
-          file_pattern: "output/*.ics data/mtg-cal.db"
+          file_pattern: "output/*.ics"
         continue-on-error: true

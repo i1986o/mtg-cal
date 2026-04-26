@@ -2,13 +2,48 @@ import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
 
-const DB_PATH = process.env.DATABASE_PATH || path.join(process.cwd(), "data", "mtg-cal.db");
+const REPO_DB_PATH = path.join(process.cwd(), "data", "mtg-cal.db");
+const DB_PATH = process.env.DATABASE_PATH || REPO_DB_PATH;
 
 let db: Database.Database | null = null;
 
+/**
+ * One-shot self-seed of a Railway persistent volume on first boot.
+ *
+ * When `DATABASE_PATH` points at a volume (e.g. `/data/mtg-cal.db`) and the
+ * file doesn't exist there yet — typical state right after the volume is
+ * mounted — copy the git-shipped DB at `process.cwd()/data/mtg-cal.db` over
+ * to the volume so we don't start from an empty schema. Subsequent boots see
+ * an existing file and leave the volume alone, so user/runtime writes survive
+ * deploys.
+ *
+ * Same for the uploads directory: ensure the volume has an `uploads/` sibling
+ * so saves don't fail on a missing parent.
+ *
+ * No-op when `DATABASE_PATH` is unset (= dev / single-container setup using
+ * the in-repo DB directly).
+ */
+function seedVolumeIfNeeded() {
+  if (!process.env.DATABASE_PATH) return;
+  if (DB_PATH === REPO_DB_PATH) return;
+  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
+  if (!fs.existsSync(DB_PATH)) {
+    if (fs.existsSync(REPO_DB_PATH)) {
+      fs.copyFileSync(REPO_DB_PATH, DB_PATH);
+      console.log(`[db] seeded volume DB from ${REPO_DB_PATH} → ${DB_PATH}`);
+    } else {
+      console.log(`[db] no repo DB to seed from; volume DB will be created empty at ${DB_PATH}`);
+    }
+  }
+  // Make sure the uploads dir on the volume exists. The bucket subfolders
+  // (`venues/`, `events/`) are created lazily by saveUpload.
+  const uploadsDir = path.join(path.dirname(DB_PATH), "uploads");
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
 export function getDb(): Database.Database {
   if (!db) {
-    // Ensure the directory exists
+    seedVolumeIfNeeded();
     fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
     db = new Database(DB_PATH);
     db.pragma("journal_mode = WAL");
