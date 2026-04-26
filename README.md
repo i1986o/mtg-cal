@@ -125,6 +125,10 @@ Net effect: address-text and lat/lng always agree, regardless of which the rende
 
 ## Deployment notes
 
-- **Railway**: SQLite at `data/mtg-cal.db` requires a persistent volume mounted at the project's `data/` directory. Without it, every redeploy wipes events, users, and sessions.
+- **Railway**: SQLite + uploaded images both live on a persistent volume.
+  - Mount a volume at `/data` (or any path, just be consistent).
+  - Set `DATABASE_PATH=/data/mtg-cal.db` (or `<your-mount>/mtg-cal.db`) — `lib/db.ts` derives both the DB path and the `uploads/` sibling from this. On first boot it copies the git-shipped `data/mtg-cal.db` over to the volume so you don't start empty; subsequent boots use the live volume DB.
+  - Without `DATABASE_PATH` set, the app falls back to `<cwd>/data/mtg-cal.db` which is the git-tracked file — fine for local dev, **not** safe in production: any runtime writes (admin uploads, scraper image fetches, manual event edits) live only on the ephemeral container disk and disappear on the next deploy.
+  - The CI workflow at `.github/workflows/refresh.yml` deliberately does **not** auto-commit `data/mtg-cal.db` anymore — production is the source of truth. CI still commits the static `output/*.ics` calendar feeds.
 - **Resend sender domain**: requires DNS TXT records for `playirl.gg`. Until that's set, magic-link emails won't deliver.
 - **OAuth callback URIs** must be registered exactly as `https://playirl.gg/api/auth/callback/{discord,google}` in each provider's developer console.
