@@ -42,27 +42,25 @@ export default function AccountMenu({
   }
 
   return (
-    <div ref={wrapperRef} className="fixed top-4 right-4 z-40">
+    <div ref={wrapperRef} className="fixed bottom-6 left-4 z-40 flex bg-white dark:bg-[#1a2438] rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 dark:bg-[#1a2438]/90 backdrop-blur-sm border border-gray-200 dark:border-white/15 shadow-sm hover:shadow-md text-xs font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition"
+        title={displayName}
+        aria-label={`Account menu for ${displayName}`}
+        className="flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span className="hidden sm:inline">{displayName}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
 
       {open && (
         <div
           role="menu"
-          className="absolute right-0 mt-2 w-56 rounded-lg border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1828] shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
+          className="absolute left-0 bottom-full mb-2 w-56 rounded-lg border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1828] shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
         >
           <div className="px-3 py-2 border-b border-gray-100 dark:border-white/10">
             <div className="text-xs text-gray-500 dark:text-gray-400">Signed in as</div>
