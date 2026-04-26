@@ -4,8 +4,65 @@ import fs from "fs";
 
 const REPO_DB_PATH = path.join(process.cwd(), "data", "mtg-cal.db");
 const DB_PATH = process.env.DATABASE_PATH || REPO_DB_PATH;
+const VOLUME_MOUNT_TIMEOUT_MS = 30_000;
 
 let db: Database.Database | null = null;
+
+/**
+ * True when DATABASE_PATH points at a Railway-style mounted volume (i.e.
+ * a path distinct from the in-repo seed DB). Dev/CI/single-container setups
+ * don't satisfy this and skip all volume-readiness logic below.
+ */
+function isUsingVolume(): boolean {
+  return Boolean(process.env.DATABASE_PATH) && DB_PATH !== REPO_DB_PATH;
+}
+
+/**
+ * Heuristic for "Railway has finished mounting the volume": the parent dir of
+ * DB_PATH is on a different device than `/`. Until the mount completes, the
+ * directory is on the container's root filesystem and shares the same `dev`.
+ * Once mounted, the volume is its own device. This is the same trick `mount`
+ * itself uses to identify mount points.
+ */
+function isVolumeReady(): boolean {
+  if (!isUsingVolume()) return true;
+  try {
+    const targetDir = path.dirname(DB_PATH);
+    if (!fs.existsSync(targetDir)) return false;
+    return fs.statSync(targetDir).dev !== fs.statSync("/").dev;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Synchronously block until the persistent volume is mounted, or `maxMs`
+ * elapses. Critical because `instrumentation.ts` calls `getDb()` ~400ms
+ * before Railway mounts the volume — without this, SQLite binds its file
+ * handle to the ephemeral inode and every subsequent write disappears on
+ * container restart.
+ *
+ * Uses `Atomics.wait` on a SharedArrayBuffer for a real sync sleep (no CPU
+ * burn). Fast-paths when the volume is already ready or not in use.
+ */
+function waitForVolumeSync(maxMs: number = VOLUME_MOUNT_TIMEOUT_MS): void {
+  if (!isUsingVolume()) return;
+  if (isVolumeReady()) return;
+  const view = new Int32Array(new SharedArrayBuffer(4));
+  const start = Date.now();
+  let waitedMs = 0;
+  while (Date.now() - start < maxMs) {
+    if (isVolumeReady()) {
+      console.log(`[db] volume ready after ${Date.now() - start}ms`);
+      return;
+    }
+    Atomics.wait(view, 0, 0, 100);
+    waitedMs = Date.now() - start;
+  }
+  console.warn(
+    `[db] volume mount did not appear within ${maxMs}ms (waited ${waitedMs}ms); proceeding against ephemeral path — writes may not persist`,
+  );
+}
 
 /**
  * One-shot self-seed of a Railway persistent volume on first boot.
@@ -43,6 +100,7 @@ function seedVolumeIfNeeded() {
 
 export function getDb(): Database.Database {
   if (!db) {
+    waitForVolumeSync();
     seedVolumeIfNeeded();
     fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
     db = new Database(DB_PATH);
