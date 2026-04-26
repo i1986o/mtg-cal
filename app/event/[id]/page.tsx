@@ -101,7 +101,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   const showInlineMap = !heroIsMap && Boolean(mapEmbedSrc);
 
   return (
-    <main className="max-w-[52.5rem] mx-auto px-4 py-8">
+    <main className="max-w-5xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6 anim-fade-in">
         <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline">
           &larr; Back to PlayIRL.GG
