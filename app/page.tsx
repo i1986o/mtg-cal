@@ -154,7 +154,6 @@ export default async function HomePage({
                   key={date}
                   date={date}
                   weekday={d.toLocaleDateString("en-US", { weekday: "long" })}
-                  dayNum={d.getDate()}
                   isToday={date === todayStr}
                   isPast={date < todayStr}
                   events={dayEvents}
