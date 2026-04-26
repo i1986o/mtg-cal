@@ -250,7 +250,11 @@ export default function RadiusSelector({
           {"\uD83D\uDDFA\uFE0F"} More cities coming soon!
         </div>
       )}
-      <p className="text-gray-400 dark:text-gray-400 flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 text-sm sm:text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
+      {/* `<div>` not `<p>` — children include block-level elements (the
+          ChipSelect dropdowns and SubscribeDropdown render `<div>`s), and
+          a `<p>` containing `<div>` is invalid HTML, which surfaces as a
+          React-19 hydration warning + DOM-nesting error in the console. */}
+      <div className="text-gray-400 dark:text-gray-400 flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 text-sm sm:text-base leading-relaxed font-[family-name:var(--font-ultra)] font-bold">
         <ChipSelect
           label={currentFormat || "All MTG"}
           heading="Format"
@@ -292,7 +296,7 @@ export default function RadiusSelector({
         <span className="inline-flex items-center justify-center min-w-[1.75rem] px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-xs sm:text-sm font-semibold tabular-nums leading-none">{eventCount}</span>
 
         <SubscribeDropdown currentFormat={currentFormat} />
-      </p>
+      </div>
     </>
   );
 }
