@@ -138,7 +138,10 @@ export default function DayCard({
               style={{ opacity: 0 }}
               className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-blue-100/50 dark:hover:bg-blue-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
             >
-              <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-12 sm:w-14 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+              {/* Desktop: time as a fixed left column. Mobile: hidden here
+                  and rendered above the title (see middle div below) so the
+                  full row width goes to the title. */}
+              <span className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 shrink-0 w-14 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
                 {formatEventTime(ev.date, ev.time, ev.timezone)}
               </span>
               {/* Image is decorative on mobile (most events render the same
@@ -155,7 +158,10 @@ export default function DayCard({
                 loading="lazy"
               />
               <div className="flex-1 min-w-0 transition-transform duration-200 group-hover:translate-x-1">
-                <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">{ev.title}</p>
+                <span className="block sm:hidden text-xs text-gray-400 dark:text-gray-500">
+                  {formatEventTime(ev.date, ev.time, ev.timezone)}
+                </span>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 sm:line-clamp-none sm:truncate">{ev.title}</p>
                 <div className="flex items-center gap-1.5 mt-0.5 min-w-0">
                   <span className={`px-1.5 py-0 rounded text-[10px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                     {ev.format}
