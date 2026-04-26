@@ -15,7 +15,12 @@ export default function StickyBar({ children }: { children: React.ReactNode }) {
     const el = barRef.current;
     if (!el) return;
     const update = () => {
-      document.documentElement.style.setProperty("--sticky-bar-h", `${el.offsetHeight}px`);
+      // getBoundingClientRect for sub-pixel precision (offsetHeight rounds
+      // up). Then subtract 1px so the day heading overlaps the bar's bottom
+      // edge — without the overlap, sub-pixel rendering drift in CSS sticky
+      // leaves a visible hairline gap between the bar and the heading.
+      const h = el.getBoundingClientRect().height - 1;
+      document.documentElement.style.setProperty("--sticky-bar-h", `${h}px`);
     };
     update();
     const ro = new ResizeObserver(update);
