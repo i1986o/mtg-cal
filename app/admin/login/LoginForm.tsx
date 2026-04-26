@@ -37,11 +37,11 @@ export default function LoginForm({ providers }: { providers: Provider[] }) {
 
         {hasOAuth && (
           <div className="space-y-2">
-            {providers.filter((p) => p.id === "discord").map((p) => (
-              <OAuthButton key={p.id} provider="discord" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
-            ))}
             {providers.filter((p) => p.id === "google").map((p) => (
               <OAuthButton key={p.id} provider="google" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
+            ))}
+            {providers.filter((p) => p.id === "discord").map((p) => (
+              <OAuthButton key={p.id} provider="discord" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
             ))}
           </div>
         )}
