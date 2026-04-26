@@ -1,10 +1,13 @@
-import { getActiveEvents } from "@/lib/events";
-import { generateIcsString } from "@/lib/ical";
-import { config } from "@/lib/config";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Legacy format-slug route. The canonical feed URL is now
+ * `/calendar?format={Name}` — this route stays for existing webcal://
+ * subscribers and 308-redirects to the canonical form. webcal:// clients
+ * follow 308 transparently on next refresh.
+ */
 const SLUG_TO_FORMAT: Record<string, string> = {
   commander: "Commander",
   modern: "Modern",
@@ -17,7 +20,7 @@ const SLUG_TO_FORMAT: Record<string, string> = {
 };
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ format: string }> }
 ) {
   const { format: slug } = await params;
@@ -27,19 +30,6 @@ export async function GET(
     return NextResponse.json({ error: "Unknown format" }, { status: 404 });
   }
 
-  const events = getActiveEvents({ format });
-  const city = config.location.city;
-  const ics = generateIcsString(
-    events,
-    `MTG ${format} — ${city}`,
-    `${format} events in ${city} area`
-  );
-
-  return new NextResponse(ics, {
-    headers: {
-      "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": `attachment; filename="mtg-${slug}.ics"`,
-      "Cache-Control": "public, max-age=3600",
-    },
-  });
+  const target = new URL(`/calendar?format=${encodeURIComponent(format)}`, request.url);
+  return NextResponse.redirect(target, 308);
 }
