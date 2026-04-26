@@ -26,8 +26,23 @@ export default async function AccountChip() {
     <AccountMenu
       displayName={user.name?.split(" ")[0] ?? "Account"}
       role={user.role}
+      imageUrl={user.image}
+      initials={getInitials(user.name, user.email)}
     />
   );
+}
+
+/** Initials for the avatar circle. Two letters from a full name (first +
+ *  last word), one from a single name, or one from the email's first
+ *  character. "?" if both are missing. */
+function getInitials(name: string | null, email: string | null): string {
+  if (name) {
+    const parts = name.trim().split(/\s+/).filter(Boolean);
+    if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    if (parts.length === 1 && parts[0].length > 0) return parts[0][0].toUpperCase();
+  }
+  if (email && email.length > 0) return email[0].toUpperCase();
+  return "?";
 }
 
 function UserIcon() {
