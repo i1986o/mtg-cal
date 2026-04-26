@@ -136,34 +136,37 @@ export default function DayCard({
               href={`/event/${encodeURIComponent(ev.id)}`}
               data-row
               style={{ opacity: 0 }}
-              className={`group flex items-center gap-3 px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-blue-100/50 dark:hover:bg-blue-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
+              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-blue-100/50 dark:hover:bg-blue-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
             >
-              <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-14 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+              <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0 w-12 sm:w-14 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
                 {formatEventTime(ev.date, ev.time, ev.timezone)}
               </span>
+              {/* Image is decorative on mobile (most events render the same
+                  source-type SVG placeholder) so we drop it under sm to give
+                  the title and location the room they need. Container bg is
+                  light in both themes so logos with baked-in white bgs blend. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={ev.imageUrl}
                 alt=""
-                // Image container background is light in BOTH themes so the
-                // many logos with baked-in white backgrounds blend cleanly —
-                // a dark-mode container would frame them with a stark
-                // white-on-near-black square. `object-cover` images fill the
-                // box entirely, so the bg only shows when `object-contain`
-                // letterboxes a smaller logo.
-                className={`w-10 h-10 rounded-md shrink-0 bg-gray-100 ${
+                className={`hidden sm:block w-10 h-10 rounded-md shrink-0 bg-gray-100 ${
                   ev.imageFit === "cover" ? "object-cover" : "object-contain p-0.5"
                 }`}
                 loading="lazy"
               />
               <div className="flex-1 min-w-0 transition-transform duration-200 group-hover:translate-x-1">
-                <span className={`px-1.5 py-0 rounded text-[10px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
-                  {ev.format}
-                </span>
-                <p className="text-sm font-semibold text-gray-900 dark:text-white truncate mt-0.5">{ev.title}</p>
-                {ev.location && (
-                  <p className="text-xs text-gray-400 dark:text-gray-500 truncate">{ev.location}</p>
-                )}
+                <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">{ev.title}</p>
+                <div className="flex items-center gap-1.5 mt-0.5 min-w-0">
+                  <span className={`px-1.5 py-0 rounded text-[10px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
+                    {ev.format}
+                  </span>
+                  {ev.location && (
+                    <>
+                      <span className="text-xs text-gray-300 dark:text-gray-600 shrink-0">·</span>
+                      <span className="text-xs text-gray-400 dark:text-gray-500 truncate">{ev.location}</span>
+                    </>
+                  )}
+                </div>
               </div>
               <div className="flex items-center gap-1 shrink-0">
                 <span className={`text-xs font-[family-name:var(--font-ultra)] font-bold transition-transform duration-200 group-hover:translate-x-0.5 ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
