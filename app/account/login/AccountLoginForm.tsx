@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { Button } from "@/app/button";
 
 interface Provider { id: string; name: string }
 
@@ -59,13 +60,9 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
               required
               className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button
-              type="submit"
-              disabled={!csrfToken}
-              className="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition"
-            >
+            <Button type="submit" variant="primary" disabled={!csrfToken} className="w-full">
               Email me a sign-in link
-            </button>
+            </Button>
           </form>
         )}
       </div>

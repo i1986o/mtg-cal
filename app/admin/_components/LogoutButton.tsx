@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { Button } from "@/app/button";
 
 export default function LogoutButton() {
   const router = useRouter();
@@ -16,11 +17,8 @@ export default function LogoutButton() {
     router.refresh();
   }
   return (
-    <button
-      onClick={logout}
-      className="w-full text-xs px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition text-left"
-    >
+    <Button variant="ghost" onClick={logout} className="w-full justify-start">
       Log out
-    </button>
+    </Button>
   );
 }

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { getCurrentUser } from "@/lib/session";
+import { LinkButton } from "./button";
 import AccountMenu from "./account-menu";
 
 export default async function AccountChip() {
@@ -8,15 +8,15 @@ export default async function AccountChip() {
 
   if (!signedIn) {
     return (
-      <Link
+      <LinkButton
         href="/account/login"
         title="Sign in"
         aria-label="Sign in"
-        className="fixed top-4 right-4 z-40 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 dark:bg-[#1a2438]/90 backdrop-blur-sm border border-gray-200 dark:border-white/15 shadow-sm hover:shadow-md text-xs font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition"
+        className="fixed top-4 right-4 z-40 backdrop-blur-sm"
       >
         <UserIcon />
         <span className="hidden sm:inline">Sign in</span>
-      </Link>
+      </LinkButton>
     );
   }
 
