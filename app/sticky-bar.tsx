@@ -42,10 +42,11 @@ export default function StickyBar({
       {/* Sentinel: the pill becomes "stuck" once this scrolls out of view. */}
       <div ref={sentinelRef} className="h-0 w-0" />
 
-      {/* Floating pill, sticky on scroll. Spans the page's content width
-          so the pill is always at least as wide as the cards below it
-          (chip content centers inside via RadiusSelector's own flex). */}
-      <div className="sticky top-2 z-10 mb-6 anim-fade-in" style={{ "--delay": "80ms" } as React.CSSProperties}>
+      {/* Floating pill, sticky on scroll. Negative horizontal margin lets
+          the pill overhang the cards by ~8px on each side so it reads as
+          a layer floating above the content rather than aligning flush
+          with it. Chip content still centers inside via the inner flex. */}
+      <div className="sticky top-2 z-10 mb-6 -mx-2 anim-fade-in" style={{ "--delay": "80ms" } as React.CSSProperties}>
         <div
           className={`flex justify-center bg-white dark:bg-[#0c1220] border border-gray-200 dark:border-white/10 rounded-2xl px-4 py-2 transition-shadow duration-300 ${
             isStuck
