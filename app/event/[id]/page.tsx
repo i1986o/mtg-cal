@@ -101,7 +101,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   const showInlineMap = !heroIsMap && Boolean(mapEmbedSrc);
 
   return (
-    <main className="w-full max-w-[800px] min-w-0 mx-auto px-4 py-8">
+    <main className="w-full max-w-2xl min-w-0 mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6 anim-fade-in">
         <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline">
           &larr; Back to PlayIRL.GG
@@ -117,7 +117,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             both themes so logos with baked-in white backgrounds blend in;
             keeping a dark bg here in dark mode would frame them with a stark
             white-on-near-black halo. */}
-        <div className={`relative h-72 overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50"}`}>
+        <div className={`relative aspect-video overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={hero.url}
@@ -130,13 +130,17 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         </div>
 
         {/* Header */}
-        <div className="p-6 pb-4">
-          <div className="flex items-center gap-2 mb-3">
-            <span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${FORMAT_COLORS[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
+        <div className="p-6 pb-4 space-y-4">
+          <div>
+            <div className="text-xs text-gray-400 dark:text-gray-500 mb-1">Format</div>
+            <span className={`inline-block px-2.5 py-1 rounded-md text-xs font-semibold ${FORMAT_COLORS[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
               {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
             </span>
           </div>
-          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white break-words">{ev.title}</h1>
+          <div>
+            <div className="text-xs text-gray-400 dark:text-gray-500 mb-1">Event</div>
+            <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white break-words">{ev.title}</h1>
+          </div>
         </div>
 
         {/* Details table */}
@@ -146,7 +150,6 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               <DetailRow label="Host" value={ev.location} href={ev.store_url || undefined} />
               <DetailRow label="Date" value={formatDate(ev.date)} />
               <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
-              <DetailRow label="Format" value={ev.format} />
               <DetailRow label="Cost" value={ev.cost || "Not listed"} />
               {ev.address && (
                 <div className="py-3 border-b border-gray-100 dark:border-white/8 last:border-0">
@@ -166,7 +169,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
                     <iframe
                       src={mapEmbedSrc}
                       title={`Map of ${ev.location || ev.address}`}
-                      className="w-full h-48 rounded-md border border-gray-100 dark:border-white/8 mt-3"
+                      className="w-full aspect-[3/2] rounded-md border border-gray-100 dark:border-white/8 mt-3"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />
