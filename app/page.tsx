@@ -103,25 +103,25 @@ export default async function HomePage({
       <AccountChip />
       <FloatingToolbar currentView={currentView} />
 
-      {/* Hero + sticky filter pill — the header collapses on scroll, the
-          pill below it floats and stays sticky. */}
-      <StickyBar
-        header={
-          <header className="flex flex-col items-center text-center gap-1 w-full anim-fade-in-up">
-            <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ultra)] font-light text-gray-900 dark:text-white leading-none"
-              style={{ letterSpacing: "0.02em" }}
-            >
-              PlayIRL.GG
-            </h1>
-            <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
-              An independent, alternative way to find and schedule MTG events near you.
-              <AboutInfoButton />
-            </p>
-          </header>
-        }
-      >
-        <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={currentFormat} formats={formats} eventCount={events.length} />
+      {/* Hero header */}
+      <header className="mb-6 flex flex-col items-center text-center gap-1 w-full anim-fade-in-up">
+        <h1
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ultra)] font-light text-gray-900 dark:text-white leading-none"
+          style={{ letterSpacing: "0.02em" }}
+        >
+          PlayIRL.GG
+        </h1>
+        <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
+          An independent, alternative way to find and schedule MTG events near you.
+          <AboutInfoButton />
+        </p>
+      </header>
+
+      {/* Sticky filter bar */}
+      <StickyBar>
+        <div className="flex justify-center">
+          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={currentFormat} formats={formats} eventCount={events.length} />
+        </div>
       </StickyBar>
 
       {currentView === "calendar" ? (
