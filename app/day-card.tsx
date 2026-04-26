@@ -48,7 +48,7 @@ export default function DayCard({
   savedEventIds?: Set<string>;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const { sentinelRef, isStuck } = useStickySentinel("-48px 0px 0px 0px");
+  const { sentinelRef, isStuck } = useStickySentinel("-80px 0px 0px 0px");
 
   // Stagger-in animation for card shell + rows
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function DayCard({
           headingLabel ("Today · Sunday, Apr 26", or weekday + date for other
           days) already conveys the date right next to it, so the circle was
           pure visual repetition. */}
-      <div className={`sticky top-[47px] z-[5] flex items-center gap-2.5 px-4 border transition-all duration-150 ${isStuck ? "py-1" : "py-2 rounded-t-xl"} ${borderColor} ${headingBg}`}>
+      <div className={`sticky top-[80px] z-[5] flex items-center gap-2.5 px-4 border transition-all duration-150 ${isStuck ? "py-1" : "py-2 rounded-t-xl"} ${borderColor} ${headingBg}`}>
         <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-700 dark:text-gray-300"}`}>
           {headingLabel || weekday}
         </span>

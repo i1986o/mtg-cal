@@ -6,13 +6,20 @@ import { useRouter } from "next/navigation";
 export default function AccountMenu({
   displayName,
   role,
+  imageUrl,
+  initials,
 }: {
   displayName: string;
   role: "admin" | "organizer" | "user";
+  imageUrl: string | null;
+  initials: string;
 }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [imgFailed, setImgFailed] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const showImage = !!imageUrl && !imgFailed;
 
   useEffect(() => {
     if (!open) return;
@@ -50,11 +57,24 @@ export default function AccountMenu({
         aria-expanded={open}
         title={displayName}
         aria-label={`Account menu for ${displayName}`}
-        className="flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
+        className="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden cursor-pointer transition-opacity hover:opacity-80"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
+        {showImage ? (
+          // OAuth-provided avatar (Discord/Google CDN). Falls back to
+          // initials below on load error via onError → setImgFailed.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={imageUrl!}
+            alt=""
+            className="w-full h-full object-cover"
+            onError={() => setImgFailed(true)}
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          <span className="w-full h-full rounded-lg bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 text-[11px] font-bold flex items-center justify-center tracking-wide">
+            {initials}
+          </span>
+        )}
       </button>
 
       {open && (
