@@ -25,7 +25,10 @@ export default async function SavedEventsPage() {
   const todayStr = today.toISOString().split("T")[0];
   const tomorrowStr = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
-  const enriched = events.map((ev) => ({ ...ev, imageUrl: resolveEventImage(ev) }));
+  const enriched = events.map((ev) => {
+    const img = resolveEventImage(ev);
+    return { ...ev, imageUrl: img.url, imageFit: img.fit };
+  });
   const upcoming = enriched.filter((e) => e.date >= todayStr);
   const past = enriched.filter((e) => e.date < todayStr);
 

@@ -148,6 +148,8 @@ export default async function fetchWizardsEvents(sourceConfig = {}) {
           : "",
         latitude: ev.latitude ?? null,
         longitude: ev.longitude ?? null,
+        // WotC's searchEvents returns per-event coords — trust them.
+        coords_source: ev.latitude != null && ev.longitude != null ? "source" : "none",
         source: "wizards-locator",
       });
     }

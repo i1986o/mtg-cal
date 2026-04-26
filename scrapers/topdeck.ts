@@ -99,6 +99,8 @@ export default async function fetchTopdeckEvents(sourceConfig: any = {}) {
       detail_url: `https://topdeck.gg/event/${t.TID || t.tid}`,
       latitude: tLat,
       longitude: tLng,
+      // TopDeck's API returns per-tournament coords — trust them.
+      coords_source: "source",
       source: "topdeck",
     });
   }

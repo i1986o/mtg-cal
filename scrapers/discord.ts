@@ -7,8 +7,14 @@ import type { ScrapedEvent } from "./index";
 const DISCORD_API = "https://discord.com/api/v10";
 
 // Known guild coordinates for distance filtering (admin-configured defaults).
+// Discord's API doesn't expose per-event lat/lng, so this dict is our floor —
+// new events from a recognized guild fall back to these. Coords are flagged
+// as `coords_source: "guild_fallback"` and re-geocoded against `address` at
+// upsert time, so even a slightly-off literal here gets corrected. The
+// `address` field below is what gets stored on events; pick something the
+// geocoder can resolve confidently.
 const GUILD_COORDS: Record<string, { lat: number; lng: number; address: string }> = {
-  "1451305700322967794": { lat: 39.9518, lng: -75.1849, address: "226 Walnut St, Philadelphia, PA 19106" }, // Hamilton's Hand
+  "1451305700322967794": { lat: 39.9472, lng: -75.1455, address: "226 Walnut St, Philadelphia, PA 19106" }, // Hamilton's Hand (Old City)
 };
 
 // Keywords that identify an MTG event
@@ -154,6 +160,19 @@ export default async function fetchDiscordEvents(sourceConfig: DiscordScraperCon
         ? `https://cdn.discordapp.com/guild-events/${ev.guild_id}/${ev.id}/${ev.image}.png?size=1024`
         : "";
 
+      // Coord trust ladder: per-source spec (the user actually picked these
+      // when connecting their Discord) > guild-wide hardcoded fallback >
+      // nothing. Anything below `spec` is untrusted and should be re-geocoded
+      // from the address at upsert.
+      const lat = spec.latitude ?? fallbackCoords?.lat ?? null;
+      const lng = spec.longitude ?? fallbackCoords?.lng ?? null;
+      const coordsSource: "source" | "guild_fallback" | "none" =
+        spec.latitude != null && spec.longitude != null
+          ? "source"
+          : fallbackCoords
+            ? "guild_fallback"
+            : "none";
+
       allEvents.push({
         id: isUserSource ? `discord-${spec.guildId}-${ev.id}` : `discord-${ev.id}`,
         title,
@@ -166,8 +185,9 @@ export default async function fetchDiscordEvents(sourceConfig: DiscordScraperCon
         cost: extractCost(ev.description) || (desc ? "" : ""),
         store_url: "",
         detail_url: `https://discord.com/events/${ev.guild_id}/${ev.id}`,
-        latitude: spec.latitude ?? fallbackCoords?.lat ?? null,
-        longitude: spec.longitude ?? fallbackCoords?.lng ?? null,
+        latitude: lat,
+        longitude: lng,
+        coords_source: coordsSource,
         source: sourceTag,
         owner_id: spec.ownerId ?? null,
         source_type: sourceType,

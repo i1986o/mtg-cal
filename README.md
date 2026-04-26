@@ -74,6 +74,48 @@ ADMIN_PASSWORD_HASH=           # bcryptjs hash; in dev, "admin" is accepted if u
 
 Providers without configured env vars are silently skipped — you can ship with just one (e.g. Discord) and add others later.
 
+### Venue / event images
+
+Every event card is rendered through the cascade in `lib/event-image.ts`:
+
+```
+event.image_url                          (Discord cover image, host upload)
+  → venue_defaults[venueKey(location)]   (admin upload OR auto-fetched: og:image / Places photo / Street View)
+  → mapboxStaticUrl(latitude, longitude) (render-time map, NEXT_PUBLIC_MAPBOX_TOKEN required)
+  → SOURCE_FALLBACKS[source_type]        (generic per-source icon)
+  → /images/event-placeholder.svg
+```
+
+Two optional API keys upgrade the experience:
+
+```env
+NEXT_PUBLIC_MAPBOX_TOKEN=    # public (pk.*) token. Powers the render-time map layer
+                             # AND the cli/backfill-event-coords.ts geocoder. Restrict by URL.
+GOOGLE_PLACES_API_KEY=       # server-only. Enables real venue photos via Places + Street View
+                             # in lib/venue-image-fetcher.ts.
+```
+
+Graceful degradation: with neither set, the cascade still works — you just get the source-type icon for non-Discord events, same as today.
+
+One-time backfills after deploy:
+
+```bash
+npx tsx --env-file=.env cli/backfill-event-coords.ts    # geocode events with address-but-no-coords
+npx tsx --env-file=.env cli/backfill-venue-images.ts    # try to attach a real photo to every known venue
+```
+
+Both are idempotent. The scraper auto-runs the venue-image step on each scrape for newly-seen venues.
+
+### Location data policy
+
+**Street address is the source of truth.** Lat/lng is treated as derived metadata used for distance filtering and the (rare) APIs that don't accept text queries.
+
+- **Render-time** — every map embed, "Open in Maps" link, and ICS calendar `LOCATION:` field is built from `event.address` text (Google Maps / OpenStreetMap geocode it on display). The only render path that requires lat/lng is `lib/event-image.ts`'s Mapbox static hero map, which is reached only when no event/venue photo exists.
+- **Ingest-time** — each `ScrapedEvent` carries a `coords_source` tag (`"source"` | `"guild_fallback"` | `"none"`). Scrapers whose APIs return per-event coords (WotC, TopDeck) tag them `"source"`; sources that fall back to a guild-wide hardcode (Discord) tag them `"guild_fallback"`. After dedupe and before upsert, `lib/scraper.ts` runs `reconcileEventCoords()` which re-geocodes every non-`"source"` event from its address using `lib/geocode.ts` (Mapbox if `MAPBOX_TOKEN`/`NEXT_PUBLIC_MAPBOX_TOKEN` is set, OpenStreetMap Nominatim otherwise — free, no key).
+- **Backfill** — `cli/backfill-event-coords.ts` accepts `--source-prefix <X>` to re-derive coords for an existing source's rows, e.g. `npx tsx --env-file=.env cli/backfill-event-coords.ts --source-prefix discord` cleans up rows that inherited a stale `GUILD_COORDS` literal.
+
+Net effect: address-text and lat/lng always agree, regardless of which the renderer queries.
+
 ### First-time admin bootstrap
 
 1. Set `ADMIN_EMAILS=you@example.com` in `.env`.
