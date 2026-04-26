@@ -27,7 +27,6 @@ interface EventRow {
 export default function DayCard({
   date,
   weekday,
-  dayNum,
   isToday,
   isPast,
   events,
@@ -39,7 +38,6 @@ export default function DayCard({
 }: {
   date: string;
   weekday: string;
-  dayNum: number;
   isToday: boolean;
   isPast: boolean;
   events: EventRow[];
@@ -114,15 +112,11 @@ export default function DayCard({
       {/* Sentinel: zero-height, sits at the top of the card to detect when header pins */}
       <div ref={sentinelRef} className="h-0" />
 
-      {/* Sticky date header */}
+      {/* Sticky date header. The day-number circle was removed — the
+          headingLabel ("Today · Sunday, Apr 26", or weekday + date for other
+          days) already conveys the date right next to it, so the circle was
+          pure visual repetition. */}
       <div className={`sticky top-[47px] z-[5] flex items-center gap-2.5 px-4 border transition-all duration-150 ${isStuck ? "py-1" : "py-2 rounded-t-xl"} ${borderColor} ${headingBg}`}>
-        <span
-          className={`inline-flex items-center justify-center rounded-full font-[family-name:var(--font-ultra)] font-bold shrink-0 transition-all duration-150 ${isStuck ? "w-6 h-6 text-xs" : "w-8 h-8 text-sm"} ${
-            isToday ? "bg-blue-600 text-white" : "text-gray-900 dark:text-gray-200"
-          }`}
-        >
-          {dayNum}
-        </span>
         <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-700 dark:text-gray-300"}`}>
           {headingLabel || weekday}
         </span>

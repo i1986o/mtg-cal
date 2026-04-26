@@ -70,7 +70,6 @@ export default async function SavedEventsPage() {
                     key={date}
                     date={date}
                     weekday={d.toLocaleDateString("en-US", { weekday: "long" })}
-                    dayNum={d.getDate()}
                     isToday={date === todayStr}
                     isPast={false}
                     events={dayEvents}
