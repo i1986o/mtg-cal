@@ -151,7 +151,13 @@ export default function DayCard({
               <img
                 src={ev.imageUrl}
                 alt=""
-                className={`w-10 h-10 rounded-md shrink-0 bg-gray-100 dark:bg-gray-800 ${
+                // Image container background is light in BOTH themes so the
+                // many logos with baked-in white backgrounds blend cleanly —
+                // a dark-mode container would frame them with a stark
+                // white-on-near-black square. `object-cover` images fill the
+                // box entirely, so the bg only shows when `object-contain`
+                // letterboxes a smaller logo.
+                className={`w-10 h-10 rounded-md shrink-0 bg-gray-100 ${
                   ev.imageFit === "cover" ? "object-cover" : "object-contain p-0.5"
                 }`}
                 loading="lazy"
