@@ -6,6 +6,7 @@ import { FORMAT_SUGGESTIONS } from "@/lib/format-style";
 import VenueAutocomplete, { type Venue } from "./VenueAutocomplete";
 import FormatCombobox from "./FormatCombobox";
 import EventImageInput from "./EventImageInput";
+import { Button } from "@/app/button";
 
 export interface EventFormValues {
   id?: string;
@@ -286,20 +287,12 @@ export default function EventForm({
       </Field>
 
       <div className="flex gap-3">
-        <button
-          type="submit"
-          disabled={saving || imageUploading}
-          className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 transition"
-        >
+        <Button type="submit" variant="primary" disabled={saving || imageUploading}>
           {saving ? "Saving…" : imageUploading ? "Uploading photo…" : "Save"}
-        </button>
-        <button
-          type="button"
-          onClick={() => router.back()}
-          className="px-4 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-        >
+        </Button>
+        <Button variant="ghost" onClick={() => router.back()}>
           Cancel
-        </button>
+        </Button>
       </div>
     </form>
   );

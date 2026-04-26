@@ -13,6 +13,7 @@ import FloatingToolbar from "./floating-toolbar";
 import AboutInfoButton from "./about-info-button";
 import DayCard from "./day-card";
 import Reveal from "./reveal";
+import { LinkButton } from "./button";
 import AccountChip from "./account-chip";
 
 function dayHeadingLabel(dateStr: string, todayStr: string, tomorrowStr: string): string {
@@ -170,21 +171,19 @@ export default async function HomePage({
           {/* Week navigation */}
           <Reveal className="flex items-center justify-between mt-6">
             {currentOffset > 0 ? (
-              <a
+              <LinkButton
                 href={`?${new URLSearchParams({ ...Object.fromEntries(Object.entries(params).filter(([k]) => k !== "offset")), ...(currentOffset - 7 > 0 ? { offset: String(currentOffset - 7) } : {}) }).toString()}`}
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:-translate-x-0.5 active:translate-x-0 transition-all duration-200"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 Previous week
-              </a>
+              </LinkButton>
             ) : <div />}
-            <a
+            <LinkButton
               href={`?${new URLSearchParams({ ...Object.fromEntries(Object.entries(params).filter(([,v]) => v !== undefined) as [string,string][]), offset: String(currentOffset + 7) }).toString()}`}
-              className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:translate-x-0.5 active:translate-x-0 transition-all duration-200"
             >
               Next week
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-            </a>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </LinkButton>
           </Reveal>
         </>
       )}

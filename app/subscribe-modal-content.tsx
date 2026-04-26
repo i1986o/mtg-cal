@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FORMAT_EMOJI, FORMAT_BADGE, FORMAT_BADGE_DEFAULT, FORMAT_EMOJI_DEFAULT } from "@/lib/format-style";
+import { Button } from "./button";
 
 const FORMAT_FEEDS = [
   { slug: "commander", label: "Commander" },
@@ -40,12 +41,9 @@ function CopyRow({ label, path }: { label: string; path: string }) {
       <code className="flex-1 bg-gray-100 dark:bg-white/5 text-xs px-3 py-2 rounded truncate text-gray-500 dark:text-gray-400">
         {url}
       </code>
-      <button
-        onClick={handleCopy}
-        className="shrink-0 px-3 py-2 text-xs font-medium rounded bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-white/15 transition min-w-[60px] cursor-pointer"
-      >
+      <Button onClick={handleCopy} className="shrink-0 min-w-[60px]">
         {copied ? "Copied!" : "Copy"}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -60,7 +58,9 @@ export default function SubscribeModal({ onClose }: { onClose: () => void }) {
       >
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white">Subscribe to Calendar</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-white text-xl leading-none cursor-pointer">&times;</button>
+          <Button onClick={onClose} variant="icon" aria-label="Close">
+            <span className="text-xl leading-none">&times;</span>
+          </Button>
         </div>
 
         <p className="text-sm text-gray-500 dark:text-gray-400">
