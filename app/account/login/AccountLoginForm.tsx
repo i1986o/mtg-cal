@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/app/button";
+import OAuthButton from "@/app/oauth-button";
 
 interface Provider { id: string; name: string }
 
@@ -22,11 +24,11 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 p-4">
-      <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-5">
-        <div className="text-center">
-          <h1 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Sign in to PlayIRL</h1>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Submit events and connect event sources. No invite needed — sign in and get started.
+      <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-6">
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Welcome to PlayIRL.GG</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            Save events, submit your own games, and pull events from Discord servers you run.
           </p>
         </div>
 
@@ -39,50 +41,47 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
         {hasOAuth && (
           <div className="space-y-2">
             {providers.filter((p) => p.id === "discord").map((p) => (
-              <OAuthForm key={p.id} action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} label={`Continue with ${p.name}`} color="#5865F2" />
+              <OAuthButton key={p.id} provider="discord" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
             ))}
             {providers.filter((p) => p.id === "google").map((p) => (
-              <OAuthForm key={p.id} action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} label={`Continue with ${p.name}`} color="#4285F4" />
+              <OAuthButton key={p.id} provider="google" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
             ))}
           </div>
         )}
 
         {hasEmail && (
-          <form action={oauthAction("resend")} method="POST" className="space-y-2">
-            <input type="hidden" name="csrfToken" value={csrfToken} />
-            <input type="hidden" name="callbackUrl" value={from} />
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              required
-              className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <Button type="submit" variant="primary" disabled={!csrfToken} className="w-full">
-              Email me a sign-in link
-            </Button>
-          </form>
+          <>
+            {hasOAuth && (
+              <div className="flex items-center gap-3">
+                <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+                <span className="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">or</span>
+                <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+              </div>
+            )}
+            <form action={oauthAction("resend")} method="POST" className="space-y-2">
+              <input type="hidden" name="csrfToken" value={csrfToken} />
+              <input type="hidden" name="callbackUrl" value={from} />
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                required
+                className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <Button type="submit" variant="primary" disabled={!csrfToken} className="w-full">
+                Email me a sign-in link
+              </Button>
+            </form>
+          </>
         )}
+
+        <p className="text-xs text-center text-gray-500 dark:text-gray-400 leading-relaxed">
+          New here? Pick a provider above — we&rsquo;ll create your account automatically. Or{" "}
+          <Link href="/" className="underline hover:text-gray-700 dark:hover:text-gray-300">browse events first</Link>.
+        </p>
       </div>
     </main>
-  );
-}
-
-function OAuthForm({ action, csrfToken, callbackUrl, label, color }: { action: string; csrfToken: string; callbackUrl: string; label: string; color: string }) {
-  return (
-    <form action={action} method="POST">
-      <input type="hidden" name="csrfToken" value={csrfToken} />
-      <input type="hidden" name="callbackUrl" value={callbackUrl} />
-      <button
-        type="submit"
-        disabled={!csrfToken}
-        className="flex items-center justify-center gap-2 w-full py-2 rounded-lg text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-50"
-        style={{ backgroundColor: color }}
-      >
-        {label}
-      </button>
-    </form>
   );
 }
