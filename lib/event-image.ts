@@ -1,5 +1,15 @@
 import { cache } from "react";
 import { listVenueDefaults, venueKey, type VenueImageSource } from "./venues";
+import { uploadFileExists } from "./upload-storage";
+
+/** True when the URL is a `/uploads/*` path whose underlying file is missing
+ *  on disk. Remote URLs and SVG fallbacks always pass. Lets the cascade skip
+ *  past dead rows (Railway volume reset, stale committed DB) instead of
+ *  rendering a broken `<img>`. */
+function isLiveImageUrl(url: string): boolean {
+  if (!url.startsWith("/uploads/")) return true;
+  return uploadFileExists(url);
+}
 
 /**
  * Resolves an event's display image plus an "object-fit" hint, through a
@@ -45,7 +55,9 @@ interface VenueDefaultEntry {
 const venueDefaultsByKey = cache((): Map<string, VenueDefaultEntry> => {
   const out = new Map<string, VenueDefaultEntry>();
   for (const row of listVenueDefaults()) {
-    if (row.image_url) out.set(row.venue_key, { url: row.image_url, source: row.image_source });
+    if (row.image_url && isLiveImageUrl(row.image_url)) {
+      out.set(row.venue_key, { url: row.image_url, source: row.image_source });
+    }
   }
   return out;
 });
@@ -94,7 +106,7 @@ function fitFor(url: string, venueSource: VenueImageSource | null | undefined): 
 
 export function resolveEventImage(event: EventImageInput): EventImage {
   // 1. Per-event image (Discord CDN, host upload). Photo by convention.
-  if (event.image_url) {
+  if (event.image_url && isLiveImageUrl(event.image_url)) {
     return { url: event.image_url, fit: fitFor(event.image_url, null), kind: "event" };
   }
 
@@ -124,7 +136,7 @@ export function resolveEventImage(event: EventImageInput): EventImage {
  * code that wants to know whether to render a hero crop vs. an icon-style tile.
  */
 export function hasRealEventImage(event: EventImageInput): boolean {
-  if (event.image_url) return true;
+  if (event.image_url && isLiveImageUrl(event.image_url)) return true;
   if (venueDefaultsByKey().has(venueKey(event.location ?? ""))) return true;
   if (event.latitude != null && event.longitude != null && process.env.NEXT_PUBLIC_MAPBOX_TOKEN) {
     return true;
