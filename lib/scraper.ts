@@ -3,6 +3,7 @@ import { upsertEvents, archiveOldEvents, setSetting } from "./events";
 import { fetchVenueImage } from "./venue-image-fetcher";
 import { getVenueDefault, venueKey } from "./venues";
 import { geocodeFirstMatch } from "./geocode";
+import { uploadFileExists } from "./upload-storage";
 
 function normalize(s: string): string {
   return (s || "").toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim();
@@ -62,8 +63,12 @@ function shouldSkipVenueFetch(name: string): boolean {
   const existing = getVenueDefault(name);
   if (!existing) return false;
   if (existing.image_source === "manual") return true;
-  if (existing.image_url) return true; // already have something good
-  // Empty image_url = previous attempts all failed. Back off if recent + at cap.
+  // Self-heal: a non-empty image_url whose underlying file is missing (e.g.
+  // Railway volume reset, file manually deleted) should NOT short-circuit a
+  // re-fetch. Without this, prior runs' broken URLs stick forever.
+  if (existing.image_url && uploadFileExists(existing.image_url)) return true;
+  // Empty image_url (or missing file) = previous attempts failed or the file
+  // is gone. Back off if recent + at cap.
   if ((existing.attempt_count ?? 0) < VENUE_FETCH_MAX_ATTEMPTS) return false;
   if (!existing.last_fetched_at) return false;
   const ageMs = Date.now() - new Date(existing.last_fetched_at).getTime();

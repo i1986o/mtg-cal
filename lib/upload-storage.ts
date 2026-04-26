@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
 import fs from "fs/promises";
+import { existsSync, statSync } from "fs";
 import path from "path";
 
 /**
@@ -108,6 +109,33 @@ export async function deleteUpload(url: string): Promise<void> {
     await fs.unlink(fullPath);
   } catch {
     /* missing file is fine */
+  }
+}
+
+/**
+ * Sync check that a `/uploads/<bucket>/<file>` URL still resolves to a real
+ * file on disk. The DB stores public URLs, but Railway persistent volumes can
+ * be reset (or files manually deleted) leaving the row pointing at nothing —
+ * so callers that decide whether to *re-fetch* (e.g. the venue-image
+ * auto-fetcher) need to know the difference between "we have an image" and
+ * "we have a row claiming we have an image."
+ *
+ * Returns false for empty/non-/uploads URLs, missing files, and traversal
+ * attempts. Returns true only when the resolved path is a real regular file.
+ */
+export function uploadFileExists(url: string): boolean {
+  if (!url || !url.startsWith("/uploads/")) return false;
+  const rel = url
+    .slice("/uploads/".length)
+    .split("/")
+    .filter(Boolean);
+  if (rel.length === 0) return false;
+  const fullPath = resolveUploadPath(rel);
+  if (!fullPath || !existsSync(fullPath)) return false;
+  try {
+    return statSync(fullPath).isFile();
+  } catch {
+    return false;
   }
 }
 
