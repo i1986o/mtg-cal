@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/app/button";
+import OAuthButton from "@/app/oauth-button";
 
 interface Provider { id: string; name: string }
 
@@ -23,9 +24,9 @@ export default function LoginForm({ providers }: { providers: Provider[] }) {
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 p-4">
-      <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-5">
+      <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-6">
         <h1 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-center text-gray-900 dark:text-gray-100">
-          Sign in
+          Admin sign in
         </h1>
 
         {noProviders && (
@@ -37,10 +38,10 @@ export default function LoginForm({ providers }: { providers: Provider[] }) {
         {hasOAuth && (
           <div className="space-y-2">
             {providers.filter((p) => p.id === "discord").map((p) => (
-              <OAuthForm key={p.id} action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} label={`Continue with ${p.name}`} color="#5865F2" />
+              <OAuthButton key={p.id} provider="discord" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
             ))}
             {providers.filter((p) => p.id === "google").map((p) => (
-              <OAuthForm key={p.id} action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} label={`Continue with ${p.name}`} color="#4285F4" />
+              <OAuthButton key={p.id} provider="google" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
             ))}
           </div>
         )}
@@ -74,22 +75,5 @@ export default function LoginForm({ providers }: { providers: Provider[] }) {
         )}
       </div>
     </main>
-  );
-}
-
-function OAuthForm({ action, csrfToken, callbackUrl, label, color }: { action: string; csrfToken: string; callbackUrl: string; label: string; color: string }) {
-  return (
-    <form action={action} method="POST">
-      <input type="hidden" name="csrfToken" value={csrfToken} />
-      <input type="hidden" name="callbackUrl" value={callbackUrl} />
-      <button
-        type="submit"
-        disabled={!csrfToken}
-        className="flex items-center justify-center gap-2 w-full py-2 rounded-lg text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-50"
-        style={{ backgroundColor: color }}
-      >
-        {label}
-      </button>
-    </form>
   );
 }
