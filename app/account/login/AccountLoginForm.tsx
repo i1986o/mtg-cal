@@ -28,7 +28,7 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Welcome to PlayIRL.GG</h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-            Save events, submit your own games, and pull events from Discord servers you run.
+            Submit your own events and sync with Discord — pull events from a server, or publish PlayIRL events to one.
           </p>
         </div>
 
@@ -40,11 +40,11 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
 
         {hasOAuth && (
           <div className="space-y-2">
-            {providers.filter((p) => p.id === "discord").map((p) => (
-              <OAuthButton key={p.id} provider="discord" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
-            ))}
             {providers.filter((p) => p.id === "google").map((p) => (
               <OAuthButton key={p.id} provider="google" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
+            ))}
+            {providers.filter((p) => p.id === "discord").map((p) => (
+              <OAuthButton key={p.id} provider="discord" action={oauthAction(p.id)} csrfToken={csrfToken} callbackUrl={from} />
             ))}
           </div>
         )}
