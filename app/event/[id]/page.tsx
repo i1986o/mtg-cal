@@ -62,8 +62,43 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
   if (!ev) return notFound();
 
-  const heroImage = resolveEventImage(ev);
-  const heroIsPhoto = hasRealEventImage(ev);
+  const hero = resolveEventImage(ev);
+  const heroIsRealImage = hasRealEventImage(ev);
+  const heroIsPhoto = hero.fit === "cover";
+  // For non-cover images, give logos less padding than generic SVG icons.
+  const heroPadding = heroIsPhoto ? "" : heroIsRealImage ? "p-6" : "p-12";
+
+  // Show an inline map on the Address row whenever the hero isn't already
+  // a map — otherwise we'd render the same view twice.
+  //
+  // We prefer Google's official Maps Embed API when NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY
+  // is configured (free for the standard `place` mode, lock the key by HTTP
+  // referrer in the Google Cloud Console). Falls back to OpenStreetMap's
+  // public embed when the key isn't set — works without any setup, just less
+  // polished. Google's old `?output=embed` URL is blocked by X-Frame-Options
+  // on all origins now and can't be used.
+  //
+  // Important: prefer the address text when present. Some scraped events
+  // (notably Discord-scraped ones) carry a guild-wide fallback lat/lng that
+  // doesn't actually point at the venue, so Google geocoding the address is
+  // far more reliable than blindly using the stored coordinates.
+  const heroIsMap = hero.kind === "map";
+  const hasCoords = ev.latitude != null && ev.longitude != null;
+  const placeQuery = ev.address
+    ? ev.location ? `${ev.location}, ${ev.address}` : ev.address
+    : null;
+  const googleEmbedKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY;
+
+  let mapEmbedSrc: string | null = null;
+  if (googleEmbedKey && (placeQuery || hasCoords)) {
+    const q = placeQuery ?? `${ev.latitude},${ev.longitude}`;
+    mapEmbedSrc = `https://www.google.com/maps/embed/v1/place?key=${googleEmbedKey}&q=${encodeURIComponent(q)}&zoom=15`;
+  } else if (hasCoords) {
+    // OSM needs coords (no text-query embed). bbox is a small box (~0.5 km in
+    // mid-latitudes); marker= drops the pin.
+    mapEmbedSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${(ev.longitude! - 0.005).toFixed(4)},${(ev.latitude! - 0.003).toFixed(4)},${(ev.longitude! + 0.005).toFixed(4)},${(ev.latitude! + 0.003).toFixed(4)}&layer=mapnik&marker=${ev.latitude},${ev.longitude}`;
+  }
+  const showInlineMap = !heroIsMap && Boolean(mapEmbedSrc);
 
   return (
     <main className="max-w-[52.5rem] mx-auto px-4 py-8">
@@ -79,9 +114,9 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
         <div className={`relative h-72 overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50 dark:bg-[#0c1828]"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={heroImage}
+            src={hero.url}
             alt={ev.title}
-            className={`w-full h-full ${heroIsPhoto ? "object-cover" : "object-contain p-12"}`}
+            className={`w-full h-full ${heroIsPhoto ? "object-cover" : "object-contain"} ${heroPadding}`}
           />
           {heroIsPhoto && (
             <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0c1220] via-transparent to-transparent pointer-events-none" />
@@ -107,7 +142,31 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
               <DetailRow label="Format" value={ev.format} />
               <DetailRow label="Cost" value={ev.cost || "Not listed"} />
-              <DetailRow label="Address" value={ev.address} href={ev.address ? `https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}` : undefined} />
+              {ev.address && (
+                <div className="py-3 border-b border-gray-100 dark:border-white/8 last:border-0">
+                  <dt className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">Address</dt>
+                  <dd className="text-sm font-medium text-gray-900 dark:text-gray-200">
+                    <a
+                      href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:underline"
+                    >
+                      {ev.address}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </a>
+                  </dd>
+                  {showInlineMap && mapEmbedSrc && (
+                    <iframe
+                      src={mapEmbedSrc}
+                      title={`Map of ${ev.location || ev.address}`}
+                      className="w-full h-48 rounded-md border border-gray-100 dark:border-white/8 mt-3"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  )}
+                </div>
+              )}
               <DetailRow label="Source" value={SOURCE_LABELS[ev.source] || ev.source} href={ev.detail_url || undefined} />
             </dl>
           </div>
@@ -119,21 +178,6 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             <div className="mx-6 mb-4 bg-gray-50 dark:bg-[#141c2e] rounded-lg p-4">
               <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Description</p>
               <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{ev.notes}</p>
-            </div>
-          </Reveal>
-        )}
-
-        {/* Map */}
-        {ev.location && (
-          <Reveal>
-            <div className="mx-6 mb-6 rounded-lg overflow-hidden border border-gray-100 dark:border-white/8">
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent(ev.location + (ev.address ? " " + ev.address : ""))}&output=embed&z=15`}
-                className="w-full h-56 border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
             </div>
           </Reveal>
         )}

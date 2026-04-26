@@ -25,7 +25,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ key
   try {
     const saved = await saveUpload("venues", file);
     const previous = getVenueDefault(venueName);
-    const next = setVenueDefault(venueName, saved.url);
+    const next = setVenueDefault(venueName, saved.url, "manual");
     // Best-effort cleanup of the prior file so we don't leak storage.
     if (previous && previous.image_url !== saved.url) {
       void deleteUpload(previous.image_url);

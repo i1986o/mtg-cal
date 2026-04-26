@@ -86,7 +86,10 @@ export default async function HomePage({
     centerLng: config.location.lng,
   });
 
-  const enriched = events.map((ev) => ({ ...ev, imageUrl: resolveEventImage(ev) }));
+  const enriched = events.map((ev) => {
+    const img = resolveEventImage(ev);
+    return { ...ev, imageUrl: img.url, imageFit: img.fit };
+  });
 
   const grouped: Record<string, typeof enriched> = {};
   for (const ev of enriched) {

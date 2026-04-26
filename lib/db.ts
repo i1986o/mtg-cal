@@ -172,6 +172,9 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE events ADD COLUMN source_type TEXT DEFAULT 'scraper'"); } catch {}
   try { db.exec("ALTER TABLE users ADD COLUMN suspended_reason TEXT DEFAULT ''"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN image_url TEXT DEFAULT ''"); } catch {}
+  try { db.exec("ALTER TABLE venue_defaults ADD COLUMN image_source TEXT"); } catch {}
+  try { db.exec("ALTER TABLE venue_defaults ADD COLUMN last_fetched_at TEXT"); } catch {}
+  try { db.exec("ALTER TABLE venue_defaults ADD COLUMN attempt_count INTEGER DEFAULT 0"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");

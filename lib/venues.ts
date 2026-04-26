@@ -101,38 +101,81 @@ export function venueKey(name: string): string {
   return (name ?? "").trim().toLowerCase();
 }
 
+/** Where the venue image came from. `manual` means a curator uploaded it and it
+ *  must never be overwritten by the auto-fetcher. The other tags identify which
+ *  tier of `lib/venue-image-fetcher.ts` produced the image. */
+export type VenueImageSource = "manual" | "og_scrape" | "places" | "street_view";
+
 export interface VenueDefault {
   venue_key: string;
   image_url: string;
   updated_at: string;
+  image_source: VenueImageSource | null;
+  last_fetched_at: string | null;
+  attempt_count: number;
 }
+
+const VENUE_DEFAULT_COLUMNS =
+  "venue_key, image_url, updated_at, image_source, last_fetched_at, attempt_count";
 
 export function getVenueDefault(name: string): VenueDefault | null {
   const key = venueKey(name);
   if (!key) return null;
   const row = getDb()
-    .prepare("SELECT venue_key, image_url, updated_at FROM venue_defaults WHERE venue_key = ?")
+    .prepare(`SELECT ${VENUE_DEFAULT_COLUMNS} FROM venue_defaults WHERE venue_key = ?`)
     .get(key) as VenueDefault | undefined;
   return row ?? null;
 }
 
 export function listVenueDefaults(): VenueDefault[] {
   return getDb()
-    .prepare("SELECT venue_key, image_url, updated_at FROM venue_defaults")
+    .prepare(`SELECT ${VENUE_DEFAULT_COLUMNS} FROM venue_defaults`)
     .all() as VenueDefault[];
 }
 
-export function setVenueDefault(name: string, imageUrl: string): VenueDefault {
+/**
+ * Upsert a venue's default image. `imageUrl` may be empty when `source` indicates
+ * a failed auto-fetch attempt — that's the auto-fetcher's way of saying "we tried
+ * and got nothing yet; bump the attempt counter and let render-time fall back to
+ * a Mapbox map." Manual uploads must always pass a real `imageUrl`.
+ */
+export function setVenueDefault(
+  name: string,
+  imageUrl: string,
+  source: VenueImageSource = "manual",
+): VenueDefault {
   const key = venueKey(name);
   if (!key) throw new Error("Venue name is required");
-  if (!imageUrl) throw new Error("image_url is required");
-  getDb()
-    .prepare(`
-      INSERT INTO venue_defaults (venue_key, image_url, updated_at)
-      VALUES (?, ?, datetime('now'))
-      ON CONFLICT(venue_key) DO UPDATE SET image_url = excluded.image_url, updated_at = excluded.updated_at
-    `)
-    .run(key, imageUrl);
+  if (source === "manual" && !imageUrl) {
+    throw new Error("image_url is required for manual uploads");
+  }
+  const isAttemptOnly = !imageUrl;
+  // Attempt-only writes (empty imageUrl from a failed auto-fetch) preserve any
+  // previously-stored real URL — we just bump the counter and stamp the time.
+  if (isAttemptOnly) {
+    getDb()
+      .prepare(`
+        INSERT INTO venue_defaults (venue_key, image_url, updated_at, image_source, last_fetched_at, attempt_count)
+        VALUES (?, '', datetime('now'), ?, datetime('now'), 1)
+        ON CONFLICT(venue_key) DO UPDATE SET
+          last_fetched_at = excluded.last_fetched_at,
+          attempt_count   = COALESCE(venue_defaults.attempt_count, 0) + 1
+      `)
+      .run(key, source);
+  } else {
+    getDb()
+      .prepare(`
+        INSERT INTO venue_defaults (venue_key, image_url, updated_at, image_source, last_fetched_at, attempt_count)
+        VALUES (?, ?, datetime('now'), ?, datetime('now'), 1)
+        ON CONFLICT(venue_key) DO UPDATE SET
+          image_url       = excluded.image_url,
+          updated_at      = excluded.updated_at,
+          image_source    = excluded.image_source,
+          last_fetched_at = excluded.last_fetched_at,
+          attempt_count   = COALESCE(venue_defaults.attempt_count, 0) + 1
+      `)
+      .run(key, imageUrl, source);
+  }
   return getVenueDefault(name)!;
 }
 

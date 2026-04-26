@@ -31,6 +31,13 @@ export interface ScrapedEvent {
   status?: "active" | "pending";
   /** Cover image URL provided by the source (e.g. Discord CDN). */
   image_url?: string;
+  /**
+   * Where lat/lng came from. `"source"` means a per-event API gave them to us
+   * (trust). `"guild_fallback"` means we used a hardcoded or guild-wide
+   * default (don't trust — re-geocode the address at upsert). `"none"` means
+   * we have no coords at all. Defaults to `"source"` when omitted.
+   */
+  coords_source?: "source" | "guild_fallback" | "none";
 }
 
 export async function fetchAllSources(): Promise<ScrapedEvent[]> {

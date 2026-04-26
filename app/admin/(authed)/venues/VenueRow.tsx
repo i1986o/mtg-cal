@@ -1,18 +1,41 @@
 "use client";
 import { useRef, useState } from "react";
+import type { VenueImageSource } from "@/lib/venues";
+
+const SOURCE_LABELS: Record<VenueImageSource, { label: string; className: string }> = {
+  manual: {
+    label: "manual",
+    className: "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300",
+  },
+  og_scrape: {
+    label: "og:image",
+    className: "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+  },
+  places: {
+    label: "places",
+    className: "bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
+  },
+  street_view: {
+    label: "streetview",
+    className: "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+  },
+};
 
 export default function VenueRow({
   venueName,
   usageCount,
   address,
   initialImageUrl,
+  initialImageSource,
 }: {
   venueName: string;
   usageCount: number;
   address: string;
   initialImageUrl: string;
+  initialImageSource: VenueImageSource | null;
 }) {
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
+  const [imageSource, setImageSource] = useState<VenueImageSource | null>(initialImageSource);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -31,8 +54,11 @@ export default function VenueRow({
       setError(typeof data?.error === "string" ? data.error : "Upload failed");
       return;
     }
-    const data = (await res.json()) as { default: { image_url: string } };
+    const data = (await res.json()) as {
+      default: { image_url: string; image_source: VenueImageSource | null };
+    };
     setImageUrl(data.default.image_url);
+    setImageSource(data.default.image_source);
   }
 
   async function remove() {
@@ -46,6 +72,7 @@ export default function VenueRow({
       return;
     }
     setImageUrl("");
+    setImageSource(null);
   }
 
   return (
@@ -74,6 +101,18 @@ export default function VenueRow({
         <div className="flex items-baseline gap-2 flex-wrap">
           <span className="font-medium text-gray-900 dark:text-gray-100 truncate">{venueName}</span>
           <span className="text-[11px] text-gray-400 dark:text-gray-500">{usageCount} events</span>
+          {imageUrl && imageSource && (
+            <span
+              className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded ${SOURCE_LABELS[imageSource].className}`}
+              title={
+                imageSource === "manual"
+                  ? "Uploaded by an admin — auto-fetcher won't overwrite this."
+                  : `Auto-fetched (${SOURCE_LABELS[imageSource].label}). Upload a manual image to override.`
+              }
+            >
+              {SOURCE_LABELS[imageSource].label}
+            </span>
+          )}
         </div>
         {address && (
           <p className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">{address}</p>

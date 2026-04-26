@@ -8,7 +8,9 @@ export default async function AdminVenuesPage() {
   await requireRole("admin");
 
   const venues = listKnownVenues();
-  const defaults = new Map(listVenueDefaults().map((d) => [d.venue_key, d.image_url]));
+  const defaults = new Map(
+    listVenueDefaults().map((d) => [d.venue_key, { image_url: d.image_url, source: d.image_source }] as const),
+  );
 
   return (
     <div className="p-6 lg:p-8 max-w-4xl space-y-6">
@@ -31,13 +33,15 @@ export default async function AdminVenuesPage() {
         <ul className="space-y-2">
           {venues.map((v) => {
             const key = venueKey(v.name);
+            const def = defaults.get(key);
             return (
               <VenueRow
                 key={key}
                 venueName={v.name}
                 usageCount={v.usage_count}
                 address={v.address}
-                initialImageUrl={defaults.get(key) ?? ""}
+                initialImageUrl={def?.image_url ?? ""}
+                initialImageSource={def?.source ?? null}
               />
             );
           })}
