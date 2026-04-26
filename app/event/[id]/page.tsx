@@ -111,7 +111,13 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
       <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
         {/* Hero image — uploaded photo, scraped cover, venue default, or placeholder. */}
-        <div className={`relative h-72 overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50 dark:bg-[#0c1828]"}`}>
+        {/* When the hero is a real photo or map (`object-cover`), no padding
+            and no visible bg — the image fills edge-to-edge. When it's a
+            letterboxed logo or icon, frame it with a light-gray "card" bg in
+            both themes so logos with baked-in white backgrounds blend in;
+            keeping a dark bg here in dark mode would frame them with a stark
+            white-on-near-black halo. */}
+        <div className={`relative h-72 overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={hero.url}
