@@ -1,5 +1,6 @@
 import { listKnownVenues, getVenueDefault } from "@/lib/venues";
 import { fetchVenueImage } from "@/lib/venue-image-fetcher";
+import { uploadFileExists } from "@/lib/upload-storage";
 
 /**
  * Iterate every venue we already know about and try to attach a real photo.
@@ -38,7 +39,13 @@ function shouldSkip(name: string): { skip: boolean; reason?: string } {
   const existing = getVenueDefault(name);
   if (!existing) return { skip: false };
   if (existing.image_source === "manual") return { skip: true, reason: "manual override" };
-  if (existing.image_url) return { skip: true, reason: `already has ${existing.image_source ?? "image"}` };
+  if (existing.image_url && uploadFileExists(existing.image_url)) {
+    return { skip: true, reason: `already has ${existing.image_source ?? "image"}` };
+  }
+  if (existing.image_url) {
+    // Row claims an image but the file is missing — re-fetch.
+    return { skip: false };
+  }
   if ((existing.attempt_count ?? 0) >= MAX_ATTEMPTS && existing.last_fetched_at) {
     const ageMs = Date.now() - new Date(existing.last_fetched_at).getTime();
     if (ageMs < RETRY_DAYS * 24 * 60 * 60 * 1000) {
