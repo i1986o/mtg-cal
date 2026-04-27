@@ -12,6 +12,8 @@ interface EventRow {
   cost: string;
   status: string;
   notes: string;
+  capacity: number | null;
+  rsvp_enabled: number;
 }
 
 export default function MyEventsList() {
@@ -133,6 +135,14 @@ function Section({
               )}
             </div>
             <div className="flex gap-2 shrink-0">
+              {e.rsvp_enabled === 1 && (
+                <Link
+                  href={`/account/events/${encodeURIComponent(e.id)}/attendees`}
+                  className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  Attendees
+                </Link>
+              )}
               <Link
                 href={`/account/events/${encodeURIComponent(e.id)}/edit`}
                 className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
