@@ -25,12 +25,17 @@ export interface EventFormValues {
   status: string;
   notes: string;
   image_url: string;
+  /** Capacity input; "" = uncapped. Stored as string in form state, coerced
+   *  to number|null on submit. */
+  capacity: string;
+  rsvp_enabled: boolean;
 }
 
 const EMPTY: EventFormValues = {
   title: "", format: "", date: "", time: "", timezone: "America/New_York",
   location: "", address: "", cost: "", store_url: "", detail_url: "",
   latitude: "", longitude: "", status: "active", notes: "", image_url: "",
+  capacity: "", rsvp_enabled: true,
 };
 
 const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
@@ -133,6 +138,8 @@ export default function EventForm({
       ...values,
       latitude: values.latitude ? Number(values.latitude) : null,
       longitude: values.longitude ? Number(values.longitude) : null,
+      capacity: values.capacity.trim() ? Math.max(0, parseInt(values.capacity, 10) || 0) : null,
+      rsvp_enabled: values.rsvp_enabled ? 1 : 0,
     };
     const res = await fetch(endpoint, {
       method,
@@ -281,6 +288,38 @@ export default function EventForm({
           onUploadingChange={setImageUploading}
         />
       </Field>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Field
+          label="Player capacity"
+          hint="Optional. Cap on the number of people who can RSVP &lsquo;Going&rsquo;. Leave blank for no cap."
+        >
+          <input
+            className={FIELD}
+            type="number"
+            inputMode="numeric"
+            min="1"
+            step="1"
+            value={values.capacity}
+            onChange={field("capacity")}
+            placeholder="e.g. 16"
+          />
+        </Field>
+        <Field
+          label="RSVPs"
+          hint="Let signed-in players RSVP &lsquo;Going&rsquo; or &lsquo;Maybe&rsquo;. You'll see a roster on your event."
+        >
+          <label className="inline-flex items-center gap-2 mt-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="checkbox"
+              checked={values.rsvp_enabled}
+              onChange={(e) => setValues((v) => ({ ...v, rsvp_enabled: e.target.checked }))}
+              className="rounded border-gray-300 dark:border-gray-600"
+            />
+            Enabled
+          </label>
+        </Field>
+      </div>
 
       <Field label="Description">
         <textarea className={FIELD} rows={3} value={values.notes} onChange={field("notes")} />

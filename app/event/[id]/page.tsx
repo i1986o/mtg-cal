@@ -1,9 +1,12 @@
 import { getEvent } from "@/lib/events";
+import { getRsvpSummary, isPastEvent } from "@/lib/event-rsvps";
+import { getCurrentUser } from "@/lib/session";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatEventTimeRange } from "@/lib/format-time";
 import { resolveEventImage, hasRealEventImage } from "@/lib/event-image";
 import ShareButton from "./share-button";
+import RsvpButton from "./rsvp-button";
 import Reveal from "@/app/reveal";
 
 const FORMAT_COLORS: Record<string, string> = {
@@ -100,13 +103,34 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   }
   const showInlineMap = !heroIsMap && Boolean(mapEmbedSrc);
 
+  // RSVP state — server-rendered so the initial paint shows the right
+  // status without a flash. The client component then takes over for
+  // optimistic updates.
+  const viewer = await getCurrentUser();
+  const signedIn = !!viewer && !viewer.suspended;
+  const rsvp = getRsvpSummary(ev.id, viewer?.id ?? null);
+  const past = isPastEvent(ev.date);
+  const rsvpEnabled = ev.rsvp_enabled === 1;
+
   return (
     <main className="w-full max-w-2xl min-w-0 mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6 anim-fade-in">
         <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline">
           &larr; Back to PlayIRL.GG
         </Link>
-        <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
+        <div className="flex items-center gap-2">
+          {rsvpEnabled && (
+            <RsvpButton
+              eventId={ev.id}
+              signedIn={signedIn}
+              pastEvent={past}
+              capacity={ev.capacity}
+              initialStatus={rsvp.myStatus === "going" || rsvp.myStatus === "maybe" ? rsvp.myStatus : null}
+              initialCounts={rsvp.counts}
+            />
+          )}
+          <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
+        </div>
       </div>
 
       <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>

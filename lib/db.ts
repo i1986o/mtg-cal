@@ -238,6 +238,20 @@ function initSchema(db: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_event_saves_user ON event_saves(user_id);
     CREATE INDEX IF NOT EXISTS idx_event_saves_event ON event_saves(event_id);
 
+    -- Per-event RSVPs. status='waitlist' is reserved for Tier 1 (auto-promote
+    -- on cancellation); Tier 0 only writes 'going'/'maybe'/'cancelled'.
+    CREATE TABLE IF NOT EXISTS event_rsvps (
+      user_id    TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      event_id   TEXT NOT NULL REFERENCES events(id) ON DELETE CASCADE,
+      status     TEXT NOT NULL CHECK(status IN ('going','maybe','waitlist','cancelled')),
+      created_at TEXT DEFAULT (datetime('now')),
+      updated_at TEXT DEFAULT (datetime('now')),
+      PRIMARY KEY (user_id, event_id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_event_rsvps_event_status ON event_rsvps(event_id, status);
+    CREATE INDEX IF NOT EXISTS idx_event_rsvps_user ON event_rsvps(user_id);
+
     CREATE TABLE IF NOT EXISTS admin_actions (
       id              TEXT PRIMARY KEY,
       admin_id        TEXT REFERENCES users(id) ON DELETE SET NULL,
@@ -268,6 +282,8 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE venue_defaults ADD COLUMN image_source TEXT"); } catch {}
   try { db.exec("ALTER TABLE venue_defaults ADD COLUMN last_fetched_at TEXT"); } catch {}
   try { db.exec("ALTER TABLE venue_defaults ADD COLUMN attempt_count INTEGER DEFAULT 0"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN capacity INTEGER"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN rsvp_enabled INTEGER DEFAULT 0"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");

@@ -22,6 +22,10 @@ export interface EventRow {
   owner_id: string | null;
   source_type: string;
   image_url: string;
+  /** Optional player-count cap. NULL means uncapped. */
+  capacity: number | null;
+  /** 1 when the event accepts RSVPs (default off for scraped events). */
+  rsvp_enabled: number;
 }
 
 export interface ScrapedEvent {
@@ -216,8 +220,8 @@ export function createEvent(input: EventInput & { id: string; title: string; dat
   const db = getDb();
   const now = new Date().toISOString().split("T")[0];
   db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type, image_url)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type, image_url, capacity, rsvp_enabled)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).run(
     input.id,
     input.title,
@@ -240,6 +244,8 @@ export function createEvent(input: EventInput & { id: string; title: string; dat
     input.owner_id ?? null,
     input.source_type ?? "manual",
     input.image_url ?? "",
+    normalizeCapacity(input.capacity),
+    input.rsvp_enabled ? 1 : 0,
   );
   return getEvent(input.id)!;
 }
@@ -254,15 +260,27 @@ export function updateEvent(id: string, patch: EventInput): EventRow | undefined
   db.prepare(`
     UPDATE events SET
       title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?,
-      store_url=?, detail_url=?, latitude=?, longitude=?, status=?, notes=?, image_url=?, updated_date=?
+      store_url=?, detail_url=?, latitude=?, longitude=?, status=?, notes=?, image_url=?,
+      capacity=?, rsvp_enabled=?, updated_date=?
     WHERE id=?
   `).run(
     merged.title, merged.format, merged.date, merged.time, merged.timezone, merged.location,
     merged.address, merged.cost, merged.store_url, merged.detail_url,
     merged.latitude ?? null, merged.longitude ?? null,
-    merged.status, merged.notes, merged.image_url ?? "", now, id,
+    merged.status, merged.notes, merged.image_url ?? "",
+    normalizeCapacity(merged.capacity), merged.rsvp_enabled ? 1 : 0,
+    now, id,
   );
   return getEvent(id);
+}
+
+/** Coerce form-supplied capacity into a positive integer or null. Empty string,
+ *  0, negatives, and non-numerics all become null (= uncapped). */
+function normalizeCapacity(input: unknown): number | null {
+  if (input === null || input === undefined || input === "") return null;
+  const n = typeof input === "number" ? input : parseInt(String(input), 10);
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return Math.floor(n);
 }
 
 export function deleteEvent(id: string): boolean {

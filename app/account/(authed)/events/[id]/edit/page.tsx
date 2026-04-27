@@ -36,6 +36,8 @@ export default async function AccountEditEventPage({ params }: { params: Promise
           status: event.status,
           notes: event.notes,
           image_url: event.image_url ?? "",
+          capacity: event.capacity != null ? String(event.capacity) : "",
+          rsvp_enabled: event.rsvp_enabled === 1,
         }}
       />
     </SubpageShell>
