@@ -102,8 +102,9 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
         </div>
       </div>
 
-      {/* Theme toggle — always bottom-right */}
-      <div className={`${PILL} bottom-6`}>
+      {/* Theme toggle — bottom-right, shifted up to leave room for the
+          AccountChip pill which sits below at bottom-6. */}
+      <div className={`${PILL} bottom-20`}>
         <button
           onClick={toggleTheme}
           title={isDark ? "Switch to light mode" : "Switch to dark mode"}
