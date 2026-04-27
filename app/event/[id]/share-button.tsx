@@ -1,22 +1,38 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "@/app/button";
 
-function useClickOutside(ref: React.RefObject<HTMLElement | null>, onClose: () => void) {
+function useClickOutside(refs: React.RefObject<HTMLElement | null>[], onClose: () => void) {
   useEffect(() => {
     function handler(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) onClose();
+      const target = e.target as Node;
+      if (refs.some((r) => r.current && r.current.contains(target))) return;
+      onClose();
     }
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [ref, onClose]);
+  }, [refs, onClose]);
 }
 
 export default function ShareButton({ title, url }: { title: string; url: string }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useClickOutside(ref, () => setOpen(false));
+  const [pos, setPos] = useState<{ top: number; right: number } | null>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  useClickOutside([triggerRef, menuRef], () => setOpen(false));
+
+  // Position the portal-rendered dropdown anchored to the trigger button
+  // each time it opens. Using viewport coords (`fixed` positioning) means
+  // the menu is unaffected by ancestor stacking contexts (e.g. the event
+  // card's transform-induced stacking context) which `absolute + z-50`
+  // can't escape.
+  useEffect(() => {
+    if (!open || !triggerRef.current) return;
+    const rect = triggerRef.current.getBoundingClientRect();
+    setPos({ top: rect.bottom + 8, right: window.innerWidth - rect.right });
+  }, [open]);
 
   const canNativeShare = typeof navigator !== "undefined" && !!navigator.share;
 
@@ -41,7 +57,7 @@ export default function ShareButton({ title, url }: { title: string; url: string
   const emailSubject = encodeURIComponent(`MTG Event: ${title}`);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={triggerRef} className="relative">
       <Button onClick={handleShare}>
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -49,8 +65,12 @@ export default function ShareButton({ title, url }: { title: string; url: string
         {copied ? "Copied!" : "Share"}
       </Button>
 
-      {open && (
-        <div className="absolute bottom-full mb-2 right-0 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-[160px] anim-scale-in" style={{ transformOrigin: "bottom right" }}>
+      {open && pos && typeof document !== "undefined" && createPortal(
+        <div
+          ref={menuRef}
+          className="fixed z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-[160px] anim-scale-in"
+          style={{ top: `${pos.top}px`, right: `${pos.right}px`, transformOrigin: "top right" }}
+        >
           <button
             onClick={copyLink}
             className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left"
@@ -80,7 +100,8 @@ export default function ShareButton({ title, url }: { title: string; url: string
             </svg>
             Email
           </a>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
