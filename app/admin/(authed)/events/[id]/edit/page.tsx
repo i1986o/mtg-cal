@@ -45,6 +45,7 @@ export default async function EditEventPage({ params }: { params: Promise<{ id: 
           image_url: event.image_url ?? "",
           capacity: event.capacity != null ? String(event.capacity) : "",
           rsvp_enabled: event.rsvp_enabled === 1,
+          visibility: event.visibility,
         }}
       />
     </div>

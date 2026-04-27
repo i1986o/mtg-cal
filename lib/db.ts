@@ -252,6 +252,23 @@ function initSchema(db: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_event_rsvps_event_status ON event_rsvps(event_id, status);
     CREATE INDEX IF NOT EXISTS idx_event_rsvps_user ON event_rsvps(user_id);
 
+    -- Tier 1 invites: per-event share tokens that grant read access on
+    -- private events. One row per generated token. used_by tracks the first
+    -- redeemer for audit; tokens stay valid for further uses unless deleted.
+    CREATE TABLE IF NOT EXISTS event_invites (
+      id           TEXT PRIMARY KEY,
+      event_id     TEXT NOT NULL REFERENCES events(id) ON DELETE CASCADE,
+      token        TEXT UNIQUE NOT NULL,
+      label        TEXT DEFAULT '',
+      created_by   TEXT REFERENCES users(id) ON DELETE SET NULL,
+      created_at   TEXT DEFAULT (datetime('now')),
+      used_by      TEXT REFERENCES users(id) ON DELETE SET NULL,
+      used_at      TEXT
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_event_invites_event ON event_invites(event_id);
+    CREATE INDEX IF NOT EXISTS idx_event_invites_token ON event_invites(token);
+
     CREATE TABLE IF NOT EXISTS admin_actions (
       id              TEXT PRIMARY KEY,
       admin_id        TEXT REFERENCES users(id) ON DELETE SET NULL,
@@ -284,6 +301,8 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE venue_defaults ADD COLUMN attempt_count INTEGER DEFAULT 0"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN capacity INTEGER"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN rsvp_enabled INTEGER DEFAULT 0"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN visibility TEXT DEFAULT 'public'"); } catch {}
+  try { db.exec("ALTER TABLE events ADD COLUMN cancelled_at TEXT"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");
