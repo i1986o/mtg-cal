@@ -26,6 +26,10 @@ export interface EventRow {
   capacity: number | null;
   /** 1 when the event accepts RSVPs (default off for scraped events). */
   rsvp_enabled: number;
+  /** 'public' | 'unlisted' | 'private' — see lib/events.ts visibilityFilter. */
+  visibility: string;
+  /** ISO timestamp when the host cancelled. NULL = active. */
+  cancelled_at: string | null;
 }
 
 export interface ScrapedEvent {
@@ -126,7 +130,10 @@ export function getActiveEvents(filters?: {
   centerLng?: number;
 }): EventRow[] {
   const db = getDb();
-  let sql = "SELECT * FROM events WHERE status IN ('active', 'pinned')";
+  // visibility/cancelled chokepoint: every public read path goes through
+  // here, so unlisted/private/cancelled events stay out of the homepage,
+  // ICS feeds, format dropdown, and search by default.
+  let sql = "SELECT * FROM events WHERE status IN ('active', 'pinned') AND visibility = 'public' AND cancelled_at IS NULL";
   const params: (string | number)[] = [];
 
   if (filters?.format) {
@@ -184,7 +191,14 @@ export function updateEventStatus(id: string, status: string, notes?: string): b
 
 export function getFormats(): string[] {
   const db = getDb();
-  const rows = db.prepare("SELECT DISTINCT format FROM events WHERE status IN ('active','pinned') AND format != '' ORDER BY format").all() as { format: string }[];
+  // Same visibility/cancelled chokepoint as getActiveEvents — no point
+  // showing "Brawl" in the homepage filter dropdown if the only Brawl
+  // event is unlisted or cancelled.
+  const rows = db
+    .prepare(
+      "SELECT DISTINCT format FROM events WHERE status IN ('active','pinned') AND visibility = 'public' AND cancelled_at IS NULL AND format != '' ORDER BY format",
+    )
+    .all() as { format: string }[];
   return rows.map(r => r.format);
 }
 
@@ -220,8 +234,8 @@ export function createEvent(input: EventInput & { id: string; title: string; dat
   const db = getDb();
   const now = new Date().toISOString().split("T")[0];
   db.prepare(`
-    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type, image_url, capacity, rsvp_enabled)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO events (id, title, format, date, time, timezone, location, address, cost, store_url, detail_url, latitude, longitude, source, status, notes, added_date, updated_date, owner_id, source_type, image_url, capacity, rsvp_enabled, visibility)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).run(
     input.id,
     input.title,
@@ -246,6 +260,7 @@ export function createEvent(input: EventInput & { id: string; title: string; dat
     input.image_url ?? "",
     normalizeCapacity(input.capacity),
     input.rsvp_enabled ? 1 : 0,
+    normalizeVisibility(input.visibility),
   );
   return getEvent(input.id)!;
 }
@@ -261,7 +276,7 @@ export function updateEvent(id: string, patch: EventInput): EventRow | undefined
     UPDATE events SET
       title=?, format=?, date=?, time=?, timezone=?, location=?, address=?, cost=?,
       store_url=?, detail_url=?, latitude=?, longitude=?, status=?, notes=?, image_url=?,
-      capacity=?, rsvp_enabled=?, updated_date=?
+      capacity=?, rsvp_enabled=?, visibility=?, updated_date=?
     WHERE id=?
   `).run(
     merged.title, merged.format, merged.date, merged.time, merged.timezone, merged.location,
@@ -269,9 +284,16 @@ export function updateEvent(id: string, patch: EventInput): EventRow | undefined
     merged.latitude ?? null, merged.longitude ?? null,
     merged.status, merged.notes, merged.image_url ?? "",
     normalizeCapacity(merged.capacity), merged.rsvp_enabled ? 1 : 0,
+    normalizeVisibility(merged.visibility),
     now, id,
   );
   return getEvent(id);
+}
+
+const VALID_VISIBILITY = new Set(["public", "unlisted", "private"]);
+function normalizeVisibility(input: unknown): string {
+  if (typeof input !== "string") return "public";
+  return VALID_VISIBILITY.has(input) ? input : "public";
 }
 
 /** Coerce form-supplied capacity into a positive integer or null. Empty string,

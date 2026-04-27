@@ -1,5 +1,6 @@
 import { getEvent } from "@/lib/events";
 import { getRsvpSummary, isPastEvent } from "@/lib/event-rsvps";
+import { findInviteByToken, redeemInvite } from "@/lib/event-invites";
 import { getCurrentUser } from "@/lib/session";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { formatEventTimeRange } from "@/lib/format-time";
 import { resolveEventImage, hasRealEventImage } from "@/lib/event-image";
 import ShareButton from "./share-button";
 import RsvpButton from "./rsvp-button";
+import HostActions from "./host-actions";
 import Reveal from "@/app/reveal";
 
 const FORMAT_COLORS: Record<string, string> = {
@@ -59,11 +61,40 @@ function DetailRow({ label, value, href }: { label: string; value: string; href?
   );
 }
 
-export default async function EventPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function EventPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ token?: string }>;
+}) {
   const { id } = await params;
+  const sp = await searchParams;
   const ev = getEvent(decodeURIComponent(id));
 
   if (!ev) return notFound();
+
+  // Visibility gate. Public events are always viewable. Unlisted events are
+  // viewable by anyone with the URL (no auth, no token). Private events
+  // require the viewer to be either the host, an admin, an RSVP'd user, or
+  // someone presenting a valid invite token.
+  const viewer = await getCurrentUser();
+  const signedIn = !!viewer && !viewer.suspended;
+
+  if (ev.visibility === "private") {
+    const validToken = sp.token ? findInviteByToken(sp.token) : undefined;
+    const tokenGrantsThisEvent = validToken && validToken.event_id === ev.id;
+    const isOwnerOrAdmin =
+      signedIn && (viewer!.role === "admin" || ev.owner_id === viewer!.id);
+    const hasRsvp =
+      signedIn && getRsvpSummary(ev.id, viewer!.id).myStatus !== null;
+    if (!isOwnerOrAdmin && !hasRsvp && !tokenGrantsThisEvent) {
+      return notFound();
+    }
+    // Audit: record the first redeemer of a token. Doesn't invalidate the
+    // token — multi-use is intentional for "post the link in Discord" cases.
+    if (tokenGrantsThisEvent && signedIn) redeemInvite(sp.token!, viewer!.id);
+  }
 
   const hero = resolveEventImage(ev);
   const heroIsRealImage = hasRealEventImage(ev);
@@ -103,14 +134,19 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   }
   const showInlineMap = !heroIsMap && Boolean(mapEmbedSrc);
 
-  // RSVP state — server-rendered so the initial paint shows the right
-  // status without a flash. The client component then takes over for
-  // optimistic updates.
-  const viewer = await getCurrentUser();
-  const signedIn = !!viewer && !viewer.suspended;
+  // RSVP + host state. Cancellation locks RSVP changes (banner takes over
+  // the action zone). Hosts get extra controls — cancel, manage invites.
   const rsvp = getRsvpSummary(ev.id, viewer?.id ?? null);
   const past = isPastEvent(ev.date);
-  const rsvpEnabled = ev.rsvp_enabled === 1;
+  const cancelled = !!ev.cancelled_at;
+  const rsvpEnabled = ev.rsvp_enabled === 1 && !cancelled;
+  const isHost = signedIn && (viewer!.role === "admin" || ev.owner_id === viewer!.id);
+  const myStatus =
+    rsvp.myStatus === "going" ||
+    rsvp.myStatus === "maybe" ||
+    rsvp.myStatus === "waitlist"
+      ? rsvp.myStatus
+      : null;
 
   return (
     <main className="w-full max-w-2xl min-w-0 mx-auto px-4 py-8">
@@ -125,13 +161,43 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               signedIn={signedIn}
               pastEvent={past}
               capacity={ev.capacity}
-              initialStatus={rsvp.myStatus === "going" || rsvp.myStatus === "maybe" ? rsvp.myStatus : null}
+              initialStatus={myStatus}
               initialCounts={rsvp.counts}
+              initialWaitlistPosition={rsvp.waitlistPosition}
             />
           )}
           <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
         </div>
       </div>
+
+      {cancelled && (
+        <div className="mb-6 rounded-xl border border-red-200 dark:border-red-500/30 bg-red-50 dark:bg-red-500/10 px-4 py-3 anim-fade-in">
+          <p className="text-sm font-medium text-red-800 dark:text-red-200">
+            This event was cancelled by the host
+            {ev.cancelled_at ? ` on ${ev.cancelled_at.slice(0, 10)}` : ""}.
+          </p>
+          <p className="text-xs text-red-700/80 dark:text-red-300/80 mt-1">
+            All RSVPs have been marked cancelled. The event remains visible so
+            attendees can confirm what happened.
+          </p>
+        </div>
+      )}
+
+      {ev.visibility !== "public" && !cancelled && (
+        <div className="mb-6 rounded-xl border border-gray-200 dark:border-white/15 bg-gray-50 dark:bg-white/5 px-4 py-2 text-xs text-gray-600 dark:text-gray-400 anim-fade-in">
+          {ev.visibility === "unlisted"
+            ? "Unlisted event — anyone with this link can view, but it won't appear in the public calendar."
+            : "Private event — only invited guests can view."}
+        </div>
+      )}
+
+      {isHost && (
+        <HostActions
+          eventId={ev.id}
+          cancelled={cancelled}
+          visibility={ev.visibility}
+        />
+      )}
 
       <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
         {/* Hero image — uploaded photo, scraped cover, venue default, or placeholder. */}

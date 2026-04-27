@@ -3,7 +3,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-type RsvpStatus = "going" | "maybe" | "cancelled";
+type RsvpStatus = "going" | "maybe" | "waitlist" | "cancelled";
 
 interface Counts { going: number; maybe: number; waitlist: number }
 
@@ -14,6 +14,7 @@ interface Props {
   capacity: number | null;
   initialStatus: RsvpStatus | null;
   initialCounts: Counts;
+  initialWaitlistPosition: number | null;
 }
 
 const SEG_BASE =
@@ -26,16 +27,18 @@ export default function RsvpButton({
   capacity,
   initialStatus,
   initialCounts,
+  initialWaitlistPosition,
 }: Props) {
   const router = useRouter();
   const [status, setStatus] = useState<RsvpStatus | null>(initialStatus);
   const [counts, setCounts] = useState<Counts>(initialCounts);
+  const [waitlistPos, setWaitlistPos] = useState<number | null>(initialWaitlistPosition);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const [busy, setBusy] = useState(false);
 
-  // The "Full" state only kicks in for the 'going' choice. 'maybe' is
-  // always available and doesn't consume capacity.
+  // The "Full" state only kicks in for the 'going' choice when the user
+  // isn't already going. Maybe is always available (uncapped).
   const isFull = capacity != null && counts.going >= capacity && status !== "going";
 
   async function setRsvp(next: RsvpStatus) {
@@ -59,7 +62,8 @@ export default function RsvpButton({
       }
       setStatus(next === "cancelled" ? null : next);
       setCounts(json.counts);
-      // Refresh server-rendered count pill on neighboring components.
+      setWaitlistPos(typeof json.waitlistPosition === "number" ? json.waitlistPosition : null);
+      // Server-render refresh in case the user got auto-promoted.
       startTransition(() => router.refresh());
     } finally {
       setBusy(false);
@@ -89,19 +93,42 @@ export default function RsvpButton({
       <div className="flex items-center gap-2">
         <CountPill counts={counts} capacity={capacity} />
         <div className="inline-flex items-center rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0c1220]">
-          <button
-            type="button"
-            onClick={() => setRsvp("going")}
-            disabled={busy || pending || (isFull && status !== "going")}
-            aria-pressed={status === "going"}
-            className={`${SEG_BASE} ${
-              status === "going"
-                ? "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300"
-                : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
-            }`}
-          >
-            {isFull && status !== "going" ? "Full" : "Going"}
-          </button>
+          {status === "waitlist" ? (
+            // While on the waitlist, the primary CTA is "Going" but it's
+            // disabled until a spot opens. We keep "Maybe" available so the
+            // user can drop the waitlist and downgrade.
+            <button
+              type="button"
+              disabled
+              className={`${SEG_BASE} bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300`}
+              aria-pressed="true"
+            >
+              Waitlist {waitlistPos != null ? `· #${waitlistPos}` : ""}
+            </button>
+          ) : isFull && status !== "going" ? (
+            <button
+              type="button"
+              onClick={() => setRsvp("waitlist")}
+              disabled={busy || pending}
+              className={`${SEG_BASE} text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-500/10`}
+            >
+              Join waitlist
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setRsvp("going")}
+              disabled={busy || pending}
+              aria-pressed={status === "going"}
+              className={`${SEG_BASE} ${
+                status === "going"
+                  ? "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300"
+                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+              }`}
+            >
+              Going
+            </button>
+          )}
           <button
             type="button"
             onClick={() => setRsvp("maybe")}
@@ -120,8 +147,8 @@ export default function RsvpButton({
               type="button"
               onClick={() => setRsvp("cancelled")}
               disabled={busy || pending}
-              title="Cancel RSVP"
-              aria-label="Cancel RSVP"
+              title={status === "waitlist" ? "Leave waitlist" : "Cancel RSVP"}
+              aria-label={status === "waitlist" ? "Leave waitlist" : "Cancel RSVP"}
               className={`${SEG_BASE} border-l border-gray-200 dark:border-white/10 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200`}
             >
               ✕

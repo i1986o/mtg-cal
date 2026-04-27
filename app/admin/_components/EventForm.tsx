@@ -29,13 +29,15 @@ export interface EventFormValues {
    *  to number|null on submit. */
   capacity: string;
   rsvp_enabled: boolean;
+  /** 'public' | 'unlisted' | 'private' — see lib/events.ts visibilityFilter. */
+  visibility: string;
 }
 
 const EMPTY: EventFormValues = {
   title: "", format: "", date: "", time: "", timezone: "America/New_York",
   location: "", address: "", cost: "", store_url: "", detail_url: "",
   latitude: "", longitude: "", status: "active", notes: "", image_url: "",
-  capacity: "", rsvp_enabled: true,
+  capacity: "", rsvp_enabled: true, visibility: "public",
 };
 
 const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
@@ -320,6 +322,31 @@ export default function EventForm({
           </label>
         </Field>
       </div>
+
+      <Field label="Visibility">
+        <div className="space-y-2 mt-1">
+          {[
+            { v: "public", label: "Public", hint: "Listed on the homepage and in the public ICS feed." },
+            { v: "unlisted", label: "Unlisted", hint: "Only viewable with a direct link. Hidden from the homepage and feeds." },
+            { v: "private", label: "Private", hint: "Invite-only. Viewers must be signed in and either invited, RSVP'd, or the host." },
+          ].map((opt) => (
+            <label key={opt.v} className="flex items-start gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="visibility"
+                value={opt.v}
+                checked={values.visibility === opt.v}
+                onChange={() => setValues((v) => ({ ...v, visibility: opt.v }))}
+                className="mt-0.5"
+              />
+              <span className="flex-1">
+                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{opt.label}</span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.hint}</span>
+              </span>
+            </label>
+          ))}
+        </div>
+      </Field>
 
       <Field label="Description">
         <textarea className={FIELD} rows={3} value={values.notes} onChange={field("notes")} />

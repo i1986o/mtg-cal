@@ -37,11 +37,17 @@ export interface SetRsvpResult {
   ok: true;
   status: RsvpStatus;
   counts: RsvpCounts;
+  /** When the new status is 'waitlist', the user's 1-indexed position in line. */
+  waitlistPosition?: number;
+  /** True when this RSVP transition freed a slot that an oldest waitlister
+   *  was atomically promoted into. UI can use this to congratulate (Tier 2
+   *  email; v1 just does an in-app refresh). */
+  promoted?: { user_id: string };
 }
 
 export interface SetRsvpFull {
   ok: false;
-  reason: "full";
+  reason: "full" | "cancelled" | "rsvp_disabled" | "past";
   counts: RsvpCounts;
 }
 
@@ -69,9 +75,15 @@ export function setRsvp(
   const db = getDb();
   const tx = db.transaction((): SetRsvpResult | SetRsvpFull => {
     const event = db
-      .prepare("SELECT capacity, rsvp_enabled FROM events WHERE id = ?")
-      .get(eventId) as { capacity: number | null; rsvp_enabled: number } | undefined;
+      .prepare("SELECT capacity, rsvp_enabled, cancelled_at FROM events WHERE id = ?")
+      .get(eventId) as
+      | { capacity: number | null; rsvp_enabled: number; cancelled_at: string | null }
+      | undefined;
     if (!event) throw new Error("event not found");
+
+    if (event.cancelled_at) {
+      return { ok: false, reason: "cancelled", counts: countAll(eventId) };
+    }
 
     const existing = db
       .prepare("SELECT status FROM event_rsvps WHERE user_id = ? AND event_id = ?")
@@ -101,9 +113,53 @@ export function setRsvp(
       ).run(userId, eventId, next);
     }
 
-    return { ok: true, status: next, counts: countAll(eventId) };
+    // Auto-promote: if the user was 'going' and is no longer, the oldest
+    // waitlister gets bumped into 'going' in the SAME transaction so two
+    // concurrent cancels can't both promote the same waitlister.
+    let promoted: { user_id: string } | undefined;
+    if (existing?.status === "going" && next !== "going") {
+      const oldest = db
+        .prepare(
+          "SELECT user_id FROM event_rsvps WHERE event_id = ? AND status = 'waitlist' ORDER BY created_at ASC LIMIT 1",
+        )
+        .get(eventId) as { user_id: string } | undefined;
+      if (oldest) {
+        db.prepare(
+          "UPDATE event_rsvps SET status = 'going', updated_at = datetime('now') WHERE event_id = ? AND user_id = ?",
+        ).run(eventId, oldest.user_id);
+        promoted = { user_id: oldest.user_id };
+      }
+    }
+
+    const result: SetRsvpResult = { ok: true, status: next, counts: countAll(eventId) };
+    if (next === "waitlist") {
+      result.waitlistPosition = positionOnWaitlist(eventId, userId) ?? undefined;
+    }
+    if (promoted) result.promoted = promoted;
+    return result;
   });
   return tx();
+}
+
+/** 1-indexed waitlist position for a user, or null if not on the waitlist.
+ *  Counts how many waitlisters created at or before this user's row. */
+export function positionOnWaitlist(eventId: string, userId: string): number | null {
+  const db = getDb();
+  const row = db
+    .prepare(
+      `
+      SELECT (
+        SELECT COUNT(*) FROM event_rsvps r2
+        WHERE r2.event_id = r.event_id
+          AND r2.status = 'waitlist'
+          AND r2.created_at <= r.created_at
+      ) AS pos
+      FROM event_rsvps r
+      WHERE r.user_id = ? AND r.event_id = ? AND r.status = 'waitlist'
+      `,
+    )
+    .get(userId, eventId) as { pos: number } | undefined;
+  return row?.pos ?? null;
 }
 
 function countAll(eventId: string): RsvpCounts {
@@ -127,6 +183,7 @@ function countAll(eventId: string): RsvpCounts {
 export function getRsvpSummary(eventId: string, userId: string | null): {
   myStatus: RsvpStatus | null;
   counts: RsvpCounts;
+  waitlistPosition: number | null;
 } {
   const db = getDb();
   let myStatus: RsvpStatus | null = null;
@@ -136,7 +193,9 @@ export function getRsvpSummary(eventId: string, userId: string | null): {
       .get(userId, eventId) as { status: RsvpStatus } | undefined;
     myStatus = row?.status ?? null;
   }
-  return { myStatus, counts: countAll(eventId) };
+  const waitlistPosition =
+    userId && myStatus === "waitlist" ? positionOnWaitlist(eventId, userId) : null;
+  return { myStatus, counts: countAll(eventId), waitlistPosition };
 }
 
 /** Host-only: full attendee roster joined to users. */
