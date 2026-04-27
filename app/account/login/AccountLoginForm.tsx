@@ -23,7 +23,16 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
   const oauthAction = (id: string) => `/api/auth/signin/${id}`;
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 p-4">
+    <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 p-4 relative">
+      <Link
+        href="/"
+        className="absolute top-4 left-4 inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to PlayIRL.GG
+      </Link>
       <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-6">
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Welcome to PlayIRL.GG</h1>
