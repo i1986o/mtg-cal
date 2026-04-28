@@ -18,7 +18,7 @@ function isLiveImageUrl(url: string): boolean {
  *   event.image_url                          (uploaded by host or scraped from Discord)
  *     → venue_defaults[venueKey(location)]   (real venue photo: manual upload or auto-fetched
  *                                             og:image / Places photo / Street View)
- *     → mapboxStaticUrl(lat, lng)            (render-time map composed inline; works for any
+ *     → googleMapsStaticUrl(lat, lng)        (render-time map composed inline; works for any
  *                                             event with coords, no DB row required)
  *     → SOURCE_FALLBACKS[event.source_type]  (generic per-source SVG icon)
  *     → /images/event-placeholder.svg        (universal SVG fallback)
@@ -63,16 +63,17 @@ const venueDefaultsByKey = cache((): Map<string, VenueDefaultEntry> => {
 });
 
 /**
- * Compose a Mapbox Static Images URL for a given coordinate pair. Returns null
- * when the public token isn't configured — callers should treat that as "skip
- * this layer" and fall through to the next one.
+ * Compose a Google Maps Static API URL for a given coordinate pair. Returns
+ * null when the public key isn't configured — callers should treat that as
+ * "skip this layer" and fall through to the next one. Reuses the same key as
+ * the Maps Embed iframe ([app/event/[id]/page.tsx]); the user just needs to
+ * enable the "Maps Static API" alongside "Maps Embed API" on that key.
  */
-export function mapboxStaticUrl(lat: number, lng: number): string | null {
-  const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-  if (!token) return null;
-  const marker = `pin-s+1e40af(${lng},${lat})`;
-  const center = `${lng},${lat},15,0`;
-  return `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${marker}/${center}/600x300@2x?access_token=${token}`;
+export function googleMapsStaticUrl(lat: number, lng: number): string | null {
+  const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY;
+  if (!key) return null;
+  const center = `${lat},${lng}`;
+  return `https://maps.googleapis.com/maps/api/staticmap?center=${center}&zoom=15&size=600x300&scale=2&markers=color:blue%7C${center}&key=${key}`;
 }
 
 export interface EventImageInput {
@@ -98,7 +99,7 @@ function fitFor(url: string, venueSource: VenueImageSource | null | undefined): 
   if (url.endsWith(".svg")) return "contain";
   // og:image scrapes are *frequently* logos pulled from <meta og:image> on
   // store websites — those need the whole thing visible. Real photos
-  // (Places / Street View / manual upload) and Mapbox maps look better
+  // (Places / Street View / manual upload) and static maps look better
   // cropped to fill.
   if (venueSource === "og_scrape") return "contain";
   return "cover";
@@ -116,9 +117,9 @@ export function resolveEventImage(event: EventImageInput): EventImage {
     return { url: venue.url, fit: fitFor(venue.url, venue.source), kind: "venue" };
   }
 
-  // 3. Render-time inline Mapbox map.
+  // 3. Render-time inline Google Maps static image.
   if (event.latitude != null && event.longitude != null) {
-    const map = mapboxStaticUrl(event.latitude, event.longitude);
+    const map = googleMapsStaticUrl(event.latitude, event.longitude);
     if (map) return { url: map, fit: "cover", kind: "map" };
   }
 
@@ -138,7 +139,7 @@ export function resolveEventImage(event: EventImageInput): EventImage {
 export function hasRealEventImage(event: EventImageInput): boolean {
   if (event.image_url && isLiveImageUrl(event.image_url)) return true;
   if (venueDefaultsByKey().has(venueKey(event.location ?? ""))) return true;
-  if (event.latitude != null && event.longitude != null && process.env.NEXT_PUBLIC_MAPBOX_TOKEN) {
+  if (event.latitude != null && event.longitude != null && process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY) {
     return true;
   }
   return false;

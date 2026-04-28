@@ -5,9 +5,10 @@ import { setVenueDefault, type VenueImageSource } from "./venues";
  * Per-venue image auto-fetcher. Tries increasingly aggressive sources for a
  * *real photo* of the venue, downloads the result to data/uploads/venues, and
  * pins it in venue_defaults so render-time can use it via the existing
- * `lib/event-image.ts` cascade. Render-time falls back to a Mapbox map for any
- * venue this fetcher can't find a photo for, so we deliberately do NOT include
- * a static-map tier here — it would just compete with the inline layer.
+ * `lib/event-image.ts` cascade. Render-time falls back to a Google Maps Static
+ * image for any venue this fetcher can't find a photo for, so we deliberately
+ * do NOT include a static-map tier here — it would just compete with the
+ * inline layer.
  *
  * Cascade:
  *   1. tryOgScrape(store_url || detail_url) — pull <meta og:image> / twitter:image
