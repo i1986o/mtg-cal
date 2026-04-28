@@ -15,9 +15,15 @@ const stackSansNotch = Stack_Sans_Notch({
   weight: ["300", "400"],
 });
 
+const BUILD_SHA = process.env.RAILWAY_GIT_COMMIT_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA ?? "local";
+
 export const metadata: Metadata = {
   title: "PlayIRL.GG",
   description: "Find Magic: The Gathering events near you",
+  other: {
+    "x-build-sha": BUILD_SHA,
+    "x-build-feature": "bulk-retry-venues",
+  },
 };
 
 export default async function RootLayout({
