@@ -38,13 +38,16 @@ export default function VenueRow({
   const [imageSource, setImageSource] = useState<VenueImageSource | null>(initialImageSource);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const endpoint = `/api/admin/venues/${encodeURIComponent(venueName)}/image`;
+  const refetchEndpoint = `/api/admin/venues/${encodeURIComponent(venueName)}/refetch`;
 
   async function upload(file: File) {
     setBusy(true);
     setError(null);
+    setInfo(null);
     const fd = new FormData();
     fd.append("file", file);
     const res = await fetch(endpoint, { method: "POST", body: fd });
@@ -65,6 +68,7 @@ export default function VenueRow({
     if (!confirm(`Remove the default image for ${venueName}?`)) return;
     setBusy(true);
     setError(null);
+    setInfo(null);
     const res = await fetch(endpoint, { method: "DELETE" });
     setBusy(false);
     if (!res.ok) {
@@ -73,6 +77,32 @@ export default function VenueRow({
     }
     setImageUrl("");
     setImageSource(null);
+  }
+
+  async function refetch() {
+    setBusy(true);
+    setError(null);
+    setInfo(null);
+    const res = await fetch(refetchEndpoint, { method: "POST" });
+    setBusy(false);
+    const data = (await res.json().catch(() => ({}))) as {
+      ok?: boolean;
+      source?: string;
+      message?: string;
+      error?: string;
+      default?: { image_url: string; image_source: VenueImageSource | null };
+    };
+    if (!res.ok) {
+      setError(typeof data.error === "string" ? data.error : "Refetch failed");
+      return;
+    }
+    if (data.ok && data.default) {
+      setImageUrl(data.default.image_url);
+      setImageSource(data.default.image_source);
+      setInfo(`Got an image via ${data.source}.`);
+    } else {
+      setInfo(data.message || "No tier produced an image.");
+    }
   }
 
   return (
@@ -118,9 +148,21 @@ export default function VenueRow({
           <p className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">{address}</p>
         )}
         {error && <p className="text-xs text-red-600 dark:text-red-400 mt-0.5">{error}</p>}
+        {info && !error && <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5">{info}</p>}
       </div>
 
       <div className="flex gap-2 shrink-0">
+        {imageSource !== "manual" && (
+          <button
+            type="button"
+            onClick={refetch}
+            disabled={busy}
+            title="Re-run the auto-fetcher (og:image → Places photo → Street View). Bypasses the 30-day skip window."
+            className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
+          >
+            {busy ? "Working…" : "Retry auto-fetch"}
+          </button>
+        )}
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
