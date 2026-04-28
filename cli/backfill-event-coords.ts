@@ -9,8 +9,9 @@ import { geocodeFirstMatch } from "@/lib/geocode";
  * given source — useful for cleaning up rows that inherited a stale or
  * wrong-region GUILD_COORDS fallback from `scrapers/discord.ts`.
  *
- * Geocoder fallthrough: tries Mapbox first if NEXT_PUBLIC_MAPBOX_TOKEN /
- * MAPBOX_TOKEN is set, falls back to OpenStreetMap Nominatim (free, no key).
+ * Geocoder fallthrough: tries Google Geocoding API first if
+ * GOOGLE_PLACES_API_KEY is set, falls back to OpenStreetMap Nominatim
+ * (free, no key).
  *
  * Usage:
  *   npx tsx --env-file=.env cli/backfill-event-coords.ts                       # missing coords only
@@ -94,7 +95,7 @@ async function main() {
         unchanged++;
       }
     }
-    // Polite pacing — Nominatim asks for ≤1 rps; Mapbox is fine but no harm.
+    // Polite pacing — Nominatim asks for ≤1 rps; Google is fine but no harm.
     await new Promise((r) => setTimeout(r, 250));
   }
 

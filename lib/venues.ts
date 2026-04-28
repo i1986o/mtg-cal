@@ -137,7 +137,7 @@ export function listVenueDefaults(): VenueDefault[] {
  * Upsert a venue's default image. `imageUrl` may be empty when `source` indicates
  * a failed auto-fetch attempt — that's the auto-fetcher's way of saying "we tried
  * and got nothing yet; bump the attempt counter and let render-time fall back to
- * a Mapbox map." Manual uploads must always pass a real `imageUrl`.
+ * a Google Maps Static image." Manual uploads must always pass a real `imageUrl`.
  */
 export function setVenueDefault(
   name: string,

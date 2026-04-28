@@ -12,7 +12,7 @@ function normalize(s: string): string {
 /** Re-geocode every event whose `coords_source` is anything other than
  *  `"source"` and that has an address. Mutates the events in place. Failures
  *  leave the original (suspect) coords alone — better than nothing. Runs
- *  serially with a tiny delay to be a polite Nominatim/Mapbox citizen. */
+ *  serially with a tiny delay to be a polite Nominatim/Google citizen. */
 const COORD_RECONCILE_DELAY_MS = 200;
 
 async function reconcileEventCoords(events: ScrapedEvent[]): Promise<void> {
@@ -214,7 +214,7 @@ export async function runScraper(): Promise<{
 
   // 3a. Best-effort: try to grab a real photo for any newly-seen venue. This
   // never throws out of the scraper — if it fails, render-time falls back to
-  // an inline Mapbox map (see lib/event-image.ts).
+  // a Google Maps Static image (see lib/event-image.ts).
   await enqueueVenueImageFetches(deduped);
 
   // 4. Archive old events
