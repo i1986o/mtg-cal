@@ -7,7 +7,7 @@
     "fetch": "tsx cli/fetch.ts",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "exec next start",
     "lint": "eslint"
   },
   "dependencies": {
