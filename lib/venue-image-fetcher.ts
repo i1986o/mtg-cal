@@ -110,8 +110,25 @@ export function extractMetaImage(html: string, baseUrl: string): string | null {
   return null;
 }
 
+/** Hosts whose og:image is the platform's brand glyph, not a venue-specific
+ *  photo — Instagram, Facebook, etc. Scraping these returns a generic logo
+ *  (the rainbow Instagram camera, the blue 'f', etc.) and pollutes
+ *  venue_defaults. Skip them so the cascade falls through to Places. */
+const SOCIAL_MEDIA_HOST_PATTERN =
+  /^(www\.|m\.)?(instagram\.com|facebook\.com|fb\.me|threads\.net|twitter\.com|x\.com|tiktok\.com|linkedin\.com|youtube\.com|youtu\.be)$/i;
+
+export function isUselessOgScrapeHost(pageUrl: string): boolean {
+  try {
+    const host = new URL(pageUrl).hostname;
+    return SOCIAL_MEDIA_HOST_PATTERN.test(host);
+  } catch {
+    return false;
+  }
+}
+
 async function tryOgScrape(pageUrl: string | undefined): Promise<Uint8Array | null> {
   if (!pageUrl) return null;
+  if (isUselessOgScrapeHost(pageUrl)) return null;
   let html: string | null;
   try {
     html = await fetchText(pageUrl);
