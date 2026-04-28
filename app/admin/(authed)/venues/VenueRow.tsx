@@ -151,18 +151,16 @@ export default function VenueRow({
         {info && !error && <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5">{info}</p>}
       </div>
 
-      <div className="flex gap-2 shrink-0">
-        {imageSource !== "manual" && (
-          <button
-            type="button"
-            onClick={refetch}
-            disabled={busy}
-            title="Re-run the auto-fetcher (og:image → Places photo → Street View). Bypasses the 30-day skip window."
-            className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
-          >
-            {busy ? "Working…" : "Retry auto-fetch"}
-          </button>
-        )}
+      <div className="flex gap-2 shrink-0 flex-wrap justify-end">
+        <button
+          type="button"
+          onClick={refetch}
+          disabled={busy}
+          title="Re-run the auto-fetcher (og:image → Places photo → Street View). Bypasses the 30-day skip window."
+          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
+        >
+          {busy ? "Working…" : "Retry auto-fetch"}
+        </button>
         <button
           type="button"
           onClick={() => inputRef.current?.click()}

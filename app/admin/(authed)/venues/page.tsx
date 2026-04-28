@@ -1,6 +1,7 @@
 import { requireRole } from "@/lib/session";
 import { listKnownVenues, listVenueDefaults, venueKey } from "@/lib/venues";
 import VenueRow from "./VenueRow";
+import RetryAllButton from "./RetryAllButton";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +25,8 @@ export default async function AdminVenuesPage() {
           known event location plus connected Discord sources.
         </p>
       </header>
+
+      {venues.length > 0 && <RetryAllButton />}
 
       {venues.length === 0 ? (
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center text-sm text-gray-500 dark:text-gray-400">
