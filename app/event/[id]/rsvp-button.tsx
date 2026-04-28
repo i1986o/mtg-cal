@@ -105,7 +105,7 @@ export default function RsvpButton({
             >
               Waitlist {waitlistPos != null ? `· #${waitlistPos}` : ""}
             </button>
-          ) : isFull && status !== "going" ? (
+          ) : isFull ? (
             <button
               type="button"
               onClick={() => setRsvp("waitlist")}
