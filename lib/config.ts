@@ -1,5 +1,7 @@
 // config.ts — MTG Calendar settings
 
+export const SITE_URL = "https://playirl.gg";
+
 export const config = {
   location: {
     zip: "19125",

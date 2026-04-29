@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Stack_Sans_Notch } from "next/font/google";
 import { cookies } from "next/headers";
+import { SITE_URL } from "@/lib/config";
 import "./globals.css";
 import ThemeSync from "./theme-sync";
 
@@ -17,9 +18,34 @@ const stackSansNotch = Stack_Sans_Notch({
 
 const BUILD_SHA = process.env.RAILWAY_GIT_COMMIT_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA ?? "local";
 
+const SITE_TITLE = "PlayIRL.GG";
+const SITE_DESCRIPTION = "Find Magic: The Gathering events near you";
+const DEFAULT_OG_IMAGE = {
+  url: "/logo.png",
+  width: 1479,
+  height: 826,
+  alt: SITE_TITLE,
+};
+
 export const metadata: Metadata = {
-  title: "PlayIRL.GG",
-  description: "Find Magic: The Gathering events near you",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    siteName: SITE_TITLE,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    type: "website",
+    locale: "en_US",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
+  },
   other: {
     "x-build-sha": BUILD_SHA,
     "x-build-feature": "bulk-retry-venues",
