@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/app/button";
 import OAuthButton from "@/app/oauth-button";
+import { PlayIrlLogo } from "@/app/playirl-logo";
 
 interface Provider { id: string; name: string }
 
@@ -35,7 +36,11 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
       </Link>
       <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-gray-700 space-y-6">
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">Welcome to PlayIRL.GG</h1>
+          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 flex items-baseline justify-center gap-2 flex-wrap">
+            Welcome to
+            <PlayIrlLogo className="inline-block h-5 w-auto" />
+            <span className="sr-only">PlayIRL.GG</span>
+          </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
             Submit your own events and sync with Discord — pull events from a server, or publish PlayIRL events to one.
           </p>
