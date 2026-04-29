@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getEvent } from "@/lib/events";
 import { getRsvpSummary, isPastEvent } from "@/lib/event-rsvps";
 import { findInviteByToken, redeemInvite } from "@/lib/event-invites";
@@ -6,6 +7,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatEventTimeRange } from "@/lib/format-time";
 import { resolveEventImage, hasRealEventImage } from "@/lib/event-image";
+import { SITE_URL } from "@/lib/config";
 import ShareButton from "./share-button";
 import RsvpButton from "./rsvp-button";
 import HostActions from "./host-actions";
@@ -59,6 +61,83 @@ function DetailRow({ label, value, href }: { label: string; value: string; href?
       </dd>
     </div>
   );
+}
+
+function clampDescription(text: string, max = 160): string {
+  const trimmed = text.replace(/\s+/g, " ").trim();
+  if (trimmed.length <= max) return trimmed;
+  return trimmed.slice(0, max - 1).trimEnd() + "…";
+}
+
+function buildEventDescription(ev: {
+  format: string;
+  location: string;
+  date: string;
+  time: string;
+  timezone: string;
+  cost: string;
+  notes: string;
+}): string {
+  // Prefer the first sentence of host-written notes when present and useful;
+  // otherwise compose from the structured fields so every event still gets
+  // a meaningful preview snippet.
+  if (ev.notes && ev.notes.trim().length > 0) {
+    const firstSentence = ev.notes.split(/(?<=[.!?])\s+/)[0] ?? ev.notes;
+    return clampDescription(firstSentence);
+  }
+  const timeRange = formatEventTimeRange(ev.date, ev.time, ev.timezone);
+  const parts = [
+    ev.format && `${ev.format} MTG`,
+    ev.location && `at ${ev.location}`,
+    formatDate(ev.date),
+    timeRange,
+    ev.cost,
+  ].filter(Boolean);
+  return clampDescription(parts.join(" · "));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const ev = getEvent(decodeURIComponent(id));
+  if (!ev) return {};
+
+  // Unlisted and private events must not leak title/notes/image into chat
+  // previews. Return only a noindex hint and the bare site title.
+  if (ev.visibility !== "public") {
+    return {
+      title: "PlayIRL.GG",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const titlePrefix = ev.cancelled_at ? "[Cancelled] " : "";
+  const title = `${titlePrefix}${ev.title}${ev.format ? ` — ${ev.format}` : ""}`;
+  const description = buildEventDescription(ev);
+  const hero = resolveEventImage(ev);
+  const url = `${SITE_URL}/event/${encodeURIComponent(ev.id)}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      images: [{ url: hero.url, alt: ev.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [hero.url],
+    },
+  };
 }
 
 export default async function EventPage({
@@ -166,7 +245,7 @@ export default async function EventPage({
               initialWaitlistPosition={rsvp.waitlistPosition}
             />
           )}
-          <ShareButton title={ev.title} url={`https://playirl.gg/event/${encodeURIComponent(ev.id)}`} />
+          <ShareButton title={ev.title} url={`${SITE_URL}/event/${encodeURIComponent(ev.id)}`} />
         </div>
       </div>
 
