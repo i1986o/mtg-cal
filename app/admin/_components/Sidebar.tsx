@@ -32,7 +32,7 @@ export default function Sidebar({ pendingCount = 0 }: { pendingCount?: number })
             className={`px-3 py-2 rounded-md text-sm transition flex items-center justify-between gap-2 ${
               active
                 ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900"
-                : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-stone-800"
+                : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800"
             }`}
           >
             <span>{item.label}</span>
@@ -52,7 +52,7 @@ export default function Sidebar({ pendingCount = 0 }: { pendingCount?: number })
       })}
       <Link
         href="/"
-        className="px-3 py-2 rounded-md text-sm text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-stone-800 mt-4"
+        className="px-3 py-2 rounded-md text-sm text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-neutral-800 mt-4"
       >
         ← Back to site
       </Link>

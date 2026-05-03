@@ -6,7 +6,7 @@ const STYLES: Record<string, string> = {
 };
 
 export default function StatusBadge({ status }: { status: string }) {
-  const cls = STYLES[status] ?? "bg-gray-50 border-gray-200 text-gray-700 dark:bg-stone-900 dark:border-stone-700 dark:text-gray-300";
+  const cls = STYLES[status] ?? "bg-gray-50 border-gray-200 text-gray-700 dark:bg-neutral-900 dark:border-neutral-700 dark:text-gray-300";
   return (
     <span className={`inline-flex items-center text-xs px-2 py-0.5 rounded border font-medium ${cls}`}>
       {status}

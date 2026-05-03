@@ -96,16 +96,16 @@ export default function DayCard({
   }, [staggerBase]);
 
   const borderColor = isToday
-    ? "border-amber-300 dark:border-amber-500/40"
+    ? "border-gray-200 dark:border-white/10"
     : "border-gray-100 dark:border-white/8";
 
   const hoverBorderColor = isToday
-    ? "hover:border-amber-400 dark:hover:border-amber-400/60"
+    ? "hover:border-gray-300 dark:hover:border-white/20"
     : "hover:border-gray-200 dark:hover:border-white/15";
 
   const headingBg = isToday
-    ? "bg-amber-50 dark:bg-stone-900"
-    : "bg-white dark:bg-stone-900";
+    ? "bg-white dark:bg-neutral-900"
+    : "bg-white dark:bg-neutral-900";
 
   return (
     <div ref={wrapperRef} style={{ opacity: 0 }} className={isPast && !isToday ? "opacity-70" : ""}>
@@ -117,7 +117,7 @@ export default function DayCard({
           days) already conveys the date right next to it, so the circle was
           pure visual repetition. */}
       <div className={`sticky top-[var(--sticky-bar-h,80px)] z-[5] flex items-center gap-2.5 px-4 border transition-all duration-150 ${isStuck ? "py-1" : "py-2 rounded-t-xl"} ${borderColor} ${headingBg}`}>
-        <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-amber-700 dark:text-amber-300" : "text-gray-700 dark:text-gray-300"}`}>
+        <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-gray-900 dark:text-white" : "text-gray-700 dark:text-gray-300"}`}>
           {headingLabel || weekday}
         </span>
         <span className={`ml-auto transition-all duration-150 text-gray-400 dark:text-gray-500 ${isStuck ? "text-[10px]" : "text-xs"}`}>
@@ -136,7 +136,7 @@ export default function DayCard({
               href={`/event/${encodeURIComponent(ev.id)}`}
               data-row
               style={{ opacity: 0 }}
-              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-amber-100/50 dark:hover:bg-amber-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
+              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-gray-100 dark:hover:bg-white/[0.04]" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
             >
               {/* Desktop: time as a fixed left column. Mobile: hidden here
                   and rendered above the title (see middle div below) so the

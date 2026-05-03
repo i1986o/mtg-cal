@@ -9,9 +9,10 @@
 }
 
 .dark {
-  /* Warm dark — Tailwind stone-900. Pairs with the amber brand accent
-     instead of clashing with it like the previous slate-blue #0c1220 did. */
-  --bg: #1c1917;
+  /* True neutral dark (Tailwind neutral-950 region). No warm OR cool tint —
+     just dark. Brand color (amber) appears only on primary CTAs and is
+     intentionally rare; the rest of the UI stays out of the way. */
+  --bg: #0f0f0f;
   --fg: #ededed;
   color-scheme: dark;
 }

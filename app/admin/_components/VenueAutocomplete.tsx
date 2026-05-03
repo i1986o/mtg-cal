@@ -110,7 +110,7 @@ export default function VenueAutocomplete({
       {showDropdown && (
         <ul
           role="listbox"
-          className="absolute z-20 left-0 right-0 mt-1 bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-md shadow-lg max-h-64 overflow-y-auto"
+          className="absolute z-20 left-0 right-0 mt-1 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-md shadow-lg max-h-64 overflow-y-auto"
         >
           {matches.map((v, i) => (
             <li key={v.name} role="option" aria-selected={i === highlight}>
@@ -120,7 +120,7 @@ export default function VenueAutocomplete({
                 onClick={() => pick(v)}
                 onMouseEnter={() => setHighlight(i)}
                 className={`w-full text-left px-3 py-2 transition ${
-                  i === highlight ? "bg-gray-100 dark:bg-stone-800" : "hover:bg-gray-50 dark:hover:bg-stone-800/70"
+                  i === highlight ? "bg-gray-100 dark:bg-neutral-800" : "hover:bg-gray-50 dark:hover:bg-neutral-800/70"
                 }`}
               >
                 <div className="flex items-baseline justify-between gap-2">

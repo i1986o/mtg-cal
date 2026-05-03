@@ -49,7 +49,7 @@ export default async function SavedEventsPage() {
       }
     >
       {upcoming.length === 0 && past.length === 0 ? (
-        <div className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-8 text-center">
+        <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-8 text-center">
           <p className="text-4xl mb-3">⭐️</p>
           <p className="text-gray-500 dark:text-gray-400 text-sm">You haven't saved any events yet.</p>
           <Link href="/account" className="inline-block mt-3 text-sm text-amber-700 dark:text-amber-400 hover:underline">
@@ -89,7 +89,7 @@ export default async function SavedEventsPage() {
               <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
                 Past ({past.length})
               </h2>
-              <ul className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg divide-y divide-gray-100 dark:divide-gray-800">
+              <ul className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg divide-y divide-gray-100 dark:divide-gray-800">
                 {past.map((ev) => (
                   <li key={ev.id} className="px-4 py-2.5 flex items-center gap-3 opacity-70">
                     <span className="font-mono text-xs text-gray-400 w-20 shrink-0">{ev.date}</span>

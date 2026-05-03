@@ -121,7 +121,7 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
   if (!sub.enabled) tagPills.push({ label: "disabled", tone: "warn" });
 
   return (
-    <div className={`bg-white dark:bg-stone-900 border border-gray-100 dark:border-stone-800 rounded-xl p-5 ${!sub.enabled ? "opacity-60" : ""}`}>
+    <div className={`bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-xl p-5 ${!sub.enabled ? "opacity-60" : ""}`}>
       <div className="flex items-start justify-between gap-3">
         <div className="space-y-2 flex-1 min-w-0">
           <div className="flex flex-wrap gap-1.5">
@@ -130,8 +130,8 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
                 key={i}
                 className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                   p.tone === "warn"
-                    ? "bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300"
-                    : "bg-gray-100 text-gray-700 dark:bg-stone-800 dark:text-gray-300"
+                    ? "bg-gray-100 text-gray-500 dark:bg-white/[0.06] dark:text-gray-500"
+                    : "bg-gray-100 text-gray-700 dark:bg-neutral-800 dark:text-gray-300"
                 }`}
               >
                 {p.label}
@@ -162,14 +162,14 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
           <button
             onClick={() => setEditing(v => !v)}
             disabled={busy}
-            className="text-xs px-2.5 py-1 rounded border border-gray-200 dark:border-stone-700 hover:bg-gray-50 dark:hover:bg-stone-800 transition"
+            className="text-xs px-2.5 py-1 rounded border border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 transition"
           >
             {editing ? "Cancel" : "Edit"}
           </button>
           <button
             onClick={toggleEnabled}
             disabled={busy}
-            className="text-xs px-2.5 py-1 rounded border border-gray-200 dark:border-stone-700 hover:bg-gray-50 dark:hover:bg-stone-800 transition"
+            className="text-xs px-2.5 py-1 rounded border border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 transition"
           >
             {sub.enabled ? "Disable" : "Enable"}
           </button>
@@ -188,8 +188,8 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
       )}
 
       {editing && (
-        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-stone-800 space-y-5">
-          <div className="rounded-md bg-gray-50 dark:bg-stone-800/50 px-3 py-2 text-xs text-gray-600 dark:text-gray-300">
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-neutral-800 space-y-5">
+          <div className="rounded-md bg-gray-50 dark:bg-neutral-800/50 px-3 py-2 text-xs text-gray-600 dark:text-gray-300">
             Server, channel, and mode can&apos;t be changed — to switch any of those, delete this subscription and create a new one.
           </div>
 
@@ -209,14 +209,14 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
             <button
               onClick={() => setEditing(false)}
               disabled={busy}
-              className="px-3 py-1.5 rounded border border-gray-200 dark:border-stone-700 text-sm hover:bg-gray-50 dark:hover:bg-stone-800 transition"
+              className="px-3 py-1.5 rounded border border-gray-200 dark:border-neutral-700 text-sm hover:bg-gray-50 dark:hover:bg-neutral-800 transition"
             >
               Cancel
             </button>
             <button
               onClick={save}
               disabled={busy}
-              className="px-3 py-1.5 rounded bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition disabled:opacity-50"
+              className="px-3 py-1.5 rounded bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-gray-900 text-sm font-medium transition disabled:opacity-50"
             >
               {busy ? "Saving…" : "Save"}
             </button>
