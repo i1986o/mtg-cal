@@ -387,8 +387,9 @@ export default function RadiusSelector({
           align="end"
         /> */}
 
-        <span className={CONNECTOR}>=</span>
-        <span className="inline-flex items-center justify-center min-w-[1.75rem] px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-xs sm:text-sm font-semibold tabular-nums leading-none">{eventCount}</span>
+        {/* "= N" event count hidden per user request. Re-enable by un-commenting. */}
+        {/* <span className={CONNECTOR}>=</span>
+        <span className="inline-flex items-center justify-center min-w-[1.75rem] px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-xs sm:text-sm font-semibold tabular-nums leading-none">{eventCount}</span> */}
 
         <SubscribeDropdown
           currentFormat={currentFormat}
