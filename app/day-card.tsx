@@ -95,16 +95,23 @@ export default function DayCard({
     };
   }, [staggerBase]);
 
+  // "Today" gets a slight visual lift: bolder neutral border + a soft
+  // tinted heading background. Matches the calendar view's neutral today
+  // highlight (no blue, no amber). Other days stay flat.
   const borderColor = isToday
-    ? "border-gray-200 dark:border-white/10"
+    ? "border-gray-300 dark:border-white/20"
     : "border-gray-100 dark:border-white/8";
 
   const hoverBorderColor = isToday
-    ? "hover:border-gray-300 dark:hover:border-white/20"
+    ? "hover:border-gray-400 dark:hover:border-white/30"
     : "hover:border-gray-200 dark:hover:border-white/15";
 
   const headingBg = isToday
-    ? "bg-white dark:bg-neutral-900"
+    ? "bg-gray-50 dark:bg-white/[0.04]"
+    : "bg-white dark:bg-neutral-900";
+
+  const bodyBg = isToday
+    ? "bg-gray-50/50 dark:bg-white/[0.02]"
     : "bg-white dark:bg-neutral-900";
 
   return (
@@ -127,9 +134,7 @@ export default function DayCard({
 
       {/* Events body */}
       {events.length > 0 && (
-        <div className={`overflow-hidden rounded-b-xl border-b border-x divide-y transition-all duration-200 hover:shadow-md dark:hover:shadow-black/30 ${borderColor} ${hoverBorderColor} ${
-          isToday ? "divide-blue-100 dark:divide-blue-500/20" : "divide-gray-100 dark:divide-white/8"
-        }`}>
+        <div className={`overflow-hidden rounded-b-xl border-b border-x divide-y divide-gray-100 dark:divide-white/8 transition-all duration-200 hover:shadow-md dark:hover:shadow-black/30 ${borderColor} ${hoverBorderColor} ${bodyBg}`}>
           {events.map((ev) => (
             <Link
               key={ev.id}
