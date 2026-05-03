@@ -8,7 +8,7 @@
 // window, then run the work in the background and PATCH the original message
 // via webhook follow-up. Discord allows up to 15 minutes for follow-up.
 
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import {
   type InteractionHandlerResult,
   handleInteraction,
@@ -17,7 +17,8 @@ import {
 } from "@/lib/discord-interactions";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 10;
+export const runtime = "nodejs";
+export const maxDuration = 30;
 
 const FLAGS_EPHEMERAL = 1 << 6;
 
@@ -61,21 +62,23 @@ export async function POST(request: Request) {
     return NextResponse.json(result.response);
   }
 
-  // Deferred: ack now, do work + follow-up in background. Fire-and-forget is
-  // safe on Railway's long-running Node process; the event loop keeps the
-  // promise alive after this handler returns.
+  // Deferred: ack now, do work + follow-up after the response. Use Next.js's
+  // `after()` API rather than fire-and-forget — Next 16 cleans up promise
+  // chains scheduled outside the request lifecycle, which would silently
+  // drop our follow-up PATCH and leave the user staring at "Bot is
+  // thinking..." until Discord's 15-minute timeout.
   const work = result.work;
-  void (async () => {
+  after(async () => {
     try {
       const followup = await work(interaction);
       await sendDeferredFollowup(interaction.application_id, interaction.token, followup);
     } catch (err) {
       console.error("[discord-interactions] deferred work threw:", err);
       await sendDeferredFollowup(interaction.application_id, interaction.token, {
-        content: "Something went wrong handling that command.",
+        content: "Something went wrong handling that command. Try again, or report this in #playirl-bot-support.",
       });
     }
-  })();
+  });
 
   // Public lookup commands (today/week) opt out of ephemeral so the result
   // lands in the channel for everyone. Admin ops keep the default ephemeral
