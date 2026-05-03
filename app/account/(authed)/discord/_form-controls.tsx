@@ -39,7 +39,7 @@ export const HINTS = {
 // Shared text/select/number input styling. Used everywhere a form field
 // needs the standard look — keep this in sync with the design system.
 export const INPUT_CLASS =
-  "w-full px-2.5 py-2 rounded-md border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500";
+  "w-full px-2.5 py-2 rounded-md border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-500";
 
 // --- Time / timezone helpers ----------------------------------------------
 
@@ -124,7 +124,7 @@ export function ChipButton({
       onClick={onClick}
       className={`px-3 py-1.5 rounded-full text-xs border transition ${
         active
-          ? "border-indigo-600 bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300"
+          ? "border-gray-900 bg-gray-900 text-white dark:border-white dark:bg-white dark:text-gray-900"
           : "border-gray-200 dark:border-white/15 hover:bg-gray-50 dark:hover:bg-white/5"
       }`}
     >
@@ -153,7 +153,7 @@ export function ModeButton({
       onClick={() => onClick(value)}
       className={`text-left px-3 py-2.5 rounded-lg border text-sm transition ${
         active
-          ? "border-indigo-600 bg-indigo-50 dark:bg-indigo-500/10 ring-1 ring-indigo-600"
+          ? "border-amber-500 bg-amber-50 dark:bg-amber-500/10 ring-1 ring-amber-500"
           : "border-gray-200 dark:border-white/15 hover:bg-gray-50 dark:hover:bg-white/5"
       }`}
     >
