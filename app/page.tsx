@@ -30,7 +30,11 @@ function dayHeadingLabel(dateStr: string, todayStr: string, tomorrowStr: string)
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ format?: string; radius?: string; days?: string; view?: string; offset?: string }>;
+  searchParams: Promise<{
+    format?: string; radius?: string; days?: string; view?: string; offset?: string;
+    /** Location override (URL primary). Triple of label + lat + lng. */
+    loc?: string; lat?: string; lng?: string;
+  }>;
 }) {
   const params = await searchParams;
   const user = await getCurrentUser();
@@ -48,6 +52,21 @@ export default async function HomePage({
   const currentView = params.view || "list";
   const currentOffset = params.offset ? Math.max(0, parseInt(params.offset, 10)) : 0;
 
+  // Location resolution: URL params > user_preferences > config.location default.
+  // Default label is "Philly" — the brand-friendly short form rather than the
+  // formal "Philadelphia, PA" so the chip stays compact on small viewports.
+  const DEFAULT_LOCATION_LABEL = "Philly";
+  const urlLat = params.lat ? parseFloat(params.lat) : NaN;
+  const urlLng = params.lng ? parseFloat(params.lng) : NaN;
+  const hasUrlLocation = Number.isFinite(urlLat) && Number.isFinite(urlLng) && urlLat >= -90 && urlLat <= 90 && urlLng >= -180 && urlLng <= 180;
+  const hasPrefsLocation = prefs?.location_lat != null && prefs?.location_lng != null;
+  const currentLocationLat = hasUrlLocation ? urlLat : (hasPrefsLocation ? prefs!.location_lat! : config.location.lat);
+  const currentLocationLng = hasUrlLocation ? urlLng : (hasPrefsLocation ? prefs!.location_lng! : config.location.lng);
+  const currentLocationLabel = hasUrlLocation
+    ? (params.loc?.trim() || DEFAULT_LOCATION_LABEL)
+    : (hasPrefsLocation && prefs!.location_label ? prefs!.location_label : DEFAULT_LOCATION_LABEL);
+  const isLocationCustom = hasUrlLocation || hasPrefsLocation;
+
   // Persist any filter change so the next visit restores it.
   if (signedIn && user) {
     const patch: Parameters<typeof setPreferences>[1] = {};
@@ -56,6 +75,21 @@ export default async function HomePage({
     // `format` param can be explicitly empty (user cleared the filter) — still persist that.
     if (params.format !== undefined && currentFormat !== (prefs?.formats[0] ?? "")) {
       patch.formats = currentFormat ? [currentFormat] : [];
+    }
+    // Location: persist when URL params are present (user just changed it).
+    // We mirror the `if param !== undefined` pattern from `format` so an
+    // explicit "reset" (URL param missing → null) propagates to prefs too.
+    if (params.lat !== undefined || params.lng !== undefined || params.loc !== undefined) {
+      if (hasUrlLocation) {
+        if (currentLocationLat !== prefs?.location_lat) patch.location_lat = currentLocationLat;
+        if (currentLocationLng !== prefs?.location_lng) patch.location_lng = currentLocationLng;
+        if (currentLocationLabel !== prefs?.location_label) patch.location_label = currentLocationLabel;
+      } else if (params.lat === "" || params.loc === "") {
+        // Explicit clear (e.g. via the "Reset to default" link).
+        patch.location_lat = null;
+        patch.location_lng = null;
+        patch.location_label = "";
+      }
     }
     if (Object.keys(patch).length > 0) setPreferences(user.id, patch);
   } else if (params.radius) {
@@ -85,8 +119,8 @@ export default async function HomePage({
     from: fromDate.toISOString().split("T")[0],
     to: toDate.toISOString().split("T")[0],
     radiusMiles: currentRadius,
-    centerLat: config.location.lat,
-    centerLng: config.location.lng,
+    centerLat: currentLocationLat,
+    centerLng: currentLocationLng,
   });
 
   const enriched = events.map((ev) => {
@@ -120,7 +154,16 @@ export default async function HomePage({
       {/* Sticky filter bar */}
       <StickyBar>
         <div className="flex justify-center">
-          <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={currentFormat} formats={formats} eventCount={events.length} />
+          <RadiusSelector
+            currentRadius={currentRadius}
+            currentDays={currentDays}
+            currentFormat={currentFormat}
+            formats={formats}
+            eventCount={events.length}
+            currentLocationLabel={currentLocationLabel}
+            defaultLocationLabel={DEFAULT_LOCATION_LABEL}
+            isLocationCustom={isLocationCustom}
+          />
         </div>
       </StickyBar>
 
