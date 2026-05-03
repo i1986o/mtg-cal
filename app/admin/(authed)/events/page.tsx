@@ -19,19 +19,19 @@ export default function AdminEventsPage() {
   return (
     <div className="p-6 lg:p-8 max-w-7xl">
       <div className="flex items-end justify-between mb-6">
-        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100">
           Events
         </h1>
         <Link
           href="/admin/events/new"
-          className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
+          className="bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition"
         >
           + New event
         </Link>
       </div>
 
       {loading ? (
-        <p className="text-sm text-gray-500 dark:text-gray-400">Loading…</p>
+        <p className="text-sm text-neutral-500 dark:text-neutral-400">Loading…</p>
       ) : (
         <EventTable
           events={events}

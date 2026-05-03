@@ -126,29 +126,29 @@ export default function EventTable({
   }
 
   return (
-    <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg overflow-hidden">
+    <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg overflow-hidden">
       {/* Filter bar */}
-      <div className="flex flex-wrap gap-2 items-center p-3 border-b border-gray-200 dark:border-neutral-700">
+      <div className="flex flex-wrap gap-2 items-center p-3 border-b border-neutral-200 dark:border-neutral-700">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search title or location…"
-          className="px-3 py-1.5 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 min-w-[200px]"
+          className="px-3 py-1.5 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 min-w-[200px]"
         />
         <FilterSelect label="Status" value={statusFilter} onChange={(v) => setStatusFilter(v as typeof statusFilter)} options={STATUSES as readonly string[]} />
         {showSourceFilter && (
           <FilterSelect label="Source" value={sourceFilter} onChange={setSourceFilter} options={sources} />
         )}
         <FilterSelect label="Format" value={formatFilter} onChange={setFormatFilter} options={formats} />
-        <span className="ml-auto text-xs text-gray-500 dark:text-gray-400">
+        <span className="ml-auto text-xs text-neutral-500 dark:text-neutral-400">
           {filtered.length} of {events.length}
         </span>
       </div>
 
       {/* Bulk action bar */}
       {bulkEndpoint && (
-        <div className={`flex gap-2 items-center p-3 border-b border-gray-200 dark:border-neutral-700 transition ${selected.size === 0 ? "opacity-50" : ""}`}>
-          <span className="text-xs text-gray-600 dark:text-gray-400 mr-2">{selected.size} selected</span>
+        <div className={`flex gap-2 items-center p-3 border-b border-neutral-200 dark:border-neutral-700 transition ${selected.size === 0 ? "opacity-50" : ""}`}>
+          <span className="text-xs text-neutral-600 dark:text-neutral-400 mr-2">{selected.size} selected</span>
           <BulkButton onClick={() => bulkAction("activate")} disabled={selected.size === 0 || busy}>Activate</BulkButton>
           <BulkButton onClick={() => bulkAction("pin")} disabled={selected.size === 0 || busy}>Pin</BulkButton>
           <BulkButton onClick={() => bulkAction("skip")} disabled={selected.size === 0 || busy}>Skip</BulkButton>
@@ -159,7 +159,7 @@ export default function EventTable({
       {/* Table */}
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50 dark:bg-neutral-800 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+          <thead className="bg-neutral-50 dark:bg-neutral-800 text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
             <tr>
               {bulkEndpoint && (
                 <th className="px-3 py-2 w-10">
@@ -173,28 +173,28 @@ export default function EventTable({
               <th className="text-right px-3 py-2"></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+          <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800">
             {filtered.map((ev) => (
-              <tr key={ev.id} className="hover:bg-gray-50 dark:hover:bg-neutral-800/50">
+              <tr key={ev.id} className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50">
                 {bulkEndpoint && (
                   <td className="px-3 py-2 align-top">
                     <input type="checkbox" checked={selected.has(ev.id)} onChange={() => toggleOne(ev.id)} aria-label={`Select ${ev.title}`} />
                   </td>
                 )}
                 <td className="px-3 py-2 align-top">
-                  <div className="font-medium text-gray-900 dark:text-gray-100">{ev.title || <em className="text-gray-400">(untitled)</em>}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 flex gap-2 flex-wrap">
-                    {ev.format && <span className="bg-gray-100 dark:bg-neutral-800 px-1.5 rounded">{ev.format}</span>}
+                  <div className="font-medium text-neutral-900 dark:text-neutral-100">{ev.title || <em className="text-neutral-400">(untitled)</em>}</div>
+                  <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 flex gap-2 flex-wrap">
+                    {ev.format && <span className="bg-neutral-100 dark:bg-neutral-800 px-1.5 rounded">{ev.format}</span>}
                     {ev.source_type && ev.source_type !== "scraper" && (
-                      <span className="bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 px-1.5 rounded">{ev.source_type}</span>
+                      <span className="bg-neutral-100 dark:bg-white/[0.06] text-neutral-700 dark:text-neutral-300 px-1.5 rounded">{ev.source_type}</span>
                     )}
                   </div>
                 </td>
-                <td className="px-3 py-2 align-top hidden md:table-cell text-gray-600 dark:text-gray-400">
+                <td className="px-3 py-2 align-top hidden md:table-cell text-neutral-600 dark:text-neutral-400">
                   <div>{ev.date} {ev.time}</div>
                   <div className="text-xs">{ev.location}</div>
                 </td>
-                <td className="px-3 py-2 align-top hidden lg:table-cell text-xs text-gray-500 dark:text-gray-400 font-mono">
+                <td className="px-3 py-2 align-top hidden lg:table-cell text-xs text-neutral-500 dark:text-neutral-400 font-mono">
                   {ev.source}
                 </td>
                 <td className="px-3 py-2 align-top">
@@ -203,7 +203,7 @@ export default function EventTable({
                       value={ev.status}
                       onChange={(e) => changeStatus(ev.id, e.target.value)}
                       disabled={busy}
-                      className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+                      className="text-xs px-2 py-1 rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
                     >
                       <option value="active">active</option>
                       <option value="skip">skip</option>
@@ -235,7 +235,7 @@ export default function EventTable({
             ))}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={bulkEndpoint ? 6 : 5} className="text-center text-sm text-gray-500 dark:text-gray-400 py-8">
+                <td colSpan={bulkEndpoint ? 6 : 5} className="text-center text-sm text-neutral-500 dark:text-neutral-400 py-8">
                   No events match these filters.
                 </td>
               </tr>
@@ -249,12 +249,12 @@ export default function EventTable({
 
 function FilterSelect({ label, value, onChange, options }: { label: string; value: string; onChange: (v: string) => void; options: readonly string[] }) {
   return (
-    <label className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">
+    <label className="text-xs text-neutral-600 dark:text-neutral-400 flex items-center gap-1">
       <span>{label}:</span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="text-sm px-2 py-1 border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+        className="text-sm px-2 py-1 border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
       >
         {options.map((o) => (
           <option key={o} value={o}>{o}</option>
@@ -267,7 +267,7 @@ function FilterSelect({ label, value, onChange, options }: { label: string; valu
 function BulkButton({ onClick, disabled, variant, children }: { onClick: () => void; disabled?: boolean; variant?: "danger"; children: React.ReactNode }) {
   const cls = variant === "danger"
     ? "border-red-300 text-red-700 hover:bg-red-50 dark:border-red-800 dark:text-red-300 dark:hover:bg-red-950"
-    : "border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-neutral-600 dark:text-gray-300 dark:hover:bg-neutral-800";
+    : "border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800";
   return (
     <button
       onClick={onClick}

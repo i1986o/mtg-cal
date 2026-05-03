@@ -49,24 +49,24 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
   }
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-neutral-950 p-4 relative">
+    <main className="flex items-center justify-center min-h-screen bg-neutral-50 dark:bg-neutral-950 p-4 relative">
       <Link
         href="/"
-        className="absolute top-4 left-4 inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
+        className="absolute top-4 left-4 inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
         Back to PlayIRL.GG
       </Link>
-      <div className="bg-white dark:bg-neutral-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-neutral-700 space-y-6">
+      <div className="bg-white dark:bg-neutral-900 p-8 rounded-xl shadow-md dark:shadow-black/40 w-full max-w-sm border border-transparent dark:border-neutral-700 space-y-6">
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 flex items-baseline justify-center gap-2 flex-wrap">
+          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100 flex items-baseline justify-center gap-2 flex-wrap">
             Welcome to
             <PlayIrlLogo className="inline-block h-5 w-auto" />
             <span className="sr-only">PlayIRL.GG</span>
           </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+          <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
             Submit your own events and sync with Discord — pull events from a server, or publish PlayIRL events to one.
           </p>
         </div>
@@ -94,9 +94,9 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
         <div className="space-y-2">
           {hasOAuth && (
             <div className="flex items-center gap-3">
-              <div className="flex-1 h-px bg-gray-200 dark:bg-neutral-700" />
-              <span className="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">or</span>
-              <div className="flex-1 h-px bg-gray-200 dark:bg-neutral-700" />
+              <div className="flex-1 h-px bg-neutral-200 dark:bg-neutral-700" />
+              <span className="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500">or</span>
+              <div className="flex-1 h-px bg-neutral-200 dark:bg-neutral-700" />
             </div>
           )}
           <form onSubmit={passwordSignIn} className="space-y-2">
@@ -108,7 +108,7 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
               placeholder="you@example.com"
               autoComplete="email"
               required
-              className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+              className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
             />
             <input
               type="password"
@@ -118,16 +118,16 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
               placeholder="Password"
               autoComplete="current-password"
               required
-              className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+              className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
             />
             {pwError && <p className="text-xs text-red-600 dark:text-red-400">{pwError}</p>}
             <Button type="submit" variant="primary" disabled={pwSubmitting} className="w-full">
               {pwSubmitting ? "Signing in…" : "Sign in"}
             </Button>
           </form>
-          <p className="text-xs text-center text-gray-500 dark:text-gray-400 pt-1">
+          <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 pt-1">
             No account?{" "}
-            <Link href={`/account/signup${from !== "/account" ? `?from=${encodeURIComponent(from)}` : ""}`} className="underline hover:text-gray-700 dark:hover:text-gray-300">
+            <Link href={`/account/signup${from !== "/account" ? `?from=${encodeURIComponent(from)}` : ""}`} className="underline hover:text-neutral-700 dark:hover:text-neutral-300">
               Create one
             </Link>
           </p>
@@ -136,9 +136,9 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
         {hasEmail && (
           <>
             <div className="flex items-center gap-3">
-              <div className="flex-1 h-px bg-gray-200 dark:bg-neutral-700" />
-              <span className="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">or</span>
-              <div className="flex-1 h-px bg-gray-200 dark:bg-neutral-700" />
+              <div className="flex-1 h-px bg-neutral-200 dark:bg-neutral-700" />
+              <span className="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500">or</span>
+              <div className="flex-1 h-px bg-neutral-200 dark:bg-neutral-700" />
             </div>
             <form action={oauthAction("resend")} method="POST" className="space-y-2">
               <input type="hidden" name="csrfToken" value={csrfToken} />
@@ -148,7 +148,7 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
                 name="email"
                 placeholder="Email me a sign-in link"
                 required
-                className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+                className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
               />
               <Button type="submit" variant="ghost" disabled={!csrfToken} className="w-full">
                 Email me a magic link instead
@@ -157,9 +157,9 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
           </>
         )}
 
-        <p className="text-xs text-center text-gray-500 dark:text-gray-400 leading-relaxed">
+        <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 leading-relaxed">
           By signing in you agree to use this service responsibly. Or{" "}
-          <Link href="/" className="underline hover:text-gray-700 dark:hover:text-gray-300">browse events first</Link>.
+          <Link href="/" className="underline hover:text-neutral-700 dark:hover:text-neutral-300">browse events first</Link>.
         </p>
       </div>
     </main>

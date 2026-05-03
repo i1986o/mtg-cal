@@ -13,14 +13,14 @@ export default async function EditEventPage({ params }: { params: Promise<{ id: 
   return (
     <div className="p-6 lg:p-8 max-w-3xl">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100">
           Edit event
         </h1>
         <Link href="/admin/events" className="text-sm text-amber-700 dark:text-amber-400 hover:underline">
           ← Back to events
         </Link>
       </div>
-      <p className="text-xs text-gray-400 dark:text-gray-500 font-mono mb-4">
+      <p className="text-xs text-neutral-400 dark:text-neutral-500 font-mono mb-4">
         {event.id} · {event.source}{event.source_type ? ` · ${event.source_type}` : ""}
       </p>
       <EventForm

@@ -45,13 +45,13 @@ export default function MyEventsList() {
   const upcoming = events.filter((e) => e.status !== "pending" && e.date >= today);
   const past = events.filter((e) => e.status !== "pending" && e.date < today);
 
-  if (loading) return <p className="text-sm text-gray-500 dark:text-gray-400">Loading…</p>;
+  if (loading) return <p className="text-sm text-neutral-500 dark:text-neutral-400">Loading…</p>;
 
   if (events.length === 0) {
     return (
-      <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-8 text-center">
+      <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-8 text-center">
         <p className="text-4xl mb-3">📝</p>
-        <p className="text-gray-500 dark:text-gray-400 text-sm">You haven't created any events yet.</p>
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm">You haven't created any events yet.</p>
         <Link
           href="/account/events/new"
           className="inline-block mt-3 text-sm text-amber-700 dark:text-amber-400 hover:underline"
@@ -102,13 +102,13 @@ function Section({
   return (
     <section>
       <div className="mb-2">
-        <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-          {title} <span className="text-xs font-normal text-gray-400 dark:text-gray-500">· {count}</span>
+        <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">
+          {title} <span className="text-xs font-normal text-neutral-400 dark:text-neutral-500">· {count}</span>
         </h2>
         {hint && <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5">{hint}</p>}
       </div>
       <ul
-        className={`bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg divide-y divide-gray-100 dark:divide-gray-800 ${
+        className={`bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg divide-y divide-neutral-100 dark:divide-neutral-800 ${
           dim ? "opacity-70" : ""
         }`}
       >
@@ -116,36 +116,36 @@ function Section({
           <li key={e.id} className="flex items-center gap-3 px-4 py-3">
             <div className="flex-1 min-w-0">
               <div className="flex items-baseline gap-2 flex-wrap">
-                <span className="font-mono text-xs text-gray-500 dark:text-gray-400">
+                <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400">
                   {e.date}
                   {e.time ? ` · ${e.time}` : ""}
                 </span>
-                <span className="font-medium text-gray-900 dark:text-gray-100 truncate">
-                  {e.title || <em className="text-gray-400">(untitled)</em>}
+                <span className="font-medium text-neutral-900 dark:text-neutral-100 truncate">
+                  {e.title || <em className="text-neutral-400">(untitled)</em>}
                 </span>
                 {e.format && (
-                  <span className="text-[10px] bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 px-1.5 rounded">
+                  <span className="text-[10px] bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 px-1.5 rounded">
                     {e.format}
                   </span>
                 )}
                 <StatusPill status={e.status} />
               </div>
               {e.location && (
-                <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">📍 {e.location}</div>
+                <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 truncate">📍 {e.location}</div>
               )}
             </div>
             <div className="flex gap-2 shrink-0">
               {e.rsvp_enabled === 1 && (
                 <Link
                   href={`/account/events/${encodeURIComponent(e.id)}/attendees`}
-                  className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                  className="text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 >
                   Attendees
                 </Link>
               )}
               <Link
                 href={`/account/events/${encodeURIComponent(e.id)}/edit`}
-                className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                className="text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
               >
                 Edit
               </Link>
@@ -172,7 +172,7 @@ function StatusPill({ status }: { status: string }) {
     },
     pinned: {
       label: "Pinned",
-      cls: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950 dark:text-blue-300 dark:border-blue-800",
+      cls: "bg-neutral-100 text-neutral-700 border-neutral-200 dark:bg-white/[0.06] dark:text-neutral-300 dark:border-white/15",
     },
     pending: {
       label: "Pending review",
@@ -180,7 +180,7 @@ function StatusPill({ status }: { status: string }) {
     },
     skip: {
       label: "Hidden",
-      cls: "bg-gray-100 text-gray-600 border-gray-300 dark:bg-neutral-800 dark:text-gray-400 dark:border-neutral-700",
+      cls: "bg-neutral-100 text-neutral-600 border-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-700",
     },
   };
   const style = map[status] ?? map.active;

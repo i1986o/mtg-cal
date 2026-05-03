@@ -26,37 +26,37 @@ export default function PendingQueue({ events }: { events: PendingEventRow[] }) 
       {events.map((e) => (
         <li
           key={e.id}
-          className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:items-center"
+          className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:items-center"
         >
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2 flex-wrap">
-              <span className="font-mono text-xs text-gray-500 dark:text-gray-400">{e.date} {e.time}</span>
-              <span className="font-medium text-gray-900 dark:text-gray-100 truncate">{e.title || <em className="text-gray-400">(untitled)</em>}</span>
+              <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400">{e.date} {e.time}</span>
+              <span className="font-medium text-neutral-900 dark:text-neutral-100 truncate">{e.title || <em className="text-neutral-400">(untitled)</em>}</span>
               {e.format && (
-                <span className="text-xs bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 px-1.5 rounded">{e.format}</span>
+                <span className="text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 px-1.5 rounded">{e.format}</span>
               )}
               {e.source_type && (
-                <span className="text-xs bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 px-1.5 rounded">{e.source_type}</span>
+                <span className="text-xs bg-neutral-100 dark:bg-white/[0.06] text-neutral-700 dark:text-neutral-300 px-1.5 rounded">{e.source_type}</span>
               )}
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex gap-3 flex-wrap">
+            <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 flex gap-3 flex-wrap">
               {e.location && <span>📍 {e.location}</span>}
               {e.cost && <span>💵 {e.cost}</span>}
               <span>
                 Submitted by{" "}
-                <span className="text-gray-700 dark:text-gray-300">
+                <span className="text-neutral-700 dark:text-neutral-300">
                   {e.owner_name || e.owner_email || "unknown"}
                 </span>
               </span>
             </div>
             {e.notes && (
-              <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 whitespace-pre-wrap">{e.notes}</p>
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-2 whitespace-pre-wrap">{e.notes}</p>
             )}
           </div>
           <div className="flex gap-2 shrink-0">
             <Link
               href={`/admin/events/${encodeURIComponent(e.id)}/edit`}
-              className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800"
+              className="text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
             >
               Review
             </Link>

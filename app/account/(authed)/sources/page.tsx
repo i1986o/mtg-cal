@@ -37,12 +37,12 @@ export default async function AccountSourcesPage() {
 
 function NotAvailableYet() {
   return (
-    <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-6 text-center space-y-2">
+    <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-6 text-center space-y-2">
       <p className="text-4xl">🔌</p>
-      <p className="text-sm text-gray-700 dark:text-gray-200 font-medium">
+      <p className="text-sm text-neutral-700 dark:text-neutral-200 font-medium">
         Community connections aren't open yet
       </p>
-      <p className="text-xs text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+      <p className="text-xs text-neutral-500 dark:text-neutral-400 max-w-md mx-auto">
         We're still wiring this up. Check back soon — or{" "}
         <a
           href="mailto:info@cardslinger.shop?subject=PlayIRL%20community%20connections"
@@ -58,11 +58,11 @@ function NotAvailableYet() {
 
 function GetStartedCard({ inviteUrl, compact = false }: { inviteUrl: string; compact?: boolean }) {
   return (
-    <div className={`bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg ${compact ? "p-4" : "p-6"} space-y-5`}>
+    <div className={`bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg ${compact ? "p-4" : "p-6"} space-y-5`}>
       {!compact && (
         <div>
-          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">Connect in two steps</h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <h2 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">Connect in two steps</h2>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
             A curated set of events is exchanged — nothing gets shared without matching your community's style. You'll need to be an admin on your Discord to add the helper.
           </p>
         </div>
@@ -74,7 +74,7 @@ function GetStartedCard({ inviteUrl, compact = false }: { inviteUrl: string; com
           title="Add the helper to your Discord"
           body={
             <>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-2">
                 Opens Discord in a new tab. Pick your server and hit Authorize. The helper only sees your scheduled events — not chat, DMs, or members.
               </p>
               <a
@@ -94,12 +94,12 @@ function GetStartedCard({ inviteUrl, compact = false }: { inviteUrl: string; com
           title="Come back and set things up"
           body={
             <>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-2">
                 Confirm your venue and you're linked. Events flow both ways — you'll share out a selection of yours, and see events from other communities in your area.
               </p>
               <Link
                 href="/account/sources/pick-guild"
-                className="inline-flex items-center bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
+                className="inline-flex items-center bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition"
               >
                 I added it — set it up
               </Link>
@@ -114,11 +114,11 @@ function GetStartedCard({ inviteUrl, compact = false }: { inviteUrl: string; com
 function Step({ n, title, body }: { n: number; title: string; body: React.ReactNode }) {
   return (
     <li className="flex gap-3">
-      <span className="shrink-0 w-7 h-7 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-semibold flex items-center justify-center">
+      <span className="shrink-0 w-7 h-7 rounded-full bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-xs font-semibold flex items-center justify-center">
         {n}
       </span>
       <div className="flex-1">
-        <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">{title}</h3>
+        <h3 className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{title}</h3>
         <div className="mt-1">{body}</div>
       </div>
     </li>

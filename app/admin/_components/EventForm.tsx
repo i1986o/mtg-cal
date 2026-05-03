@@ -40,7 +40,7 @@ const EMPTY: EventFormValues = {
   capacity: "", rsvp_enabled: true, visibility: "public",
 };
 
-const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
+const FIELD = "w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20";
 
 /**
  * Stored cost strings use "Free" or "$N" (matches scraper output). Parse into
@@ -210,7 +210,7 @@ export default function EventForm({
 
       <Field label="Cost">
         <div className="flex flex-wrap items-center gap-4">
-          <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
             <input
               type="radio"
               name="cost-kind"
@@ -219,7 +219,7 @@ export default function EventForm({
             />
             Free
           </label>
-          <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
             <input
               type="radio"
               name="cost-kind"
@@ -229,7 +229,7 @@ export default function EventForm({
             Paid
           </label>
           <div className={`flex items-center gap-1 transition ${costPaid ? "opacity-100" : "opacity-40 pointer-events-none"}`}>
-            <span className="text-gray-500 dark:text-gray-400">$</span>
+            <span className="text-neutral-500 dark:text-neutral-400">$</span>
             <input
               type="number"
               inputMode="decimal"
@@ -239,7 +239,7 @@ export default function EventForm({
               onChange={(e) => updateCost(costPaid, e.target.value)}
               placeholder="5"
               aria-label="Price in dollars"
-              className="w-24 px-2 py-1.5 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-24 px-2 py-1.5 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
             />
           </div>
         </div>
@@ -311,12 +311,12 @@ export default function EventForm({
           label="RSVPs"
           hint="Let signed-in players RSVP &lsquo;Going&rsquo; or &lsquo;Maybe&rsquo;. You'll see a roster on your event."
         >
-          <label className="inline-flex items-center gap-2 mt-2 text-sm text-gray-700 dark:text-gray-300">
+          <label className="inline-flex items-center gap-2 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
             <input
               type="checkbox"
               checked={values.rsvp_enabled}
               onChange={(e) => setValues((v) => ({ ...v, rsvp_enabled: e.target.checked }))}
-              className="rounded border-gray-300 dark:border-neutral-600"
+              className="rounded border-neutral-300 dark:border-neutral-600"
             />
             Enabled
           </label>
@@ -340,8 +340,8 @@ export default function EventForm({
                 className="mt-0.5"
               />
               <span className="flex-1">
-                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{opt.label}</span>
-                <span className="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.hint}</span>
+                <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{opt.label}</span>
+                <span className="block text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">{opt.hint}</span>
               </span>
             </label>
           ))}
@@ -377,12 +377,12 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+      <span className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
         {label}
         {required && <span className="text-red-500 ml-0.5">*</span>}
       </span>
       {children}
-      {hint && <span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">{hint}</span>}
+      {hint && <span className="block text-xs text-neutral-500 dark:text-neutral-400 mt-1">{hint}</span>}
     </label>
   );
 }

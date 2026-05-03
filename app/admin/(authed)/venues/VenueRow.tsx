@@ -9,7 +9,7 @@ const SOURCE_LABELS: Record<VenueImageSource, { label: string; className: string
   },
   og_scrape: {
     label: "og:image",
-    className: "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+    className: "bg-neutral-100 text-neutral-700 dark:bg-white/[0.06] dark:text-neutral-300",
   },
   places: {
     label: "places",
@@ -106,7 +106,7 @@ export default function VenueRow({
   }
 
   return (
-    <li className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-3 flex items-center gap-4">
+    <li className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-3 flex items-center gap-4">
       <input
         ref={inputRef}
         type="file"
@@ -118,19 +118,19 @@ export default function VenueRow({
         }}
       />
 
-      <div className="w-20 h-14 rounded-md overflow-hidden bg-gray-100 dark:bg-neutral-800 shrink-0 flex items-center justify-center">
+      <div className="w-20 h-14 rounded-md overflow-hidden bg-neutral-100 dark:bg-neutral-800 shrink-0 flex items-center justify-center">
         {imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={imageUrl} alt="" className="w-full h-full object-cover" />
         ) : (
-          <span className="text-[10px] uppercase tracking-wide text-gray-400 dark:text-gray-500">No default</span>
+          <span className="text-[10px] uppercase tracking-wide text-neutral-400 dark:text-neutral-500">No default</span>
         )}
       </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-baseline gap-2 flex-wrap">
-          <span className="font-medium text-gray-900 dark:text-gray-100 truncate">{venueName}</span>
-          <span className="text-[11px] text-gray-400 dark:text-gray-500">{usageCount} events</span>
+          <span className="font-medium text-neutral-900 dark:text-neutral-100 truncate">{venueName}</span>
+          <span className="text-[11px] text-neutral-400 dark:text-neutral-500">{usageCount} events</span>
           {imageUrl && imageSource && (
             <span
               className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded ${SOURCE_LABELS[imageSource].className}`}
@@ -145,7 +145,7 @@ export default function VenueRow({
           )}
         </div>
         {address && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">{address}</p>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate mt-0.5">{address}</p>
         )}
         {error && <p className="text-xs text-red-600 dark:text-red-400 mt-0.5">{error}</p>}
         {info && !error && <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5">{info}</p>}
@@ -157,7 +157,7 @@ export default function VenueRow({
           onClick={refetch}
           disabled={busy}
           title="Re-run the auto-fetcher (og:image → Places photo → Street View). Bypasses the 30-day skip window."
-          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
+          className="text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-50"
         >
           {busy ? "Working…" : "Retry auto-fetch"}
         </button>
@@ -165,7 +165,7 @@ export default function VenueRow({
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={busy}
-          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
+          className="text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-50"
         >
           {busy ? "Uploading…" : imageUrl ? "Replace" : "Upload"}
         </button>

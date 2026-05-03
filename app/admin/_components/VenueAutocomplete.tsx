@@ -110,7 +110,7 @@ export default function VenueAutocomplete({
       {showDropdown && (
         <ul
           role="listbox"
-          className="absolute z-20 left-0 right-0 mt-1 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-md shadow-lg max-h-64 overflow-y-auto"
+          className="absolute z-20 left-0 right-0 mt-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg max-h-64 overflow-y-auto"
         >
           {matches.map((v, i) => (
             <li key={v.name} role="option" aria-selected={i === highlight}>
@@ -120,19 +120,19 @@ export default function VenueAutocomplete({
                 onClick={() => pick(v)}
                 onMouseEnter={() => setHighlight(i)}
                 className={`w-full text-left px-3 py-2 transition ${
-                  i === highlight ? "bg-gray-100 dark:bg-neutral-800" : "hover:bg-gray-50 dark:hover:bg-neutral-800/70"
+                  i === highlight ? "bg-neutral-100 dark:bg-neutral-800" : "hover:bg-neutral-50 dark:hover:bg-neutral-800/70"
                 }`}
               >
                 <div className="flex items-baseline justify-between gap-2">
-                  <span className="text-sm text-gray-900 dark:text-gray-100 truncate">{v.name}</span>
+                  <span className="text-sm text-neutral-900 dark:text-neutral-100 truncate">{v.name}</span>
                   {v.usage_count > 1 && (
-                    <span className="text-[10px] text-gray-400 dark:text-gray-500 shrink-0">
+                    <span className="text-[10px] text-neutral-400 dark:text-neutral-500 shrink-0">
                       {v.usage_count} events
                     </span>
                   )}
                 </div>
                 {v.address && (
-                  <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{v.address}</div>
+                  <div className="text-xs text-neutral-500 dark:text-neutral-400 truncate">{v.address}</div>
                 )}
               </button>
             </li>

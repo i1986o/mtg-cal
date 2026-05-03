@@ -80,7 +80,7 @@ export default function RsvpButton({
         <CountPill counts={counts} capacity={capacity} />
         <Link
           href={`/account/login?from=${encodeURIComponent(`/event/${eventId}`)}`}
-          className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-100 dark:border-white/8 shadow-sm text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-200 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition cursor-pointer"
+          className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-neutral-100 dark:bg-white/5 border border-neutral-100 dark:border-white/8 shadow-sm text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-200 dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white transition cursor-pointer"
         >
           Sign in to RSVP
         </Link>
@@ -92,7 +92,7 @@ export default function RsvpButton({
     <div className="flex flex-col items-end gap-1">
       <div className="flex items-center gap-2">
         <CountPill counts={counts} capacity={capacity} />
-        <div className="inline-flex items-center rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-neutral-900">
+        <div className="inline-flex items-center rounded-lg overflow-hidden border border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-900">
           {status === "waitlist" ? (
             // While on the waitlist, the primary CTA is "Going" but it's
             // disabled until a spot opens. We keep "Maybe" available so the
@@ -123,7 +123,7 @@ export default function RsvpButton({
               className={`${SEG_BASE} ${
                 status === "going"
                   ? "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300"
-                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                  : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-white/5"
               }`}
             >
               Going
@@ -134,10 +134,10 @@ export default function RsvpButton({
             onClick={() => setRsvp("maybe")}
             disabled={busy || pending}
             aria-pressed={status === "maybe"}
-            className={`${SEG_BASE} border-l border-gray-200 dark:border-white/10 ${
+            className={`${SEG_BASE} border-l border-neutral-200 dark:border-white/10 ${
               status === "maybe"
                 ? "bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300"
-                : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-white/5"
             }`}
           >
             Maybe
@@ -149,7 +149,7 @@ export default function RsvpButton({
               disabled={busy || pending}
               title={status === "waitlist" ? "Leave waitlist" : "Cancel RSVP"}
               aria-label={status === "waitlist" ? "Leave waitlist" : "Cancel RSVP"}
-              className={`${SEG_BASE} border-l border-gray-200 dark:border-white/10 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200`}
+              className={`${SEG_BASE} border-l border-neutral-200 dark:border-white/10 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200`}
             >
               ✕
             </button>
@@ -175,7 +175,7 @@ function CountPill({
       ? `${counts.going} / ${capacity}${suffix}`
       : `${counts.going}${suffix}`;
   return (
-    <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium tabular-nums">
+    <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-white/10 text-neutral-700 dark:text-neutral-300 text-xs font-medium tabular-nums">
       {text}
     </span>
   );

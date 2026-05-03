@@ -68,22 +68,22 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
   return (
     <form onSubmit={submit} className="space-y-8">
       <section>
-        <h2 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
+        <h2 className="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
           {guilds.length === 1 ? "Your community" : "Which community?"}
         </h2>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+        <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-3">
           {guilds.length === 1
             ? "This is the Discord we'll exchange events with."
             : "Pick the Discord you want to link up."}
         </p>
-        <div className="space-y-1.5 max-h-64 overflow-y-auto bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-2">
+        <div className="space-y-1.5 max-h-64 overflow-y-auto bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-2">
           {guilds.map((g) => (
             <label
               key={g.id}
               className={`flex items-center gap-3 px-3 py-2 rounded-md cursor-pointer transition ${
                 selected === g.id
-                  ? "bg-blue-50 dark:bg-blue-950 ring-1 ring-blue-200 dark:ring-blue-800"
-                  : "hover:bg-gray-50 dark:hover:bg-neutral-800"
+                  ? "bg-neutral-100 dark:bg-white/[0.06] ring-1 ring-neutral-300 dark:ring-white/20"
+                  : "hover:bg-neutral-50 dark:hover:bg-neutral-800"
               }`}
             >
               <input
@@ -94,7 +94,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
                 onChange={() => setSelected(g.id)}
                 className="shrink-0"
               />
-              <span className="text-sm text-gray-900 dark:text-gray-100 flex-1 truncate">{g.name}</span>
+              <span className="text-sm text-neutral-900 dark:text-neutral-100 flex-1 truncate">{g.name}</span>
             </label>
           ))}
         </div>
@@ -102,7 +102,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
 
       <fieldset disabled={!selected} className="space-y-5 disabled:opacity-50">
         <div>
-          <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
+          <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
             What's the venue called?
           </label>
           <input
@@ -110,15 +110,15 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
             value={venueName}
             onChange={(e) => setVenueName(e.target.value)}
             placeholder="e.g. Hamilton's Hand"
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+            className="w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
           />
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
             Shown on events so people know where to go. Leave blank if events have different locations.
           </p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
+          <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
             Where is it?
           </label>
           <input
@@ -131,7 +131,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
             }}
             onBlur={(e) => lookupAddress(e.target.value)}
             placeholder="Street, city, state"
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+            className="w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
           />
           <AddressHint status={addressStatus} />
         </div>
@@ -147,11 +147,11 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
         <button
           type="submit"
           disabled={!selected || busy || addressStatus === "checking"}
-          className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-5 py-2.5 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition disabled:opacity-50"
+          className="bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 px-5 py-2.5 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition disabled:opacity-50"
         >
           {busy ? "Linking…" : "Link this community"}
         </button>
-        <span className="text-xs text-gray-500 dark:text-gray-400">
+        <span className="text-xs text-neutral-500 dark:text-neutral-400">
           Events flow in both directions — a selection of yours goes out, and local communities' events flow in.
         </span>
       </div>
@@ -161,8 +161,8 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
 
 function AddressHint({ status }: { status: "idle" | "checking" | "found" | "missing" }) {
   const base = "text-xs mt-1 min-h-[1rem]";
-  if (status === "checking") return <p className={`${base} text-gray-400 dark:text-gray-500`}>Finding it on the map…</p>;
+  if (status === "checking") return <p className={`${base} text-neutral-400 dark:text-neutral-500`}>Finding it on the map…</p>;
   if (status === "found") return <p className={`${base} text-emerald-700 dark:text-emerald-400`}>✓ Found. We'll use this for distance filtering.</p>;
   if (status === "missing") return <p className={`${base} text-amber-700 dark:text-amber-400`}>Couldn't place that on the map. That's OK — your events will still show up in the full list.</p>;
-  return <p className={`${base} text-gray-500 dark:text-gray-400`}>Helps locals find your events when they filter by distance.</p>;
+  return <p className={`${base} text-neutral-500 dark:text-neutral-400`}>Helps locals find your events when they filter by distance.</p>;
 }

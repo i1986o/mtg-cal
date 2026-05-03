@@ -99,19 +99,19 @@ export default function DayCard({
   // tinted heading background. Matches the calendar view's neutral today
   // highlight (no blue, no amber). Other days stay flat.
   const borderColor = isToday
-    ? "border-gray-300 dark:border-white/20"
-    : "border-gray-100 dark:border-white/8";
+    ? "border-neutral-300 dark:border-white/20"
+    : "border-neutral-100 dark:border-white/8";
 
   const hoverBorderColor = isToday
-    ? "hover:border-gray-400 dark:hover:border-white/30"
-    : "hover:border-gray-200 dark:hover:border-white/15";
+    ? "hover:border-neutral-400 dark:hover:border-white/30"
+    : "hover:border-neutral-200 dark:hover:border-white/15";
 
   const headingBg = isToday
-    ? "bg-gray-50 dark:bg-white/[0.04]"
+    ? "bg-neutral-50 dark:bg-white/[0.04]"
     : "bg-white dark:bg-neutral-900";
 
   const bodyBg = isToday
-    ? "bg-gray-50/50 dark:bg-white/[0.02]"
+    ? "bg-neutral-50/50 dark:bg-white/[0.02]"
     : "bg-white dark:bg-neutral-900";
 
   return (
@@ -124,29 +124,29 @@ export default function DayCard({
           days) already conveys the date right next to it, so the circle was
           pure visual repetition. */}
       <div className={`sticky top-[var(--sticky-bar-h,0px)] z-[5] flex items-center gap-2.5 px-4 border transition-all duration-150 ${isStuck ? "py-1" : "py-2 rounded-t-xl"} ${borderColor} ${headingBg}`}>
-        <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-gray-900 dark:text-white" : "text-gray-700 dark:text-gray-300"}`}>
+        <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-neutral-900 dark:text-white" : "text-neutral-700 dark:text-neutral-300"}`}>
           {headingLabel || weekday}
         </span>
-        <span className={`ml-auto transition-all duration-150 text-gray-400 dark:text-gray-500 ${isStuck ? "text-[10px]" : "text-xs"}`}>
+        <span className={`ml-auto transition-all duration-150 text-neutral-400 dark:text-neutral-500 ${isStuck ? "text-[10px]" : "text-xs"}`}>
           {events.length === 0 ? "No events" : `${events.length} event${events.length === 1 ? "" : "s"}`}
         </span>
       </div>
 
       {/* Events body */}
       {events.length > 0 && (
-        <div className={`overflow-hidden rounded-b-xl border-b border-x divide-y divide-gray-100 dark:divide-white/8 transition-all duration-200 hover:shadow-md dark:hover:shadow-black/30 ${borderColor} ${hoverBorderColor} ${bodyBg}`}>
+        <div className={`overflow-hidden rounded-b-xl border-b border-x divide-y divide-neutral-100 dark:divide-white/8 transition-all duration-200 hover:shadow-md dark:hover:shadow-black/30 ${borderColor} ${hoverBorderColor} ${bodyBg}`}>
           {events.map((ev) => (
             <Link
               key={ev.id}
               href={`/event/${encodeURIComponent(ev.id)}`}
               data-row
               style={{ opacity: 0 }}
-              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-gray-100 dark:hover:bg-white/[0.04]" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
+              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-neutral-100 dark:hover:bg-white/[0.04]" : "hover:bg-neutral-50 dark:hover:bg-white/5"}`}
             >
               {/* Desktop: time as a fixed left column. Mobile: hidden here
                   and rendered above the title (see middle div below) so the
                   full row width goes to the title. */}
-              <span className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 shrink-0 w-14 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+              <span className="hidden sm:block text-xs text-neutral-400 dark:text-neutral-500 shrink-0 w-14 transition-colors duration-200 group-hover:text-neutral-500 dark:group-hover:text-neutral-400">
                 {formatEventTime(ev.date, ev.time, ev.timezone)}
               </span>
               {/* Image is decorative on mobile (most events render the same
@@ -157,30 +157,30 @@ export default function DayCard({
               <img
                 src={ev.imageUrl}
                 alt=""
-                className={`hidden sm:block w-10 h-10 rounded-md shrink-0 bg-gray-100 ${
+                className={`hidden sm:block w-10 h-10 rounded-md shrink-0 bg-neutral-100 ${
                   ev.imageFit === "cover" ? "object-cover" : "object-contain p-0.5"
                 }`}
                 loading="lazy"
               />
               <div className="flex-1 min-w-0 transition-transform duration-200 group-hover:translate-x-1">
-                <span className="block sm:hidden text-xs text-gray-400 dark:text-gray-500">
+                <span className="block sm:hidden text-xs text-neutral-400 dark:text-neutral-500">
                   {formatEventTime(ev.date, ev.time, ev.timezone)}
                 </span>
-                <p className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 sm:line-clamp-none sm:truncate">{ev.title}</p>
+                <p className="text-xs sm:text-sm font-semibold text-neutral-900 dark:text-white line-clamp-2 sm:line-clamp-none sm:truncate">{ev.title}</p>
                 <div className="flex items-center gap-1.5 mt-0.5 min-w-0">
                   <span className={`px-1.5 py-0 rounded text-[10px] font-medium shrink-0 ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                     {ev.format}
                   </span>
                   {ev.location && (
                     <>
-                      <span className="text-xs text-gray-300 dark:text-gray-600 shrink-0">·</span>
-                      <span className="text-xs text-gray-400 dark:text-gray-500 truncate">{ev.location}</span>
+                      <span className="text-xs text-neutral-300 dark:text-neutral-600 shrink-0">·</span>
+                      <span className="text-xs text-neutral-400 dark:text-neutral-500 truncate">{ev.location}</span>
                     </>
                   )}
                 </div>
               </div>
               <div className="flex items-center gap-1 shrink-0">
-                <span className={`text-xs font-[family-name:var(--font-ultra)] font-bold transition-transform duration-200 group-hover:translate-x-0.5 ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-white"}`}>
+                <span className={`text-xs font-[family-name:var(--font-ultra)] font-bold transition-transform duration-200 group-hover:translate-x-0.5 ${ev.cost === "Free" ? "text-emerald-600 dark:text-emerald-400" : "text-neutral-900 dark:text-white"}`}>
                   {ev.cost === "Free" ? "Free" : ev.cost || "\u2014"}
                 </span>
                 <SaveEventButton
@@ -190,7 +190,7 @@ export default function DayCard({
                   signedIn={signedIn}
                 />
                 {isAdmin && <AdminEventActions eventId={ev.id} />}
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0 text-gray-300 dark:text-gray-600 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0 text-neutral-300 dark:text-neutral-600 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </div>

@@ -11,11 +11,11 @@ const inviteUrl = botInviteUrl();
 
 function CommandCard({ name, summary, example }: { name: string; summary: string; example?: string }) {
   return (
-    <div className="rounded-lg border border-gray-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4">
-      <div className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100">{name}</div>
-      <div className="text-sm text-gray-700 dark:text-gray-300 mt-1">{summary}</div>
+    <div className="rounded-lg border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4">
+      <div className="font-mono text-sm font-semibold text-neutral-900 dark:text-neutral-100">{name}</div>
+      <div className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">{summary}</div>
       {example && (
-        <div className="mt-2 font-mono text-xs text-gray-500 dark:text-gray-400 break-all">
+        <div className="mt-2 font-mono text-xs text-neutral-500 dark:text-neutral-400 break-all">
           {example}
         </div>
       )}
@@ -28,7 +28,7 @@ export default function BotPage() {
     <main className="max-w-2xl mx-auto px-4 py-10 text-left">
       <Link
         href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition mb-6 anim-fade-in"
+        className="inline-flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition mb-6 anim-fade-in"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -37,13 +37,13 @@ export default function BotPage() {
       </Link>
 
       <Reveal delay={40}>
-        <h1 className="text-4xl md:text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-wider mb-3">
+        <h1 className="text-4xl md:text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-neutral-900 dark:text-white tracking-wider mb-3">
           PlayIRL.GG Discord bot
         </h1>
       </Reveal>
 
       <Reveal delay={100}>
-        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        <p className="text-lg text-neutral-700 dark:text-neutral-300 mb-6">
           Get MTG event digests and reminders posted to your server&apos;s channels — on the schedule you choose, filtered to the formats and stores you care about.
         </p>
       </Reveal>
@@ -63,11 +63,11 @@ export default function BotPage() {
               Add to your Discord server
             </a>
           ) : (
-            <div className="rounded-lg border border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-900 px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+            <div className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300">
               Invite link not configured. Set <code className="font-mono">DISCORD_BOT_CLIENT_ID</code> in your environment.
             </div>
           )}
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-2">
             You&apos;ll need the <strong>Manage Server</strong> permission to add it.
           </p>
         </div>
@@ -75,10 +75,10 @@ export default function BotPage() {
 
       <Reveal delay={180}>
         <section className="mb-10">
-          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white mb-3">How it works</h2>
-          <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-white mb-3">How it works</h2>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
             <li>Click <strong>Add to your Discord server</strong> above and pick a server.</li>
-            <li>In the channel where you want events to post, run <code className="font-mono px-1 py-0.5 rounded bg-gray-100 dark:bg-neutral-800">/playirl subscribe</code>.</li>
+            <li>In the channel where you want events to post, run <code className="font-mono px-1 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800">/playirl subscribe</code>.</li>
             <li>Pick a <strong>mode</strong> — weekly digest, daily digest, or per-event reminder — and any filters (format, location, source).</li>
             <li>That&apos;s it. The bot posts on the schedule you set. Repeat to add more channels or formats.</li>
           </ol>
@@ -87,7 +87,7 @@ export default function BotPage() {
 
       <Reveal delay={220}>
         <section className="mb-10">
-          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white mb-3">Commands</h2>
+          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-white mb-3">Commands</h2>
           <div className="space-y-3">
             <CommandCard
               name="/playirl subscribe"
@@ -116,18 +116,18 @@ export default function BotPage() {
 
       <Reveal delay={260}>
         <section className="mb-10">
-          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white mb-3">Subscription modes</h2>
-          <dl className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+          <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-white mb-3">Subscription modes</h2>
+          <dl className="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
             <div>
-              <dt className="font-semibold text-gray-900 dark:text-white">Weekly digest</dt>
+              <dt className="font-semibold text-neutral-900 dark:text-white">Weekly digest</dt>
               <dd>One post per week with every matching event in the next 7 days. Default fires Monday at 9am ET.</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900 dark:text-white">Daily digest</dt>
+              <dt className="font-semibold text-neutral-900 dark:text-white">Daily digest</dt>
               <dd>One post per day with today&apos;s and tomorrow&apos;s matching events. Default fires at 9am ET.</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900 dark:text-white">Per-event reminder</dt>
+              <dt className="font-semibold text-neutral-900 dark:text-white">Per-event reminder</dt>
               <dd>One post per event, fired before it starts. Pick <code className="font-mono">1h</code>, <code className="font-mono">2h</code>, <code className="font-mono">morning_of</code>, <code className="font-mono">day_before</code>, or any number of minutes.</dd>
             </div>
           </dl>
@@ -135,7 +135,7 @@ export default function BotPage() {
       </Reveal>
 
       <Reveal delay={300}>
-        <section className="text-xs text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-neutral-800 pt-4">
+        <section className="text-xs text-neutral-500 dark:text-neutral-400 border-t border-neutral-100 dark:border-neutral-800 pt-4">
           Your channel data stays inside the bot&apos;s own SQLite database — we don&apos;t share subscription configs with third parties. The bot only needs <strong>View Channel</strong>, <strong>Send Messages</strong>, <strong>Embed Links</strong>, and <strong>Read Message History</strong> to function.
         </section>
       </Reveal>

@@ -74,7 +74,7 @@ export default async function RootLayout({
       style={{ colorScheme: isDark ? "dark" : "light" }}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] text-gray-900 dark:text-gray-100">
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)] text-neutral-900 dark:text-neutral-100">
         <ThemeSync />
         {children}
       </body>

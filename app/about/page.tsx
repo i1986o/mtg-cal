@@ -12,7 +12,7 @@ export default function AboutPage() {
     <main className="max-w-2xl mx-auto px-4 py-10 text-left">
       <Link
         href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition mb-6 anim-fade-in"
+        className="inline-flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition mb-6 anim-fade-in"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -30,7 +30,7 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal delay={100}>
-        <h1 className="text-4xl md:text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-gray-900 dark:text-white tracking-wider mb-3 flex items-baseline gap-3 flex-wrap">
+        <h1 className="text-4xl md:text-5xl font-[family-name:var(--font-ultra)] font-extrabold text-neutral-900 dark:text-white tracking-wider mb-3 flex items-baseline gap-3 flex-wrap">
           About
           <PlayIrlLogo className="inline-block h-8 md:h-10 w-auto" />
           <span className="sr-only">PlayIRL.GG</span>
@@ -42,24 +42,24 @@ export default function AboutPage() {
           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/30">
             {"\u2728"} Open source
           </span>
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-500/30">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-neutral-100 text-neutral-700 border border-neutral-200 dark:bg-white/[0.06] dark:text-neutral-300 dark:border-white/15">
             {"\uD83D\uDC65"} Community-run
           </span>
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-100 text-gray-600 border border-gray-200 dark:bg-white/5 dark:text-gray-400 dark:border-white/10">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-neutral-100 text-neutral-600 border border-neutral-200 dark:bg-white/5 dark:text-neutral-400 dark:border-white/10">
             Not affiliated with Wizards of the Coast
           </span>
         </div>
       </Reveal>
 
-      <div className="space-y-5 text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+      <div className="space-y-5 text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <Reveal delay={180}>
           <p>
-            <strong className="text-gray-900 dark:text-white">PlayIRL.GG</strong> is an{" "}
+            <strong className="text-neutral-900 dark:text-white">PlayIRL.GG</strong> is an{" "}
             <a
               href="https://github.com/i1986o/mtg-cal"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-dotted underline-offset-2 hover:text-gray-900 dark:hover:text-white"
+              className="underline decoration-dotted underline-offset-2 hover:text-neutral-900 dark:hover:text-white"
             >
               open-source
             </a>
@@ -74,9 +74,9 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal>
-          <div className="bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 rounded-lg p-5 space-y-3">
-            <p className="text-base font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white">{"\uD83D\uDCC5"} Add your events</p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+          <div className="bg-neutral-50 dark:bg-white/[0.04] border border-neutral-200 dark:border-white/10 rounded-lg p-5 space-y-3">
+            <p className="text-base font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-white">{"\uD83D\uDCC5"} Add your events</p>
+            <p className="text-sm text-neutral-700 dark:text-neutral-300">
               Run a store or host a pod? Get your events listed on PlayIRL.GG. Reach out on Discord or email and we&apos;ll get you set up.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
@@ -84,7 +84,7 @@ export default function AboutPage() {
                 href="https://discord.gg/axDSujPTfj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/30 active:translate-y-0 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-sm font-medium rounded-md hover:bg-neutral-800 dark:hover:bg-neutral-100 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 active:translate-y-0 transition-all duration-200"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
@@ -93,7 +93,7 @@ export default function AboutPage() {
               </a>
               <a
                 href="mailto:CardSlingerTCG@gmail.com?subject=PlayIRL.GG%20event%20submission"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-neutral-900 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-md border border-neutral-200 dark:border-white/10 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200"
               >
                 {"\u2709\uFE0F"} Email us
               </a>
@@ -107,7 +107,7 @@ export default function AboutPage() {
               href="https://github.com/i1986o/mtg-cal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-neutral-900 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-neutral-800 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200 border border-gray-100 dark:border-white/8"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200 border border-neutral-100 dark:border-white/8"
             >
               {"\u2B50"} GitHub
             </a>

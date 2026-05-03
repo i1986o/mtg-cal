@@ -4,13 +4,13 @@ import { forwardRef, type ButtonHTMLAttributes, type ComponentProps } from "reac
 const VARIANTS = {
   // Default — small light-gray chip. The canonical secondary-action style
   // used across public pages (Sign in, Subscribe, Share trigger, etc.).
-  chip: "inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-100 dark:border-white/8 shadow-sm text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-200 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition cursor-pointer",
+  chip: "inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-neutral-100 dark:bg-white/5 border border-neutral-100 dark:border-white/8 shadow-sm text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-200 dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white transition cursor-pointer",
   // Solid filled CTA — form submits and main confirm actions.
-  primary: "inline-flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 transition cursor-pointer",
+  primary: "inline-flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 disabled:opacity-50 transition cursor-pointer",
   // Borderless — cancel / dismiss / tertiary actions in forms.
-  ghost: "inline-flex items-center justify-center gap-1.5 h-9 px-3 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition cursor-pointer",
+  ghost: "inline-flex items-center justify-center gap-1.5 h-9 px-3 rounded-md text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/5 transition cursor-pointer",
   // Square icon-only — admin row actions, modal close, info hints.
-  icon: "inline-flex items-center justify-center w-7 h-7 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/5 transition cursor-pointer",
+  icon: "inline-flex items-center justify-center w-7 h-7 rounded-md text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/5 transition cursor-pointer",
 };
 
 export type ButtonVariant = keyof typeof VARIANTS;

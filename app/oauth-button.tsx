@@ -44,7 +44,7 @@ const PROVIDERS: Record<Provider, {
   google: {
     label: "Sign in with Google",
     className:
-      "flex items-center justify-center gap-3 w-full h-11 px-4 rounded-lg bg-white dark:bg-[#131314] text-[#1f1f1f] dark:text-gray-100 text-sm font-medium border border-[#dadce0] dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-[#1e1e1f] disabled:opacity-50 transition cursor-pointer",
+      "flex items-center justify-center gap-3 w-full h-11 px-4 rounded-lg bg-white dark:bg-[#131314] text-[#1f1f1f] dark:text-neutral-100 text-sm font-medium border border-[#dadce0] dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-[#1e1e1f] disabled:opacity-50 transition cursor-pointer",
     Logo: GoogleLogo,
   },
   discord: {

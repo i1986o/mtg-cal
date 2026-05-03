@@ -44,23 +44,23 @@ export default function SignupForm() {
   }
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-neutral-950 p-4 relative">
+    <main className="flex items-center justify-center min-h-screen bg-neutral-50 dark:bg-neutral-950 p-4 relative">
       <Link
         href="/"
-        className="absolute top-4 left-4 inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
+        className="absolute top-4 left-4 inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
         Back to PlayIRL.GG
       </Link>
-      <div className="bg-white dark:bg-neutral-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-neutral-700 space-y-6">
+      <div className="bg-white dark:bg-neutral-900 p-8 rounded-xl shadow-md dark:shadow-black/40 w-full max-w-sm border border-transparent dark:border-neutral-700 space-y-6">
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 flex items-baseline justify-center gap-2 flex-wrap">
+          <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100 flex items-baseline justify-center gap-2 flex-wrap">
             Create an account on
             <PlayIrlLogo className="inline-block h-5 w-auto" />
           </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+          <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
             Email + password. Or use the OAuth buttons on the sign-in page.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function SignupForm() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Display name (optional)"
             autoComplete="name"
-            className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+            className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
           />
           <input
             type="email"
@@ -83,7 +83,7 @@ export default function SignupForm() {
             placeholder="you@example.com"
             autoComplete="email"
             required
-            className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+            className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
           />
           <input
             type="password"
@@ -94,7 +94,7 @@ export default function SignupForm() {
             autoComplete="new-password"
             minLength={8}
             required
-            className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+            className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
           />
           <input
             type="password"
@@ -105,7 +105,7 @@ export default function SignupForm() {
             autoComplete="new-password"
             minLength={8}
             required
-            className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
+            className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
           />
           {error && <p className="text-xs text-red-600 dark:text-red-400">{error}</p>}
           <Button type="submit" variant="primary" disabled={submitting} className="w-full">
@@ -113,9 +113,9 @@ export default function SignupForm() {
           </Button>
         </form>
 
-        <p className="text-xs text-center text-gray-500 dark:text-gray-400">
+        <p className="text-xs text-center text-neutral-500 dark:text-neutral-400">
           Already have an account?{" "}
-          <Link href={`/account/login${from !== "/account" ? `?from=${encodeURIComponent(from)}` : ""}`} className="underline hover:text-gray-700 dark:hover:text-gray-300">
+          <Link href={`/account/login${from !== "/account" ? `?from=${encodeURIComponent(from)}` : ""}`} className="underline hover:text-neutral-700 dark:hover:text-neutral-300">
             Sign in
           </Link>
         </p>

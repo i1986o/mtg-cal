@@ -38,7 +38,7 @@ export default async function AdminDashboard() {
   return (
     <div className="p-6 lg:p-8 max-w-6xl">
       <div className="flex items-end justify-between mb-6">
-        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100">
           Dashboard
         </h1>
         <Link href="/admin/scrapers" className="text-sm text-amber-700 dark:text-amber-400 hover:underline">
@@ -59,22 +59,22 @@ export default async function AdminDashboard() {
         />
       </section>
 
-      <section className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-5">
-        <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Active events by source</h2>
+      <section className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-5">
+        <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3">Active events by source</h2>
         {bySource.length === 0 ? (
-          <p className="text-sm text-gray-500 dark:text-gray-400">No active events.</p>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">No active events.</p>
         ) : (
           <ul className="space-y-1.5">
             {bySource.map((r) => (
               <li key={r.source} className="flex items-center gap-3 text-sm">
-                <span className="font-mono text-xs text-gray-500 dark:text-gray-400 w-32 truncate">{r.source}</span>
-                <div className="flex-1 h-2 bg-gray-100 dark:bg-neutral-800 rounded overflow-hidden">
+                <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400 w-32 truncate">{r.source}</span>
+                <div className="flex-1 h-2 bg-neutral-100 dark:bg-neutral-800 rounded overflow-hidden">
                   <div
                     className="h-full bg-amber-500 dark:bg-amber-500"
                     style={{ width: `${Math.max(2, Math.round((r.count / Math.max(1, eventActive)) * 100))}%` }}
                   />
                 </div>
-                <span className="text-xs text-gray-600 dark:text-gray-400 w-10 text-right">{r.count}</span>
+                <span className="text-xs text-neutral-600 dark:text-neutral-400 w-10 text-right">{r.count}</span>
               </li>
             ))}
           </ul>

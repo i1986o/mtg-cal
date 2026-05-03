@@ -73,11 +73,11 @@ export default function UserActions({
     <div className="space-y-3">
       <div className="flex flex-wrap gap-3 items-center text-sm">
         <label className="flex items-center gap-2">
-          <span className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Change role:</span>
+          <span className="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Change role:</span>
           <select
             value={role}
             onChange={(e) => setRole(e.target.value)}
-            className="text-sm px-2 py-1 border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+            className="text-sm px-2 py-1 border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
           >
             <option value="user">user</option>
             <option value="organizer">organizer</option>
@@ -86,7 +86,7 @@ export default function UserActions({
           <button
             onClick={saveRole}
             disabled={busy || role === user.role}
-            className="text-xs px-3 py-1 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
+            className="text-xs px-3 py-1 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-50"
           >
             Save
           </button>
@@ -95,7 +95,7 @@ export default function UserActions({
         <button
           onClick={revokeSessions}
           disabled={busy || sessionCount === 0}
-          className="text-xs px-3 py-1 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
+          className="text-xs px-3 py-1 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-50"
         >
           Revoke sessions ({sessionCount})
         </button>
@@ -139,7 +139,7 @@ export default function UserActions({
               onChange={(e) => setReason(e.target.value)}
               placeholder="e.g. spam submissions, abusive messaging, bot-like behavior"
               rows={2}
-              className="w-full text-sm px-2 py-1.5 border border-red-300 dark:border-red-800 rounded-md bg-white dark:bg-neutral-900 text-gray-900 dark:text-gray-100 placeholder-gray-400"
+              className="w-full text-sm px-2 py-1.5 border border-red-300 dark:border-red-800 rounded-md bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400"
             />
           </label>
           {error && <p className="text-xs text-red-700 dark:text-red-400">{error}</p>}

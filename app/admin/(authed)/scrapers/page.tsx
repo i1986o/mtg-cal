@@ -45,30 +45,30 @@ export default function ScrapersPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-3xl">
-      <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 mb-6">
+      <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100 mb-6">
         Scrapers
       </h1>
 
-      <section className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-5 mb-4">
-        <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Manual refresh</h2>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+      <section className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-5 mb-4">
+        <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3">Manual refresh</h2>
+        <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-3">
           Last run: <span className="font-mono">{last}</span>
         </p>
         <button
           onClick={runScrape}
           disabled={refreshing}
-          className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 transition"
+          className="bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 disabled:opacity-50 transition"
         >
           {refreshing ? "Scraping…" : "Refresh now"}
         </button>
         {result && (
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-3 font-mono">{result}</p>
+          <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-3 font-mono">{result}</p>
         )}
       </section>
 
-      <section className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-5">
-        <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Auto-refresh interval</h2>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">How often the scheduled task runs (the CI cron also runs independently).</p>
+      <section className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-5">
+        <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-1">Auto-refresh interval</h2>
+        <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-3">How often the scheduled task runs (the CI cron also runs independently).</p>
         <div className="flex items-center gap-2">
           <input
             type="number"
@@ -76,12 +76,12 @@ export default function ScrapersPage() {
             max={168}
             value={settings?.scrape_interval_hours ?? ""}
             onChange={(e) => setSettings((s) => s ? { ...s, scrape_interval_hours: e.target.value } : s)}
-            className="w-24 px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+            className="w-24 px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
           />
-          <span className="text-sm text-gray-500 dark:text-gray-400">hours</span>
+          <span className="text-sm text-neutral-500 dark:text-neutral-400">hours</span>
           <button
             onClick={() => saveInterval(Number(settings?.scrape_interval_hours ?? 24))}
-            className="ml-3 text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800"
+            className="ml-3 text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
           >
             Save
           </button>
