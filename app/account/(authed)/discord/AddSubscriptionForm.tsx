@@ -1,18 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 const FORMAT_OPTIONS = ["", "Commander", "Modern", "Standard", "Pioneer", "Legacy", "Pauper", "Draft", "Sealed"];
 const DOW_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-const HOUR_PRESETS: { hourUtc: number; label: string }[] = [
-  { hourUtc: 13, label: "8am ET" },
-  { hourUtc: 14, label: "9am ET" },
-  { hourUtc: 17, label: "12pm ET" },
-  { hourUtc: 23, label: "6pm ET" },
-];
 
 const LEAD_PRESETS: { value: string; label: string }[] = [
   { value: "1h", label: "1 hour before" },
@@ -20,6 +13,41 @@ const LEAD_PRESETS: { value: string; label: string }[] = [
   { value: "morning_of", label: "Morning of" },
   { value: "day_before", label: "Day before" },
 ];
+
+/**
+ * Build a 24-entry list of hour-of-day options labeled in the viewer's local
+ * timezone. The internal `value` is the UTC hour (matches our schema), but
+ * the display string is whatever a clock in the user's city would read.
+ *
+ * SSR-safe: uses Intl APIs that work in any modern browser and Node 16+. The
+ * useMemo below only runs on the client, so the dropdown re-localizes if the
+ * user changes timezones (e.g. travels with the page open) on next render.
+ */
+function buildHourOptions(): { utcHour: number; label: string }[] {
+  const today = new Date();
+  return Array.from({ length: 24 }, (_, utcHour) => {
+    const d = new Date(today);
+    d.setUTCHours(utcHour, 0, 0, 0);
+    return {
+      utcHour,
+      label: d.toLocaleTimeString([], { hour: "numeric", hour12: true }),
+    };
+  });
+}
+
+function shortTimezoneLabel(): string {
+  // Resolve to a 3-4 char abbreviation when possible (EDT / PST / etc), else
+  // fall back to the IANA region (Europe/Paris).
+  try {
+    const parts = new Intl.DateTimeFormat([], { timeZoneName: "short" }).formatToParts(new Date());
+    const tz = parts.find(p => p.type === "timeZoneName");
+    if (tz?.value) return tz.value;
+  } catch {}
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+  } catch {}
+  return "your time";
+}
 
 interface Guild {
   id: string;
@@ -93,6 +121,20 @@ function FormModal({
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Derived once on mount: 24 hour-of-day options labeled in viewer's local
+  // timezone (no UTC math forced on the user).
+  const hourOptions = useMemo(buildHourOptions, []);
+  const tzLabel = useMemo(shortTimezoneLabel, []);
+  // First-render seed: prefer a user-friendly default by translating the
+  // schema default (14 UTC) into whatever "9am-ish" looks like locally.
+  useEffect(() => {
+    const today = new Date();
+    const ninePm = new Date(today);
+    ninePm.setHours(9, 0, 0, 0);
+    setHourUtc(ninePm.getUTCHours());
+    // intentionally no deps — only on mount; if user picks a time we don't override
+  }, []);
 
   useEffect(() => {
     void (async () => {
@@ -275,23 +317,16 @@ function FormModal({
                       </div>
                     </Field>
                   )}
-                  <Field label="Time">
-                    <div className="flex flex-wrap gap-1.5">
-                      {HOUR_PRESETS.map(p => (
-                        <ChipButton key={p.hourUtc} active={hourUtc === p.hourUtc} onClick={() => setHourUtc(p.hourUtc)}>
-                          {p.label}
-                        </ChipButton>
+                  <Field label={`Time of day (${tzLabel})`}>
+                    <select
+                      className="input"
+                      value={hourUtc}
+                      onChange={e => setHourUtc(Number(e.target.value))}
+                    >
+                      {hourOptions.map(o => (
+                        <option key={o.utcHour} value={o.utcHour}>{o.label}</option>
                       ))}
-                      <input
-                        type="number"
-                        min={0}
-                        max={23}
-                        value={hourUtc}
-                        onChange={e => setHourUtc(Number(e.target.value))}
-                        className="input w-20 text-sm"
-                        title="UTC hour, 0-23"
-                      />
-                    </div>
+                    </select>
                   </Field>
                 </Section>
               )}

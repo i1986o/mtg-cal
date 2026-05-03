@@ -1,12 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { DiscordSubscription } from "@/lib/discord-subscriptions";
 
 const DOW_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const FORMAT_OPTIONS = ["", "Commander", "Modern", "Standard", "Pioneer", "Legacy", "Pauper", "Draft", "Sealed"];
 const SOURCE_OPTIONS = ["", "wizards-locator", "topdeck", "discord"];
+
+function buildHourOptions(): { utcHour: number; label: string }[] {
+  const today = new Date();
+  return Array.from({ length: 24 }, (_, utcHour) => {
+    const d = new Date(today);
+    d.setUTCHours(utcHour, 0, 0, 0);
+    return { utcHour, label: d.toLocaleTimeString([], { hour: "numeric", hour12: true }) };
+  });
+}
+
+function shortTimezoneLabel(): string {
+  try {
+    const parts = new Intl.DateTimeFormat([], { timeZoneName: "short" }).formatToParts(new Date());
+    const tz = parts.find(p => p.type === "timeZoneName");
+    if (tz?.value) return tz.value;
+  } catch {}
+  try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch {}
+  return "your time";
+}
+
+function utcHourToLocalLabel(utcHour: number): string {
+  const d = new Date();
+  d.setUTCHours(utcHour, 0, 0, 0);
+  return d.toLocaleTimeString([], { hour: "numeric", hour12: true });
+}
 
 export default function SubscriptionsList({ subscriptions }: { subscriptions: DiscordSubscription[] }) {
   return (
@@ -23,6 +48,8 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
   const [editing, setEditing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const hourOptions = useMemo(buildHourOptions, []);
+  const tzLabel = useMemo(shortTimezoneLabel, []);
 
   const [form, setForm] = useState({
     format: sub.format ?? "",
@@ -137,12 +164,12 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
           </div>
           {sub.mode === "weekly" && (
             <div className="text-xs text-gray-500 dark:text-gray-400">
-              Fires {DOW_LABELS[sub.dow ?? 1]} at {String(sub.hour_utc).padStart(2, "0")}:00 UTC · {sub.days_ahead}d window
+              Fires {DOW_LABELS[sub.dow ?? 1]} at {utcHourToLocalLabel(sub.hour_utc)} ({tzLabel}) · {sub.days_ahead}d window
             </div>
           )}
           {sub.mode === "daily" && (
             <div className="text-xs text-gray-500 dark:text-gray-400">
-              Fires daily at {String(sub.hour_utc).padStart(2, "0")}:00 UTC · {sub.days_ahead}d window
+              Fires daily at {utcHourToLocalLabel(sub.hour_utc)} ({tzLabel}) · {sub.days_ahead}d window
             </div>
           )}
           {sub.mode === "reminder" && (
@@ -223,15 +250,16 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
             />
           </Field>
           {sub.mode !== "reminder" && (
-            <Field label="Hour (UTC, 0-23)">
-              <input
-                type="number"
-                min={0}
-                max={23}
+            <Field label={`Time of day (${tzLabel})`}>
+              <select
                 className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
                 value={form.hour_utc}
                 onChange={e => setForm({ ...form, hour_utc: Number(e.target.value) })}
-              />
+              >
+                {hourOptions.map(o => (
+                  <option key={o.utcHour} value={o.utcHour}>{o.label}</option>
+                ))}
+              </select>
             </Field>
           )}
           {sub.mode === "weekly" && (
