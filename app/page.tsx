@@ -6,6 +6,7 @@ import { getPreferences, setPreferences } from "@/lib/user-preferences";
 import { getCurrentUser } from "@/lib/session";
 import { resolveEventImage } from "@/lib/event-image";
 import { config } from "@/lib/config";
+import DateJumper from "./date-jumper";
 import RadiusSelector from "./radius-selector";
 import CalendarView from "./calendar-view";
 import StickyBar from "./sticky-bar";
@@ -137,6 +138,8 @@ export default async function HomePage({
         </div>
       ) : (
         <>
+          <DateJumper currentOffset={currentOffset} />
+
           {Object.keys(grouped).length === 0 && (
             <Reveal className="text-center py-16" delay={100}>
               <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
