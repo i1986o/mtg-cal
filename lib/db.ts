@@ -371,6 +371,11 @@ function initSchema(db: Database.Database) {
   // Password column for the email/password sign-in path (bcrypt hash).
   // Nullable — most users still come in via OAuth or magic-link.
   try { db.exec("ALTER TABLE users ADD COLUMN password_hash TEXT"); } catch {}
+  // Per-user location override for the homepage filter bar. NULL means
+  // "use the global default" (config.location, currently Philly).
+  try { db.exec("ALTER TABLE user_preferences ADD COLUMN location_lat REAL"); } catch {}
+  try { db.exec("ALTER TABLE user_preferences ADD COLUMN location_lng REAL"); } catch {}
+  try { db.exec("ALTER TABLE user_preferences ADD COLUMN location_label TEXT DEFAULT ''"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");

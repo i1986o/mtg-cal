@@ -91,6 +91,58 @@ export async function geocodeAddress(query: string, signal?: AbortSignal): Promi
  *
  * Empty / whitespace-only candidates are skipped.
  */
+/**
+ * Coordinates → human label ("Philadelphia, PA", "19147"). Used by the
+ * homepage location picker to display "Use my current location" results
+ * without showing raw lat/lng.
+ *
+ * Nominatim only — Google's reverse-geocoding is paid and we don't need
+ * its precision for city/zip-level labels. Returns null on any failure;
+ * the caller is expected to fall back to displaying the rounded coords.
+ */
+export async function reverseGeocode(
+  lat: number,
+  lng: number,
+  signal?: AbortSignal,
+): Promise<{ label: string } | null> {
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+  try {
+    const url = new URL("https://nominatim.openstreetmap.org/reverse");
+    url.searchParams.set("lat", String(lat));
+    url.searchParams.set("lon", String(lng));
+    url.searchParams.set("format", "json");
+    url.searchParams.set("addressdetails", "1");
+    const res = await fetch(url.toString(), {
+      headers: { "Accept-Language": "en", "User-Agent": NOMINATIM_USER_AGENT },
+      signal,
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as {
+      address?: {
+        city?: string;
+        town?: string;
+        village?: string;
+        hamlet?: string;
+        suburb?: string;
+        county?: string;
+        state?: string;
+        state_code?: string;
+        postcode?: string;
+      };
+    };
+    const a = data.address;
+    if (!a) return null;
+    const place = a.city || a.town || a.village || a.hamlet || a.suburb || a.county;
+    const region = a.state_code?.toUpperCase() || a.state || "";
+    if (place && region) return { label: `${place}, ${region}` };
+    if (place) return { label: place };
+    if (a.postcode) return { label: a.postcode };
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export async function geocodeFirstMatch(
   candidates: Array<string | null | undefined>,
   signal?: AbortSignal,

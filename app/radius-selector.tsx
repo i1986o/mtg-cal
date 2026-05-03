@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { FORMAT_DOT } from "@/lib/format-style";
+import LocationPicker from "./location-picker";
 
 // Build the canonical /calendar URL given the user's current filter state.
 // Empty/falsy filters are omitted so subscribers to the bare /calendar
@@ -292,12 +293,21 @@ export default function RadiusSelector({
   currentFormat,
   formats,
   eventCount,
+  currentLocationLabel,
+  defaultLocationLabel,
+  isLocationCustom,
 }: {
   currentRadius: number;
   currentDays: number;
   currentFormat?: string;
   formats: string[];
   eventCount: number;
+  /** Human label for the current location (e.g. "Philly", "Cherry Hill, NJ"). */
+  currentLocationLabel: string;
+  /** Default label shown after a "Reset to default" click. */
+  defaultLocationLabel: string;
+  /** True when the URL or user prefs have set a non-default location. */
+  isLocationCustom: boolean;
 }) {
   function updateParam(key: string, value: string) {
     const url = new URL(window.location.href);
@@ -320,10 +330,6 @@ export default function RadiusSelector({
   function showToast(text: string, anchor: DOMRect) {
     setToast({ ...clampToast(anchor), text });
     setTimeout(() => setToast(null), 2500);
-  }
-
-  function handleCityClick(e: React.MouseEvent) {
-    showToast("🗺️ More cities coming soon!", (e.currentTarget as HTMLElement).getBoundingClientRect());
   }
 
   const formatOptions = [
@@ -370,9 +376,11 @@ export default function RadiusSelector({
 
         <span className={CONNECTOR}>miles of</span>
 
-        <button onClick={handleCityClick} className={CHIP_TRIGGER}>
-          Philly
-        </button>
+        <LocationPicker
+          currentLabel={currentLocationLabel}
+          defaultLabel={defaultLocationLabel}
+          isCustom={isLocationCustom}
+        />
 
         {/* Timeframe selector + the "in" connector hidden per user request.
             Replaced by the DateJumper in the footer Prev/Next week row.
