@@ -196,7 +196,10 @@ export default async function HomePage({
       <Reveal>
       <footer className="mt-16 pt-8 border-t border-gray-100 dark:border-white/5 text-sm text-gray-400 dark:text-gray-500">
         {/* Brand sits above; description and links share an aligned top edge below */}
-        <p className="font-[family-name:var(--font-ultra)] text-base text-gray-900 dark:text-white tracking-wider mb-3">PlayIRL.GG</p>
+        <p className="mb-3">
+          <PlayIrlLogo className="h-5 w-auto text-gray-900 dark:text-white" />
+          <span className="sr-only">PlayIRL.GG</span>
+        </p>
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
           {/* Tagline */}
           <div>
