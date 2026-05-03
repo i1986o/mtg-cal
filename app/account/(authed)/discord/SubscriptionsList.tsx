@@ -1,37 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { DiscordSubscription } from "@/lib/discord-subscriptions";
-
-const DOW_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const FORMAT_OPTIONS = ["", "Commander", "Modern", "Standard", "Pioneer", "Legacy", "Pauper", "Draft", "Sealed"];
-const SOURCE_OPTIONS = ["", "wizards-locator", "topdeck", "discord"];
-
-function buildHourOptions(): { utcHour: number; label: string }[] {
-  const today = new Date();
-  return Array.from({ length: 24 }, (_, utcHour) => {
-    const d = new Date(today);
-    d.setUTCHours(utcHour, 0, 0, 0);
-    return { utcHour, label: d.toLocaleTimeString([], { hour: "numeric", hour12: true }) };
-  });
-}
-
-function shortTimezoneLabel(): string {
-  try {
-    const parts = new Intl.DateTimeFormat([], { timeZoneName: "short" }).formatToParts(new Date());
-    const tz = parts.find(p => p.type === "timeZoneName");
-    if (tz?.value) return tz.value;
-  } catch {}
-  try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch {}
-  return "your time";
-}
-
-function utcHourToLocalLabel(utcHour: number): string {
-  const d = new Date();
-  d.setUTCHours(utcHour, 0, 0, 0);
-  return d.toLocaleTimeString([], { hour: "numeric", hour12: true });
-}
+import {
+  type Mode,
+  DOW_LABELS,
+  ScheduleAndFilterSections,
+  utcHourToLocalLabel,
+  shortTimezoneLabel,
+} from "./_form-controls";
 
 export default function SubscriptionsList({ subscriptions }: { subscriptions: DiscordSubscription[] }) {
   return (
@@ -48,42 +26,44 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
   const [editing, setEditing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const hourOptions = useMemo(buildHourOptions, []);
-  const tzLabel = useMemo(shortTimezoneLabel, []);
+  const tzLabel = shortTimezoneLabel();
 
-  const [form, setForm] = useState({
-    format: sub.format ?? "",
-    source: sub.source ?? "",
-    radius_miles: sub.radius_miles ?? "",
-    near_label: sub.near_label,
-    hour_utc: sub.hour_utc,
-    dow: sub.dow ?? 1,
-    days_ahead: sub.days_ahead,
-    lead_minutes: sub.lead_minutes,
-  });
+  // Mirror the create form's local state shape so we can reuse
+  // ScheduleAndFilterSections directly.
+  const [hourUtc, setHourUtc] = useState(sub.hour_utc);
+  const [dow, setDow] = useState(sub.dow ?? 1);
+  const [daysAhead, setDaysAhead] = useState(sub.days_ahead);
+  const [lead, setLead] = useState<string>(sub.lead_preset ?? "1h");
+  const [customLeadMinutes, setCustomLeadMinutes] = useState<number | "">(sub.lead_minutes);
+  const [format, setFormat] = useState(sub.format ?? "");
+  const [near, setNear] = useState(sub.near_label);
+  const [radiusMiles, setRadiusMiles] = useState<number | "">(sub.radius_miles ?? "");
 
   async function save() {
     setBusy(true);
     setError(null);
     try {
+      const leadArg = sub.mode === "reminder"
+        ? (lead === "custom" ? String(customLeadMinutes) : lead)
+        : null;
       const res = await fetch(`/api/account/discord/${sub.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          format: form.format || null,
-          source: form.source || null,
-          radius_miles: form.radius_miles === "" ? null : Number(form.radius_miles),
-          near_label: form.near_label,
-          hour_utc: Number(form.hour_utc),
-          dow: sub.mode === "weekly" ? Number(form.dow) : null,
-          days_ahead: Number(form.days_ahead),
-          lead_minutes: Number(form.lead_minutes),
+          format: format || null,
+          // Send `near` (not just near_label) so the API re-geocodes when
+          // the user changes the location. Empty string = clear the geo
+          // filter entirely.
+          near: near.trim(),
+          radius_miles: radiusMiles === "" ? null : Number(radiusMiles),
+          hour_utc: Number(hourUtc),
+          dow: sub.mode === "weekly" ? Number(dow) : null,
+          days_ahead: Number(daysAhead),
+          lead: leadArg,
         }),
       });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? `HTTP ${res.status}`);
-      }
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error ?? `HTTP ${res.status}`);
       setEditing(false);
       router.refresh();
     } catch (e) {
@@ -208,98 +188,24 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
       )}
 
       {editing && (
-        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10 grid grid-cols-2 gap-3 text-sm">
-          <Field label="Format">
-            <select
-              className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-              value={form.format}
-              onChange={e => setForm({ ...form, format: e.target.value })}
-            >
-              {FORMAT_OPTIONS.map(o => (
-                <option key={o} value={o}>{o || "(any)"}</option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Source">
-            <select
-              className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-              value={form.source}
-              onChange={e => setForm({ ...form, source: e.target.value })}
-            >
-              {SOURCE_OPTIONS.map(o => (
-                <option key={o} value={o}>{o || "(any)"}</option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Near (label only — coords stay)">
-            <input
-              type="text"
-              className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-              value={form.near_label}
-              onChange={e => setForm({ ...form, near_label: e.target.value })}
-            />
-          </Field>
-          <Field label="Radius (miles)">
-            <input
-              type="number"
-              min={1}
-              max={500}
-              className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-              value={form.radius_miles}
-              onChange={e => setForm({ ...form, radius_miles: e.target.value })}
-            />
-          </Field>
-          {sub.mode !== "reminder" && (
-            <Field label={`Time of day (${tzLabel})`}>
-              <select
-                className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-                value={form.hour_utc}
-                onChange={e => setForm({ ...form, hour_utc: Number(e.target.value) })}
-              >
-                {hourOptions.map(o => (
-                  <option key={o.utcHour} value={o.utcHour}>{o.label}</option>
-                ))}
-              </select>
-            </Field>
-          )}
-          {sub.mode === "weekly" && (
-            <Field label="Day of week">
-              <select
-                className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-                value={form.dow}
-                onChange={e => setForm({ ...form, dow: Number(e.target.value) })}
-              >
-                {DOW_LABELS.map((label, idx) => (
-                  <option key={idx} value={idx}>{label}</option>
-                ))}
-              </select>
-            </Field>
-          )}
-          {sub.mode !== "reminder" && (
-            <Field label="Days ahead">
-              <input
-                type="number"
-                min={1}
-                max={60}
-                className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-                value={form.days_ahead}
-                onChange={e => setForm({ ...form, days_ahead: Number(e.target.value) })}
-              />
-            </Field>
-          )}
-          {sub.mode === "reminder" && (
-            <Field label="Lead time (minutes)">
-              <input
-                type="number"
-                min={0}
-                max={10080}
-                className="w-full px-2 py-1.5 rounded border border-gray-200 dark:border-white/15 bg-white dark:bg-[#0c1220] text-sm"
-                value={form.lead_minutes}
-                onChange={e => setForm({ ...form, lead_minutes: Number(e.target.value) })}
-              />
-            </Field>
-          )}
-          <div className="col-span-2 flex justify-end gap-2 pt-2">
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/10 space-y-5">
+          <div className="rounded-md bg-gray-50 dark:bg-white/5 px-3 py-2 text-xs text-gray-600 dark:text-gray-300">
+            Server, channel, and mode can&apos;t be changed — to switch any of those, delete this subscription and create a new one.
+          </div>
+
+          <ScheduleAndFilterSections
+            value={{
+              mode: sub.mode as Mode,
+              hourUtc, dow, daysAhead, lead, customLeadMinutes,
+              format, near, radiusMiles,
+            }}
+            on={{
+              setHourUtc, setDow, setDaysAhead, setLead, setCustomLeadMinutes,
+              setFormat, setNear, setRadiusMiles,
+            }}
+          />
+
+          <div className="flex justify-end gap-2 pt-2">
             <button
               onClick={() => setEditing(false)}
               disabled={busy}
@@ -318,14 +224,5 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
         </div>
       )}
     </div>
-  );
-}
-
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">{label}</span>
-      {children}
-    </label>
   );
 }
