@@ -11,10 +11,12 @@ import {
   type DiscordSubMode,
   deleteSubscription,
   getSubscription,
+  parseLeadArgument,
   setSubscriptionEnabled,
   updateSubscription,
   userCanManageSubscription,
 } from "@/lib/discord-subscriptions";
+import { geocodeAddress } from "@/lib/geocode";
 
 export const dynamic = "force-dynamic";
 
@@ -24,11 +26,16 @@ interface PatchBody {
   format?: string | null;
   source?: string | null;
   radius_miles?: number | null;
+  /** Re-geocode this string into center_lat/center_lng/near_label. Empty string clears the geo filter. */
+  near?: string;
+  /** Direct label-only edit (no re-geocode). */
   near_label?: string;
   hour_utc?: number;
   dow?: number | null;
   days_ahead?: number;
   lead_minutes?: number;
+  /** Freeform lead spec parsed by parseLeadArgument: "1h" / "morning_of" / "60" / etc. */
+  lead?: string | null;
   mode?: DiscordSubMode;
   enabled?: boolean;
 }
@@ -91,7 +98,48 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     return NextResponse.json({ error: "radius_miles out of range" }, { status: 400 });
   }
 
-  const updated = updateSubscription(id, body);
+  // Build the actual DB patch out of validated fields. We translate the two
+  // user-facing freeform inputs (`near`, `lead`) into stored columns.
+  const dbPatch: Parameters<typeof updateSubscription>[1] = {};
+  if (body.format !== undefined) dbPatch.format = body.format;
+  if (body.source !== undefined) dbPatch.source = body.source;
+  if (body.radius_miles !== undefined) dbPatch.radius_miles = body.radius_miles;
+  if (body.hour_utc !== undefined) dbPatch.hour_utc = body.hour_utc;
+  if (body.dow !== undefined) dbPatch.dow = body.dow;
+  if (body.days_ahead !== undefined) dbPatch.days_ahead = body.days_ahead;
+  if (body.mode !== undefined) dbPatch.mode = body.mode;
+  if (body.lead_minutes !== undefined) dbPatch.lead_minutes = body.lead_minutes;
+  if (body.near_label !== undefined) dbPatch.near_label = body.near_label;
+
+  // `near` — re-geocode and update both coords + label.
+  if (body.near !== undefined) {
+    const trimmed = body.near.trim();
+    if (trimmed === "") {
+      dbPatch.center_lat = null;
+      dbPatch.center_lng = null;
+      dbPatch.near_label = "";
+    } else {
+      const hit = await geocodeAddress(trimmed);
+      if (!hit) {
+        return NextResponse.json({ error: `Could not geocode "${trimmed}"` }, { status: 400 });
+      }
+      dbPatch.center_lat = hit.latitude;
+      dbPatch.center_lng = hit.longitude;
+      dbPatch.near_label = trimmed;
+    }
+  }
+
+  // `lead` — parse the freeform string into preset + minutes.
+  if (body.lead !== undefined && body.lead !== null) {
+    const parsed = parseLeadArgument(body.lead);
+    if (!parsed) {
+      return NextResponse.json({ error: `Invalid lead: ${body.lead}` }, { status: 400 });
+    }
+    dbPatch.lead_preset = parsed.preset;
+    dbPatch.lead_minutes = parsed.minutes;
+  }
+
+  const updated = updateSubscription(id, dbPatch);
   if (!updated) return NextResponse.json({ error: "Not found" }, { status: 404 });
   return NextResponse.json({ ok: true, subscription: updated });
 }
