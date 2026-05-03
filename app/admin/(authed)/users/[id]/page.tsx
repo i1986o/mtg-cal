@@ -33,7 +33,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
         <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
           {user.name ?? user.email}
         </h1>
-        <Link href="/admin/users" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+        <Link href="/admin/users" className="text-sm text-amber-700 dark:text-amber-400 hover:underline">
           ← Back to users
         </Link>
       </div>

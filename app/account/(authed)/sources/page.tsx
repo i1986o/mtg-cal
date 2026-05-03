@@ -46,7 +46,7 @@ function NotAvailableYet() {
         We're still wiring this up. Check back soon — or{" "}
         <a
           href="mailto:info@cardslinger.shop?subject=PlayIRL%20community%20connections"
-          className="text-blue-600 dark:text-blue-400 hover:underline"
+          className="text-amber-700 dark:text-amber-400 hover:underline"
         >
           send us a note
         </a>{" "}

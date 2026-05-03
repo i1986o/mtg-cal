@@ -46,17 +46,17 @@ export default function RetryAllButton() {
   }
 
   return (
-    <div className="bg-amber-50 dark:bg-amber-500/10/30 border border-blue-200 dark:border-blue-900 rounded-lg p-4">
+    <div className="bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 rounded-lg p-4">
       <div className="flex items-start gap-3">
         <div className="flex-1 min-w-0">
-          <h2 className="text-sm font-semibold text-blue-900 dark:text-blue-200">Bulk retry auto-fetch</h2>
-          <p className="text-xs text-blue-800 dark:text-blue-300 mt-1">
+          <h2 className="text-sm font-semibold text-amber-900 dark:text-amber-200">Bulk retry auto-fetch</h2>
+          <p className="text-xs text-amber-800 dark:text-amber-300 mt-1">
             Re-runs the venue-image fetcher (og:image → Google Places → Street View) for every venue
             that doesn&apos;t already have a working photo. Skips manual uploads. Bypasses the 30-day backoff.
           </p>
           {error && <p className="text-xs text-red-600 dark:text-red-400 mt-2">{error}</p>}
           {result && (
-            <div className="text-xs text-blue-900 dark:text-blue-200 mt-2 space-y-1">
+            <div className="text-xs text-amber-900 dark:text-amber-200 mt-2 space-y-1">
               <div>Attempted {result.attempted}; skipped {result.counts.skipped_manual + result.counts.skipped_live} (already had photos).</div>
               <div>
                 Results: places <b>{result.counts.places}</b>, og:image <b>{result.counts.og_scrape}</b>, street view <b>{result.counts.street_view}</b>, no source <b>{result.counts.none}</b>.

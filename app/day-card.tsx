@@ -96,11 +96,11 @@ export default function DayCard({
   }, [staggerBase]);
 
   const borderColor = isToday
-    ? "border-blue-300 dark:border-blue-500/40"
+    ? "border-amber-300 dark:border-amber-500/40"
     : "border-gray-100 dark:border-white/8";
 
   const hoverBorderColor = isToday
-    ? "hover:border-blue-400 dark:hover:border-blue-400/60"
+    ? "hover:border-amber-400 dark:hover:border-amber-400/60"
     : "hover:border-gray-200 dark:hover:border-white/15";
 
   const headingBg = isToday
@@ -117,7 +117,7 @@ export default function DayCard({
           days) already conveys the date right next to it, so the circle was
           pure visual repetition. */}
       <div className={`sticky top-[var(--sticky-bar-h,80px)] z-[5] flex items-center gap-2.5 px-4 border transition-all duration-150 ${isStuck ? "py-1" : "py-2 rounded-t-xl"} ${borderColor} ${headingBg}`}>
-        <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-700 dark:text-gray-300"}`}>
+        <span className={`transition-all duration-150 font-medium ${isStuck ? "text-xs" : "text-sm"} ${isToday ? "text-amber-700 dark:text-amber-300" : "text-gray-700 dark:text-gray-300"}`}>
           {headingLabel || weekday}
         </span>
         <span className={`ml-auto transition-all duration-150 text-gray-400 dark:text-gray-500 ${isStuck ? "text-[10px]" : "text-xs"}`}>

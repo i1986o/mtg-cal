@@ -41,7 +41,7 @@ export default async function AdminDashboard() {
         <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
           Dashboard
         </h1>
-        <Link href="/admin/scrapers" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+        <Link href="/admin/scrapers" className="text-sm text-amber-700 dark:text-amber-400 hover:underline">
           Run a scrape →
         </Link>
       </div>
