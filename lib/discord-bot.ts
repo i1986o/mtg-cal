@@ -17,16 +17,57 @@ export function botClientId(): string | null {
   return process.env.DISCORD_BOT_CLIENT_ID || null;
 }
 
+// Permission bitfield for the invite URL. Discord docs:
+// https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags
+//   VIEW_CHANNEL          0x00000400 — see channels the bot is allowed in
+//   SEND_MESSAGES         0x00000800 — post digests / reminders
+//   EMBED_LINKS           0x00004000 — render rich embeds (the entire UX)
+//   READ_MESSAGE_HISTORY  0x00010000 — required to PATCH our own messages on cancellation (v2)
+// Sum = 0x00014C00 = 84992
+const BOT_PERMISSIONS = String(0x00014C00);
+
 export function botInviteUrl(state?: string): string | null {
   const id = botClientId();
   if (!id) return null;
   const params = new URLSearchParams({
     client_id: id,
     scope: "bot applications.commands",
-    permissions: "0",
+    permissions: BOT_PERMISSIONS,
   });
   if (state) params.set("state", state);
   return `https://discord.com/api/oauth2/authorize?${params.toString()}`;
+}
+
+export interface BotChannel {
+  id: string;
+  name: string;
+  /** Discord channel type: 0=text, 5=announcement (we only care about postable text). */
+  type: number;
+  position: number;
+  parent_id: string | null;
+}
+
+/**
+ * Channels in a guild the bot can see. Used by the web "Add subscription"
+ * flow to populate the channel dropdown. Filters to type 0 (GUILD_TEXT) and
+ * type 5 (GUILD_ANNOUNCEMENT) — both accept message posts via the same
+ * REST endpoint. Voice/forum/category channels are dropped.
+ */
+export async function listGuildTextChannels(guildId: string): Promise<BotChannel[]> {
+  const token = botToken();
+  if (!token) return [];
+  const res = await fetch(`${DISCORD_API}/guilds/${guildId}/channels`, {
+    headers: { Authorization: `Bot ${token}` },
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(`Discord /guilds/${guildId}/channels failed: ${res.status} ${body}`);
+  }
+  const channels = await res.json() as BotChannel[];
+  return channels
+    .filter(c => c.type === 0 || c.type === 5)
+    .sort((a, b) => a.position - b.position);
 }
 
 /** Returns every guild the bot is currently a member of (paginated). */

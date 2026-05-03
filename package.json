@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "exec next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "discord:register": "tsx cli/register-discord-commands.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

@@ -287,6 +287,71 @@ function initSchema(db: Database.Database) {
       image_url  TEXT NOT NULL,
       updated_at TEXT DEFAULT (datetime('now'))
     );
+
+    -- Discord bot: per-channel subscriptions for scheduled event posts
+    -- (weekly digest, daily digest, per-event reminders). Multiple rows per
+    -- (guild, channel) are allowed so a single channel can host both a
+    -- "Commander weekly" and a "Modern reminder" subscription.
+    CREATE TABLE IF NOT EXISTS discord_subscriptions (
+      id              TEXT PRIMARY KEY,
+      guild_id        TEXT NOT NULL,
+      channel_id      TEXT NOT NULL,
+      mode            TEXT NOT NULL CHECK(mode IN ('weekly','daily','reminder')),
+      format          TEXT,
+      source          TEXT,
+      radius_miles    INTEGER,
+      center_lat      REAL,
+      center_lng      REAL,
+      near_label      TEXT DEFAULT '',
+      hour_utc        INTEGER NOT NULL DEFAULT 14,
+      dow             INTEGER,
+      lead_preset     TEXT,
+      lead_minutes    INTEGER NOT NULL DEFAULT 60,
+      days_ahead      INTEGER NOT NULL DEFAULT 7,
+      enabled         INTEGER NOT NULL DEFAULT 1,
+      linked_user_id  TEXT REFERENCES users(id) ON DELETE SET NULL,
+      created_by      TEXT,
+      created_at      TEXT DEFAULT (datetime('now')),
+      updated_at      TEXT DEFAULT (datetime('now')),
+      last_dispatched_at TEXT
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_discord_subs_enabled ON discord_subscriptions(enabled, mode);
+    CREATE INDEX IF NOT EXISTS idx_discord_subs_guild   ON discord_subscriptions(guild_id);
+
+    -- Idempotency ledger: composite PK is the contract that the same
+    -- (subscription, event, kind, bucket) cannot be posted twice. The bucket
+    -- column discriminates digest weeks/days and reminder fire-times so
+    -- future buckets can repost.
+    CREATE TABLE IF NOT EXISTS discord_subscription_posts (
+      subscription_id TEXT NOT NULL REFERENCES discord_subscriptions(id) ON DELETE CASCADE,
+      event_id        TEXT NOT NULL,
+      kind            TEXT NOT NULL CHECK(kind IN ('digest','reminder')),
+      bucket          TEXT NOT NULL,
+      posted_at       TEXT NOT NULL DEFAULT (datetime('now')),
+      message_id      TEXT,
+      PRIMARY KEY (subscription_id, event_id, kind, bucket)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_dsp_sub ON discord_subscription_posts(subscription_id);
+
+    -- Bounded retry queue for failed Discord POSTs. Reminders need this
+    -- because the [now+lead, now+lead+5min) match window has already passed
+    -- by the time the dispatcher fires again — a transient 5xx would lose
+    -- the post permanently otherwise. Drained at the start of each tick;
+    -- rows self-evict at attempt_count >= 5 (caller deletes them).
+    CREATE TABLE IF NOT EXISTS discord_pending_posts (
+      subscription_id TEXT NOT NULL REFERENCES discord_subscriptions(id) ON DELETE CASCADE,
+      event_id        TEXT NOT NULL,
+      kind            TEXT NOT NULL,
+      bucket          TEXT NOT NULL,
+      attempt_count   INTEGER NOT NULL DEFAULT 0,
+      next_attempt_at TEXT NOT NULL,
+      last_error      TEXT,
+      PRIMARY KEY (subscription_id, event_id, kind, bucket)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_dpp_due ON discord_pending_posts(next_attempt_at);
   `);
 
   // Migrations — add columns if they don't exist yet
