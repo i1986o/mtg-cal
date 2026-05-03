@@ -46,7 +46,7 @@ export default function DateJumper({ currentOffset }: Props) {
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-2 mb-4">
+    <div className="flex flex-wrap items-center gap-2">
       <label className="inline-flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
         <span>Jump to date:</span>
         <input

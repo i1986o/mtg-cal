@@ -138,8 +138,6 @@ export default async function HomePage({
         </div>
       ) : (
         <>
-          <DateJumper currentOffset={currentOffset} />
-
           {Object.keys(grouped).length === 0 && (
             <Reveal className="text-center py-16" delay={100}>
               <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
@@ -172,7 +170,7 @@ export default async function HomePage({
           </div>
 
           {/* Week navigation */}
-          <Reveal className="flex items-center justify-between mt-6">
+          <Reveal className="flex items-center justify-between gap-3 mt-6 flex-wrap">
             {currentOffset > 0 ? (
               <LinkButton
                 href={`?${new URLSearchParams({ ...Object.fromEntries(Object.entries(params).filter(([k]) => k !== "offset")), ...(currentOffset - 7 > 0 ? { offset: String(currentOffset - 7) } : {}) }).toString()}`}
@@ -181,6 +179,11 @@ export default async function HomePage({
                 Previous week
               </LinkButton>
             ) : <div />}
+
+            {/* Mid: jump-to-date + back-to-this-week (rendered between
+                Previous and Next week so the controls share one footer row) */}
+            <DateJumper currentOffset={currentOffset} />
+
             <LinkButton
               href={`?${new URLSearchParams({ ...Object.fromEntries(Object.entries(params).filter(([,v]) => v !== undefined) as [string,string][]), offset: String(currentOffset + 7) }).toString()}`}
             >
