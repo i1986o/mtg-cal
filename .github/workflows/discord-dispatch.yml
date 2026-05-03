@@ -1,0 +1,39 @@
+name: Discord Bot Dispatch
+
+# Fires the bot dispatcher every 5 minutes. Each tick checks every enabled
+# subscription, posts any digests whose schedule matches, posts any
+# per-event reminders whose lead window includes the next 5 minutes, and
+# drains the pending-post retry queue.
+#
+# Note: GitHub's cron has a 5-minute minimum and runs may be delayed up to
+# 15 minutes during peak usage. The dispatcher's idempotency ledger and
+# retry queue both tolerate missed/late ticks — for digests the time gate
+# is `minute < 5` so a single delayed tick still catches the window; for
+# reminders, failed posts queue and back off automatically.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Ignore time gates and fire all enabled subs immediately."
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Trigger PlayIRL.GG dispatcher
+        run: |
+          URL="https://playirl.gg/api/discord/dispatch"
+          if [ "${{ inputs.force }}" = "true" ]; then
+            URL="${URL}?force=1"
+          fi
+          curl -sS -X POST "$URL" \
+            -H "x-dispatch-secret: ${{ secrets.DISPATCH_SECRET }}" \
+            -w "\nHTTP %{http_code}\n" \
+            --fail-with-body
