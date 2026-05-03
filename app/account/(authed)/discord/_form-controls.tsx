@@ -39,7 +39,7 @@ export const HINTS = {
 // Shared text/select/number input styling. Used everywhere a form field
 // needs the standard look — keep this in sync with the design system.
 export const INPUT_CLASS =
-  "w-full px-2.5 py-2 rounded-md border border-gray-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-500";
+  "w-full px-2.5 py-2 rounded-md border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400/40 focus:border-gray-400 dark:focus:ring-white/20 dark:focus:border-white/30";
 
 // --- Time / timezone helpers ----------------------------------------------
 
@@ -125,7 +125,7 @@ export function ChipButton({
       className={`px-3 py-1.5 rounded-full text-xs border transition ${
         active
           ? "border-gray-900 bg-gray-900 text-white dark:border-white dark:bg-white dark:text-gray-900"
-          : "border-gray-200 dark:border-stone-700 hover:bg-gray-50 dark:hover:bg-stone-800"
+          : "border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800"
       }`}
     >
       {children}
@@ -153,8 +153,8 @@ export function ModeButton({
       onClick={() => onClick(value)}
       className={`text-left px-3 py-2.5 rounded-lg border text-sm transition ${
         active
-          ? "border-amber-500 bg-amber-50 dark:bg-amber-500/10 ring-1 ring-amber-500"
-          : "border-gray-200 dark:border-stone-700 hover:bg-gray-50 dark:hover:bg-stone-800"
+          ? "border-gray-900 dark:border-white ring-1 ring-gray-900 dark:ring-white"
+          : "border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800"
       }`}
     >
       <div className="font-semibold text-gray-900 dark:text-white">{label}</div>

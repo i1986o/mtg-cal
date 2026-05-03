@@ -73,13 +73,13 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
     setIsDark(goingDark);
   }
 
-  const PILL = "fixed right-4 z-40 flex flex-col gap-0.5 bg-white dark:bg-stone-800 rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
+  const PILL = "fixed right-4 z-40 flex flex-col gap-0.5 bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
 
   return (
     <>
       {/* View toggle — desktop only, vertically centered, sliding indicator */}
       <div className="hidden sm:flex fixed right-4 top-1/2 -translate-y-1/2 z-40">
-        <div className="relative flex flex-col bg-gray-100/80 dark:bg-stone-900 rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 shadow-lg shadow-black/10 dark:shadow-black/40 backdrop-blur-sm">
+        <div className="relative flex flex-col bg-gray-100/80 dark:bg-neutral-900 rounded-2xl p-1 border border-gray-200/60 dark:border-white/10 shadow-lg shadow-black/10 dark:shadow-black/40 backdrop-blur-sm">
           {/* sliding pill */}
           <div
             className="absolute left-1 right-1 h-8 rounded-xl bg-white dark:bg-white/12 shadow-sm transition-transform duration-200 ease-out"

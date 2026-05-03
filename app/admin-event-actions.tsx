@@ -52,7 +52,7 @@ export default function AdminEventActions({ eventId }: { eventId: string }) {
         disabled={busy !== null}
         title="Hide event (skip, admin)"
         aria-label="Hide event"
-        className="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-stone-800 disabled:opacity-50"
+        className="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
           <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20C6 20 2 12 2 12a19.77 19.77 0 0 1 5.06-5.94" />

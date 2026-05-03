@@ -13,7 +13,7 @@ interface ConfigShape {
   };
 }
 
-const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
+const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
 export default function ConfigPage() {
   const [config, setConfig] = useState<ConfigShape | null>(null);
@@ -177,7 +177,7 @@ export default function ConfigPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
+    <section className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-5">
       <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">{title}</h2>
       <div className="space-y-3">{children}</div>
     </section>

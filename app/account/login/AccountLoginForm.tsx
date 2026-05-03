@@ -24,7 +24,7 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
   const oauthAction = (id: string) => `/api/auth/signin/${id}`;
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-stone-950 p-4 relative">
+    <main className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-neutral-950 p-4 relative">
       <Link
         href="/"
         className="absolute top-4 left-4 inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
@@ -34,7 +34,7 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
         </svg>
         Back to PlayIRL.GG
       </Link>
-      <div className="bg-white dark:bg-stone-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-stone-700 space-y-6">
+      <div className="bg-white dark:bg-neutral-900 p-8 rounded-xl shadow-md dark:shadow-gray-800 w-full max-w-sm border border-transparent dark:border-neutral-700 space-y-6">
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 flex items-baseline justify-center gap-2 flex-wrap">
             Welcome to
@@ -67,9 +67,9 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
           <>
             {hasOAuth && (
               <div className="flex items-center gap-3">
-                <div className="flex-1 h-px bg-gray-200 dark:bg-stone-700" />
+                <div className="flex-1 h-px bg-gray-200 dark:bg-neutral-700" />
                 <span className="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">or</span>
-                <div className="flex-1 h-px bg-gray-200 dark:bg-stone-700" />
+                <div className="flex-1 h-px bg-gray-200 dark:bg-neutral-700" />
               </div>
             )}
             <form action={oauthAction("resend")} method="POST" className="space-y-2">
@@ -82,7 +82,7 @@ export default function AccountLoginForm({ providers }: { providers: Provider[] 
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-                className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-stone-600 rounded-lg bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <Button type="submit" variant="primary" disabled={!csrfToken} className="w-full">
                 Email me a sign-in link

@@ -5,7 +5,7 @@ import AccountMenu from "./account-menu";
 // Pill container + inner-button styles mirror the theme toggle in
 // `app/floating-toolbar.tsx`. Sits at bottom-right just below the theme
 // toggle (which is shifted up to bottom-20 to make room).
-const PILL = "fixed bottom-6 right-4 z-40 flex bg-white dark:bg-stone-800 rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
+const PILL = "fixed bottom-6 right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
 const BTN = "flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300";
 
 export default async function AccountChip() {

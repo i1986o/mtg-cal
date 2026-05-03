@@ -49,7 +49,7 @@ export default function FlagsPage() {
           {flags.map((f) => (
             <li
               key={f.key}
-              className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-4 flex items-start gap-4"
+              className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-4 flex items-start gap-4"
             >
               <button
                 onClick={() => toggle(f)}
@@ -57,7 +57,7 @@ export default function FlagsPage() {
                 role="switch"
                 aria-checked={f.enabled === 1}
                 className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition disabled:opacity-50 ${
-                  f.enabled === 1 ? "bg-amber-500" : "bg-gray-300 dark:bg-stone-700"
+                  f.enabled === 1 ? "bg-amber-500" : "bg-gray-300 dark:bg-neutral-700"
                 }`}
               >
                 <span

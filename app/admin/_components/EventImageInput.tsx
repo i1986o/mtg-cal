@@ -69,14 +69,14 @@ export default function EventImageInput({
           <img
             src={value}
             alt="Event preview"
-            className="w-32 h-20 object-cover rounded-md border border-gray-200 dark:border-stone-700"
+            className="w-32 h-20 object-cover rounded-md border border-gray-200 dark:border-neutral-700"
           />
           <div className="flex flex-col gap-2">
             <button
               type="button"
               onClick={pick}
               disabled={busy}
-              className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800 disabled:opacity-50"
+              className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
             >
               {busy ? "Uploading…" : "Replace"}
             </button>
@@ -95,7 +95,7 @@ export default function EventImageInput({
           type="button"
           onClick={pick}
           disabled={busy}
-          className="w-full sm:w-auto inline-flex items-center gap-2 px-4 py-2 rounded-md border border-dashed border-gray-300 dark:border-stone-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-stone-800 disabled:opacity-50"
+          className="w-full sm:w-auto inline-flex items-center gap-2 px-4 py-2 rounded-md border border-dashed border-gray-300 dark:border-neutral-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-neutral-800 disabled:opacity-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

@@ -76,14 +76,14 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
             ? "This is the Discord we'll exchange events with."
             : "Pick the Discord you want to link up."}
         </p>
-        <div className="space-y-1.5 max-h-64 overflow-y-auto bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-2">
+        <div className="space-y-1.5 max-h-64 overflow-y-auto bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-2">
           {guilds.map((g) => (
             <label
               key={g.id}
               className={`flex items-center gap-3 px-3 py-2 rounded-md cursor-pointer transition ${
                 selected === g.id
                   ? "bg-blue-50 dark:bg-blue-950 ring-1 ring-blue-200 dark:ring-blue-800"
-                  : "hover:bg-gray-50 dark:hover:bg-stone-800"
+                  : "hover:bg-gray-50 dark:hover:bg-neutral-800"
               }`}
             >
               <input
@@ -110,7 +110,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
             value={venueName}
             onChange={(e) => setVenueName(e.target.value)}
             placeholder="e.g. Hamilton's Hand"
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100"
+            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
           />
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
             Shown on events so people know where to go. Leave blank if events have different locations.
@@ -131,7 +131,7 @@ export default function PickGuildForm({ guilds }: { guilds: BotGuild[] }) {
             }}
             onBlur={(e) => lookupAddress(e.target.value)}
             placeholder="Street, city, state"
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100"
+            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
           />
           <AddressHint status={addressStatus} />
         </div>
