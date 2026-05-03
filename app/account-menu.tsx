@@ -57,24 +57,28 @@ export default function AccountMenu({
         aria-expanded={open}
         title={displayName}
         aria-label={`Account menu for ${displayName}`}
-        className="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden cursor-pointer transition-opacity hover:opacity-80"
+        className="inline-flex items-center gap-2 h-8 pl-1 pr-2.5 rounded-lg cursor-pointer transition-colors text-neutral-700 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:focus-visible:ring-white/20"
       >
-        {showImage ? (
-          // OAuth-provided avatar (Discord/Google CDN). Falls back to
-          // initials below on load error via onError → setImgFailed.
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={imageUrl!}
-            alt=""
-            className="w-full h-full object-cover"
-            onError={() => setImgFailed(true)}
-            referrerPolicy="no-referrer"
-          />
-        ) : (
-          <span className="w-full h-full rounded-lg bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 text-[11px] font-bold flex items-center justify-center tracking-wide">
-            {initials}
-          </span>
-        )}
+        <span className="flex items-center justify-center w-7 h-7 rounded-md overflow-hidden shrink-0">
+          {showImage ? (
+            // OAuth-provided avatar (Discord/Google CDN). Falls back to
+            // initials below on load error via onError → setImgFailed.
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={imageUrl!}
+              alt=""
+              className="w-full h-full object-cover"
+              onError={() => setImgFailed(true)}
+              referrerPolicy="no-referrer"
+            />
+          ) : (
+            <span className="w-full h-full rounded-md bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 text-[11px] font-bold flex items-center justify-center tracking-wide">
+              {initials}
+            </span>
+          )}
+        </span>
+        <span className="text-sm font-medium max-w-[8rem] truncate">{displayName}</span>
+        <MenuIcon open={open} />
       </button>
 
       {open && (
@@ -117,6 +121,23 @@ export default function AccountMenu({
         </div>
       )}
     </div>
+  );
+}
+
+function MenuIcon({ open }: { open: boolean }) {
+  // Chevron-down that rotates 180° when the dropdown is open. Subtle
+  // affordance for "this is a menu trigger" without an extra UI element.
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={`w-3.5 h-3.5 text-neutral-400 dark:text-neutral-500 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
   );
 }
 
