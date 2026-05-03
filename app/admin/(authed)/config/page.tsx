@@ -13,7 +13,7 @@ interface ConfigShape {
   };
 }
 
-const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
+const FIELD = "w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20";
 
 export default function ConfigPage() {
   const [config, setConfig] = useState<ConfigShape | null>(null);
@@ -68,7 +68,7 @@ export default function ConfigPage() {
     setTimeout(() => setMessage(""), 3000);
   }
 
-  if (!config) return <div className="p-6 lg:p-8 text-sm text-gray-500">Loading…</div>;
+  if (!config) return <div className="p-6 lg:p-8 text-sm text-neutral-500">Loading…</div>;
 
   function update<K extends keyof ConfigShape>(key: K, value: ConfigShape[K]) {
     setConfig((c) => c ? { ...c, [key]: value } : c);
@@ -76,10 +76,10 @@ export default function ConfigPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-3xl">
-      <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100 mb-2">
+      <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100 mb-2">
         Site config
       </h1>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-6">
         These values drive the scraper. Changes take effect on the next scrape run.
       </p>
 
@@ -111,7 +111,7 @@ export default function ConfigPage() {
               />
             </Field>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 min-h-[1rem]">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-2 min-h-[1rem]">
             {geoStatus === "checking" && "Looking up coordinates…"}
             {geoStatus === "found" && "✓ Coordinates updated for distance filtering."}
             {geoStatus === "missing" && "Couldn't place that. Double-check the city/state/ZIP."}
@@ -164,11 +164,11 @@ export default function ConfigPage() {
           <button
             type="submit"
             disabled={saving}
-            className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 transition"
+            className="bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 disabled:opacity-50 transition"
           >
             {saving ? "Saving…" : "Save config"}
           </button>
-          {message && <span className="text-xs text-gray-600 dark:text-gray-400">{message}</span>}
+          {message && <span className="text-xs text-neutral-600 dark:text-neutral-400">{message}</span>}
         </div>
       </form>
     </div>
@@ -177,8 +177,8 @@ export default function ConfigPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-5">
-      <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">{title}</h2>
+    <section className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-5">
+      <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3">{title}</h2>
       <div className="space-y-3">{children}</div>
     </section>
   );
@@ -187,7 +187,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</span>
+      <span className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">{label}</span>
       {children}
     </label>
   );

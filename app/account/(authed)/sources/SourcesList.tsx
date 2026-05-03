@@ -31,25 +31,25 @@ export default function SourcesList({ sources }: { sources: UserSource[] }) {
 
   return (
     <div className="space-y-3">
-      <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+      <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">
         Your connected Discords
       </h2>
       <ul className="space-y-3">
         {sources.map((s) => (
           <li
             key={s.id}
-            className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:items-center"
+            className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:items-center"
           >
             <div className="flex-1 min-w-0">
               <div className="flex items-baseline gap-2 flex-wrap">
-                <span className="font-medium text-gray-900 dark:text-gray-100">{s.label}</span>
+                <span className="font-medium text-neutral-900 dark:text-neutral-100">{s.label}</span>
                 {!s.enabled && (
-                  <span className="text-[10px] bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-gray-400 px-1.5 rounded uppercase">
+                  <span className="text-[10px] bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-1.5 rounded uppercase">
                     paused
                   </span>
                 )}
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex gap-3 flex-wrap">
+              <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 flex gap-3 flex-wrap">
                 {s.venue_name && <span>📍 {s.venue_name}</span>}
                 {s.venue_address && <span className="truncate">{s.venue_address}</span>}
                 <span>{formatLastSync(s.last_synced_at)}</span>
@@ -59,7 +59,7 @@ export default function SourcesList({ sources }: { sources: UserSource[] }) {
               <button
                 onClick={() => toggle(s.id, !s.enabled)}
                 disabled={busyId === s.id || pending}
-                className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 disabled:opacity-50"
+                className="text-xs px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-50"
               >
                 {s.enabled ? "Pause syncing" : "Resume syncing"}
               </button>

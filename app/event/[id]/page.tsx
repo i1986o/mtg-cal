@@ -29,9 +29,9 @@ function formatDate(dateStr: string): string {
 function DetailRow({ label, value, href }: { label: string; value: string; href?: string }) {
   if (!value) return null;
   return (
-    <div className="py-3 border-b border-gray-100 dark:border-white/8 last:border-0">
-      <dt className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{label}</dt>
-      <dd className="text-sm font-medium text-gray-900 dark:text-gray-200 break-words">
+    <div className="py-3 border-b border-neutral-100 dark:border-white/8 last:border-0">
+      <dt className="text-xs text-neutral-400 dark:text-neutral-500 mb-0.5">{label}</dt>
+      <dd className="text-sm font-medium text-neutral-900 dark:text-neutral-200 break-words">
         {href ? (
           <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-amber-700 dark:text-amber-400 hover:underline break-all">
             {value}
@@ -210,7 +210,7 @@ export default async function EventPage({
   return (
     <main className="w-full max-w-2xl min-w-0 mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6 anim-fade-in">
-        <Link href="/" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline">
+        <Link href="/" className="text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:underline">
           &larr; Back to PlayIRL.GG
         </Link>
         <div className="flex items-center gap-2">
@@ -243,7 +243,7 @@ export default async function EventPage({
       )}
 
       {ev.visibility !== "public" && !cancelled && (
-        <div className="mb-6 rounded-xl border border-gray-200 dark:border-white/15 bg-gray-50 dark:bg-white/5 px-4 py-2 text-xs text-gray-600 dark:text-gray-400 anim-fade-in">
+        <div className="mb-6 rounded-xl border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 px-4 py-2 text-xs text-neutral-600 dark:text-neutral-400 anim-fade-in">
           {ev.visibility === "unlisted"
             ? "Unlisted event — anyone with this link can view, but it won't appear in the public calendar."
             : "Private event — only invited guests can view."}
@@ -258,7 +258,7 @@ export default async function EventPage({
         />
       )}
 
-      <div className="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
+      <div className="bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
         {/* Hero image — uploaded photo, scraped cover, venue default, or placeholder. */}
         {/* When the hero is a real photo or map (`object-cover`), no padding
             and no visible bg — the image fills edge-to-edge. When it's a
@@ -266,7 +266,7 @@ export default async function EventPage({
             both themes so logos with baked-in white backgrounds blend in;
             keeping a dark bg here in dark mode would frame them with a stark
             white-on-near-black halo. */}
-        <div className={`relative aspect-video overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-gray-50"}`}>
+        <div className={`relative aspect-video overflow-hidden rounded-t-xl ${heroIsPhoto ? "" : "bg-neutral-50"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={hero.url}
@@ -281,29 +281,29 @@ export default async function EventPage({
         {/* Header */}
         <div className="p-6 pb-4 space-y-4">
           <div>
-            <div className="text-xs text-gray-400 dark:text-gray-500 mb-1">Format</div>
+            <div className="text-xs text-neutral-400 dark:text-neutral-500 mb-1">Format</div>
             <span className={`inline-block px-2.5 py-1 rounded-md text-xs font-semibold ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
               {FORMAT_EMOJI[ev.format] || FORMAT_EMOJI_DEFAULT} {ev.format || "MTG"}
             </span>
           </div>
           <div>
-            <div className="text-xs text-gray-400 dark:text-gray-500 mb-1">Event</div>
-            <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white break-words">{ev.title}</h1>
+            <div className="text-xs text-neutral-400 dark:text-neutral-500 mb-1">Event</div>
+            <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-white break-words">{ev.title}</h1>
           </div>
         </div>
 
         {/* Details table */}
         <Reveal delay={120}>
-          <div className="px-6 pb-2 border-t border-gray-100 dark:border-white/8">
+          <div className="px-6 pb-2 border-t border-neutral-100 dark:border-white/8">
             <dl>
               <DetailRow label="Host" value={ev.location} href={ev.store_url || undefined} />
               <DetailRow label="Date" value={formatDate(ev.date)} />
               <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
               <DetailRow label="Cost" value={ev.cost || "Not listed"} />
               {ev.address && (
-                <div className="py-3 border-b border-gray-100 dark:border-white/8 last:border-0">
-                  <dt className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">Address</dt>
-                  <dd className="text-sm font-medium text-gray-900 dark:text-gray-200 break-words">
+                <div className="py-3 border-b border-neutral-100 dark:border-white/8 last:border-0">
+                  <dt className="text-xs text-neutral-400 dark:text-neutral-500 mb-0.5">Address</dt>
+                  <dd className="text-sm font-medium text-neutral-900 dark:text-neutral-200 break-words">
                     <a
                       href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}`}
                       target="_blank"
@@ -318,7 +318,7 @@ export default async function EventPage({
                     <iframe
                       src={mapEmbedSrc}
                       title={`Map of ${ev.location || ev.address}`}
-                      className="w-full aspect-[3/2] rounded-md border border-gray-100 dark:border-white/8 mt-3"
+                      className="w-full aspect-[3/2] rounded-md border border-neutral-100 dark:border-white/8 mt-3"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />
@@ -333,16 +333,16 @@ export default async function EventPage({
         {/* Notes */}
         {ev.notes && (
           <Reveal>
-            <div className="mx-6 mb-4 bg-gray-50 dark:bg-neutral-800 rounded-lg p-4">
-              <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Description</p>
-              <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-words">{ev.notes}</p>
+            <div className="mx-6 mb-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg p-4">
+              <p className="text-xs text-neutral-400 dark:text-neutral-500 mb-1">Description</p>
+              <p className="text-sm text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap break-words">{ev.notes}</p>
             </div>
           </Reveal>
         )}
 
         {/* Meta footer */}
         <Reveal>
-          <div className="bg-gray-50 dark:bg-neutral-950 rounded-b-xl px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
+          <div className="bg-neutral-50 dark:bg-neutral-950 rounded-b-xl px-6 py-3 text-xs text-neutral-400 dark:text-neutral-600 flex justify-between">
             <span>ID: {ev.id}</span>
             <span>Added {ev.added_date} · Updated {ev.updated_date}</span>
           </div>

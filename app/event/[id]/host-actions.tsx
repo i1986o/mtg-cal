@@ -43,26 +43,26 @@ export default function HostActions({
   }
 
   return (
-    <div className="mb-6 flex flex-wrap items-center gap-2 rounded-xl border border-dashed border-gray-200 dark:border-white/15 bg-gray-50/60 dark:bg-white/5 px-3 py-2 anim-fade-in">
-      <span className="text-[10px] uppercase tracking-widest font-semibold text-gray-500 dark:text-gray-400 mr-1">
+    <div className="mb-6 flex flex-wrap items-center gap-2 rounded-xl border border-dashed border-neutral-200 dark:border-white/15 bg-neutral-50/60 dark:bg-white/5 px-3 py-2 anim-fade-in">
+      <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-500 dark:text-neutral-400 mr-1">
         Host
       </span>
       <Link
         href={`/account/events/${encodeURIComponent(eventId)}/edit`}
-        className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-50 dark:hover:bg-white/10 transition"
+        className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-white dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-50 dark:hover:bg-white/10 transition"
       >
         Edit
       </Link>
       <Link
         href={`/account/events/${encodeURIComponent(eventId)}/attendees`}
-        className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-50 dark:hover:bg-white/10 transition"
+        className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-white dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-50 dark:hover:bg-white/10 transition"
       >
         Attendees
       </Link>
       {visibility === "private" && (
         <Link
           href={`/account/events/${encodeURIComponent(eventId)}/invites`}
-          className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-50 dark:hover:bg-white/10 transition"
+          className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-white dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-50 dark:hover:bg-white/10 transition"
         >
           Invites
         </Link>

@@ -58,10 +58,10 @@ export default async function PickGuildPage() {
 
 function EmptyState({ emoji, heading, body }: { emoji: string; heading: string; body: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-8 text-center space-y-2">
+    <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-8 text-center space-y-2">
       <p className="text-4xl">{emoji}</p>
-      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{heading}</p>
-      <p className="text-xs text-gray-500 dark:text-gray-400 max-w-md mx-auto">{body}</p>
+      <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{heading}</p>
+      <p className="text-xs text-neutral-500 dark:text-neutral-400 max-w-md mx-auto">{body}</p>
     </div>
   );
 }

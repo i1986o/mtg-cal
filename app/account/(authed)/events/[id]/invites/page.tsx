@@ -35,7 +35,7 @@ export default async function InvitesPage({
       title="Invites"
       description={
         <>
-          <Link href={`/event/${encodeURIComponent(id)}`} className="underline hover:text-gray-700 dark:hover:text-gray-300">{event.title}</Link>{" "}
+          <Link href={`/event/${encodeURIComponent(id)}`} className="underline hover:text-neutral-700 dark:hover:text-neutral-300">{event.title}</Link>{" "}
           · {event.date}{event.time ? ` · ${event.time}` : ""}
         </>
       }

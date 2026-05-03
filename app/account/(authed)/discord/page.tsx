@@ -35,9 +35,9 @@ export default async function DiscordAccountPage() {
 
 function EmptyState({ inviteUrl }: { inviteUrl: string | null }) {
   return (
-    <div className="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-xl p-6 space-y-3">
-      <p className="text-base font-semibold text-gray-900 dark:text-white">No subscriptions yet</p>
-      <p className="text-sm text-gray-600 dark:text-gray-300">
+    <div className="bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-6 space-y-3">
+      <p className="text-base font-semibold text-neutral-900 dark:text-white">No subscriptions yet</p>
+      <p className="text-sm text-neutral-600 dark:text-neutral-300">
         Click <strong>+ New subscription</strong> above to set one up. We&apos;ll show you which of your servers already have the bot, then you pick a channel and a schedule.
       </p>
       <div className="pt-1 flex flex-wrap gap-2">
@@ -46,14 +46,14 @@ function EmptyState({ inviteUrl }: { inviteUrl: string | null }) {
             href={inviteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 text-gray-700 dark:text-gray-200 font-medium text-sm transition"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-200 font-medium text-sm transition"
           >
             Add bot to a new server
           </a>
         )}
         <a
           href="/bot"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 text-gray-700 dark:text-gray-200 font-medium text-sm transition"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-200 font-medium text-sm transition"
         >
           Bot overview
         </a>

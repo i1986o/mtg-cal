@@ -58,9 +58,9 @@ export default function InvitesManager({
   return (
     <div className="space-y-6">
       {/* Generator */}
-      <section className="rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-neutral-900 p-4 space-y-3">
-        <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Generate invite link</h2>
-        <p className="text-xs text-gray-500 dark:text-gray-400">
+      <section className="rounded-lg border border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-900 p-4 space-y-3">
+        <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">Generate invite link</h2>
+        <p className="text-xs text-neutral-500 dark:text-neutral-400">
           Each link grants read access to this event without needing to be on the
           attendee list. The link is multi-use — anyone you share it with can open
           it. Add a label to remember who you sent it to.
@@ -72,7 +72,7 @@ export default function InvitesManager({
             onChange={(e) => setLabel(e.target.value)}
             placeholder="e.g. Discord #pods or Alex's group"
             maxLength={80}
-            className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
           />
           <Button variant="primary" onClick={generate} disabled={busy}>
             {busy ? "Generating…" : "Generate"}
@@ -82,25 +82,25 @@ export default function InvitesManager({
 
       {/* List */}
       <section>
-        <h2 className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-semibold mb-2">
+        <h2 className="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold mb-2">
           Active invites · {invites.length}
         </h2>
         {invites.length === 0 ? (
-          <p className="text-sm text-gray-400 dark:text-gray-500 italic">
+          <p className="text-sm text-neutral-400 dark:text-neutral-500 italic">
             No invites yet. Generate one above to share a link with someone.
           </p>
         ) : (
-          <ul className="divide-y divide-gray-100 dark:divide-white/8 border border-gray-100 dark:border-white/8 rounded-lg overflow-hidden">
+          <ul className="divide-y divide-neutral-100 dark:divide-white/8 border border-neutral-100 dark:border-white/8 rounded-lg overflow-hidden">
             {invites.map((inv) => (
               <li key={inv.id} className="px-4 py-3 bg-white dark:bg-neutral-900 flex items-start gap-3">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
-                    {inv.label || <span className="text-gray-400 dark:text-gray-500 italic">No label</span>}
+                  <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 truncate">
+                    {inv.label || <span className="text-neutral-400 dark:text-neutral-500 italic">No label</span>}
                   </p>
-                  <p className="font-mono text-[11px] text-gray-500 dark:text-gray-400 truncate mt-0.5">
+                  <p className="font-mono text-[11px] text-neutral-500 dark:text-neutral-400 truncate mt-0.5">
                     {urlFor(inv.token)}
                   </p>
-                  <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">
+                  <p className="text-[11px] text-neutral-400 dark:text-neutral-500 mt-1">
                     Created {inv.created_at}
                     {inv.used_by_email
                       ? ` · First redeemed by ${inv.used_by_name ?? inv.used_by_email}`
@@ -111,7 +111,7 @@ export default function InvitesManager({
                   <button
                     type="button"
                     onClick={() => copy(inv)}
-                    className="text-xs px-2 py-1 rounded-md border border-gray-300 dark:border-neutral-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                    className="text-xs px-2 py-1 rounded-md border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   >
                     {copiedId === inv.id ? "Copied!" : "Copy"}
                   </button>

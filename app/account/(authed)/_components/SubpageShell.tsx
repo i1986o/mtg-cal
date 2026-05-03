@@ -26,7 +26,7 @@ export default function SubpageShell({
 
       <Link
         href="/"
-        className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
+        className="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -37,13 +37,13 @@ export default function SubpageShell({
       <header className="flex items-end justify-between gap-4 flex-wrap">
         <div>
           <h1
-            className="text-2xl sm:text-3xl font-[family-name:var(--font-ultra)] font-light text-gray-900 dark:text-gray-100 leading-none"
+            className="text-2xl sm:text-3xl font-[family-name:var(--font-ultra)] font-light text-neutral-900 dark:text-neutral-100 leading-none"
             style={{ letterSpacing: "0.02em" }}
           >
             {title}
           </h1>
           {description && (
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{description}</p>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-2">{description}</p>
           )}
         </div>
         {actions && <div className="flex gap-2 shrink-0">{actions}</div>}

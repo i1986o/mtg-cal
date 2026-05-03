@@ -47,21 +47,21 @@ export default function DateJumper({ currentOffset }: Props) {
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <label className="inline-flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+      <label className="inline-flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
         <span>Jump to date:</span>
         <input
           type="date"
           value={selectedStr}
           min={todayStr}
           onChange={e => jumpTo(e.target.value)}
-          className="px-2 py-1 rounded-md border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400/40 dark:focus:ring-white/20"
+          className="px-2 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
         />
       </label>
       {currentOffset > 0 && (
         <button
           type="button"
           onClick={backToThisWeek}
-          className="inline-flex items-center gap-1 h-7 px-2.5 rounded-lg bg-gray-100 dark:bg-white/[0.06] border border-gray-100 dark:border-neutral-800 text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-200 dark:hover:bg-white/[0.1] hover:text-gray-900 dark:hover:text-white transition cursor-pointer"
+          className="inline-flex items-center gap-1 h-7 px-2.5 rounded-lg bg-neutral-100 dark:bg-white/[0.06] border border-neutral-100 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-200 dark:hover:bg-white/[0.1] hover:text-neutral-900 dark:hover:text-white transition cursor-pointer"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />

@@ -1,8 +1,8 @@
 "use client";
 
 const SEG_BTN = "flex items-center justify-center w-7 h-7 rounded-md transition-all cursor-pointer";
-const SEG_ACTIVE = "bg-white dark:bg-white/15 shadow-sm text-gray-900 dark:text-white";
-const SEG_INACTIVE = "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300";
+const SEG_ACTIVE = "bg-white dark:bg-white/15 shadow-sm text-neutral-900 dark:text-white";
+const SEG_INACTIVE = "text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300";
 
 function ListIcon() {
   return (
@@ -36,7 +36,7 @@ export default function ViewToggle({ currentView }: { currentView: string }) {
   }
 
   return (
-    <div className="flex flex-col gap-0.5 bg-gray-100 dark:bg-white/5 rounded-xl p-0.5 border border-gray-100 dark:border-white/8 shadow-sm">
+    <div className="flex flex-col gap-0.5 bg-neutral-100 dark:bg-white/5 rounded-xl p-0.5 border border-neutral-100 dark:border-white/8 shadow-sm">
       <button onClick={() => setView("list")} title="List view" className={`${SEG_BTN} ${currentView === "list" ? SEG_ACTIVE : SEG_INACTIVE}`}>
         <ListIcon />
       </button>

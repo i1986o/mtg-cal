@@ -121,7 +121,7 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
   if (!sub.enabled) tagPills.push({ label: "disabled", tone: "warn" });
 
   return (
-    <div className={`bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-xl p-5 ${!sub.enabled ? "opacity-60" : ""}`}>
+    <div className={`bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-5 ${!sub.enabled ? "opacity-60" : ""}`}>
       <div className="flex items-start justify-between gap-3">
         <div className="space-y-2 flex-1 min-w-0">
           <div className="flex flex-wrap gap-1.5">
@@ -130,30 +130,30 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
                 key={i}
                 className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                   p.tone === "warn"
-                    ? "bg-gray-100 text-gray-500 dark:bg-white/[0.06] dark:text-gray-500"
-                    : "bg-gray-100 text-gray-700 dark:bg-neutral-800 dark:text-gray-300"
+                    ? "bg-neutral-100 text-neutral-500 dark:bg-white/[0.06] dark:text-neutral-500"
+                    : "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
                 }`}
               >
                 {p.label}
               </span>
             ))}
           </div>
-          <div className="text-xs text-gray-500 dark:text-gray-400 font-mono break-all">
+          <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono break-all">
             channel <code>#{sub.channel_id}</code>
             {" · "}guild <code>{sub.guild_id}</code>
           </div>
           {sub.mode === "weekly" && (
-            <div className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="text-xs text-neutral-500 dark:text-neutral-400">
               Fires {DOW_LABELS[sub.dow ?? 1]} at {utcHourToLocalLabel(sub.hour_utc)} ({tzLabel}) · {sub.days_ahead}d window
             </div>
           )}
           {sub.mode === "daily" && (
-            <div className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="text-xs text-neutral-500 dark:text-neutral-400">
               Fires daily at {utcHourToLocalLabel(sub.hour_utc)} ({tzLabel}) · {sub.days_ahead}d window
             </div>
           )}
           {sub.mode === "reminder" && (
-            <div className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="text-xs text-neutral-500 dark:text-neutral-400">
               Fires {sub.lead_minutes} minutes before each matching event ({sub.lead_preset ?? "custom"})
             </div>
           )}
@@ -162,14 +162,14 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
           <button
             onClick={() => setEditing(v => !v)}
             disabled={busy}
-            className="text-xs px-2.5 py-1 rounded border border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 transition"
+            className="text-xs px-2.5 py-1 rounded border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition"
           >
             {editing ? "Cancel" : "Edit"}
           </button>
           <button
             onClick={toggleEnabled}
             disabled={busy}
-            className="text-xs px-2.5 py-1 rounded border border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 transition"
+            className="text-xs px-2.5 py-1 rounded border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition"
           >
             {sub.enabled ? "Disable" : "Enable"}
           </button>
@@ -188,8 +188,8 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
       )}
 
       {editing && (
-        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-neutral-800 space-y-5">
-          <div className="rounded-md bg-gray-50 dark:bg-neutral-800/50 px-3 py-2 text-xs text-gray-600 dark:text-gray-300">
+        <div className="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-5">
+          <div className="rounded-md bg-neutral-50 dark:bg-neutral-800/50 px-3 py-2 text-xs text-neutral-600 dark:text-neutral-300">
             Server, channel, and mode can&apos;t be changed — to switch any of those, delete this subscription and create a new one.
           </div>
 
@@ -209,14 +209,14 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
             <button
               onClick={() => setEditing(false)}
               disabled={busy}
-              className="px-3 py-1.5 rounded border border-gray-200 dark:border-neutral-700 text-sm hover:bg-gray-50 dark:hover:bg-neutral-800 transition"
+              className="px-3 py-1.5 rounded border border-neutral-200 dark:border-neutral-700 text-sm hover:bg-neutral-50 dark:hover:bg-neutral-800 transition"
             >
               Cancel
             </button>
             <button
               onClick={save}
               disabled={busy}
-              className="px-3 py-1.5 rounded bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-gray-900 text-sm font-medium transition disabled:opacity-50"
+              className="px-3 py-1.5 rounded bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-100 dark:text-neutral-900 text-sm font-medium transition disabled:opacity-50"
             >
               {busy ? "Saving…" : "Save"}
             </button>

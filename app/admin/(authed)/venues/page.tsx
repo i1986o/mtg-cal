@@ -16,10 +16,10 @@ export default async function AdminVenuesPage() {
   return (
     <div className="p-6 lg:p-8 max-w-4xl space-y-6">
       <header>
-        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100">
           Venues
         </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-xl">
+        <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-xl">
           Pick a default image for each venue. It's used as the fallback on event cards
           when an event from that venue doesn't have its own photo. Aggregated from every
           known event location plus connected Discord sources.
@@ -29,7 +29,7 @@ export default async function AdminVenuesPage() {
       {venues.length > 0 && <RetryAllButton />}
 
       {venues.length === 0 ? (
-        <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg p-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg p-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
           No venues yet. Once events have locations, they'll show up here.
         </div>
       ) : (

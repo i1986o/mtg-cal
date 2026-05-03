@@ -85,13 +85,13 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
       {/* Sticky: week nav + day headers together */}
       <div className="sticky top-[var(--sticky-bar-h,0px)] z-[5] -mx-4 px-4 bg-white dark:bg-neutral-900">
         {/* Unified frame: rounded top corners only when not pinned */}
-        <div className={`border border-b-0 border-gray-200 dark:border-neutral-700 overflow-hidden transition-all duration-150 ${isStuck ? "" : "rounded-t-xl"}`}>
+        <div className={`border border-b-0 border-neutral-200 dark:border-neutral-700 overflow-hidden transition-all duration-150 ${isStuck ? "" : "rounded-t-xl"}`}>
 
           {/* Week navigation — compact, bottom border acts as divider */}
-          <div className="flex items-center justify-between py-1.5 px-2 border-b border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
+          <div className="flex items-center justify-between py-1.5 px-2 border-b border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
             <button
               onClick={() => setWeekStart(addDays(weekStart, -7))}
-              className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
+              className="p-1.5 rounded-lg hover:bg-neutral-100 dark:hover:bg-white/5 text-neutral-500 dark:text-neutral-400 transition cursor-pointer"
               aria-label="Previous week"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -99,17 +99,17 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
               </svg>
             </button>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white tracking-wider">{weekLabel}</span>
+              <span className="text-sm font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-white tracking-wider">{weekLabel}</span>
               <button
                 onClick={() => setWeekStart(startOfWeek(today))}
-                className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10 transition cursor-pointer"
+                className="text-[10px] px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-white/5 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-white/10 transition cursor-pointer"
               >
                 Today
               </button>
             </div>
             <button
               onClick={() => setWeekStart(addDays(weekStart, 7))}
-              className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
+              className="p-1.5 rounded-lg hover:bg-neutral-100 dark:hover:bg-white/5 text-neutral-500 dark:text-neutral-400 transition cursor-pointer"
               aria-label="Next week"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -124,19 +124,19 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
             className="overflow-x-auto"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
           >
-            <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-neutral-800">
+            <div className="min-w-[560px] grid grid-cols-7 gap-px bg-neutral-200 dark:bg-neutral-800">
               {weekDays.map((day) => {
                 const isToday = day.date === todayStr;
                 return (
                   <div
                     key={day.date}
-                    className={`flex items-center justify-center gap-1.5 py-1.5 ${isToday ? "bg-gray-50 dark:bg-white/[0.06]" : "bg-white dark:bg-neutral-900"}`}
+                    className={`flex items-center justify-center gap-1.5 py-1.5 ${isToday ? "bg-neutral-50 dark:bg-white/[0.06]" : "bg-white dark:bg-neutral-900"}`}
                   >
-                    <span className={`text-[10px] uppercase tracking-wider font-medium ${isToday ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"}`}>
+                    <span className={`text-[10px] uppercase tracking-wider font-medium ${isToday ? "text-neutral-900 dark:text-white" : "text-neutral-400 dark:text-neutral-500"}`}>
                       {day.weekday}
                     </span>
                     <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-[family-name:var(--font-ultra)] font-bold shrink-0 ${
-                      isToday ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900" : "text-gray-900 dark:text-gray-200"
+                      isToday ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900" : "text-neutral-900 dark:text-neutral-200"
                     }`}>
                       {day.dayNum}
                     </span>
@@ -155,7 +155,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
         className="overflow-x-auto -mx-4 px-4 anim-fade-in"
         style={{ "--delay": "100ms" } as React.CSSProperties}
       >
-        <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-neutral-800 border-b border-x border-gray-200 dark:border-neutral-700 rounded-b-xl overflow-hidden">
+        <div className="min-w-[560px] grid grid-cols-7 gap-px bg-neutral-200 dark:bg-neutral-800 border-b border-x border-neutral-200 dark:border-neutral-700 rounded-b-xl overflow-hidden">
           {weekDays.map((day) => {
             const isToday = day.date === todayStr;
             const isPast = day.date < todayStr;
@@ -165,33 +165,33 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
               <div
                 key={day.date}
                 className={`flex flex-col min-h-[320px] ${
-                  isToday ? "bg-gray-50 dark:bg-white/[0.03]" : "bg-white dark:bg-neutral-900"
+                  isToday ? "bg-neutral-50 dark:bg-white/[0.03]" : "bg-white dark:bg-neutral-900"
                 } ${isPast && !isToday ? "opacity-70" : ""}`}
               >
                 <div className="flex-1 flex flex-col gap-1 p-1.5">
                   {dayEvents.length === 0 ? (
-                    <div className="flex-1 flex items-center justify-center text-[10px] text-gray-300 dark:text-gray-700">—</div>
+                    <div className="flex-1 flex items-center justify-center text-[10px] text-neutral-300 dark:text-neutral-700">—</div>
                   ) : (
                     dayEvents.map((ev) => (
                       <Link
                         key={ev.id}
                         href={`/event/${encodeURIComponent(ev.id)}`}
                         title={`${ev.title}${ev.location ? ` · ${ev.location}` : ""}${ev.cost ? ` · ${ev.cost}` : ""} · ${formatEventTime(ev.date, ev.time, ev.timezone)}`}
-                        className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-gray-100 dark:hover:bg-white/[0.06]" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
+                        className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-neutral-100 dark:hover:bg-white/[0.06]" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
                       >
                         <div className="flex flex-col gap-px">
-                          <div className="text-[10px] text-gray-400 dark:text-gray-500 leading-none">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
+                          <div className="text-[10px] text-neutral-400 dark:text-neutral-500 leading-none">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>
                           <div>
                             <span className={`px-1 py-0 rounded text-[10px] font-medium ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
                               {ev.format}
                             </span>
                           </div>
                         </div>
-                        <div className="text-xs font-medium text-gray-900 dark:text-white leading-tight line-clamp-2 mt-1 group-hover:text-gray-700 dark:group-hover:text-gray-100">
+                        <div className="text-xs font-medium text-neutral-900 dark:text-white leading-tight line-clamp-2 mt-1 group-hover:text-neutral-700 dark:group-hover:text-neutral-100">
                           {ev.title}
                         </div>
                         {ev.location && (
-                          <div className="text-[10px] text-gray-400 dark:text-gray-500 truncate mt-0.5">{ev.location}</div>
+                          <div className="text-[10px] text-neutral-400 dark:text-neutral-500 truncate mt-0.5">{ev.location}</div>
                         )}
                       </Link>
                     ))

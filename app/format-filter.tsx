@@ -46,7 +46,7 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
         <select
           value={activeFormat || ""}
           onChange={handleSelect}
-          className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm font-medium text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500"
+          className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm font-medium text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400/40 dark:focus:ring-white/20"
         >
           <option value="">{"\uD83C\uDCCF"} All Formats</option>
           {formats.map((f) => (
@@ -62,7 +62,7 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
           className={`px-3 py-1.5 rounded-lg text-sm font-medium transition border ${
             !activeFormat
               ? "bg-white/15 text-white border-white/30"
-              : "border-white/10 text-gray-400 hover:bg-white/5"
+              : "border-white/10 text-neutral-400 hover:bg-white/5"
           }`}
         >
           {"\uD83C\uDCCF"} All
@@ -74,7 +74,7 @@ export default function FormatFilter({ formats, activeFormat }: { formats: strin
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition border ${
               activeFormat === f
                 ? FORMAT_ACTIVE[f] || "bg-white/15 text-white border-white/30"
-                : FORMAT_INACTIVE[f] || "border-white/10 text-gray-400 hover:bg-white/5"
+                : FORMAT_INACTIVE[f] || "border-white/10 text-neutral-400 hover:bg-white/5"
             }`}
           >
             {FORMAT_EMOJI[f] || "\uD83C\uDCCF"} {f}

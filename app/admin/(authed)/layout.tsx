@@ -12,13 +12,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const pendingCount = countPendingEvents();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 flex">
-      <aside className="w-56 shrink-0 border-r border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 flex flex-col">
-        <div className="px-4 py-5 border-b border-gray-200 dark:border-neutral-800">
-          <div className="text-sm font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 flex">
+      <aside className="w-56 shrink-0 border-r border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 flex flex-col">
+        <div className="px-4 py-5 border-b border-neutral-200 dark:border-neutral-800">
+          <div className="text-sm font-[family-name:var(--font-ultra)] font-bold text-neutral-900 dark:text-neutral-100">
             PlayIRL Admin
           </div>
-          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
             {user?.name ?? user?.email ?? "Signed in"}
           </div>
           <div className="mt-2 flex items-center gap-2">
@@ -28,7 +28,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="flex-1 overflow-y-auto">
           <Sidebar pendingCount={pendingCount} />
         </div>
-        <div className="p-3 border-t border-gray-200 dark:border-neutral-800">
+        <div className="p-3 border-t border-neutral-200 dark:border-neutral-800">
           <LogoutButton />
         </div>
       </aside>

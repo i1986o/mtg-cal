@@ -39,7 +39,7 @@ export const HINTS = {
 // Shared text/select/number input styling. Used everywhere a form field
 // needs the standard look — keep this in sync with the design system.
 export const INPUT_CLASS =
-  "w-full px-2.5 py-2 rounded-md border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400/40 focus:border-gray-400 dark:focus:ring-white/20 dark:focus:border-white/30";
+  "w-full px-2.5 py-2 rounded-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-400/40 focus:border-neutral-400 dark:focus:ring-white/20 dark:focus:border-white/30";
 
 // --- Time / timezone helpers ----------------------------------------------
 
@@ -81,7 +81,7 @@ export function useTimePicker() {
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="space-y-2">
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{title}</h3>
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">{title}</h3>
       <div className="space-y-3">{children}</div>
     </section>
   );
@@ -98,10 +98,10 @@ export function Field({
 }) {
   return (
     <label className="block">
-      <span className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">{label}</span>
+      <span className="block text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">{label}</span>
       {children}
       {hint && (
-        <span className="block text-[11px] text-gray-400 dark:text-gray-500 mt-1.5 leading-snug">
+        <span className="block text-[11px] text-neutral-400 dark:text-neutral-500 mt-1.5 leading-snug">
           {hint}
         </span>
       )}
@@ -124,8 +124,8 @@ export function ChipButton({
       onClick={onClick}
       className={`px-3 py-1.5 rounded-full text-xs border transition ${
         active
-          ? "border-gray-900 bg-gray-900 text-white dark:border-white dark:bg-white dark:text-gray-900"
-          : "border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800"
+          ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900"
+          : "border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800"
       }`}
     >
       {children}
@@ -153,12 +153,12 @@ export function ModeButton({
       onClick={() => onClick(value)}
       className={`text-left px-3 py-2.5 rounded-lg border text-sm transition ${
         active
-          ? "border-gray-900 dark:border-white ring-1 ring-gray-900 dark:ring-white"
-          : "border-gray-200 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800"
+          ? "border-neutral-900 dark:border-white ring-1 ring-neutral-900 dark:ring-white"
+          : "border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800"
       }`}
     >
-      <div className="font-semibold text-gray-900 dark:text-white">{label}</div>
-      <div className="text-xs text-gray-500 dark:text-gray-400">{sub}</div>
+      <div className="font-semibold text-neutral-900 dark:text-white">{label}</div>
+      <div className="text-xs text-neutral-500 dark:text-neutral-400">{sub}</div>
     </button>
   );
 }
@@ -256,7 +256,7 @@ export function ScheduleAndFilterSections({
                   className={`${INPUT_CLASS} w-32`}
                   placeholder="Minutes"
                 />
-                <span className="text-xs text-gray-500 dark:text-gray-400">minutes before</span>
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">minutes before</span>
               </div>
             )}
           </Field>
