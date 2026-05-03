@@ -374,8 +374,10 @@ export default function RadiusSelector({
           Philly
         </button>
 
-        <span className={CONNECTOR}>in</span>
-
+        {/* Timeframe selector + the "in" connector hidden per user request.
+            Replaced by the DateJumper in the footer Prev/Next week row.
+            Re-enable by un-commenting the block below. */}
+        {/* <span className={CONNECTOR}>in</span>
         <ChipSelect
           label={TIME_OPTIONS.find((t) => t.value === String(currentDays))?.label || "This week"}
           heading="Timeframe"
@@ -383,7 +385,7 @@ export default function RadiusSelector({
           value={String(currentDays)}
           onChange={(v) => updateParam("days", v)}
           align="end"
-        />
+        /> */}
 
         <span className={CONNECTOR}>=</span>
         <span className="inline-flex items-center justify-center min-w-[1.75rem] px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-xs sm:text-sm font-semibold tabular-nums leading-none">{eventCount}</span>
