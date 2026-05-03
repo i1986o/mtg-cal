@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-const BTN = "flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer";
+const BTN = "flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/40 dark:focus-visible:ring-white/20";
 const BTN_ACTIVE = "bg-white dark:bg-white/15 shadow-sm text-gray-900 dark:text-white";
 const BTN_INACTIVE = "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300";
 
@@ -88,23 +88,23 @@ export default function FloatingToolbar({ currentView }: { currentView: string }
           <button
             onClick={() => setView("list")}
             title="List view"
-            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer ${activeView === "list" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
+            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/40 dark:focus-visible:ring-white/20 ${activeView === "list" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
           >
             <ListIcon />
           </button>
           <button
             onClick={() => setView("calendar")}
             title="Calendar view"
-            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer mt-1 ${activeView === "calendar" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
+            className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-xl transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/40 dark:focus-visible:ring-white/20 mt-1 ${activeView === "calendar" ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"}`}
           >
             <CalendarIcon />
           </button>
         </div>
       </div>
 
-      {/* Theme toggle — bottom-right, shifted up to leave room for the
-          AccountChip pill which sits below at bottom-6. */}
-      <div className={`${PILL} bottom-20`}>
+      {/* Theme toggle — bottom-right corner. (AccountChip pill now lives
+          at top-right so this no longer needs to shift up.) */}
+      <div className={`${PILL} bottom-6`}>
         <button
           onClick={toggleTheme}
           title={isDark ? "Switch to light mode" : "Switch to dark mode"}

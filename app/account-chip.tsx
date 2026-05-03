@@ -5,7 +5,7 @@ import AccountMenu from "./account-menu";
 // Pill container + inner-button styles mirror the theme toggle in
 // `app/floating-toolbar.tsx`. Pinned to the top-right of the viewport.
 const PILL = "fixed top-4 right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
-const BTN = "flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300";
+const BTN = "flex items-center justify-center w-8 h-8 rounded-lg transition-all cursor-pointer text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/40 dark:focus-visible:ring-white/20";
 
 export default async function AccountChip() {
   const user = await getCurrentUser();
