@@ -41,6 +41,43 @@ export interface DiscordGuildSummary {
   permissions: string;
 }
 
+// Per-user cache for /users/@me/guilds so rapid form re-opens (or both the
+// guilds + channels endpoints firing back-to-back during one form session)
+// don't burn through Discord's per-route rate limit. The endpoint allows
+// roughly 1 req per 5 seconds per user — short cache here is plenty.
+const GUILDS_CACHE_TTL_MS = 60_000;
+const guildsCache = new Map<string, { fetchedAt: number; guilds: DiscordGuildSummary[] }>();
+
+async function fetchGuildsWithRetry(accessToken: string): Promise<DiscordGuildSummary[]> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const res = await fetch(`${DISCORD_API}/users/@me/guilds`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+      cache: "no-store",
+    });
+    if (res.status === 401) throw new Error("DISCORD_TOKEN_EXPIRED");
+    if (res.status === 429) {
+      // Discord puts the wait in either the body's `retry_after` (seconds,
+      // float) or the X-RateLimit-Reset-After header. Trust whichever is
+      // bigger so we don't immediately re-spam.
+      const body = await res.json().catch(() => ({}));
+      const headerSec = parseFloat(res.headers.get("X-RateLimit-Reset-After") ?? "0");
+      const bodySec = typeof (body as { retry_after?: number }).retry_after === "number"
+        ? (body as { retry_after: number }).retry_after
+        : 0;
+      const waitMs = Math.max(headerSec, bodySec, 0.25) * 1000 + 50;
+      console.warn(`[discord-account] 429 from /users/@me/guilds; sleeping ${waitMs}ms (attempt ${attempt + 1})`);
+      await new Promise(r => setTimeout(r, waitMs));
+      continue;
+    }
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`Discord /users/@me/guilds failed: ${res.status} ${body}`);
+    }
+    return await res.json() as DiscordGuildSummary[];
+  }
+  throw new Error("Discord /users/@me/guilds: rate-limited after retries");
+}
+
 /**
  * Call Discord's /users/@me/guilds with the user's stored access_token. Filter
  * to guilds where they hold MANAGE_GUILD permission (so we don't offer to
@@ -48,8 +85,17 @@ export interface DiscordGuildSummary {
  *
  * Throws on 401 (token expired/revoked) so the caller can prompt re-auth.
  * Returns [] on missing scope (`guilds` was never granted).
+ *
+ * Result is cached per user for 60 seconds — Discord's per-route limit on
+ * this endpoint is tight, and consecutive guild-then-channels calls during
+ * the "Add subscription" form would otherwise hit it routinely.
  */
 export async function listUserManageableGuilds(userId: string): Promise<DiscordGuildSummary[]> {
+  const cached = guildsCache.get(userId);
+  if (cached && Date.now() - cached.fetchedAt < GUILDS_CACHE_TTL_MS) {
+    return cached.guilds;
+  }
+
   const account = getDiscordAccountForUser(userId);
   if (!account?.access_token) return [];
   if (account.scope && !account.scope.split(/\s+/).includes("guilds")) {
@@ -57,17 +103,8 @@ export async function listUserManageableGuilds(userId: string): Promise<DiscordG
     throw new Error("MISSING_GUILDS_SCOPE");
   }
 
-  const res = await fetch(`${DISCORD_API}/users/@me/guilds`, {
-    headers: { Authorization: `Bearer ${account.access_token}` },
-    cache: "no-store",
-  });
-  if (res.status === 401) throw new Error("DISCORD_TOKEN_EXPIRED");
-  if (!res.ok) {
-    const body = await res.text().catch(() => "");
-    throw new Error(`Discord /users/@me/guilds failed: ${res.status} ${body}`);
-  }
-  const guilds = await res.json() as DiscordGuildSummary[];
-  return guilds.filter(g => {
+  const guilds = await fetchGuildsWithRetry(account.access_token);
+  const filtered = guilds.filter(g => {
     try {
       const bits = BigInt(g.permissions);
       return (bits & PERMISSION_MANAGE_GUILD) === PERMISSION_MANAGE_GUILD;
@@ -75,4 +112,12 @@ export async function listUserManageableGuilds(userId: string): Promise<DiscordG
       return false;
     }
   });
+  guildsCache.set(userId, { fetchedAt: Date.now(), guilds: filtered });
+  return filtered;
+}
+
+/** Wipe the cached guild list for a user. Called when subscriptions are
+ *  created/edited so a follow-up POST sees fresh data. */
+export function invalidateGuildsCache(userId: string): void {
+  guildsCache.delete(userId);
 }
