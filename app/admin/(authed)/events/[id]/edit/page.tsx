@@ -16,7 +16,7 @@ export default async function EditEventPage({ params }: { params: Promise<{ id: 
         <h1 className="text-2xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-gray-100">
           Edit event
         </h1>
-        <Link href="/admin/events" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+        <Link href="/admin/events" className="text-sm text-amber-700 dark:text-amber-400 hover:underline">
           ← Back to events
         </Link>
       </div>

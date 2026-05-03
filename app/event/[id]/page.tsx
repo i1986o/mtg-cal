@@ -33,7 +33,7 @@ function DetailRow({ label, value, href }: { label: string; value: string; href?
       <dt className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{label}</dt>
       <dd className="text-sm font-medium text-gray-900 dark:text-gray-200 break-words">
         {href ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:underline break-all">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-amber-700 dark:text-amber-400 hover:underline break-all">
             {value}
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
           </a>
@@ -308,7 +308,7 @@ export default async function EventPage({
                       href={`https://www.google.com/maps/search/${encodeURIComponent(ev.location + " " + ev.address)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:underline break-words"
+                      className="inline-flex items-center gap-1.5 text-amber-700 dark:text-amber-400 hover:underline break-words"
                     >
                       {ev.address}
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
