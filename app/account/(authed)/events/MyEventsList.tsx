@@ -49,7 +49,7 @@ export default function MyEventsList() {
 
   if (events.length === 0) {
     return (
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center">
+      <div className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-8 text-center">
         <p className="text-4xl mb-3">📝</p>
         <p className="text-gray-500 dark:text-gray-400 text-sm">You haven't created any events yet.</p>
         <Link
@@ -108,7 +108,7 @@ function Section({
         {hint && <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5">{hint}</p>}
       </div>
       <ul
-        className={`bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg divide-y divide-gray-100 dark:divide-gray-800 ${
+        className={`bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg divide-y divide-gray-100 dark:divide-gray-800 ${
           dim ? "opacity-70" : ""
         }`}
       >
@@ -124,7 +124,7 @@ function Section({
                   {e.title || <em className="text-gray-400">(untitled)</em>}
                 </span>
                 {e.format && (
-                  <span className="text-[10px] bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-1.5 rounded">
+                  <span className="text-[10px] bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-gray-300 px-1.5 rounded">
                     {e.format}
                   </span>
                 )}
@@ -138,14 +138,14 @@ function Section({
               {e.rsvp_enabled === 1 && (
                 <Link
                   href={`/account/events/${encodeURIComponent(e.id)}/attendees`}
-                  className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800"
                 >
                   Attendees
                 </Link>
               )}
               <Link
                 href={`/account/events/${encodeURIComponent(e.id)}/edit`}
-                className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800"
               >
                 Edit
               </Link>
@@ -180,7 +180,7 @@ function StatusPill({ status }: { status: string }) {
     },
     skip: {
       label: "Hidden",
-      cls: "bg-gray-100 text-gray-600 border-gray-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700",
+      cls: "bg-gray-100 text-gray-600 border-gray-300 dark:bg-stone-800 dark:text-gray-400 dark:border-stone-700",
     },
   };
   const style = map[status] ?? map.active;

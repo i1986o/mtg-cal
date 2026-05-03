@@ -38,7 +38,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
         </Link>
       </div>
 
-      <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+      <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <Field label="Email" value={user.email} />
           <Field label="User ID" value={<span className="font-mono text-xs">{user.id}</span>} />
@@ -56,7 +56,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
           <Field label="Created" value={new Date(user.created_at).toLocaleString()} />
           <Field label="Last login" value={user.last_login_at ? new Date(user.last_login_at).toLocaleString() : "—"} />
         </div>
-        <div className="mt-5 pt-4 border-t border-gray-200 dark:border-gray-800">
+        <div className="mt-5 pt-4 border-t border-gray-200 dark:border-stone-800">
           <UserActions
             user={{
               id: user.id,
@@ -70,7 +70,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+        <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
           <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
             Submitted events ({submitted.length})
           </h2>
@@ -94,7 +94,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
           )}
         </section>
 
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+        <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
           <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
             Discord-synced events ({synced.length})
           </h2>
@@ -118,7 +118,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
           )}
         </section>
 
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+        <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
           <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
             Connected sources ({sources.length})
           </h2>
@@ -141,7 +141,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
           )}
         </section>
 
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+        <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
           <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
             Saved events ({saved.length})
           </h2>
@@ -168,7 +168,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
         </section>
       </div>
 
-      <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+      <section className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-5">
         <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
           Admin audit log ({actions.length})
         </h2>
@@ -181,7 +181,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
                 <span className="font-mono text-[11px] text-gray-400 shrink-0 w-32">
                   {new Date(a.created_at).toLocaleString()}
                 </span>
-                <span className="font-mono text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-1.5 rounded shrink-0">
+                <span className="font-mono text-xs bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-gray-300 px-1.5 rounded shrink-0">
                   {a.action}
                 </span>
                 <span className="text-gray-600 dark:text-gray-400 flex-1">

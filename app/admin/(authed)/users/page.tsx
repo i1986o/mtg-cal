@@ -63,21 +63,21 @@ export default function AdminUsersPage() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search name or email…"
-          className="px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 min-w-[220px]"
+          className="px-3 py-1.5 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100 min-w-[220px]"
         />
         <label className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">
           <span>Role:</span>
           <select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value as typeof roleFilter)}
-            className="text-sm px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+            className="text-sm px-2 py-1 border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100"
           >
             {ROLE_FILTERS.map((r) => <option key={r} value={r}>{r}</option>)}
           </select>
         </label>
       </div>
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg overflow-hidden">
         {loading ? (
           <p className="text-sm text-gray-500 dark:text-gray-400 p-6">Loading…</p>
         ) : users.length === 0 ? (
@@ -86,7 +86,7 @@ export default function AdminUsersPage() {
           </p>
         ) : (
           <table className="w-full text-sm">
-            <thead className="bg-gray-50 dark:bg-gray-800 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            <thead className="bg-gray-50 dark:bg-stone-800 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
               <tr>
                 <th className="text-left px-3 py-2">User</th>
                 <th className="text-left px-3 py-2">Role</th>
@@ -97,7 +97,7 @@ export default function AdminUsersPage() {
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
               {users.map((u) => (
-                <tr key={u.id} className={`hover:bg-gray-50 dark:hover:bg-gray-800/50 ${u.suspended ? "opacity-50" : ""}`}>
+                <tr key={u.id} className={`hover:bg-gray-50 dark:hover:bg-stone-800/50 ${u.suspended ? "opacity-50" : ""}`}>
                   <td className="px-3 py-2 align-top">
                     <div className="font-medium text-gray-900 dark:text-gray-100">{u.name ?? <em className="text-gray-400">(no name)</em>}</div>
                     <div className="text-xs text-gray-500 dark:text-gray-400">{u.email}</div>
@@ -109,7 +109,7 @@ export default function AdminUsersPage() {
                       <select
                         value={u.role}
                         onChange={(e) => changeRole(u.id, e.target.value)}
-                        className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                        className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-stone-600 bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100"
                       >
                         <option value="user">user</option>
                         <option value="organizer">organizer</option>

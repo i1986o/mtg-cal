@@ -77,7 +77,7 @@ export default function UserActions({
           <select
             value={role}
             onChange={(e) => setRole(e.target.value)}
-            className="text-sm px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+            className="text-sm px-2 py-1 border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100"
           >
             <option value="user">user</option>
             <option value="organizer">organizer</option>
@@ -86,7 +86,7 @@ export default function UserActions({
           <button
             onClick={saveRole}
             disabled={busy || role === user.role}
-            className="text-xs px-3 py-1 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
+            className="text-xs px-3 py-1 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800 disabled:opacity-50"
           >
             Save
           </button>
@@ -95,7 +95,7 @@ export default function UserActions({
         <button
           onClick={revokeSessions}
           disabled={busy || sessionCount === 0}
-          className="text-xs px-3 py-1 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
+          className="text-xs px-3 py-1 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800 disabled:opacity-50"
         >
           Revoke sessions ({sessionCount})
         </button>
@@ -139,7 +139,7 @@ export default function UserActions({
               onChange={(e) => setReason(e.target.value)}
               placeholder="e.g. spam submissions, abusive messaging, bot-like behavior"
               rows={2}
-              className="w-full text-sm px-2 py-1.5 border border-red-300 dark:border-red-800 rounded-md bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400"
+              className="w-full text-sm px-2 py-1.5 border border-red-300 dark:border-red-800 rounded-md bg-white dark:bg-stone-900 text-gray-900 dark:text-gray-100 placeholder-gray-400"
             />
           </label>
           {error && <p className="text-xs text-red-700 dark:text-red-400">{error}</p>}

@@ -83,12 +83,12 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
       <div ref={sentinelRef} className="h-0" />
 
       {/* Sticky: week nav + day headers together */}
-      <div className="sticky top-[var(--sticky-bar-h,80px)] z-[5] -mx-4 px-4 bg-white dark:bg-[#0c1220]">
+      <div className="sticky top-[var(--sticky-bar-h,80px)] z-[5] -mx-4 px-4 bg-white dark:bg-stone-900">
         {/* Unified frame: rounded top corners only when not pinned */}
-        <div className={`border border-b-0 border-gray-200 dark:border-[#1e2535] overflow-hidden transition-all duration-150 ${isStuck ? "" : "rounded-t-xl"}`}>
+        <div className={`border border-b-0 border-gray-200 dark:border-stone-700 overflow-hidden transition-all duration-150 ${isStuck ? "" : "rounded-t-xl"}`}>
 
           {/* Week navigation — compact, bottom border acts as divider */}
-          <div className="flex items-center justify-between py-1.5 px-2 border-b border-gray-200 dark:border-[#1e2535] bg-white dark:bg-[#0c1220]">
+          <div className="flex items-center justify-between py-1.5 px-2 border-b border-gray-200 dark:border-stone-700 bg-white dark:bg-stone-900">
             <button
               onClick={() => setWeekStart(addDays(weekStart, -7))}
               className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 transition cursor-pointer"
@@ -124,19 +124,19 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
             className="overflow-x-auto"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
           >
-            <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-[#1e2535]">
+            <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-stone-800">
               {weekDays.map((day) => {
                 const isToday = day.date === todayStr;
                 return (
                   <div
                     key={day.date}
-                    className={`flex items-center justify-center gap-1.5 py-1.5 ${isToday ? "bg-blue-50 dark:bg-blue-950" : "bg-white dark:bg-[#0c1220]"}`}
+                    className={`flex items-center justify-center gap-1.5 py-1.5 ${isToday ? "bg-amber-50 dark:bg-amber-500/10" : "bg-white dark:bg-stone-900"}`}
                   >
                     <span className={`text-[10px] uppercase tracking-wider font-medium ${isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-400 dark:text-gray-500"}`}>
                       {day.weekday}
                     </span>
                     <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-[family-name:var(--font-ultra)] font-bold shrink-0 ${
-                      isToday ? "bg-blue-600 text-white" : "text-gray-900 dark:text-gray-200"
+                      isToday ? "bg-amber-500 text-white" : "text-gray-900 dark:text-gray-200"
                     }`}>
                       {day.dayNum}
                     </span>
@@ -155,7 +155,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
         className="overflow-x-auto -mx-4 px-4 anim-fade-in"
         style={{ "--delay": "100ms" } as React.CSSProperties}
       >
-        <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-[#1e2535] border-b border-x border-gray-200 dark:border-[#1e2535] rounded-b-xl overflow-hidden">
+        <div className="min-w-[560px] grid grid-cols-7 gap-px bg-gray-200 dark:bg-stone-800 border-b border-x border-gray-200 dark:border-stone-700 rounded-b-xl overflow-hidden">
           {weekDays.map((day) => {
             const isToday = day.date === todayStr;
             const isPast = day.date < todayStr;
@@ -165,7 +165,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
               <div
                 key={day.date}
                 className={`flex flex-col min-h-[320px] ${
-                  isToday ? "bg-blue-50/40 dark:bg-blue-500/5" : "bg-white dark:bg-[#0c1220]"
+                  isToday ? "bg-amber-50/40 dark:bg-amber-500/5" : "bg-white dark:bg-stone-900"
                 } ${isPast && !isToday ? "opacity-70" : ""}`}
               >
                 <div className="flex-1 flex flex-col gap-1 p-1.5">
@@ -177,7 +177,7 @@ export default function CalendarView({ events }: { events: EventRow[] }) {
                         key={ev.id}
                         href={`/event/${encodeURIComponent(ev.id)}`}
                         title={`${ev.title}${ev.location ? ` · ${ev.location}` : ""}${ev.cost ? ` · ${ev.cost}` : ""} · ${formatEventTime(ev.date, ev.time, ev.timezone)}`}
-                        className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-blue-100/70 dark:hover:bg-blue-400/15" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
+                        className={`group block rounded p-2 transition-all duration-150 hover:-translate-y-px hover:shadow-sm ${isToday ? "hover:bg-amber-100/70 dark:hover:bg-amber-400/15" : "hover:bg-black/[0.04] dark:hover:bg-white/10"}`}
                       >
                         <div className="flex flex-col gap-px">
                           <div className="text-[10px] text-gray-400 dark:text-gray-500 leading-none">{formatEventTime(ev.date, ev.time, ev.timezone)}</div>

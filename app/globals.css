@@ -9,7 +9,9 @@
 }
 
 .dark {
-  --bg: #0c1220;
+  /* Warm dark — Tailwind stone-900. Pairs with the amber brand accent
+     instead of clashing with it like the previous slate-blue #0c1220 did. */
+  --bg: #1c1917;
   --fg: #ededed;
   color-scheme: dark;
 }

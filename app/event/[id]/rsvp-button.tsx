@@ -92,7 +92,7 @@ export default function RsvpButton({
     <div className="flex flex-col items-end gap-1">
       <div className="flex items-center gap-2">
         <CountPill counts={counts} capacity={capacity} />
-        <div className="inline-flex items-center rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0c1220]">
+        <div className="inline-flex items-center rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-stone-900">
           {status === "waitlist" ? (
             // While on the waitlist, the primary CTA is "Going" but it's
             // disabled until a spot opens. We keep "Maybe" available so the

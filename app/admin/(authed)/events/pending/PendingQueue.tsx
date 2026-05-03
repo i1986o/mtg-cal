@@ -26,14 +26,14 @@ export default function PendingQueue({ events }: { events: PendingEventRow[] }) 
       {events.map((e) => (
         <li
           key={e.id}
-          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:items-center"
+          className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:items-center"
         >
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2 flex-wrap">
               <span className="font-mono text-xs text-gray-500 dark:text-gray-400">{e.date} {e.time}</span>
               <span className="font-medium text-gray-900 dark:text-gray-100 truncate">{e.title || <em className="text-gray-400">(untitled)</em>}</span>
               {e.format && (
-                <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-1.5 rounded">{e.format}</span>
+                <span className="text-xs bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-gray-300 px-1.5 rounded">{e.format}</span>
               )}
               {e.source_type && (
                 <span className="text-xs bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 px-1.5 rounded">{e.source_type}</span>
@@ -56,7 +56,7 @@ export default function PendingQueue({ events }: { events: PendingEventRow[] }) 
           <div className="flex gap-2 shrink-0">
             <Link
               href={`/admin/events/${encodeURIComponent(e.id)}/edit`}
-              className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800"
             >
               Review
             </Link>
