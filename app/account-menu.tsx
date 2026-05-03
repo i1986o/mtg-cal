@@ -49,7 +49,7 @@ export default function AccountMenu({
   }
 
   return (
-    <div ref={wrapperRef} className="fixed top-4 right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-gray-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
+    <div ref={wrapperRef} className="fixed top-4 right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-neutral-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -71,7 +71,7 @@ export default function AccountMenu({
             referrerPolicy="no-referrer"
           />
         ) : (
-          <span className="w-full h-full rounded-lg bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 text-[11px] font-bold flex items-center justify-center tracking-wide">
+          <span className="w-full h-full rounded-lg bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 text-[11px] font-bold flex items-center justify-center tracking-wide">
             {initials}
           </span>
         )}
@@ -80,12 +80,12 @@ export default function AccountMenu({
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full mt-2 w-56 rounded-lg border border-gray-200 dark:border-white/15 bg-white dark:bg-neutral-900 shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
+          className="absolute right-0 top-full mt-2 w-56 rounded-lg border border-neutral-200 dark:border-white/15 bg-white dark:bg-neutral-900 shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
         >
-          <div className="px-3 py-2 border-b border-gray-100 dark:border-white/10">
-            <div className="text-xs text-gray-500 dark:text-gray-400">Signed in as</div>
-            <div className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{displayName}</div>
-            <div className="text-[10px] uppercase tracking-wide mt-0.5 text-gray-400 dark:text-gray-500">{role}</div>
+          <div className="px-3 py-2 border-b border-neutral-100 dark:border-white/10">
+            <div className="text-xs text-neutral-500 dark:text-neutral-400">Signed in as</div>
+            <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100 truncate">{displayName}</div>
+            <div className="text-[10px] uppercase tracking-wide mt-0.5 text-neutral-400 dark:text-neutral-500">{role}</div>
           </div>
 
           <MenuGroup>
@@ -109,7 +109,7 @@ export default function AccountMenu({
               type="button"
               onClick={logout}
               role="menuitem"
-              className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition"
+              className="w-full text-left px-3 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/5 transition"
             >
               Log out
             </button>
@@ -122,7 +122,7 @@ export default function AccountMenu({
 
 function MenuGroup({ children, last = false }: { children: React.ReactNode; last?: boolean }) {
   return (
-    <div className={last ? "" : "border-b border-gray-100 dark:border-white/10"}>{children}</div>
+    <div className={last ? "" : "border-b border-neutral-100 dark:border-white/10"}>{children}</div>
   );
 }
 
@@ -144,8 +144,8 @@ function MenuLink({
       onClick={onSelect}
       className={`block px-3 py-2 text-sm transition ${
         muted
-          ? "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
-          : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/5"
+          ? "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-white/5"
+          : "text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/5"
       }`}
     >
       {children}
