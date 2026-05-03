@@ -75,7 +75,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
   events: {
-    async signIn({ user }) {
+    async signIn({ user, account }) {
       if (!user?.id || !user.email) return;
       const db = getDb();
       // Bootstrap-admin promotion runs here so the UPDATE has a row to hit.
@@ -83,6 +83,27 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         db.prepare("UPDATE users SET role = 'admin', updated_at = datetime('now'), last_login_at = datetime('now') WHERE id = ?").run(user.id);
       } else {
         db.prepare("UPDATE users SET last_login_at = datetime('now') WHERE id = ?").run(user.id);
+      }
+      // Refresh the stored OAuth token + scope on every sign-in. Auth.js's
+      // adapter calls `linkAccount` only once per provider/account_id pair,
+      // so without this hook a user who signed in last month with an older
+      // scope set keeps a stale access_token forever and re-auth feels like
+      // a no-op. Specifically: this is what lets the Discord bot manager
+      // see the user's guilds the first time we add a new scope.
+      if (account && (account.access_token || account.refresh_token)) {
+        db.prepare(
+          `UPDATE accounts SET access_token = ?, refresh_token = ?, scope = ?, expires_at = ?, token_type = ?, id_token = ?
+             WHERE provider = ? AND provider_account_id = ?`,
+        ).run(
+          account.access_token ?? null,
+          account.refresh_token ?? null,
+          account.scope ?? null,
+          account.expires_at ?? null,
+          account.token_type ?? null,
+          account.id_token ?? null,
+          account.provider,
+          account.providerAccountId,
+        );
       }
     },
   },
