@@ -20,6 +20,12 @@ if (process.env.AUTH_DISCORD_ID && process.env.AUTH_DISCORD_SECRET) {
     // /account/discord "Add subscription" form can show a dropdown of their
     // servers). Existing users keep the basic scope until they re-auth.
     authorization: { params: { scope: "identify email guilds" } },
+    // Auto-link Discord OAuth identities to existing users by verified email.
+    // Discord verifies emails before exposing them via the API, so we trust
+    // matches as the same human; without this, anyone whose user record was
+    // first created via Google or magic-link gets OAuthAccountNotLinked when
+    // they try to sign in with Discord later.
+    allowDangerousEmailAccountLinking: true,
   }));
 }
 if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
@@ -34,6 +40,10 @@ if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
       params: { scope: "openid email profile" },
     },
     checks: ["pkce"],
+    // Same reasoning as the Discord provider — Google verifies emails, so a
+    // user who first signed in via magic-link or Discord and now uses Google
+    // gets linked to the same record instead of an OAuthAccountNotLinked error.
+    allowDangerousEmailAccountLinking: true,
   }));
 }
 if (process.env.AUTH_RESEND_KEY && process.env.AUTH_EMAIL_FROM) {
