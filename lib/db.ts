@@ -368,6 +368,9 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE events ADD COLUMN rsvp_enabled INTEGER DEFAULT 0"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN visibility TEXT DEFAULT 'public'"); } catch {}
   try { db.exec("ALTER TABLE events ADD COLUMN cancelled_at TEXT"); } catch {}
+  // Password column for the email/password sign-in path (bcrypt hash).
+  // Nullable — most users still come in via OAuth or magic-link.
+  try { db.exec("ALTER TABLE users ADD COLUMN password_hash TEXT"); } catch {}
 
   // Default settings
   const insert = db.prepare("INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)");
