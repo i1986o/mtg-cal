@@ -131,7 +131,7 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
                 className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                   p.tone === "warn"
                     ? "bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300"
-                    : "bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300"
+                    : "bg-gray-100 text-gray-700 dark:bg-white/10 dark:text-gray-300"
                 }`}
               >
                 {p.label}
@@ -216,7 +216,7 @@ function SubscriptionCard({ sub }: { sub: DiscordSubscription }) {
             <button
               onClick={save}
               disabled={busy}
-              className="px-3 py-1.5 rounded bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition disabled:opacity-50"
+              className="px-3 py-1.5 rounded bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition disabled:opacity-50"
             >
               {busy ? "Saving…" : "Save"}
             </button>

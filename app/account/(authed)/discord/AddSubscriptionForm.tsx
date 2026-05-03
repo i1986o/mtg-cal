@@ -33,7 +33,7 @@ export default function AddSubscriptionForm({ inviteUrl }: { inviteUrl: string |
     <div>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition"
       >
         + New subscription
       </button>
@@ -286,7 +286,7 @@ function FormModal({
             <button
               onClick={submit}
               disabled={!canSubmit}
-              className="px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition disabled:opacity-50"
+              className="px-4 py-2 rounded-md bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition disabled:opacity-50"
             >
               {submitting ? "Creating…" : "Create subscription"}
             </button>
@@ -307,7 +307,7 @@ function NoGuildsCard({ inviteUrl }: { inviteUrl: string | null }) {
       We couldn&apos;t find any servers where you have <strong>Manage Server</strong> permission.{" "}
       {inviteUrl && (
         <>
-          <a href={inviteUrl} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 underline">
+          <a href={inviteUrl} target="_blank" rel="noopener noreferrer" className="text-amber-700 dark:text-amber-400 underline">
             Add the bot to a server
           </a>
           {" "}you administer first.
