@@ -258,7 +258,7 @@ export default async function EventPage({
         />
       )}
 
-      <div className="bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
+      <div className="bg-white dark:bg-stone-900 border border-gray-100 dark:border-white/8 rounded-xl anim-fade-in-up" style={{ "--delay": "60ms" } as React.CSSProperties}>
         {/* Hero image — uploaded photo, scraped cover, venue default, or placeholder. */}
         {/* When the hero is a real photo or map (`object-cover`), no padding
             and no visible bg — the image fills edge-to-edge. When it's a
@@ -333,7 +333,7 @@ export default async function EventPage({
         {/* Notes */}
         {ev.notes && (
           <Reveal>
-            <div className="mx-6 mb-4 bg-gray-50 dark:bg-[#141c2e] rounded-lg p-4">
+            <div className="mx-6 mb-4 bg-gray-50 dark:bg-stone-800 rounded-lg p-4">
               <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Description</p>
               <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-words">{ev.notes}</p>
             </div>
@@ -342,7 +342,7 @@ export default async function EventPage({
 
         {/* Meta footer */}
         <Reveal>
-          <div className="bg-gray-50 dark:bg-[#080e18] rounded-b-xl px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
+          <div className="bg-gray-50 dark:bg-stone-950 rounded-b-xl px-6 py-3 text-xs text-gray-400 dark:text-gray-600 flex justify-between">
             <span>ID: {ev.id}</span>
             <span>Added {ev.added_date} · Updated {ev.updated_date}</span>
           </div>

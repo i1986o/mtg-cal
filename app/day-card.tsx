@@ -104,8 +104,8 @@ export default function DayCard({
     : "hover:border-gray-200 dark:hover:border-white/15";
 
   const headingBg = isToday
-    ? "bg-blue-50 dark:bg-[#0c1220]"
-    : "bg-white dark:bg-[#0c1220]";
+    ? "bg-amber-50 dark:bg-stone-900"
+    : "bg-white dark:bg-stone-900";
 
   return (
     <div ref={wrapperRef} style={{ opacity: 0 }} className={isPast && !isToday ? "opacity-70" : ""}>
@@ -136,7 +136,7 @@ export default function DayCard({
               href={`/event/${encodeURIComponent(ev.id)}`}
               data-row
               style={{ opacity: 0 }}
-              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-blue-100/50 dark:hover:bg-blue-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
+              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-amber-100/50 dark:hover:bg-amber-400/10" : "hover:bg-gray-50 dark:hover:bg-white/5"}`}
             >
               {/* Desktop: time as a fixed left column. Mobile: hidden here
                   and rendered above the title (see middle div below) so the

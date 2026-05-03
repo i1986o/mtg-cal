@@ -46,7 +46,7 @@ export default function RetryAllButton() {
   }
 
   return (
-    <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 rounded-lg p-4">
+    <div className="bg-amber-50 dark:bg-amber-500/10/30 border border-blue-200 dark:border-blue-900 rounded-lg p-4">
       <div className="flex items-start gap-3">
         <div className="flex-1 min-w-0">
           <h2 className="text-sm font-semibold text-blue-900 dark:text-blue-200">Bulk retry auto-fetch</h2>
@@ -77,7 +77,7 @@ export default function RetryAllButton() {
           type="button"
           onClick={run}
           disabled={busy}
-          className="text-sm px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 shrink-0"
+          className="text-sm px-4 py-2 rounded-md bg-amber-500 text-white hover:bg-amber-600 disabled:opacity-50 shrink-0"
         >
           {busy ? "Working…" : "Retry all empty"}
         </button>

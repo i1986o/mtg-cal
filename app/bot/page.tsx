@@ -11,7 +11,7 @@ const inviteUrl = botInviteUrl();
 
 function CommandCard({ name, summary, example }: { name: string; summary: string; example?: string }) {
   return (
-    <div className="rounded-lg border border-gray-100 dark:border-white/10 bg-white dark:bg-[#0c1220] p-4">
+    <div className="rounded-lg border border-gray-100 dark:border-stone-800 bg-white dark:bg-stone-900 p-4">
       <div className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100">{name}</div>
       <div className="text-sm text-gray-700 dark:text-gray-300 mt-1">{summary}</div>
       {example && (
@@ -78,7 +78,7 @@ export default function BotPage() {
           <h2 className="text-xl font-[family-name:var(--font-ultra)] font-bold text-gray-900 dark:text-white mb-3">How it works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>Click <strong>Add to your Discord server</strong> above and pick a server.</li>
-            <li>In the channel where you want events to post, run <code className="font-mono px-1 py-0.5 rounded bg-gray-100 dark:bg-white/10">/playirl subscribe</code>.</li>
+            <li>In the channel where you want events to post, run <code className="font-mono px-1 py-0.5 rounded bg-gray-100 dark:bg-stone-800">/playirl subscribe</code>.</li>
             <li>Pick a <strong>mode</strong> — weekly digest, daily digest, or per-event reminder — and any filters (format, location, source).</li>
             <li>That&apos;s it. The bot posts on the schedule you set. Repeat to add more channels or formats.</li>
           </ol>
@@ -135,7 +135,7 @@ export default function BotPage() {
       </Reveal>
 
       <Reveal delay={300}>
-        <section className="text-xs text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-white/10 pt-4">
+        <section className="text-xs text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-stone-800 pt-4">
           Your channel data stays inside the bot&apos;s own SQLite database — we don&apos;t share subscription configs with third parties. The bot only needs <strong>View Channel</strong>, <strong>Send Messages</strong>, <strong>Embed Links</strong>, and <strong>Read Message History</strong> to function.
         </section>
       </Reveal>

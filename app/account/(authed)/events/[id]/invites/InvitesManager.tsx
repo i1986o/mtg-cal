@@ -58,7 +58,7 @@ export default function InvitesManager({
   return (
     <div className="space-y-6">
       {/* Generator */}
-      <section className="rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0c1220] p-4 space-y-3">
+      <section className="rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-stone-900 p-4 space-y-3">
         <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Generate invite link</h2>
         <p className="text-xs text-gray-500 dark:text-gray-400">
           Each link grants read access to this event without needing to be on the
@@ -72,7 +72,7 @@ export default function InvitesManager({
             onChange={(e) => setLabel(e.target.value)}
             placeholder="e.g. Discord #pods or Alex's group"
             maxLength={80}
-            className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <Button variant="primary" onClick={generate} disabled={busy}>
             {busy ? "Generating…" : "Generate"}
@@ -92,7 +92,7 @@ export default function InvitesManager({
         ) : (
           <ul className="divide-y divide-gray-100 dark:divide-white/8 border border-gray-100 dark:border-white/8 rounded-lg overflow-hidden">
             {invites.map((inv) => (
-              <li key={inv.id} className="px-4 py-3 bg-white dark:bg-[#0c1220] flex items-start gap-3">
+              <li key={inv.id} className="px-4 py-3 bg-white dark:bg-stone-900 flex items-start gap-3">
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
                     {inv.label || <span className="text-gray-400 dark:text-gray-500 italic">No label</span>}
@@ -111,7 +111,7 @@ export default function InvitesManager({
                   <button
                     type="button"
                     onClick={() => copy(inv)}
-                    className="text-xs px-2 py-1 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-xs px-2 py-1 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800"
                   >
                     {copiedId === inv.id ? "Copied!" : "Copy"}
                   </button>

@@ -106,7 +106,7 @@ export default function VenueRow({
   }
 
   return (
-    <li className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex items-center gap-4">
+    <li className="bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-700 rounded-lg p-3 flex items-center gap-4">
       <input
         ref={inputRef}
         type="file"
@@ -118,7 +118,7 @@ export default function VenueRow({
         }}
       />
 
-      <div className="w-20 h-14 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800 shrink-0 flex items-center justify-center">
+      <div className="w-20 h-14 rounded-md overflow-hidden bg-gray-100 dark:bg-stone-800 shrink-0 flex items-center justify-center">
         {imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={imageUrl} alt="" className="w-full h-full object-cover" />
@@ -157,7 +157,7 @@ export default function VenueRow({
           onClick={refetch}
           disabled={busy}
           title="Re-run the auto-fetcher (og:image → Places photo → Street View). Bypasses the 30-day skip window."
-          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
+          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800 disabled:opacity-50"
         >
           {busy ? "Working…" : "Retry auto-fetch"}
         </button>
@@ -165,7 +165,7 @@ export default function VenueRow({
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={busy}
-          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
+          className="text-xs px-3 py-1.5 rounded-md border border-gray-300 dark:border-stone-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-stone-800 disabled:opacity-50"
         >
           {busy ? "Uploading…" : imageUrl ? "Replace" : "Upload"}
         </button>

@@ -38,7 +38,7 @@ const TIME_OPTIONS = getTimeOptions();
 const CHIP_TRIGGER = "inline-block underline decoration-dotted underline-offset-4 decoration-gray-400 dark:decoration-gray-500 text-gray-900 dark:text-white font-[family-name:var(--font-ultra)] focus:outline-none cursor-pointer bg-transparent hover:decoration-solid hover:decoration-gray-900 dark:hover:decoration-white hover:text-gray-600 dark:hover:text-gray-300 active:opacity-60 transition-all duration-150 px-1";
 // Connector words ("events within", "miles of", "in") — Inter, body-text size, neutral weight, normal tracking. Matches the tagline rather than the slab madlib elements.
 const CONNECTOR = "font-[family-name:var(--font-inter)] font-normal text-sm tracking-normal";
-const DROPDOWN_BASE = "absolute top-full mt-2 z-50 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-max";
+const DROPDOWN_BASE = "absolute top-full mt-2 z-50 bg-white dark:bg-stone-900 border border-gray-100 dark:border-white/10 rounded-xl shadow-xl overflow-hidden min-w-max";
 const DROPDOWN_ALIGN = { start: "left-0", center: "left-1/2 -translate-x-1/2", end: "right-0" };
 const OPTION = "w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-left hover:bg-gray-50 dark:hover:bg-white/5 transition-colors";
 
@@ -108,7 +108,7 @@ function ChipSelect({
                 onClick={() => { close(); onChange(opt.value); }}
                 className={`${OPTION} ${selected ? "bg-gray-50 dark:bg-white/8 text-gray-900 dark:text-white font-semibold" : "text-gray-500 dark:text-gray-400 font-medium"}`}
               >
-                {dot && <span className={`w-2 h-2 rounded-full shrink-0 ${opt.dot || "bg-gray-400 dark:bg-gray-600"}`} />}
+                {dot && <span className={`w-2 h-2 rounded-full shrink-0 ${opt.dot || "bg-gray-400 dark:bg-stone-600"}`} />}
                 <span className="flex-1">{opt.label}</span>
                 {selected && (
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -194,7 +194,7 @@ function SubscribeDropdown({
         ref={triggerRef}
         onClick={() => status === "open" ? close() : open()}
         title="Subscribe to calendar"
-        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-[#0c1220] border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 text-xs hover:border-gray-300 dark:hover:border-white/20 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#141c2e] active:opacity-70 transition-all duration-150 cursor-pointer focus:outline-none"
+        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-stone-900 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 text-xs hover:border-gray-300 dark:hover:border-white/20 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-stone-800 active:opacity-70 transition-all duration-150 cursor-pointer focus:outline-none"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8 3v3m8-3v3M4 9h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
@@ -327,7 +327,7 @@ export default function RadiusSelector({
   }
 
   const formatOptions = [
-    { value: "", label: "All formats", dot: "bg-gray-400 dark:bg-gray-600" },
+    { value: "", label: "All formats", dot: "bg-gray-400 dark:bg-stone-600" },
     ...formats.map((f) => ({ value: f, label: f, dot: FORMAT_DOT[f] || "bg-gray-400" })),
   ];
 
@@ -337,7 +337,7 @@ export default function RadiusSelector({
     <>
       {toast && (
         <div
-          className="fixed z-50 px-3 py-2 bg-white dark:bg-[#0c1220] border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
+          className="fixed z-50 px-3 py-2 bg-white dark:bg-stone-900 border border-gray-100 dark:border-white/8 rounded-lg text-sm text-gray-900 dark:text-white font-medium shadow-lg whitespace-nowrap pointer-events-none"
           style={{ top: `${toast.top}px`, left: `${toast.left}px`, transform: "translateX(-50%)" }}
         >
           {toast.text}

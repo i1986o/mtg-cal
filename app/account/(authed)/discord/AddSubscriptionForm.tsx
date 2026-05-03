@@ -183,8 +183,8 @@ function FormModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="w-full max-w-xl bg-white dark:bg-[#0c1220] rounded-xl shadow-xl border border-gray-200 dark:border-white/10 max-h-[90vh] overflow-y-auto">
-        <div className="px-5 py-4 border-b border-gray-100 dark:border-white/10 flex items-center justify-between sticky top-0 bg-white dark:bg-[#0c1220] z-10">
+      <div className="w-full max-w-xl bg-white dark:bg-stone-900 rounded-xl shadow-xl border border-gray-200 dark:border-stone-800 max-h-[90vh] overflow-y-auto">
+        <div className="px-5 py-4 border-b border-gray-100 dark:border-stone-800 flex items-center justify-between sticky top-0 bg-white dark:bg-stone-900 z-10">
           <h2 className="text-base font-semibold text-gray-900 dark:text-white">New Discord subscription</h2>
           <button
             onClick={onClose}
@@ -275,11 +275,11 @@ function FormModal({
         </div>
 
         {!reauth && (
-          <div className="px-5 py-4 border-t border-gray-100 dark:border-white/10 flex items-center justify-end gap-2 sticky bottom-0 bg-white dark:bg-[#0c1220]">
+          <div className="px-5 py-4 border-t border-gray-100 dark:border-stone-800 flex items-center justify-end gap-2 sticky bottom-0 bg-white dark:bg-stone-900">
             <button
               onClick={onClose}
               disabled={submitting}
-              className="px-4 py-2 rounded-md border border-gray-200 dark:border-white/15 text-sm hover:bg-gray-50 dark:hover:bg-white/5 transition"
+              className="px-4 py-2 rounded-md border border-gray-200 dark:border-stone-700 text-sm hover:bg-gray-50 dark:hover:bg-stone-800 transition"
             >
               Cancel
             </button>
@@ -298,12 +298,12 @@ function FormModal({
 }
 
 function Skeleton() {
-  return <div className="h-9 rounded-md bg-gray-100 dark:bg-white/5 animate-pulse" />;
+  return <div className="h-9 rounded-md bg-gray-100 dark:bg-stone-800/50 animate-pulse" />;
 }
 
 function NoGuildsCard({ inviteUrl }: { inviteUrl: string | null }) {
   return (
-    <div className="rounded-md border border-gray-200 dark:border-white/15 bg-gray-50 dark:bg-white/5 p-3 text-xs text-gray-600 dark:text-gray-300">
+    <div className="rounded-md border border-gray-200 dark:border-stone-700 bg-gray-50 dark:bg-stone-800/50 p-3 text-xs text-gray-600 dark:text-gray-300">
       We couldn&apos;t find any servers where you have <strong>Manage Server</strong> permission.{" "}
       {inviteUrl && (
         <>

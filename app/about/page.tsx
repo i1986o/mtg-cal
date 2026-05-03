@@ -93,7 +93,7 @@ export default function AboutPage() {
               </a>
               <a
                 href="mailto:CardSlingerTCG@gmail.com?subject=PlayIRL.GG%20event%20submission"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-[#141c2e] hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-stone-900 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200"
               >
                 {"\u2709\uFE0F"} Email us
               </a>
@@ -107,7 +107,7 @@ export default function AboutPage() {
               href="https://github.com/i1986o/mtg-cal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-[#0c1220] text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-[#141c2e] hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200 border border-gray-100 dark:border-white/8"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-stone-900 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20 active:translate-y-0 transition-all duration-200 border border-gray-100 dark:border-white/8"
             >
               {"\u2B50"} GitHub
             </a>

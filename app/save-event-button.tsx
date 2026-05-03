@@ -58,7 +58,7 @@ export default function SaveEventButton({ eventId, initiallySaved, compact = fal
         className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition ${
           saved
             ? "text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950"
-            : "text-gray-400 hover:text-amber-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+            : "text-gray-400 hover:text-amber-500 hover:bg-gray-100 dark:hover:bg-stone-800"
         } ${busy ? "opacity-50" : ""} ${className}`}
       >
         <StarIcon filled={saved} />
@@ -76,7 +76,7 @@ export default function SaveEventButton({ eventId, initiallySaved, compact = fal
       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition border ${
         saved
           ? "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800 dark:hover:bg-amber-900"
-          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 dark:bg-stone-900 dark:text-gray-200 dark:border-stone-700 dark:hover:bg-stone-800"
       } ${busy ? "opacity-50" : ""} ${className}`}
     >
       <StarIcon filled={saved} />

@@ -40,7 +40,7 @@ const EMPTY: EventFormValues = {
   capacity: "", rsvp_enabled: true, visibility: "public",
 };
 
-const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
+const FIELD = "w-full px-3 py-2 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
 /**
  * Stored cost strings use "Free" or "$N" (matches scraper output). Parse into
@@ -239,7 +239,7 @@ export default function EventForm({
               onChange={(e) => updateCost(costPaid, e.target.value)}
               placeholder="5"
               aria-label="Price in dollars"
-              className="w-24 px-2 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-24 px-2 py-1.5 text-sm border border-gray-300 dark:border-stone-600 rounded-md bg-white dark:bg-stone-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
@@ -316,7 +316,7 @@ export default function EventForm({
               type="checkbox"
               checked={values.rsvp_enabled}
               onChange={(e) => setValues((v) => ({ ...v, rsvp_enabled: e.target.checked }))}
-              className="rounded border-gray-300 dark:border-gray-600"
+              className="rounded border-gray-300 dark:border-stone-600"
             />
             Enabled
           </label>
