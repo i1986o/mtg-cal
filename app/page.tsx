@@ -207,6 +207,7 @@ export default async function HomePage({
           {/* Links */}
           <div className="flex flex-col gap-2 text-xs shrink-0">
             <a href="/about" className="hover:text-gray-900 dark:hover:text-white transition">About PlayIRL.GG</a>
+            <a href="/bot" className="hover:text-gray-900 dark:hover:text-white transition">Discord bot</a>
             <a href="https://github.com/i1986o/mtg-cal" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">GitHub</a>
             <a href="https://discord.gg/axDSujPTfj" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition">Join the Discord</a>
             <a href="/account/events/new" className="hover:text-gray-900 dark:hover:text-white transition">Submit your events</a>

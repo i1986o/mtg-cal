@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getCurrentUser, hasAccountAccess } from "@/lib/session";
 import { getEvent } from "@/lib/events";
 import { getDb } from "@/lib/db";
+import { patchPostsForCancelledEvent } from "@/lib/discord-post";
 
 export const dynamic = "force-dynamic";
 
@@ -39,6 +40,16 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
     ).run(id);
   });
   tx();
+
+  // Fire-and-forget: patch any Discord bot messages that referenced this
+  // event so users in those channels see the cancellation without a fresh
+  // post. Re-fetch to pick up the just-set cancelled_at.
+  const fresh = getEvent(id);
+  if (fresh) {
+    void patchPostsForCancelledEvent(fresh).catch(err =>
+      console.error(`[cancel] discord patch fan-out failed for ${id}:`, err),
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

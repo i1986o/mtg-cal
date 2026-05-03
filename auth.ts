@@ -13,7 +13,14 @@ const adminEmails = (process.env.ADMIN_EMAILS ?? "")
 
 const providers: Provider[] = [];
 if (process.env.AUTH_DISCORD_ID && process.env.AUTH_DISCORD_SECRET) {
-  providers.push(Discord({ clientId: process.env.AUTH_DISCORD_ID, clientSecret: process.env.AUTH_DISCORD_SECRET }));
+  providers.push(Discord({
+    clientId: process.env.AUTH_DISCORD_ID,
+    clientSecret: process.env.AUTH_DISCORD_SECRET,
+    // `guilds` lets us list which servers the signed-in user is in (so the
+    // /account/discord "Add subscription" form can show a dropdown of their
+    // servers). Existing users keep the basic scope until they re-auth.
+    authorization: { params: { scope: "identify email guilds" } },
+  }));
 }
 if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
   providers.push(Google({

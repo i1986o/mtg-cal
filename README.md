@@ -136,3 +136,52 @@ Net effect: address-text and lat/lng always agree, regardless of which the rende
   - The CI workflow at `.github/workflows/refresh.yml` deliberately does **not** auto-commit `data/mtg-cal.db` anymore — production is the source of truth. CI still commits the static `output/*.ics` calendar feeds.
 - **Resend sender domain**: requires DNS TXT records for `playirl.gg`. Until that's set, magic-link emails won't deliver.
 - **OAuth callback URIs** must be registered exactly as `https://playirl.gg/api/auth/callback/{discord,google}` in each provider's developer console.
+
+## Discord subscription bot
+
+Server admins can add the PlayIRL.GG bot to their Discord, then subscribe channels to event digests and reminders via slash commands. The user-facing landing page is at `/bot`.
+
+### One-time setup (deployer)
+
+1. **Create the Discord application + bot user** at <https://discord.com/developers/applications>. From the bot tab, copy the bot token; from General Information, copy the Application ID and the Public Key.
+
+2. **Set Railway env vars:**
+   ```
+   DISCORD_BOT_TOKEN=<bot token>
+   DISCORD_BOT_CLIENT_ID=<application id>
+   DISCORD_BOT_PUBLIC_KEY=<public key, hex>
+   DISPATCH_SECRET=<random string — `openssl rand -hex 32`>
+   ```
+
+3. **Register the slash commands.** From a workstation with the env vars set:
+   ```
+   npm run discord:register
+   ```
+   Optionally set `DISCORD_REGISTER_GUILD_ID=<your test guild>` to register guild-only (instant propagation; useful for testing). Without it, registration is global and may take up to an hour the first time.
+
+4. **Set the Interactions Endpoint URL** in the Discord Developer Portal to:
+   ```
+   https://playirl.gg/api/discord/interactions
+   ```
+   Discord PINGs the URL immediately to validate signature handling — the call is rejected unless `DISCORD_BOT_PUBLIC_KEY` is set correctly.
+
+5. **Configure Railway Cron** to fire the dispatcher every 5 minutes:
+   ```
+   Schedule: */5 * * * *
+   Command:  curl -X POST https://playirl.gg/api/discord/dispatch \
+                  -H "x-dispatch-secret: $DISPATCH_SECRET"
+   ```
+   The dispatcher self-gates: only weekly subs whose `(dow, hour_utc)` matches the current tick fire, only daily subs at the right hour, and reminders only fire when an event start sits inside the [now+lead, now+lead+5min) window. Missed ticks are picked up by the next tick within the same window thanks to the idempotency ledger.
+
+6. **Verify** by inviting the bot to a test guild via `/bot`, running `/playirl subscribe mode:weekly format:Commander`, then `/playirl preview <id>`.
+
+### How users add it
+
+Direct admins to <https://playirl.gg/bot> — the page has the Add-to-Discord button (already pre-filtered to the right OAuth scopes and permissions) and a full command reference.
+
+### Architecture notes
+
+- HTTP Interactions only — no Discord Gateway connection. Compatible with Railway's stateless single-service deploy.
+- Ed25519 signature verification uses Node's built-in `crypto.verify`; no `tweetnacl` dependency.
+- Subscription state lives in two SQLite tables: `discord_subscriptions` and `discord_subscription_posts` (composite-PK ledger that enforces exactly-once-per-bucket posting).
+- All slash command handlers that need network I/O (geocoding, etc.) use Discord's deferred-response pattern so we never blow the 3-second ack budget.

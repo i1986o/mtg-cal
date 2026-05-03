@@ -8,43 +8,23 @@ import Link from "next/link";
 import { formatEventTimeRange } from "@/lib/format-time";
 import { resolveEventImage, hasRealEventImage } from "@/lib/event-image";
 import { SITE_URL } from "@/lib/config";
+import {
+  FORMAT_BADGE,
+  FORMAT_BADGE_DEFAULT,
+  FORMAT_EMOJI,
+  FORMAT_EMOJI_DEFAULT,
+  SOURCE_LABELS,
+} from "@/lib/format-style";
 import ShareButton from "./share-button";
 import RsvpButton from "./rsvp-button";
 import HostActions from "./host-actions";
 import Reveal from "@/app/reveal";
-
-const FORMAT_COLORS: Record<string, string> = {
-  Commander: "bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/30",
-  Modern: "bg-blue-100 text-blue-700 border border-blue-200 dark:bg-blue-500/20 dark:text-blue-300 dark:border-blue-500/30",
-  Standard: "bg-green-100 text-green-700 border border-green-200 dark:bg-green-500/20 dark:text-green-300 dark:border-green-500/30",
-  Pioneer: "bg-orange-100 text-orange-700 border border-orange-200 dark:bg-orange-500/20 dark:text-orange-300 dark:border-orange-500/30",
-  Legacy: "bg-red-100 text-red-700 border border-red-200 dark:bg-red-500/20 dark:text-red-300 dark:border-red-500/30",
-  Pauper: "bg-yellow-100 text-yellow-700 border border-yellow-200 dark:bg-yellow-500/20 dark:text-yellow-300 dark:border-yellow-500/30",
-  Draft: "bg-cyan-100 text-cyan-700 border border-cyan-200 dark:bg-cyan-500/20 dark:text-cyan-300 dark:border-cyan-500/30",
-  Sealed: "bg-pink-100 text-pink-700 border border-pink-200 dark:bg-pink-500/20 dark:text-pink-300 dark:border-pink-500/30",
-};
-
-const FORMAT_EMOJI: Record<string, string> = {
-  Commander: "\u2694\uFE0F",
-  Modern: "\u26A1",
-  Standard: "\u2B50",
-  Pioneer: "\uD83E\uDE90",
-  Legacy: "\uD83D\uDC51",
-  Pauper: "\uD83E\uDE99",
-  Draft: "\uD83C\uDFB2",
-  Sealed: "\uD83C\uDF81",
-};
 
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T12:00:00");
   return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 }
 
-const SOURCE_LABELS: Record<string, string> = {
-  "wizards-locator": "Wizards of the Coast Event Locator",
-  "discord": "Discord Scheduled Event",
-  "topdeck": "TopDeck.gg",
-};
 
 function DetailRow({ label, value, href }: { label: string; value: string; href?: string }) {
   if (!value) return null;
@@ -302,8 +282,8 @@ export default async function EventPage({
         <div className="p-6 pb-4 space-y-4">
           <div>
             <div className="text-xs text-gray-400 dark:text-gray-500 mb-1">Format</div>
-            <span className={`inline-block px-2.5 py-1 rounded-md text-xs font-semibold ${FORMAT_COLORS[ev.format] || "bg-gray-100 text-gray-600 border border-gray-200 dark:bg-gray-500/20 dark:text-gray-300 dark:border-gray-500/30"}`}>
-              {FORMAT_EMOJI[ev.format] || "\uD83C\uDCCF"} {ev.format || "MTG"}
+            <span className={`inline-block px-2.5 py-1 rounded-md text-xs font-semibold ${FORMAT_BADGE[ev.format] || FORMAT_BADGE_DEFAULT}`}>
+              {FORMAT_EMOJI[ev.format] || FORMAT_EMOJI_DEFAULT} {ev.format || "MTG"}
             </span>
           </div>
           <div>

@@ -93,6 +93,7 @@ export default function AccountMenu({
             <MenuLink href="/account/events" onSelect={() => setOpen(false)}>My events</MenuLink>
             <MenuLink href="/account/events/new" onSelect={() => setOpen(false)}>+ Submit event</MenuLink>
             <MenuLink href="/account/sources" onSelect={() => setOpen(false)}>Event sources</MenuLink>
+            <MenuLink href="/account/discord" onSelect={() => setOpen(false)}>Discord subscriptions</MenuLink>
           </MenuGroup>
 
           {role === "admin" && (

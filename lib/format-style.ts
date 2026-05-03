@@ -36,6 +36,31 @@ export const FORMAT_BADGE_DEFAULT =
 
 export const FORMAT_EMOJI_DEFAULT = "\uD83C\uDCCF";
 
+// Hex-int color values for Discord embed `color` field. Mirrors FORMAT_DOT
+// (Tailwind 500-shade values) so the embed accent color matches the dot
+// color shown elsewhere in the product.
+export const FORMAT_EMBED_COLOR: Record<string, number> = {
+  Commander: 0xa855f7,
+  Modern: 0x3b82f6,
+  Standard: 0x22c55e,
+  Pioneer: 0xf97316,
+  Legacy: 0xef4444,
+  Pauper: 0xeab308,
+  Draft: 0x06b6d4,
+  Sealed: 0xec4899,
+};
+
+export const FORMAT_EMBED_COLOR_DEFAULT = 0x6b7280;
+
+// Human-readable source labels. Used by the event detail page footer and
+// Discord embed footers — keeping one map means the surface vocabulary
+// stays in sync as we add new sources.
+export const SOURCE_LABELS: Record<string, string> = {
+  "wizards-locator": "Wizards of the Coast Event Locator",
+  "discord": "Discord Scheduled Event",
+  "topdeck": "TopDeck.gg",
+};
+
 /**
  * Canonical format list shown in the event-form dropdown. Matches what the
  * scrapers emit today (see scrapers/discord.ts extractFormat and WotC API
