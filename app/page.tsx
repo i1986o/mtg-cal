@@ -117,13 +117,12 @@ export default async function HomePage({
         </p>
       </header>
 
-      {/* Sticky filter bar — hidden for now per user feedback ("filters are
-         redundant"). Re-enable by un-commenting the block. */}
-      {/* <StickyBar>
+      {/* Sticky filter bar */}
+      <StickyBar>
         <div className="flex justify-center">
           <RadiusSelector currentRadius={currentRadius} currentDays={currentDays} currentFormat={currentFormat} formats={formats} eventCount={events.length} />
         </div>
-      </StickyBar> */}
+      </StickyBar>
 
       {currentView === "calendar" ? (
         <div
