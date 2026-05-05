@@ -9,7 +9,7 @@ X-WR-CALDESC:Dungeons and Dragons Event events in Philadelphia area
 BEGIN:VEVENT
 UID:wotc-10831245
 SEQUENCE:0
-DTSTAMP:20260504T114908Z
+DTSTAMP:20260505T111618Z
 DTSTART:20260606T180000Z
 DTEND:20260606T210000Z
 SUMMARY:D&D Encounters Celebration D&D Encounters Celebration @ The Guild 
@@ -24,7 +24,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10831811
 SEQUENCE:0
-DTSTAMP:20260504T114908Z
+DTSTAMP:20260505T111618Z
 DTSTART:20260610T223000Z
 DTEND:20260611T013000Z
 SUMMARY:D&D Encounters Celebration @ Queen & Rook! @ Queen and Rook Game C
@@ -39,7 +39,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10831718
 SEQUENCE:0
-DTSTAMP:20260504T114908Z
+DTSTAMP:20260505T111618Z
 DTSTART:20260613T180000Z
 DTEND:20260613T210000Z
 SUMMARY:D&D Encounters Weekly Play D&D Encounters Weekly Play for Ravenlof
@@ -54,7 +54,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10831719
 SEQUENCE:0
-DTSTAMP:20260504T114908Z
+DTSTAMP:20260505T111618Z
 DTSTART:20260620T180000Z
 DTEND:20260620T210000Z
 SUMMARY:D&D Encounters Weekly Play D&D Encounters Weekly Play for Ravenlof
@@ -69,9 +69,24 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10831720
 SEQUENCE:0
-DTSTAMP:20260504T114908Z
+DTSTAMP:20260505T111618Z
 DTSTART:20260627T180000Z
 DTEND:20260627T210000Z
+SUMMARY:D&D Encounters Weekly Play D&D Encounters Weekly Play for Ravenlof
+ t Season @ The Guild Hall @ The Guild Hall Hobby
+LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
+  08052
+DESCRIPTION:Format: Dungeons and Dragons Event\nCost: $10\nStore: https://
+ www.guildhallhobby.com/\nDetails: https://locator.wizards.com/store/17250/
+ \nSource: wizards-locator
+URL;VALUE=URI:https://locator.wizards.com/store/17250/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10831721
+SEQUENCE:0
+DTSTAMP:20260505T111618Z
+DTSTART:20260704T180000Z
+DTEND:20260704T210000Z
 SUMMARY:D&D Encounters Weekly Play D&D Encounters Weekly Play for Ravenlof
  t Season @ The Guild Hall @ The Guild Hall Hobby
 LOCATION:The Guild Hall Hobby\, NJ 38\, Moorestown Township\, New Jersey\,
