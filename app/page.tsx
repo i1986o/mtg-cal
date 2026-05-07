@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 
-import { getActiveEvents, getFormats, getSetting, setSetting, type TimeOfDay } from "@/lib/events";
+import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/events";
 import { getSavedEventIds } from "@/lib/event-saves";
 import { getPreferences, setPreferences } from "@/lib/user-preferences";
 import { getCurrentUser } from "@/lib/session";
@@ -14,8 +14,6 @@ import StickyBar from "./sticky-bar";
 import FloatingToolbar from "./floating-toolbar";
 import AboutInfoButton from "./about-info-button";
 import LocationBanner from "./location-banner";
-import EmptyStateLocationCta from "./empty-state-location-cta";
-import SecondaryFilters from "./secondary-filters";
 import DayCard from "./day-card";
 import Reveal from "./reveal";
 import { LinkButton } from "./button";
@@ -38,8 +36,6 @@ export default async function HomePage({
     format?: string; radius?: string; days?: string; view?: string; offset?: string;
     /** Location override (URL primary). Triple of label + lat + lng. */
     loc?: string; lat?: string; lng?: string;
-    /** Secondary filters — time of day bucket and free-only toggle. */
-    time?: string; free?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -57,13 +53,6 @@ export default async function HomePage({
   const currentFormat = params.format ?? defaultFormat;
   const currentView = params.view || "list";
   const currentOffset = params.offset ? Math.max(0, parseInt(params.offset, 10)) : 0;
-  // Secondary filters. Time-of-day buckets aren't required to match the
-  // server's enum values, so coerce + ignore unknown strings.
-  const currentTimeOfDay: TimeOfDay | undefined =
-    params.time === "morning" || params.time === "afternoon" || params.time === "evening"
-      ? params.time
-      : undefined;
-  const currentFreeOnly = params.free === "1";
 
   // Location resolution: URL params > user_preferences > config.location default.
   // Default label is "Philly" — the brand-friendly short form rather than the
@@ -149,8 +138,6 @@ export default async function HomePage({
     radiusMiles: currentRadius,
     centerLat: currentLocationLat,
     centerLng: currentLocationLng,
-    timeOfDay: currentTimeOfDay,
-    freeOnly: currentFreeOnly,
   });
 
   const enriched = events.map((ev) => {
@@ -188,22 +175,16 @@ export default async function HomePage({
 
       {/* Sticky filter bar */}
       <StickyBar>
-        <div className="flex flex-col items-center">
-          <RadiusSelector
-            currentRadius={currentRadius}
-            currentDays={currentDays}
-            currentFormat={currentFormat}
-            formats={formats}
-            eventCount={events.length}
-            currentLocationLabel={currentLocationLabel}
-            defaultLocationLabel={DEFAULT_LOCATION_LABEL}
-            isLocationCustom={isLocationCustom}
-          />
-          <SecondaryFilters
-            currentTimeOfDay={currentTimeOfDay}
-            currentFreeOnly={currentFreeOnly}
-          />
-        </div>
+        <RadiusSelector
+          currentRadius={currentRadius}
+          currentDays={currentDays}
+          currentFormat={currentFormat}
+          formats={formats}
+          eventCount={events.length}
+          currentLocationLabel={currentLocationLabel}
+          defaultLocationLabel={DEFAULT_LOCATION_LABEL}
+          isLocationCustom={isLocationCustom}
+        />
       </StickyBar>
 
       {currentView === "calendar" ? (
@@ -221,19 +202,7 @@ export default async function HomePage({
         <>
           {Object.keys(grouped).length === 0 && (
             <Reveal className="text-center py-16" delay={100}>
-              <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
               <p className="text-neutral-400 text-lg">No events found</p>
-              {/* The most likely fix is "your location is wrong", not
-                  "expand your radius" \u2014 the CTA reflects that. The hint
-                  for radius/time still appears because at nationwide
-                  scale some legitimately empty geographies exist (rural
-                  areas with no LGS within 25mi of any anchor). */}
-              <p className="text-neutral-500 text-sm mt-1">
-                {isLocationCustom
-                  ? "Try expanding your distance or time range"
-                  : `We're showing events near ${currentLocationLabel}. Set your location to find events near you.`}
-              </p>
-              {!isLocationCustom && <EmptyStateLocationCta />}
             </Reveal>
           )}
 

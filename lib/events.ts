@@ -147,38 +147,6 @@ function boundingBoxMiles(lat: number, lng: number, radiusMi: number) {
   };
 }
 
-export type TimeOfDay = "morning" | "afternoon" | "evening";
-
-/** Local-time bucket boundaries (inclusive of `from`, exclusive of `to`).
- *  `time` is stored as UTC HH:MM, so we have to convert per-row using the
- *  event's `timezone` before bucketing — see `eventLocalHour`. */
-const TIME_BUCKETS: Record<TimeOfDay, { from: number; to: number }> = {
-  morning: { from: 0, to: 12 },
-  afternoon: { from: 12, to: 17 },
-  evening: { from: 17, to: 24 },
-};
-
-/** Compute the event's start hour in its local timezone. The DB stores
- *  `time` as UTC HH:MM (per scrapers/schema.ts). Returns null when the
- *  event has no time or the timezone is invalid — those rows are dropped
- *  by the time-of-day filter. */
-function eventLocalHour(date: string, time: string, timezone: string): number | null {
-  if (!date || !time) return null;
-  try {
-    const utc = new Date(`${date}T${time}:00Z`);
-    if (isNaN(utc.getTime())) return null;
-    const hourStr = new Intl.DateTimeFormat("en-US", {
-      timeZone: timezone || "UTC",
-      hour: "numeric",
-      hour12: false,
-    }).format(utc);
-    const h = parseInt(hourStr, 10);
-    return Number.isFinite(h) ? h : null;
-  } catch {
-    return null;
-  }
-}
-
 export function getActiveEvents(filters?: {
   format?: string;
   from?: string;
@@ -186,11 +154,6 @@ export function getActiveEvents(filters?: {
   radiusMiles?: number;
   centerLat?: number;
   centerLng?: number;
-  /** Filter to events whose start `time` (event-local) falls in the bucket. */
-  timeOfDay?: TimeOfDay;
-  /** When true, drop any event whose `cost` isn't "Free". Empty cost
-   *  (cost unknown) is excluded — better to under-show than mislead. */
-  freeOnly?: boolean;
 }): EventRow[] {
   const db = getDb();
   // visibility/cancelled chokepoint: every public read path goes through
@@ -211,15 +174,6 @@ export function getActiveEvents(filters?: {
     sql += " AND date <= ?";
     params.push(filters.to);
   }
-  if (filters?.freeOnly) {
-    // The scrapers emit "Free" exactly for free events. Some events
-    // have empty cost (data missing) — treat unknown as not-known-free
-    // so we don't surface them under the "free events" lens.
-    sql += " AND cost = 'Free'";
-  }
-  // time-of-day is a post-filter (not SQL): the `time` column is UTC
-  // HH:MM but the bucket is in event-local time. We have to convert per
-  // row using `timezone`. Cheap at row counts < 100k.
 
   // Bounding-box prefilter: pushes the easy spatial reject down to SQLite so
   // we only haversine the candidate set instead of every active event. Events
@@ -242,18 +196,6 @@ export function getActiveEvents(filters?: {
     rows = rows.filter(ev => {
       if (ev.latitude == null || ev.longitude == null) return true; // include events without coords
       return haversineDistance(cLat, cLng, ev.latitude, ev.longitude) <= maxMiles;
-    });
-  }
-
-  // Time-of-day post-filter. Per-row IANA TZ conversion since the DB's
-  // `time` column is UTC. Events without a parseable time/timezone get
-  // dropped from any time-of-day query (better than misclassifying).
-  if (filters?.timeOfDay) {
-    const bucket = TIME_BUCKETS[filters.timeOfDay];
-    rows = rows.filter((ev) => {
-      const h = eventLocalHour(ev.date, ev.time, ev.timezone);
-      if (h == null) return false;
-      return h >= bucket.from && h < bucket.to;
     });
   }
 
