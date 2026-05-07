@@ -7,91 +7,9 @@ NAME:MTG Sealed — Philadelphia
 X-WR-CALNAME:MTG Sealed — Philadelphia
 X-WR-CALDESC:Sealed events in Philadelphia area
 BEGIN:VEVENT
-UID:wotc-10623803
-SEQUENCE:0
-DTSTAMP:20260506T114812Z
-DTSTART:20260421T220000Z
-DTEND:20260422T010000Z
-SUMMARY:Runehammer MTG Strixhaven Prerelease @ Runehammer Games
-LOCATION:Runehammer Games\, 2401 Frankford Avenue\, Philadelphia\, Pennsyl
- vania\, 19125
-DESCRIPTION:Format: Sealed\nCost: $35\nStore: http://www.runehammer.online
- \nDetails: https://locator.wizards.com/store/19433/\nSource: wizards-locat
- or
-URL;VALUE=URI:https://locator.wizards.com/store/19433/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10647527
-SEQUENCE:0
-DTSTAMP:20260506T114812Z
-DTSTART:20260421T223000Z
-DTEND:20260422T013000Z
-SUMMARY:Queen & Rook Presents: Secrets of Strixhaven Prerelease @ Queen an
- d Rook Game Cafe
-LOCATION:Queen and Rook Game Cafe\, 117A South Street\, Philadelphia\, Pen
- nsylvania\, 19106
-DESCRIPTION:Format: Sealed\nCost: $40\nStore: https://queenandrookcafe.com
- /\nDetails: https://locator.wizards.com/store/12804/\nSource: wizards-loca
- tor
-URL;VALUE=URI:https://locator.wizards.com/store/12804/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10737663
-SEQUENCE:0
-DTSTAMP:20260506T114812Z
-DTSTART:20260421T223000Z
-DTEND:20260422T013000Z
-SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Sealed\nCost: $40\nStore: http://phillygameshop.com/\n
- Details: https://locator.wizards.com/store/13099/\nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10737664
-SEQUENCE:0
-DTSTAMP:20260506T114812Z
-DTSTART:20260422T223000Z
-DTEND:20260423T013000Z
-SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Sealed\nCost: $40\nStore: http://phillygameshop.com/\n
- Details: https://locator.wizards.com/store/13099/\nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10737665
-SEQUENCE:0
-DTSTAMP:20260506T114812Z
-DTSTART:20260423T223000Z
-DTEND:20260424T013000Z
-SUMMARY:PGS Secrets of Strixhaven Prerelease @ The Philly Game Shop
-LOCATION:The Philly Game Shop\, 521-525 South 5th Street\, Philadelphia\, 
- Pennsylvania\, 19147
-DESCRIPTION:Format: Sealed\nCost: $40\nStore: http://phillygameshop.com/\n
- Details: https://locator.wizards.com/store/13099/\nSource: wizards-locator
-URL;VALUE=URI:https://locator.wizards.com/store/13099/
-END:VEVENT
-BEGIN:VEVENT
-UID:wotc-10653574
-SEQUENCE:0
-DTSTAMP:20260506T114812Z
-DTSTART:20260425T153000Z
-DTEND:20260425T183000Z
-SUMMARY:Sealed RCQ - Secrets of Strixhaven @ Top Deck Games - Cherry Hill
-LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
- rry Hill Township\, New Jersey\, 08003
-DESCRIPTION:Format: Sealed\nCost: $70\nStore: https://www.topdeckgamesonli
- ne.com/\nDetails: https://locator.wizards.com/store/8281/\nSource: wizards
- -locator
-URL;VALUE=URI:https://locator.wizards.com/store/8281/
-END:VEVENT
-BEGIN:VEVENT
 UID:wotc-10862490
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260619T223000Z
 DTEND:20260620T013000Z
 SUMMARY:Queen & Rook Presents: Marvel Superheroes Prerelease @ Queen and R
@@ -104,9 +22,24 @@ DESCRIPTION:Format: Sealed\nCost: $50\nStore: https://queenandrookcafe.com
 URL;VALUE=URI:https://locator.wizards.com/store/12804/
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10925310
+SEQUENCE:0
+DTSTAMP:20260507T013516Z
+DTSTART:20260619T223000Z
+DTEND:20260620T013000Z
+SUMMARY:MTG Marvel: Super Heroes #1 Prerelease @ Top Deck Games - Cherry H
+ ill
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Sealed\nCost: $60\nStore: https://www.topdeckgamesonli
+ ne.com/\nDetails: https://locator.wizards.com/store/8281/\nSource: wizards
+ -locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10819527
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260619T230000Z
 DTEND:20260620T020000Z
 SUMMARY:Kryptic Collections Marvel Super Heroes Prerelease @ Kryptic Colle
@@ -121,7 +54,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10702521
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260619T230000Z
 DTEND:20260620T020000Z
 SUMMARY:Marvel Super Heroes Prerelease @ 7th Dimension Games
@@ -135,7 +68,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10702522
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260620T130000Z
 DTEND:20260620T160000Z
 SUMMARY:Marvel Super Heroes Prerelease @ 7th Dimension Games
@@ -147,9 +80,24 @@ DESCRIPTION:Format: Sealed\nCost: $35\nStore: http://www.7thdimensiongames
 URL;VALUE=URI:https://locator.wizards.com/store/8863/
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10952141
+SEQUENCE:0
+DTSTAMP:20260507T013516Z
+DTSTART:20260620T150000Z
+DTEND:20260620T180000Z
+SUMMARY:MTG Marvel: Super Heroes #2 Prerelease @ Top Deck Games - Cherry H
+ ill
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Sealed\nCost: $60\nStore: https://www.topdeckgamesonli
+ ne.com/\nDetails: https://locator.wizards.com/store/8281/\nSource: wizards
+ -locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10862492
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260620T163000Z
 DTEND:20260620T193000Z
 SUMMARY:Queen & Rook Presents: Marvel Superheroes Prerelease @ Queen and R
@@ -164,7 +112,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10819530
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260620T170000Z
 DTEND:20260620T200000Z
 SUMMARY:Kryptic Collections Marvel Super Heroes Prerelease @ Kryptic Colle
@@ -179,7 +127,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10902252
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260620T190000Z
 DTEND:20260620T220000Z
 SUMMARY:Marvel Super-Heroes 2HG #3 Prerelease @ Top Deck Games - Cherry Hi
@@ -192,9 +140,39 @@ DESCRIPTION:Format: Sealed\nCost: $60\nStore: https://www.topdeckgamesonli
 URL;VALUE=URI:https://locator.wizards.com/store/8281/
 END:VEVENT
 BEGIN:VEVENT
+UID:wotc-10952164
+SEQUENCE:0
+DTSTAMP:20260507T013516Z
+DTSTART:20260620T230000Z
+DTEND:20260621T020000Z
+SUMMARY:MTG Marvel: Super Heroes #4 Prerelease @ Top Deck Games - Cherry H
+ ill
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Sealed\nCost: $60\nStore: https://www.topdeckgamesonli
+ ne.com/\nDetails: https://locator.wizards.com/store/8281/\nSource: wizards
+ -locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
+UID:wotc-10952167
+SEQUENCE:0
+DTSTAMP:20260507T013516Z
+DTSTART:20260621T150000Z
+DTEND:20260621T180000Z
+SUMMARY:MTG Marvel: Super Heroes #5 Prerelease @ Top Deck Games - Cherry H
+ ill
+LOCATION:Top Deck Games - Cherry Hill\, 1400 Haddonfield-Berlin Road\, Che
+ rry Hill Township\, New Jersey\, 08003
+DESCRIPTION:Format: Sealed\nCost: $60\nStore: https://www.topdeckgamesonli
+ ne.com/\nDetails: https://locator.wizards.com/store/8281/\nSource: wizards
+ -locator
+URL;VALUE=URI:https://locator.wizards.com/store/8281/
+END:VEVENT
+BEGIN:VEVENT
 UID:wotc-10862493
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260621T163000Z
 DTEND:20260621T193000Z
 SUMMARY:Queen & Rook Presents: Marvel Superheroes Prerelease @ Queen and R
@@ -209,7 +187,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10702524
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260621T170000Z
 DTEND:20260621T200000Z
 SUMMARY:Marvel Super Heroes Prerelease @ 7th Dimension Games
@@ -223,7 +201,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:wotc-10862491
 SEQUENCE:0
-DTSTAMP:20260506T114812Z
+DTSTAMP:20260507T013516Z
 DTSTART:20260623T223000Z
 DTEND:20260624T013000Z
 SUMMARY:Queen & Rook Presents: Marvel Superheroes Prerelease @ Queen and R
