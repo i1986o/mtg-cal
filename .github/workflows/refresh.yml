@@ -22,10 +22,25 @@ jobs:
           node-version: "20"
       - run: npm install
       - name: Fetch events and generate calendar
+        # MTG_SCRAPE_SCOPE=local pins the CI scrape to the single Philly
+        # center configured in lib/config.ts, even though prod runs in
+        # "national" mode. Reasons:
+        #   1. The static ICS files committed below are the legacy
+        #      GitHub-Pages-served calendar feeds. They were sized for the
+        #      Philly corpus (~150 KB total). At nationwide scale they'd
+        #      balloon to tens of MB and churn every commit.
+        #   2. CI's ephemeral runner has no geocode cache, so a national
+        #      scrape would do ~3000 Nominatim calls (~55 min) every run.
+        #   3. Production (Railway) runs the full national scrape against
+        #      its persistent volume + warm cache; the live /calendar route
+        #      serves the dynamic nationwide feed.
+        # If you want CI to pick up additional metros, edit
+        # lib/config.ts location or override MTG_SCRAPE_SCOPE here.
         run: npm run fetch
         env:
           TOPDECK_API_KEY: ${{ secrets.TOPDECK_API_KEY }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          MTG_SCRAPE_SCOPE: local
       # NOTE: We deliberately do NOT auto-commit `data/mtg-cal.db` anymore.
       # Production runs on a Railway persistent volume (DATABASE_PATH points
       # at the volume), so the live DB is the source of truth. Auto-committing

@@ -50,7 +50,7 @@ export interface ScrapedEvent {
   /** User-connected sources (e.g. private Discord) set owner_id + source_type + status. */
   owner_id?: string | null;
   source_type?: string;
-  status?: "active" | "pending";
+  status?: "active" | "skip" | "pending";
   /** Cover image URL (e.g. Discord CDN or hosted upload). Empty string if none. */
   image_url?: string;
 }
@@ -96,8 +96,14 @@ export function upsertEvents(events: ScrapedEvent[]): {
       } else if (existing.status === "pinned") {
         skipped++;
       } else {
-        // Preserve skip status on update
-        const status = existing.status === "skip" ? "skip" : "active";
+        // Preserve manual/auto-curation statuses on update. `skip` and
+        // `pending` survive re-scrapes — admins promote `pending` to `active`
+        // by hand from the review queue. Anything else (typically `active`)
+        // refreshes to `active`.
+        const status =
+          existing.status === "skip" || existing.status === "pending"
+            ? existing.status
+            : "active";
         // Keep an existing image_url if the re-scrape doesn't carry one.
         const nextImage = ev.image_url || existing.image_url || "";
         updateStmt.run(ev.title, ev.format, ev.date, ev.time, ev.timezone, ev.location, ev.address, ev.cost, ev.store_url, ev.detail_url, ev.latitude ?? null, ev.longitude ?? null, ev.source, status, now, nextImage, ev.id);
@@ -121,6 +127,58 @@ function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: numbe
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+/**
+ * Bounding box around (lat, lng) ± radiusMi. Used as a cheap SQL prefilter
+ * before the haversine refinement. Longitude degrees shrink with latitude;
+ * we use cos(lat) to widen the lng window so the box stays a true superset
+ * of the haversine circle. The 1.05 fudge factor pads for SQLite's float
+ * precision and keeps borderline events from getting dropped pre-refinement.
+ */
+function boundingBoxMiles(lat: number, lng: number, radiusMi: number) {
+  const latDelta = (radiusMi / 69.0) * 1.05;
+  const cos = Math.cos((lat * Math.PI) / 180);
+  // Avoid division-by-zero at the poles (not relevant for CONUS, but cheap).
+  const lngDelta = cos > 0.01 ? (radiusMi / (69.0 * cos)) * 1.05 : 180;
+  return {
+    minLat: lat - latDelta,
+    maxLat: lat + latDelta,
+    minLng: lng - lngDelta,
+    maxLng: lng + lngDelta,
+  };
+}
+
+export type TimeOfDay = "morning" | "afternoon" | "evening";
+
+/** Local-time bucket boundaries (inclusive of `from`, exclusive of `to`).
+ *  `time` is stored as UTC HH:MM, so we have to convert per-row using the
+ *  event's `timezone` before bucketing — see `eventLocalHour`. */
+const TIME_BUCKETS: Record<TimeOfDay, { from: number; to: number }> = {
+  morning: { from: 0, to: 12 },
+  afternoon: { from: 12, to: 17 },
+  evening: { from: 17, to: 24 },
+};
+
+/** Compute the event's start hour in its local timezone. The DB stores
+ *  `time` as UTC HH:MM (per scrapers/schema.ts). Returns null when the
+ *  event has no time or the timezone is invalid — those rows are dropped
+ *  by the time-of-day filter. */
+function eventLocalHour(date: string, time: string, timezone: string): number | null {
+  if (!date || !time) return null;
+  try {
+    const utc = new Date(`${date}T${time}:00Z`);
+    if (isNaN(utc.getTime())) return null;
+    const hourStr = new Intl.DateTimeFormat("en-US", {
+      timeZone: timezone || "UTC",
+      hour: "numeric",
+      hour12: false,
+    }).format(utc);
+    const h = parseInt(hourStr, 10);
+    return Number.isFinite(h) ? h : null;
+  } catch {
+    return null;
+  }
+}
+
 export function getActiveEvents(filters?: {
   format?: string;
   from?: string;
@@ -128,6 +186,11 @@ export function getActiveEvents(filters?: {
   radiusMiles?: number;
   centerLat?: number;
   centerLng?: number;
+  /** Filter to events whose start `time` (event-local) falls in the bucket. */
+  timeOfDay?: TimeOfDay;
+  /** When true, drop any event whose `cost` isn't "Free". Empty cost
+   *  (cost unknown) is excluded — better to under-show than mislead. */
+  freeOnly?: boolean;
 }): EventRow[] {
   const db = getDb();
   // visibility/cancelled chokepoint: every public read path goes through
@@ -148,21 +211,50 @@ export function getActiveEvents(filters?: {
     sql += " AND date <= ?";
     params.push(filters.to);
   }
+  if (filters?.freeOnly) {
+    // The scrapers emit "Free" exactly for free events. Some events
+    // have empty cost (data missing) — treat unknown as not-known-free
+    // so we don't surface them under the "free events" lens.
+    sql += " AND cost = 'Free'";
+  }
+  // time-of-day is a post-filter (not SQL): the `time` column is UTC
+  // HH:MM but the bucket is in event-local time. We have to convert per
+  // row using `timezone`. Cheap at row counts < 100k.
+
+  // Bounding-box prefilter: pushes the easy spatial reject down to SQLite so
+  // we only haversine the candidate set instead of every active event. Events
+  // without coords still come through (their distance is unknown — we keep
+  // them rather than hide them).
+  if (filters?.radiusMiles && filters?.centerLat != null && filters?.centerLng != null) {
+    const bbox = boundingBoxMiles(filters.centerLat, filters.centerLng, filters.radiusMiles);
+    sql += " AND (latitude IS NULL OR (latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?))";
+    params.push(bbox.minLat, bbox.maxLat, bbox.minLng, bbox.maxLng);
+  }
 
   sql += " ORDER BY date ASC, time ASC";
   let rows = db.prepare(sql).all(...params) as EventRow[];
 
-  // Filter by distance if radius is specified
+  // Haversine refinement — only on rows that survived the bbox prefilter.
   if (filters?.radiusMiles && filters?.centerLat != null && filters?.centerLng != null) {
     const maxMiles = filters.radiusMiles;
     const cLat = filters.centerLat;
     const cLng = filters.centerLng;
-    const before = rows.length;
     rows = rows.filter(ev => {
       if (ev.latitude == null || ev.longitude == null) return true; // include events without coords
       return haversineDistance(cLat, cLng, ev.latitude, ev.longitude) <= maxMiles;
     });
-    // debug: console.log(`[filter] radius=${maxMiles}mi: ${before} → ${rows.length} events`);
+  }
+
+  // Time-of-day post-filter. Per-row IANA TZ conversion since the DB's
+  // `time` column is UTC. Events without a parseable time/timezone get
+  // dropped from any time-of-day query (better than misclassifying).
+  if (filters?.timeOfDay) {
+    const bucket = TIME_BUCKETS[filters.timeOfDay];
+    rows = rows.filter((ev) => {
+      const h = eventLocalHour(ev.date, ev.time, ev.timezone);
+      if (h == null) return false;
+      return h >= bucket.from && h < bucket.to;
+    });
   }
 
   return rows;
@@ -171,6 +263,30 @@ export function getActiveEvents(filters?: {
 export function getAllEvents(): EventRow[] {
   const db = getDb();
   return db.prepare("SELECT * FROM events ORDER BY date ASC, time ASC").all() as EventRow[];
+}
+
+/**
+ * All upcoming (today and forward) public/active/pinned events for a
+ * given venue, by case-insensitive name match. Used by the /venue/[slug]
+ * page. Caps at 200 rows so popular venues with hundreds of recurring
+ * events don't blow up the page.
+ */
+export function getEventsForVenue(name: string, limit = 200): EventRow[] {
+  if (!name) return [];
+  const db = getDb();
+  const today = new Date().toISOString().split("T")[0];
+  return db
+    .prepare(
+      `SELECT * FROM events
+       WHERE LOWER(TRIM(location)) = LOWER(TRIM(?))
+         AND status IN ('active','pinned')
+         AND visibility = 'public'
+         AND cancelled_at IS NULL
+         AND date >= ?
+       ORDER BY date ASC, time ASC
+       LIMIT ?`,
+    )
+    .all(name, today, limit) as EventRow[];
 }
 
 export function getEvent(id: string): EventRow | undefined {

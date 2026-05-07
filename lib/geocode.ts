@@ -143,6 +143,43 @@ export async function reverseGeocode(
   }
 }
 
+/**
+ * Cached wrapper around `reverseGeocode` for hot-path callers like the
+ * homepage SSR. Lat/lng pairs are rounded to ~1km precision (2 decimals,
+ * roughly 1.1km in CONUS) before keying the cache, so adjacent URLs share
+ * a single Nominatim hit. In-memory only — restarts cold-cache, but the
+ * cache fills back up within seconds in production.
+ *
+ * Bounded at 256 entries (more than enough for "users sharing the same
+ * link to a metro center"); evicts oldest insertion order when full.
+ */
+const labelCache = new Map<string, string>();
+const LABEL_CACHE_MAX = 256;
+
+export async function getLabelForCoords(
+  lat: number,
+  lng: number,
+  signal?: AbortSignal,
+): Promise<string | null> {
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+  const key = `${lat.toFixed(2)},${lng.toFixed(2)}`;
+  const cached = labelCache.get(key);
+  if (cached !== undefined) return cached;
+
+  const hit = await reverseGeocode(lat, lng, signal);
+  const label = hit?.label ?? null;
+  if (label) {
+    if (labelCache.size >= LABEL_CACHE_MAX) {
+      // Evict oldest insertion-order entry. Map preserves insertion order,
+      // so the first key is the oldest.
+      const firstKey = labelCache.keys().next().value;
+      if (firstKey !== undefined) labelCache.delete(firstKey);
+    }
+    labelCache.set(key, label);
+  }
+  return label;
+}
+
 export async function geocodeFirstMatch(
   candidates: Array<string | null | undefined>,
   signal?: AbortSignal,

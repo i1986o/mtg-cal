@@ -4,6 +4,8 @@ import { fetchVenueImage } from "./venue-image-fetcher";
 import { getVenueDefault, venueKey } from "./venues";
 import { geocodeFirstMatch } from "./geocode";
 import { uploadFileExists } from "./upload-storage";
+import { classifyEvent } from "./curation-rules";
+import { getConfig } from "./runtime-config";
 
 function normalize(s: string): string {
   return (s || "").toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim();
@@ -183,19 +185,36 @@ function dedupeAcrossSources(events: ScrapedEvent[]): ScrapedEvent[] {
   return result;
 }
 
-export async function runScraper(): Promise<{
+export interface ScrapeResult {
   scraped: number;
   deduped: number;
   added: number;
   updated: number;
   skipped: number;
   archived: number;
-}> {
+  /** Wall-clock duration of the scrape, in milliseconds. */
+  durationMs: number;
+  /** Effective scrape scope ("local" or "national") at the time of the run. */
+  scope: "local" | "national";
+  /** Number of regions swept. 1 in local mode, len(scrapeRegions) in national. */
+  regions: number;
+  /** Per-source raw event counts (pre-dedupe). */
+  bySource: Record<string, number>;
+  /** Sources that threw, with their error messages. Empty on full success. */
+  failed: Record<string, string>;
+  /** Curation decisions across all events. */
+  curation: { active: number; skip: number; pending: number };
+  timestamp: string;
+}
+
+export async function runScraper(): Promise<ScrapeResult> {
   console.log("🃏 MTG Calendar — Scraper Run");
   console.log(`   ${new Date().toISOString()}`);
+  const startedAt = Date.now();
+  const cfg = getConfig();
 
   // 1. Fetch from all sources
-  const scraped = await fetchAllSources();
+  const { events: scraped, stats } = await fetchAllSources();
   console.log(`[sources] Total scraped: ${scraped.length}`);
 
   // 2. Dedupe
@@ -207,6 +226,21 @@ export async function runScraper(): Promise<{
   // get re-geocoded from their address, so the stored coords actually point
   // at the venue rather than at a guild-wide default.
   await reconcileEventCoords(deduped);
+
+  // 2b. Auto-curation. Classify each event into active/skip/pending based on
+  // title (non-MTG keyword blocklist) and source trust. The upsert path
+  // preserves existing manual statuses (skip, pinned, pending), so this only
+  // affects fresh inserts and never clobbers an admin's decision.
+  const curation = { active: 0, skip: 0, pending: 0 };
+  for (const ev of deduped) {
+    const decision = classifyEvent(ev);
+    ev.status = decision.status;
+    curation[decision.status]++;
+    if (decision.status === "skip") {
+      console.log(`[curation] SKIP "${ev.title}" — ${decision.reason}`);
+    }
+  }
+  console.log(`[curation] active=${curation.active} skip=${curation.skip} pending=${curation.pending}`);
 
   // 3. Upsert into database
   const result = upsertEvents(deduped);
@@ -221,21 +255,43 @@ export async function runScraper(): Promise<{
   const archived = archiveOldEvents(90);
   if (archived > 0) console.log(`[db] Archived ${archived} old events`);
 
-  // 5. Update last scrape timestamp
+  // 5. Update last scrape timestamp + structured result. Admin UI reads
+  // last_scrape_result to surface duration, per-source breakdown, failures,
+  // and curation tally without any other plumbing.
   const now = new Date().toISOString();
-  setSetting("last_scrape", now);
-  setSetting("last_scrape_result", JSON.stringify({
+  const durationMs = Date.now() - startedAt;
+  const scope = cfg.scrapeScope;
+  const regions = scope === "national" ? cfg.scrapeRegions.length : 1;
+  const summary: ScrapeResult = {
     scraped: scraped.length,
     deduped: deduped.length,
     ...result,
     archived,
+    durationMs,
+    scope,
+    regions,
+    bySource: stats.bySource,
+    failed: stats.failed,
+    curation,
     timestamp: now,
-  }));
-
-  return {
-    scraped: scraped.length,
-    deduped: deduped.length,
-    ...result,
-    archived,
   };
+  setSetting("last_scrape", now);
+  setSetting("last_scrape_result", JSON.stringify(summary));
+  // Append to scrape_history for trend analysis at /admin/scrape-stats. The
+  // append-only table is bounded by the cleanup below (keep last 200 rows)
+  // so it doesn't grow unbounded over a year of daily scrapes.
+  try {
+    const db = (await import("./db")).getDb();
+    db.prepare("INSERT INTO scrape_history (summary) VALUES (?)").run(JSON.stringify(summary));
+    db.prepare("DELETE FROM scrape_history WHERE id NOT IN (SELECT id FROM scrape_history ORDER BY id DESC LIMIT 200)").run();
+  } catch (err) {
+    console.warn("[scrape] failed to write scrape_history:", err);
+  }
+
+  console.log(`[scrape] done in ${(durationMs / 1000).toFixed(1)}s — scope=${scope} regions=${regions}`);
+  if (Object.keys(stats.failed).length > 0) {
+    console.warn(`[scrape] FAILED sources: ${Object.keys(stats.failed).join(", ")}`);
+  }
+
+  return summary;
 }

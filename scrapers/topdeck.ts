@@ -1,22 +1,7 @@
 import { getConfig } from "@/lib/runtime-config";
+import { normalizeFormat } from "@/lib/formats";
 
 const API_URL = "https://topdeck.gg/api/v2/tournaments";
-
-// Normalize TopDeck format names to our canonical names
-const FORMAT_MAP: Record<string, string> = {
-  "EDH": "Commander",
-  "Commander": "Commander",
-  "cEDH": "Commander",
-  "Standard": "Standard",
-  "Modern": "Modern",
-  "Pioneer": "Pioneer",
-  "Legacy": "Legacy",
-  "Pauper": "Pauper",
-  "Draft": "Draft",
-  "Sealed": "Sealed",
-  "Limited": "Sealed",
-  "Vintage": "Vintage",
-};
 
 function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 3959; // Earth radius in miles
@@ -67,7 +52,10 @@ export default async function fetchTopdeckEvents(sourceConfig: any = {}) {
 
   console.log(`[topdeck] ${tournaments.length} MTG tournaments fetched from API`);
 
-  // Filter by distance from configured location
+  // In "national" scope we ingest every event with valid coords and let the UI
+  // (and ICS feed) filter by user-chosen lat/lng + radius. In "local" scope we
+  // filter at ingest time against the configured center to keep the DB lean.
+  const isNational = config.scrapeScope === "national";
   const maxMiles = config.searchRadiusMiles;
   const { lat, lng } = config.location;
   const nearby = [];
@@ -79,11 +67,13 @@ export default async function fetchTopdeckEvents(sourceConfig: any = {}) {
 
     if (tLat == null || tLng == null) continue;
 
-    const dist = haversineDistance(lat, lng, tLat, tLng);
-    if (dist > maxMiles) continue;
+    if (!isNational) {
+      const dist = haversineDistance(lat, lng, tLat, tLng);
+      if (dist > maxMiles) continue;
+    }
 
     const startDate = new Date(t.startDate * 1000);
-    const format = FORMAT_MAP[t.format] || t.format || "";
+    const format = normalizeFormat(t.format);
 
     nearby.push({
       id: "topdeck-" + (t.TID || t.tid),
@@ -105,6 +95,10 @@ export default async function fetchTopdeckEvents(sourceConfig: any = {}) {
     });
   }
 
-  console.log(`[topdeck] ${nearby.length} events within ${maxMiles}mi radius`);
+  if (isNational) {
+    console.log(`[topdeck] ${nearby.length} events with coords (national scope, no radius filter)`);
+  } else {
+    console.log(`[topdeck] ${nearby.length} events within ${maxMiles}mi radius`);
+  }
   return nearby;
 }

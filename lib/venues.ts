@@ -101,6 +101,50 @@ export function venueKey(name: string): string {
   return (name ?? "").trim().toLowerCase();
 }
 
+/**
+ * URL-safe slug for a venue. Used by the public venue page at
+ * /venue/{slug}. Distinct from `venueKey` — that one is a DB lookup key
+ * (lowercase, no transformation), this is for URLs (kebab-case, no
+ * special chars). Two venues with the same slug after normalization
+ * would collide; in practice MTG store names are distinctive enough
+ * that hasn't happened, but `findVenueBySlug` handles ties by picking
+ * the most-used row.
+ */
+export function venueSlug(name: string): string {
+  return (name ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export interface VenuePageData {
+  name: string;
+  address: string;
+  store_url: string;
+  latitude: number | null;
+  longitude: number | null;
+  /** Total upcoming/past events the site has on file for this venue —
+   *  used as a tie-breaker when two venues share a slug. */
+  usage_count: number;
+}
+
+/**
+ * Resolve a slug back to the canonical venue record. Iterates the
+ * venue list (small; rebuilt from current events table on each call)
+ * and picks the highest-usage match. Returns null when no venue
+ * slugs to the input — the page should 404.
+ */
+export function findVenueBySlug(slug: string): VenuePageData | null {
+  const target = slug.toLowerCase();
+  if (!target) return null;
+  const all = listKnownVenues();
+  const candidates = all.filter((v) => venueSlug(v.name) === target);
+  if (candidates.length === 0) return null;
+  // Highest usage_count wins; listKnownVenues already sorts that way.
+  return candidates[0];
+}
+
 /** Where the venue image came from. `manual` means a curator uploaded it and it
  *  must never be overwritten by the auto-fetcher. The other tags identify which
  *  tier of `lib/venue-image-fetcher.ts` produced the image. */

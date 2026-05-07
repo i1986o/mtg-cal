@@ -1,30 +1,69 @@
 import { hasAdminAccess } from "@/lib/session";
 import { runScraper } from "@/lib/scraper";
+import { tryAcquireScrapeLock, releaseScrapeLock, getRunningScrape } from "@/lib/scraper-lock";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 120; // Allow up to 2 minutes for scraping
+// Fast ack — same fire-and-forget pattern as /api/scrape. The admin UI
+// polls /api/admin/scrape-history for completion rather than holding
+// this connection open across a 10+ minute cold scrape.
+export const maxDuration = 30;
 
+/**
+ * POST /api/admin/refresh
+ *
+ * Admin-triggered scrape from /admin/scrapers ("Refresh now"). Returns
+ * 202 immediately; scrape runs detached. UI is expected to poll
+ * /api/admin/scrape-history to surface completion + per-source results.
+ *
+ * Responses:
+ *   202 — accepted; scrape started. Body: { ok, source, startedAt }.
+ *   401 — not an admin.
+ *   409 — another scrape is already running. Body includes runningSince.
+ */
 export async function POST() {
   if (!(await hasAdminAccess())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  try {
-    const result = await runScraper();
-    return NextResponse.json({ ok: true, ...result });
-  } catch (err: unknown) {
-    // Surface the real failure — `err.message` alone can be undefined for
-    // string throws, plain-object throws, etc., which renders as the
-    // unhelpful "Error: undefined" in the admin UI. Always include a stable
-    // string and log the full thing server-side so it shows up in Railway.
-    console.error("[refresh] runScraper failed:", err);
-    const message =
-      err instanceof Error
-        ? err.message || err.name || "Error"
-        : typeof err === "string"
-          ? err
-          : JSON.stringify(err) || "Unknown error";
-    return NextResponse.json({ error: message }, { status: 500 });
+  const lock = tryAcquireScrapeLock("admin-refresh");
+  if (lock.busy) {
+    return NextResponse.json(
+      {
+        error: "Another scrape is already running",
+        runningSince: lock.runningSince,
+        runningSource: lock.runningSource,
+      },
+      { status: 409 },
+    );
   }
+
+  const startedAt = new Date().toISOString();
+  runScraper()
+    .then((result) => {
+      console.log(`[scrape:admin] completed: scraped=${result.scraped} added=${result.added} updated=${result.updated} ${(result.durationMs / 1000).toFixed(1)}s`);
+    })
+    .catch((err: unknown) => {
+      console.error("[scrape:admin] runScraper failed:", err);
+    })
+    .finally(() => {
+      releaseScrapeLock();
+    });
+
+  return NextResponse.json({ ok: true, source: "admin-refresh", startedAt }, { status: 202 });
+}
+
+/**
+ * GET /api/admin/refresh
+ *
+ * Live status probe — returns whether a scrape is currently running and
+ * when it started. The admin UI polls this every few seconds while a
+ * scrape is in progress.
+ */
+export async function GET() {
+  if (!(await hasAdminAccess())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  const running = getRunningScrape();
+  return NextResponse.json({ running });
 }

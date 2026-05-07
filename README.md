@@ -27,7 +27,19 @@ Add to Google Calendar: Other calendars → From URL → paste above.
 
 ## Auto-refresh
 
-GitHub Actions runs daily at 10am UTC and commits the updated `.ics` files + `data/mtg-cal.db` back to the repo. See `.github/workflows/refresh.yml`.
+GitHub Actions runs daily at 10am UTC and commits the updated `.ics` files back to the repo. The SQLite DB lives on Railway's persistent volume in production and is **not** committed (see `data/README.md`). See `.github/workflows/refresh.yml`.
+
+## DB backups
+
+`.github/workflows/backup.yml` runs daily at 11am UTC (1 hour after refresh), pulls a consistent gzipped SQLite snapshot from `/api/internal/backup`, and stores it as a GitHub Actions artifact with **30-day retention**. To enable:
+
+1. Generate a secret: `openssl rand -hex 32`.
+2. Set it on Railway as `BACKUP_SECRET=<value>`.
+3. Set the **same value** in the repo's Actions secrets (`Settings → Secrets and variables → Actions → New secret`) as `BACKUP_SECRET`.
+
+The endpoint uses better-sqlite3's `serialize()` to capture both the main DB file and any uncommitted WAL writes in a single consistent snapshot — safe to call against a live, write-active DB.
+
+To restore: download the latest artifact from the **Actions → DB Backup** run, `gunzip` it, then copy onto the Railway volume at `$DATABASE_PATH` while the service is stopped. The seed-on-empty logic in `lib/db.ts` only fires when the file is missing, so an existing-but-broken volume DB needs to be replaced manually before redeploy.
 
 ## Configuration
 
@@ -131,9 +143,9 @@ Net effect: address-text and lat/lng always agree, regardless of which the rende
 
 - **Railway**: SQLite + uploaded images both live on a persistent volume.
   - Mount a volume at `/data` (or any path, just be consistent).
-  - Set `DATABASE_PATH=/data/mtg-cal.db` (or `<your-mount>/mtg-cal.db`) — `lib/db.ts` derives both the DB path and the `uploads/` sibling from this. On first boot it copies the git-shipped `data/mtg-cal.db` over to the volume so you don't start empty; subsequent boots use the live volume DB.
-  - Without `DATABASE_PATH` set, the app falls back to `<cwd>/data/mtg-cal.db` which is the git-tracked file — fine for local dev, **not** safe in production: any runtime writes (admin uploads, scraper image fetches, manual event edits) live only on the ephemeral container disk and disappear on the next deploy.
-  - The CI workflow at `.github/workflows/refresh.yml` deliberately does **not** auto-commit `data/mtg-cal.db` anymore — production is the source of truth. CI still commits the static `output/*.ics` calendar feeds.
+  - Set `DATABASE_PATH=/data/mtg-cal.db` (or `<your-mount>/mtg-cal.db`) — `lib/db.ts` derives both the DB path and the `uploads/` sibling from this. On first boot the volume is empty; `initSchema()` creates the schema and seeds reference data (settings, feature flags). The scraper populates events on the next run. Subsequent deploys reuse the volume so user state, RSVPs, uploads, and scraped events survive.
+  - Without `DATABASE_PATH` set, the app falls back to `<cwd>/data/mtg-cal.db` — fine for local dev. The DB file is gitignored; first run creates it empty, then `npm run fetch` populates events.
+  - The CI workflow at `.github/workflows/refresh.yml` commits only the static `output/*.ics` calendar feeds — the DB is never committed. Production is the source of truth.
 - **Resend sender domain**: requires DNS TXT records for `playirl.gg`. Until that's set, magic-link emails won't deliver.
 - **OAuth callback URIs** must be registered exactly as `https://playirl.gg/api/auth/callback/{discord,google}` in each provider's developer console.
 

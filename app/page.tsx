@@ -1,10 +1,11 @@
 export const dynamic = "force-dynamic";
 
-import { getActiveEvents, getFormats, getSetting, setSetting } from "@/lib/events";
+import { getActiveEvents, getFormats, getSetting, setSetting, type TimeOfDay } from "@/lib/events";
 import { getSavedEventIds } from "@/lib/event-saves";
 import { getPreferences, setPreferences } from "@/lib/user-preferences";
 import { getCurrentUser } from "@/lib/session";
 import { resolveEventImage } from "@/lib/event-image";
+import { getLabelForCoords } from "@/lib/geocode";
 import { config } from "@/lib/config";
 import DateJumper from "./date-jumper";
 import RadiusSelector from "./radius-selector";
@@ -12,6 +13,9 @@ import CalendarView from "./calendar-view";
 import StickyBar from "./sticky-bar";
 import FloatingToolbar from "./floating-toolbar";
 import AboutInfoButton from "./about-info-button";
+import LocationBanner from "./location-banner";
+import EmptyStateLocationCta from "./empty-state-location-cta";
+import SecondaryFilters from "./secondary-filters";
 import DayCard from "./day-card";
 import Reveal from "./reveal";
 import { LinkButton } from "./button";
@@ -34,6 +38,8 @@ export default async function HomePage({
     format?: string; radius?: string; days?: string; view?: string; offset?: string;
     /** Location override (URL primary). Triple of label + lat + lng. */
     loc?: string; lat?: string; lng?: string;
+    /** Secondary filters — time of day bucket and free-only toggle. */
+    time?: string; free?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -51,6 +57,13 @@ export default async function HomePage({
   const currentFormat = params.format ?? defaultFormat;
   const currentView = params.view || "list";
   const currentOffset = params.offset ? Math.max(0, parseInt(params.offset, 10)) : 0;
+  // Secondary filters. Time-of-day buckets aren't required to match the
+  // server's enum values, so coerce + ignore unknown strings.
+  const currentTimeOfDay: TimeOfDay | undefined =
+    params.time === "morning" || params.time === "afternoon" || params.time === "evening"
+      ? params.time
+      : undefined;
+  const currentFreeOnly = params.free === "1";
 
   // Location resolution: URL params > user_preferences > config.location default.
   // Default label is "Philly" — the brand-friendly short form rather than the
@@ -62,9 +75,24 @@ export default async function HomePage({
   const hasPrefsLocation = prefs?.location_lat != null && prefs?.location_lng != null;
   const currentLocationLat = hasUrlLocation ? urlLat : (hasPrefsLocation ? prefs!.location_lat! : config.location.lat);
   const currentLocationLng = hasUrlLocation ? urlLng : (hasPrefsLocation ? prefs!.location_lng! : config.location.lng);
-  const currentLocationLabel = hasUrlLocation
-    ? (params.loc?.trim() || DEFAULT_LOCATION_LABEL)
-    : (hasPrefsLocation && prefs!.location_label ? prefs!.location_label : DEFAULT_LOCATION_LABEL);
+  // Label resolution: explicit `loc` param wins. Otherwise, when the URL
+  // carries lat/lng but no label, reverse-geocode (cached by ~1km grid) so
+  // the chip reflects the actual filter location instead of stale "Philly".
+  // Falls back to the default label if Nominatim is unavailable.
+  let currentLocationLabel: string;
+  if (hasUrlLocation) {
+    const explicit = params.loc?.trim();
+    if (explicit) {
+      currentLocationLabel = explicit;
+    } else {
+      const resolved = await getLabelForCoords(urlLat, urlLng);
+      currentLocationLabel = resolved ?? DEFAULT_LOCATION_LABEL;
+    }
+  } else if (hasPrefsLocation && prefs!.location_label) {
+    currentLocationLabel = prefs!.location_label;
+  } else {
+    currentLocationLabel = DEFAULT_LOCATION_LABEL;
+  }
   const isLocationCustom = hasUrlLocation || hasPrefsLocation;
 
   // Persist any filter change so the next visit restores it.
@@ -121,6 +149,8 @@ export default async function HomePage({
     radiusMiles: currentRadius,
     centerLat: currentLocationLat,
     centerLng: currentLocationLng,
+    timeOfDay: currentTimeOfDay,
+    freeOnly: currentFreeOnly,
   });
 
   const enriched = events.map((ev) => {
@@ -151,9 +181,14 @@ export default async function HomePage({
         </p>
       </header>
 
+      {/* First-visit nudge for users still on the default location. Renders
+          a dismissable banner with a "Change location" CTA so users who
+          declined the silent geolocation prompt have a clear path forward. */}
+      <LocationBanner isDefault={!isLocationCustom} defaultLabel={DEFAULT_LOCATION_LABEL} />
+
       {/* Sticky filter bar */}
       <StickyBar>
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center">
           <RadiusSelector
             currentRadius={currentRadius}
             currentDays={currentDays}
@@ -163,6 +198,10 @@ export default async function HomePage({
             currentLocationLabel={currentLocationLabel}
             defaultLocationLabel={DEFAULT_LOCATION_LABEL}
             isLocationCustom={isLocationCustom}
+          />
+          <SecondaryFilters
+            currentTimeOfDay={currentTimeOfDay}
+            currentFreeOnly={currentFreeOnly}
           />
         </div>
       </StickyBar>
@@ -184,7 +223,17 @@ export default async function HomePage({
             <Reveal className="text-center py-16" delay={100}>
               <p className="text-4xl mb-3">{"\uD83C\uDFB4"}</p>
               <p className="text-neutral-400 text-lg">No events found</p>
-              <p className="text-neutral-500 text-sm mt-1">Try expanding your distance or time range</p>
+              {/* The most likely fix is "your location is wrong", not
+                  "expand your radius" \u2014 the CTA reflects that. The hint
+                  for radius/time still appears because at nationwide
+                  scale some legitimately empty geographies exist (rural
+                  areas with no LGS within 25mi of any anchor). */}
+              <p className="text-neutral-500 text-sm mt-1">
+                {isLocationCustom
+                  ? "Try expanding your distance or time range"
+                  : `We're showing events near ${currentLocationLabel}. Set your location to find events near you.`}
+              </p>
+              {!isLocationCustom && <EmptyStateLocationCta />}
             </Reveal>
           )}
 

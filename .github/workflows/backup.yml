@@ -1,0 +1,92 @@
+name: DB Backup
+
+# Pulls a consistent SQLite snapshot from production and stores it as a
+# GitHub Actions artifact. Runs daily 11:00 UTC (1 hour after the refresh
+# cron, so each backup includes that day's scrape diff).
+#
+# Why this exists: the live DB lives on Railway's persistent volume. If the
+# volume is detached, corrupted, or the project is reset, we lose every
+# user signup, RSVP, manual event edit, and curation decision. This
+# workflow gives us 30 rolling days of off-Railway snapshots with zero
+# manual operator effort.
+#
+# To restore: download the most recent artifact, decompress with `gunzip`,
+# and copy onto the Railway volume at $DATABASE_PATH (with the service
+# stopped). The lib/db.ts seed-on-empty-volume logic only fires when the
+# file is missing entirely, so an existing-but-broken volume DB needs to
+# be replaced manually before redeploy.
+
+on:
+  schedule:
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify DB integrity before backup
+        env:
+          BACKUP_SECRET: ${{ secrets.BACKUP_SECRET }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BACKUP_SECRET:-}" ]; then
+            echo "::error::BACKUP_SECRET is not set in repository secrets."
+            exit 1
+          fi
+          # Hit the integrity-check endpoint and bail if SQLite reports
+          # anything other than "ok". Backing up a corrupt DB is worse
+          # than no backup — restore would propagate the corruption.
+          BODY=$(curl -sS -fL "https://playirl.gg/api/internal/integrity" \
+                  -H "x-backup-secret: ${BACKUP_SECRET}")
+          echo "Integrity response: $BODY"
+          OK=$(echo "$BODY" | jq -r '.ok')
+          if [ "$OK" != "true" ]; then
+            echo "::error::DB integrity check failed. Findings: $(echo "$BODY" | jq -c '.findings')"
+            exit 1
+          fi
+          echo "Integrity OK."
+
+      - name: Pull DB snapshot from production
+        env:
+          BACKUP_SECRET: ${{ secrets.BACKUP_SECRET }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BACKUP_SECRET:-}" ]; then
+            echo "::error::BACKUP_SECRET is not set in repository secrets."
+            exit 1
+          fi
+          mkdir -p artifact
+          STAMP=$(date -u +%Y%m%d-%H%M%S)
+          OUT="artifact/mtg-cal-${STAMP}.db.gz"
+          # --fail-with-body so a 401/500 response surfaces the JSON error
+          # body in the workflow log instead of silently writing it to disk.
+          curl -sS -fL "https://playirl.gg/api/internal/backup" \
+               -H "x-backup-secret: ${BACKUP_SECRET}" \
+               -o "${OUT}" \
+               --fail-with-body \
+               -w "HTTP %{http_code} · %{size_download} bytes · %{time_total}s\n"
+          # Sanity-check: a real gzip is at least a few hundred bytes and
+          # starts with the gzip magic 1F 8B. A truncated or error-body
+          # response would be smaller / different bytes.
+          if [ ! -s "${OUT}" ] || [ "$(stat -c %s "${OUT}")" -lt 200 ]; then
+            echo "::error::Backup file is empty or too small."
+            exit 1
+          fi
+          if ! gzip -t "${OUT}"; then
+            echo "::error::Backup file failed gzip integrity check."
+            exit 1
+          fi
+          echo "Backup OK: $(ls -la ${OUT})"
+
+      - name: Upload as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mtg-cal-db-backup
+          path: artifact/*.db.gz
+          # 30-day retention: enough rolling history to recover from a
+          # mistake noticed within a month. GitHub auto-prunes older runs.
+          retention-days: 30
+          if-no-files-found: error
+          compression-level: 0 # already gzipped

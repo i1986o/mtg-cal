@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getDb } from "@/lib/db";
 import { getSetting } from "@/lib/events";
+import { getGeocodeCacheStats } from "@/lib/store-geocode-cache";
 import { requireRole } from "@/lib/session";
 import StatCard from "../_components/StatCard";
 
@@ -22,10 +23,31 @@ export default async function AdminDashboard() {
   const organizerCount = (db.prepare("SELECT COUNT(*) as count FROM users WHERE role = 'organizer'").get() as CountRow).count;
 
   const lastScrape = getSetting("last_scrape");
-  let lastResult: { scraped: number; added: number; updated: number } | null = null;
+  interface LastResult {
+    scraped: number;
+    added: number;
+    updated: number;
+    durationMs?: number;
+    scope?: "local" | "national";
+    regions?: number;
+    bySource?: Record<string, number>;
+    failed?: Record<string, string>;
+    curation?: { active: number; skip: number; pending: number };
+  }
+  let lastResult: LastResult | null = null;
   try {
     lastResult = JSON.parse(getSetting("last_scrape_result") || "null");
   } catch { /* keep null */ }
+  const failedSources = Object.keys(lastResult?.failed ?? {});
+  const geocodeStats = getGeocodeCacheStats();
+  const lastResultHint = lastResult
+    ? [
+        `${lastResult.scraped} scraped · +${lastResult.added} new · ~${lastResult.updated} updated`,
+        lastResult.durationMs != null ? `${(lastResult.durationMs / 1000).toFixed(1)}s` : null,
+        lastResult.scope ? `${lastResult.scope}${lastResult.regions ? ` · ${lastResult.regions} region${lastResult.regions === 1 ? "" : "s"}` : ""}` : null,
+        failedSources.length > 0 ? `⚠ failed: ${failedSources.join(", ")}` : null,
+      ].filter(Boolean).join(" · ")
+    : undefined;
 
   const bySource = db.prepare(`
     SELECT source, COUNT(*) as count
@@ -55,7 +77,14 @@ export default async function AdminDashboard() {
         <StatCard
           label="Last scrape"
           value={lastScrape ? new Date(lastScrape).toLocaleString() : "—"}
-          hint={lastResult ? `${lastResult.scraped} scraped · +${lastResult.added} new · ~${lastResult.updated} updated` : undefined}
+          hint={lastResultHint}
+        />
+        <StatCard
+          label="Geocode cache"
+          value={geocodeStats.total}
+          hint={geocodeStats.latestCachedAt
+            ? `latest: ${new Date(geocodeStats.latestCachedAt.includes("T") ? geocodeStats.latestCachedAt : geocodeStats.latestCachedAt + "Z").toLocaleString()}`
+            : "empty — first scrape will warm it"}
         />
       </section>
 

@@ -4,23 +4,7 @@ import { runScraper } from "@/lib/scraper";
 import { getActiveEvents } from "@/lib/events";
 import { generateIcsString } from "@/lib/ical";
 import { config } from "@/lib/config";
-
-const FORMAT_SLUGS: Record<string, string> = {
-  Commander: "commander",
-  Modern: "modern",
-  Standard: "standard",
-  Pauper: "pauper",
-  Pioneer: "pioneer",
-  Legacy: "legacy",
-  "Booster Draft": "draft",
-  Draft: "draft",
-  "Sealed Deck": "sealed",
-  Sealed: "sealed",
-};
-
-function slugify(format: string): string {
-  return FORMAT_SLUGS[format] || format.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-}
+import { formatSlug } from "@/lib/formats";
 
 async function main() {
   await runScraper();
@@ -39,7 +23,7 @@ async function main() {
   const bySlug = new Map<string, { events: typeof events; formats: Set<string> }>();
   for (const ev of events) {
     const fmt = ev.format || "Other";
-    const slug = slugify(fmt);
+    const slug = formatSlug(fmt);
     if (!bySlug.has(slug)) bySlug.set(slug, { events: [], formats: new Set() });
     const entry = bySlug.get(slug)!;
     entry.events.push(ev);

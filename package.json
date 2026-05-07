@@ -9,7 +9,9 @@
     "build": "next build",
     "start": "exec next start",
     "lint": "eslint",
-    "discord:register": "tsx cli/register-discord-commands.ts"
+    "discord:register": "tsx cli/register-discord-commands.ts",
+    "scrape:trigger": "tsx cli/trigger-prod-scrape.ts",
+    "prod:diagnose": "tsx cli/diagnose-prod.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

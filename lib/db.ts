@@ -138,6 +138,11 @@ function initSchema(db: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_events_status ON events(status);
     CREATE INDEX IF NOT EXISTS idx_events_format ON events(format);
     CREATE INDEX IF NOT EXISTS idx_events_source ON events(source);
+    -- Spatial prefilter index for the homepage's lat/lng + radius filter.
+    -- A composite (latitude, longitude) covers the bounding-box BETWEEN
+    -- predicate in getActiveEvents — SQLite picks up the leading column for
+    -- range scans. Without this, every homepage render full-table-scans.
+    CREATE INDEX IF NOT EXISTS idx_events_lat_lng ON events(latitude, longitude);
 
     CREATE TABLE IF NOT EXISTS settings (
       key   TEXT PRIMARY KEY,
@@ -352,6 +357,32 @@ function initSchema(db: Database.Database) {
     );
 
     CREATE INDEX IF NOT EXISTS idx_dpp_due ON discord_pending_posts(next_attempt_at);
+
+    -- Reverse-geocode cache for WotC stores. The wizards-locator scraper hits
+    -- Nominatim once per store (rate-limited at 1/sec) to turn lat/lng into a
+    -- street address. Caching by store_id collapses ~3,000 calls (one per US
+    -- store) on subsequent CONUS sweeps to zero. Refresh manually by deleting
+    -- the row if a store moves.
+    CREATE TABLE IF NOT EXISTS store_geocode_cache (
+      store_id   TEXT PRIMARY KEY,
+      address    TEXT NOT NULL,
+      latitude   REAL,
+      longitude  REAL,
+      cached_at  TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
+    -- Scrape history. Each runScraper() call appends one row with the full
+    -- summary as JSON; the admin /admin/scrape-stats page reads the most
+    -- recent N rows for trend analysis (events-over-time, recurring source
+    -- failures, scrape duration drift). The settings.last_scrape_result key
+    -- is still set in parallel for cheap "what just happened" reads.
+    CREATE TABLE IF NOT EXISTS scrape_history (
+      id         INTEGER PRIMARY KEY AUTOINCREMENT,
+      ts         TEXT NOT NULL DEFAULT (datetime('now')),
+      summary    TEXT NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_scrape_history_ts ON scrape_history(ts DESC);
   `);
 
   // Migrations — add columns if they don't exist yet
@@ -387,6 +418,7 @@ function initSchema(db: Database.Database) {
   insert.run("config_location", JSON.stringify({ zip: "19125", city: "Philadelphia", state: "PA", lat: 39.9688, lng: -75.1246 }));
   insert.run("config_radius_miles", "10");
   insert.run("config_days_ahead", "60");
+  insert.run("config_scrape_scope", "national");
   insert.run("config_source_wizardslocator", "1");
   insert.run("config_source_topdeck", "1");
   insert.run("config_source_discord_guilds", JSON.stringify(["1451305700322967794"]));

@@ -28,7 +28,7 @@ export interface ScrapedEvent {
   // Optional — used by user-connected sources (e.g. private Discord servers).
   owner_id?: string | null;
   source_type?: string;
-  status?: "active" | "pending";
+  status?: "active" | "skip" | "pending";
   /** Cover image URL provided by the source (e.g. Discord CDN). */
   image_url?: string;
   /**
@@ -40,10 +40,24 @@ export interface ScrapedEvent {
   coords_source?: "source" | "guild_fallback" | "none";
 }
 
-export async function fetchAllSources(): Promise<ScrapedEvent[]> {
+export interface SourceStats {
+  /** Per-source event counts after validation (the raw scrape, pre-dedupe). */
+  bySource: Record<string, number>;
+  /** Sources that threw — admins can see which feeds are broken without
+   *  digging through CI logs. Empty when everything succeeded. */
+  failed: Record<string, string>;
+}
+
+export async function fetchAllSources(): Promise<{ events: ScrapedEvent[]; stats: SourceStats }> {
   const all: ScrapedEvent[] = [];
+  const stats: SourceStats = { bySource: {}, failed: {} };
   const cfg = getConfig();
 
+  // Build the work list: one entry per enabled source, with its merged
+  // options. Done synchronously so opts construction (which can hit the DB
+  // for Discord user-sources) doesn't race the actual fetches.
+  interface Job { name: string; loader: () => Promise<any>; opts: any }
+  const jobs: Job[] = [];
   for (const [name, loader] of Object.entries(SOURCE_MODULES)) {
     const sourceConfig = (cfg.sources as any)[name];
 
@@ -75,17 +89,43 @@ export async function fetchAllSources(): Promise<ScrapedEvent[]> {
       }
     }
 
-    try {
-      const mod = await loader();
+    jobs.push({ name, loader, opts });
+  }
+
+  // Run sources in parallel. Each scraper hits a different upstream API
+  // (WotC GraphQL, TopDeck REST, Discord REST), so there's no contention.
+  // Promise.allSettled keeps a single source's failure from torpedoing the
+  // others — we tally failures per source and continue.
+  const startedAt = Date.now();
+  const results = await Promise.allSettled(
+    jobs.map(async (job) => {
+      const sourceStartedAt = Date.now();
+      const mod = await job.loader();
       const fetchFn = mod.default || mod[Object.keys(mod)[0]];
-      const events = await fetchFn(opts);
-      const validated = validateEvents(events, name);
-      all.push(...validated);
-      console.log(`[sources] ${name}: ${validated.length} events`);
-    } catch (err: any) {
-      console.error(`[sources] ${name} FAILED:`, err.message);
+      const events = await fetchFn(job.opts);
+      const validated = validateEvents(events, job.name);
+      console.log(`[sources] ${job.name}: ${validated.length} events (${((Date.now() - sourceStartedAt) / 1000).toFixed(1)}s)`);
+      return { name: job.name, events: validated };
+    }),
+  );
+
+  for (let i = 0; i < results.length; i++) {
+    const job = jobs[i];
+    const res = results[i];
+    if (res.status === "fulfilled") {
+      all.push(...res.value.events);
+      stats.bySource[job.name] = res.value.events.length;
+    } else {
+      const message = res.reason instanceof Error
+        ? res.reason.message ?? res.reason.name
+        : String(res.reason);
+      console.error(`[sources] ${job.name} FAILED:`, message);
+      stats.failed[job.name] = message;
+      stats.bySource[job.name] = 0;
     }
   }
 
-  return all;
+  console.log(`[sources] all sources finished in ${((Date.now() - startedAt) / 1000).toFixed(1)}s (parallel)`);
+
+  return { events: all, stats };
 }

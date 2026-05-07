@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatEventTimeRange } from "@/lib/format-time";
 import { resolveEventImage, hasRealEventImage } from "@/lib/event-image";
+import { venueSlug } from "@/lib/venues";
 import { SITE_URL } from "@/lib/config";
 import {
   FORMAT_BADGE,
@@ -225,6 +226,21 @@ export default async function EventPage({
               initialWaitlistPosition={rsvp.waitlistPosition}
             />
           )}
+          <a
+            href={`/calendar/event/${encodeURIComponent(ev.id)}`}
+            download
+            // Same chip style as ShareButton for visual parity. `download`
+            // forces the browser to save rather than navigate, which is what
+            // .ics files want — Calendar apps register as the default
+            // handler on most desktops, so the file imports cleanly.
+            className="inline-flex items-center justify-center gap-1 h-7 px-2 rounded-lg bg-neutral-100 dark:bg-white/5 border border-neutral-100 dark:border-white/8 shadow-sm text-neutral-700 dark:text-neutral-300 text-xs font-medium hover:bg-neutral-200 dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white transition"
+            title="Download a single-event .ics for your calendar app"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Add to calendar
+          </a>
           <ShareButton title={ev.title} url={`${SITE_URL}/event/${encodeURIComponent(ev.id)}`} />
         </div>
       </div>
@@ -296,7 +312,35 @@ export default async function EventPage({
         <Reveal delay={120}>
           <div className="px-6 pb-2 border-t border-neutral-100 dark:border-white/8">
             <dl>
-              <DetailRow label="Host" value={ev.location} href={ev.store_url || undefined} />
+              {/* Host row — primary link is the internal venue page (lists
+                  all upcoming events here). The external store website
+                  appears as a secondary link icon when present. Falls
+                  back to the plain DetailRow when there's no location. */}
+              {ev.location ? (
+                <div className="py-3 border-b border-neutral-100 dark:border-white/8 last:border-0">
+                  <dt className="text-xs text-neutral-400 dark:text-neutral-500 mb-0.5">Host</dt>
+                  <dd className="text-sm font-medium text-neutral-900 dark:text-neutral-200 break-words flex items-center gap-2 flex-wrap">
+                    <Link
+                      href={`/venue/${encodeURIComponent(venueSlug(ev.location))}`}
+                      className="text-amber-700 dark:text-amber-400 hover:underline"
+                    >
+                      {ev.location}
+                    </Link>
+                    {ev.store_url && (
+                      <a
+                        href={ev.store_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-0.5 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 hover:underline"
+                        title="Visit store website"
+                      >
+                        website
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+                    )}
+                  </dd>
+                </div>
+              ) : null}
               <DetailRow label="Date" value={formatDate(ev.date)} />
               <DetailRow label="Time" value={formatEventTimeRange(ev.date, ev.time, ev.timezone)} />
               <DetailRow label="Cost" value={ev.cost || "Not listed"} />
