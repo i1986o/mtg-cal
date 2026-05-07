@@ -3,8 +3,9 @@ import { getCurrentUser } from "@/lib/session";
 import AccountMenu from "./account-menu";
 
 // Pill container + inner-button styles mirror the theme toggle in
-// `app/floating-toolbar.tsx`. Pinned to the top-right of the viewport.
-const PILL = "fixed top-4 right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-neutral-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
+// `app/floating-toolbar.tsx`. Pinned bottom-left on mobile (thumb-reachable),
+// top-right on sm and up where the desktop layout has dedicated header space.
+const PILL = "fixed bottom-4 left-4 sm:bottom-auto sm:left-auto sm:top-4 sm:right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-neutral-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50";
 export default async function AccountChip() {
   const user = await getCurrentUser();
   const signedIn = !!user && !user.suspended;

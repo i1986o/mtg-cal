@@ -49,7 +49,7 @@ export default function AccountMenu({
   }
 
   return (
-    <div ref={wrapperRef} className="fixed top-4 right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-neutral-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
+    <div ref={wrapperRef} className="fixed bottom-4 left-4 sm:bottom-auto sm:left-auto sm:top-4 sm:right-4 z-40 flex bg-white dark:bg-neutral-800 rounded-xl p-0.5 border border-neutral-200 dark:border-white/15 shadow-xl shadow-black/15 dark:shadow-black/50">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -84,7 +84,7 @@ export default function AccountMenu({
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full mt-2 w-56 rounded-lg border border-neutral-200 dark:border-white/15 bg-white dark:bg-neutral-900 shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
+          className="absolute left-0 bottom-full mb-2 sm:left-auto sm:bottom-auto sm:right-0 sm:top-full sm:mb-0 sm:mt-2 w-56 rounded-lg border border-neutral-200 dark:border-white/15 bg-white dark:bg-neutral-900 shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
         >
           <div className="px-3 py-2 border-b border-neutral-100 dark:border-white/10">
             <div className="text-xs text-neutral-500 dark:text-neutral-400">Signed in as</div>
