@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FORMAT_BADGE, FORMAT_BADGE_DEFAULT } from "@/lib/format-style";
 import { formatEventTime } from "@/lib/format-time";
@@ -49,51 +49,44 @@ export default function DayCard({
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { sentinelRef, isStuck } = useStickySentinel("-80px 0px 0px 0px");
+  // Tracking reveal state in React (instead of mutating element.style
+  // imperatively) is what keeps content visible across router.refresh().
+  // The previous version cleared opacity via removeProperty in an effect;
+  // when JSX re-rendered (e.g. after a location change) it re-applied
+  // style={{ opacity: 0 }} but the effect deps hadn't changed, so the
+  // dead-after-unobserve observer couldn't restore visibility. Today's
+  // card was hit because its observer fired on first paint and self-
+  // unobserved; later cards survived because their observers stayed
+  // attached and re-fired when layout shifted.
+  const [revealed, setRevealed] = useState(false);
 
   // Stagger-in animation for card shell + rows
   useEffect(() => {
+    if (revealed) return;
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      wrapper.style.opacity = "1";
-      wrapper.querySelectorAll<HTMLElement>("[data-row]").forEach((r) => (r.style.opacity = "1"));
+      setRevealed(true);
       return;
     }
 
-    const timers: ReturnType<typeof setTimeout>[] = [];
-
+    let timer: ReturnType<typeof setTimeout> | undefined;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
-
-        timers.push(
-          setTimeout(() => {
-            wrapper.style.removeProperty("opacity");
-            wrapper.classList.add("anim-fade-in-up");
-          }, staggerBase)
-        );
-
-        wrapper.querySelectorAll<HTMLElement>("[data-row]").forEach((row, i) => {
-          timers.push(
-            setTimeout(() => {
-              row.style.removeProperty("opacity");
-              row.classList.add("anim-row-in");
-            }, staggerBase + 80 + i * 45)
-          );
-        });
-
+        timer = setTimeout(() => setRevealed(true), staggerBase);
         observer.unobserve(wrapper);
       },
-      { threshold: 0.04, rootMargin: "0px 0px -12px 0px" }
+      { threshold: 0.04, rootMargin: "0px 0px -12px 0px" },
     );
 
     observer.observe(wrapper);
     return () => {
       observer.disconnect();
-      timers.forEach(clearTimeout);
+      if (timer) clearTimeout(timer);
     };
-  }, [staggerBase]);
+  }, [staggerBase, revealed]);
 
   // "Today" gets a slight visual lift: bolder neutral border + a soft
   // tinted heading background. Matches the calendar view's neutral today
@@ -115,7 +108,11 @@ export default function DayCard({
     : "bg-white dark:bg-neutral-900";
 
   return (
-    <div ref={wrapperRef} style={{ opacity: 0 }} className={isPast && !isToday ? "opacity-70" : ""}>
+    <div
+      ref={wrapperRef}
+      style={revealed ? undefined : { opacity: 0 }}
+      className={`${revealed ? "anim-fade-in-up" : ""} ${isPast && !isToday ? "opacity-70" : ""}`}
+    >
       {/* Sentinel: zero-height, sits at the top of the card to detect when header pins */}
       <div ref={sentinelRef} className="h-0" />
 
@@ -135,13 +132,13 @@ export default function DayCard({
       {/* Events body */}
       {events.length > 0 && (
         <div className={`overflow-hidden rounded-b-xl border-b border-x divide-y divide-neutral-100 dark:divide-white/8 transition-all duration-200 hover:shadow-md dark:hover:shadow-black/30 ${borderColor} ${hoverBorderColor} ${bodyBg}`}>
-          {events.map((ev) => (
+          {events.map((ev, i) => (
             <Link
               key={ev.id}
               href={`/event/${encodeURIComponent(ev.id)}`}
               data-row
-              style={{ opacity: 0 }}
-              className={`group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-neutral-100 dark:hover:bg-white/[0.04]" : "hover:bg-neutral-50 dark:hover:bg-white/5"}`}
+              style={revealed ? { animationDelay: `${80 + i * 45}ms` } : { opacity: 0 }}
+              className={`${revealed ? "anim-row-in" : ""} group flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2.5 transition-all duration-200 ${isToday ? "hover:bg-neutral-100 dark:hover:bg-white/[0.04]" : "hover:bg-neutral-50 dark:hover:bg-white/5"}`}
             >
               {/* Desktop: time as a fixed left column. Mobile: hidden here
                   and rendered above the title (see middle div below) so the
