@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Reveal({
   children,
@@ -11,13 +11,20 @@ export default function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  // Tracking reveal state in React (instead of mutating element.style
+  // imperatively) is what makes this survive router.refresh(): the server
+  // re-renders the tree, JSX re-applies whatever inline style we render,
+  // and useEffect's dep array doesn't fire on prop-only changes. Once
+  // revealed, we stop rendering opacity:0 and don't re-hide.
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
+    if (revealed) return;
     const el = ref.current;
     if (!el) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.style.opacity = "1";
+      setRevealed(true);
       return;
     }
 
@@ -26,14 +33,11 @@ export default function Reveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          timer = setTimeout(() => {
-            el.style.removeProperty("opacity");
-            el.classList.add("anim-fade-in-up");
-          }, delay);
+          timer = setTimeout(() => setRevealed(true), delay);
           observer.unobserve(el);
         }
       },
-      { threshold: 0.06, rootMargin: "0px 0px -16px 0px" }
+      { threshold: 0.06, rootMargin: "0px 0px -16px 0px" },
     );
 
     observer.observe(el);
@@ -41,10 +45,14 @@ export default function Reveal({
       observer.disconnect();
       clearTimeout(timer);
     };
-  }, [delay]);
+  }, [delay, revealed]);
 
   return (
-    <div ref={ref} className={className} style={{ opacity: 0 }}>
+    <div
+      ref={ref}
+      className={[className, revealed ? "anim-fade-in-up" : ""].filter(Boolean).join(" ")}
+      style={revealed ? undefined : { opacity: 0 }}
+    >
       {children}
     </div>
   );
