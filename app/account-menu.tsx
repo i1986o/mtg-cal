@@ -57,7 +57,7 @@ export default function AccountMenu({
         aria-expanded={open}
         title={displayName}
         aria-label={`Account menu for ${displayName}`}
-        className="inline-flex items-center gap-2 h-8 pl-1 pr-2.5 rounded-lg cursor-pointer transition-colors text-neutral-700 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:focus-visible:ring-white/20"
+        className="inline-flex items-center gap-2 h-9 pl-1 pr-2.5 rounded-lg cursor-pointer transition-colors text-neutral-700 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:focus-visible:ring-white/20"
       >
         <span className="flex items-center justify-center w-7 h-7 rounded-md overflow-hidden shrink-0">
           {showImage ? (
