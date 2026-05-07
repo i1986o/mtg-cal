@@ -37,12 +37,16 @@ export default function DateJumper({ currentOffset }: Props) {
     if (days === 0) next.delete("offset");
     else next.set("offset", String(days));
     router.push(`?${next.toString()}`);
+    // Same-path query changes don't bust the App Router cache; refresh()
+    // forces the server component to re-run so the events list updates.
+    router.refresh();
   }
 
   function backToThisWeek() {
     const next = new URLSearchParams(searchParams?.toString() ?? "");
     next.delete("offset");
     router.push(next.toString() ? `?${next.toString()}` : "/");
+    router.refresh();
   }
 
   return (

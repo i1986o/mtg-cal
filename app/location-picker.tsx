@@ -75,6 +75,10 @@ export default function LocationPicker({ currentLabel, isCustom, defaultLabel }:
       next.set("lat", lat.toFixed(3));
       next.set("lng", lng.toFixed(3));
       router.push(`?${next.toString()}`);
+      // App Router caches by URL segment; same-path query changes don't
+      // invalidate. refresh() forces the server component to re-run so the
+      // events list reflects the new lat/lng.
+      router.refresh();
       setOpen(false);
       setError(null);
       setQuery("");
@@ -152,6 +156,7 @@ export default function LocationPicker({ currentLabel, isCustom, defaultLabel }:
     next.delete("lat");
     next.delete("lng");
     router.push(next.toString() ? `?${next.toString()}` : "/");
+    router.refresh();
     setOpen(false);
   }, [router, searchParams]);
 
