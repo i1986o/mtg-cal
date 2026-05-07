@@ -9,3 +9,6 @@ data/*.db
 data/*.db-wal
 data/*.db-shm
 data/uploads/
+
+# Claude scheduled tasks lock
+.claude/scheduled_tasks.lock
